@@ -1,3 +1,6 @@
+# 系统截图
+	![Image text](https://github.com/1752325542/daifu/blob/master/doc/43B65516-391A-4BAF-A53C-BBFD8AD4E760.png)
+
 # 系统说明
 	1. 	同一账户日限额20万
 	2.	同一账户每日最高交易15笔

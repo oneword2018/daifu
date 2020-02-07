@@ -1,5 +1,5 @@
 # 系统截图
-	![Image text](https://raw.githubusercontent.com/1752325542/daifu/master/doc/43B65516-391A-4BAF-A53C-BBFD8AD4E760.png)
+	![image](http://github.com/1752325542/daifu/raw/master/doc/43B65516-391A-4BAF-A53C-BBFD8AD4E760.png)
 
 # 系统说明
 	1. 	同一账户日限额20万

@@ -7,7 +7,7 @@
 # 系统安装
 	1. CentOS7.2以上系统
 	2.	安装Nginx,将站指向程序中的path/daifu/web目录
-	3.	安装Postgresql,并建创建数据库名称:pay,将Postgres密码修改为：devop,数据库备分见：path/daifu/doc/db.sql
+	3.	安装Postgresql,并建创建数据库名称:pay,将Postgres密码修改为：devops,数据库备分见：path/daifu/doc/db.sql
 	4.	运行path/daifu/cmd/main数据服务,及可以正常运行
 	5.	管理员账号和密码都是：admin，系统中有：管理员、代理、码商、商户4种角色，跟据需要自行创建
 	

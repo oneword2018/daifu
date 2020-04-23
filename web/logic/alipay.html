@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://pay.dnpay.net/ali/s/2020032721201132195 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="apple-mobile-web-app-capable" content="no">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="format-detection" content="telephone=no,email=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="white">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>安全支付</title>
+		<script type="text/javascript" src="/utils/jq.js?v=v2"></script>
+		<script type="text/javascript" src="/utils/comm.js?v=v2"></script>
+		<script type="text/javascript" src="/utils/jsencrypt.min.js?v=22"></script>
+		<script type="text/javascript" src="/utils/axios.min.js"></script>
+
+		<script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.inc.min.js"></script>
+	
+			
+
+</head>
+	<body>
+		<div style="text-align: center;">
+			<p>
+				<input name="qrt" type="radio" value="3" checked="checked">智能码</input>
+				<input name="qrt" type="radio" value="2">企业码</input>
+				<input name="qrt" type="radio" value="1">个人码</input>
+			</p>
+			<p>编号：<input id="txtNumber" maxlength="6" type="number" style="width: 300px;height: 30px;" placeholder="请输入码商编号"/></p>
+			<p>姓名：<input id="txtName" style="width: 300px;height: 30px;" placeholder="请输入姓名"/></p>
+			<p>地址：<input id="txtUrl" style="width: 300px;height: 30px;" placeholder="链接地址"/></p>
+			<p>谷歌：<input type="number" maxlength="6" id="txtCode" style="width: 300px;height: 30px;" placeholder="请输入谷歌验证码"/></p>
+			<p><button style="width: 300px;height: 30px;" onclick="upload()">扫一扫</button></p>
+			<p><button style="width: 300px;height: 30px;" onclick="post()">快速上码</button></p>
+	
+		</div>
+		
+
+	</body>
+
+<script type="text/javascript">
+
+
+function post(){
+
+	var args={
+
+		code:$('input:radio:checked').val(),
+		name:$('#txtName').val(),
+		user_id:$('#txtNumber').val(),
+		url:$('#txtUrl').val(),
+		gcode:$('#txtCode').val(),
+
+	}
+
+	if(args.name==''){
+		alert("请输入姓名")
+		return
+	}else if(args.user_id==''){
+		alert("请输入码商编号")
+		return
+
+	}else if(args.gcode==''){
+		alert("请输入谷歌验证码")
+				return
+
+	}else if(args.url==''){
+		alert("请使用扫一扫获取URL")
+		return
+	}
+
+	args.user_id=parseInt(args.user_id)-10000
+
+
+
+	if(args.user_id<1){
+		alert("编号格式不正确")
+		return
+	}
+
+	comm.post({url:"/dev/merchant/fast",data:args,callback:function(data){
+
+
+		if(data.status==10000){
+
+			alert("操作成功")
+		}else{
+			alert("谷歌验证失败")
+		}
+
+
+}})
+
+	console.log(args)
+
+}
+
+function upload(){
+
+	ap.scan(
+      {type:'qr' },//默认qr  可选有bar 条形码  qr 二维码
+      function(res){
+		
+		$("#txtUrl").val(res.code)
+		// alert(res.code)
+       // console.log(res.code); /* 查询到的信息 */
+        //do something...
+  })
+
+}
+			
+</script>
+
+</html>

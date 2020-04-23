@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://pay.dnpay.net/ali/s/2020032721201132195 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="apple-mobile-web-app-capable" content="no">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="format-detection" content="telephone=no,email=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="white">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>安全支付</title>
+		<!-- 本页JS -->
+		<script src="./index_files/jquery-1.12.4.min.js"></script>
+		<script src="./index_files/qrcode.min.js"></script>
+		<script src="./index_files/clipboard.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+	    <!-- 当为调试模式时 -->
+
+	    	        <script src="./index_files/layer.js"></script><link rel="stylesheet" href="./index_files/layer.css" id="layuicss-layer">
+	            <!-- 弹窗 -->
+        <link rel="stylesheet" type="text/css" href="./index_files/ionic.css">
+		<!--本页CSS-->
+        <link rel="stylesheet" type="text/css" href="./index_files/go.css">
+		<style type="text/css">
+			.mod-ct{
+				margin-top: 2px !important;
+			}
+			.mod-ct .sofetip{
+				margin-top: 10px;
+				font-size: 1.8rem;
+				color: #ffffff;
+				font-weight:700;
+				border-radius: 0.2rem;
+				background-color: #FA555C
+			}
+			.mod-ct .bluetip{
+				margin-top: 10px;
+				font-size: 1.8rem;
+				color: #128CE3;
+				font-weight:700;
+				border-radius: 0.2rem;
+				background-color: #E9F3FB
+			}
+			.mod-ct .outtime{
+				font-size: 1.8rem;
+				color: #ff0000;
+				font-weight:700;
+				border-radius: 0.2rem;
+				margin:2px 1.5rem;
+			}
+			.mod-ct .failtip{
+				padding-top: 2px;
+			}
+			.mod-ct .tip{
+				margin-top: 5px !important;
+			}
+			.mod-ct .tip{
+				height: 80px;
+			}
+			.tipsimg img{
+				width: 100%!important;
+				height: auto!important;
+				overflow:scroll;
+			}
+		</style>
+
+
+</head>
+	<body>
+		<!--支付宝QQ层-->
+		<div class="weixinpage" id="weixinpage" style="display: none;">
+			<div class="isweixin" name="isweixin" id="wxdiv">
+				<div class="isweixintips">
+					<img id="weixinimage" src="./index_files/weixintips.png">
+				</div>
+				<div class="isweixinarrow">
+					<img src="./index_files/arrow.png">
+				</div>
+			</div>
+		</div>
+		<div class="body">
+			<!--支付图标-->
+			<h1 class="mod-title" id="alipaylogo">
+				<span class="ico_log ico-1"></span>
+			</h1>
+			<div class="mod-ct">
+				<div class="sofetip">
+					打开支付宝“扫一扫”扫码后转账付款
+				</div>
+				<!--显示金额-->
+				<div class="amount">
+					请付： 元
+				</div>
+				<span style="cursor: pointer;" class="orderid" id="copy" data-clipboard-action="copy" data-clipboard-text="2020032721201132195">
+					订单号： 点击复制 
+				</span>
+				<!--二维码-->
+				<div class="qrcode-img-wrapper" style="padding-top: 15px;">
+					<div class="qrcode-img-area">
+						<div style="position: relative;display: none;" id="show_qrcode">
+							<img src="./index_files/qrcode_timeout.png" style="display: block; width: 210px; height: 210px;margin: 0 auto;">
+						</div>
+						<div style="position: relative; display: none;" id="getqrcode">
+							<img src="./index_files/wait_qrcode.png" style="display: block; width: 210px; height: 210px;margin: 0 auto;">
+						</div>
+						<div style="position: relative;display: inline-block;" id="qrcode2Canvas" title="https://qr.alipay.com/fkx125542b4xmy7z8dkvs82?t=1585289264586">
+				
+					</div>
+				</div>
+				<!--提示文字-->
+				<!-- <div class="outtime" id="outtime" style="">
+					过期时间：2020-03-27 21:23:12 <br>过期后请不要支付，不然无法到账
+				</div> -->
+				<div id="tipstxt" style="display: none;">
+					<p class="ti_p">
+						<span class="ticon icon1"></span>
+						<span class="arrow">
+							<span></span>
+							<span></span>
+						</span>
+						<span class="ticon icon2 icon_zfb" id="type_icon"></span>
+						<span class="arrow">
+							<span></span>
+							<span></span>
+						</span>
+						<span class="ticon icon3"></span>
+					</p>
+					<div class="ti_t">
+						<div>
+							<p>截屏将二维码<br>保存至本地相册</p>
+						</div>
+						<div>
+							<p>打开<span class="pay_type">支付宝</span><br>选择扫一扫</p>
+						</div>
+						<div>
+							<p>从本地相册选择<br>选取截屏二维码</p>
+						</div>
+					</div>
+				</div>
+				<div id="tipsbtn" style="">
+					<a href="javascript:showtips();" class="openweixin">点击查看付款流程</a>
+				</div>
+
+
+				<div class="popup-container info-mdf popup-showing active" style="display: none;" id="paytips">
+					<div class="popup">
+						<div class="popup-head" style="background-color: #387ef5">
+							<h3 class="popup-title ng-binding" style="color: #ffffff">付款流程</h3>
+						</div>
+						<div class="popup-body">
+							<style>.popup-body>li{list-style:none;}button.button.ng-binding.button-positive {border-color: transparent; background-color: #387ef5 !important; color: #fff;}</style>
+							<li><img id="imgTips" src="./index_files/p01.png" style="width: 100%"></li>
+						</div>
+						<div class="popup-buttons">
+							<button onclick="hidetips()" class="button ng-binding button-positive">确定</button>
+						</div>
+					</div>
+				</div>
+
+
+<!-- 				<div class="sofetip">
+					如提示二维码有风险，可用以下方法：用另外一台手机(朋友)上的支付宝扫这个二维码，或把二维码发给另外一台手机(朋友)，您再扫这个二维码
+				</div>
+ -->				
+				<div class="">
+					支付成功未到账，请在3小时内联系客服
+				</div>
+
+
+				<!--倒计时-->
+				<div class="time-item" style="padding-top: 5px;" id="timesq">
+					<strong id="hour_show"><s id="h"></s>0时</strong>
+					<strong id="minute_show"><s></s>00分</strong>
+					<strong id="second_show"><s></s>00秒</strong>
+				</div>
+
+				<!-- 打开支付宝按钮 -->
+				<!-- <a href="alipay://" class="openweixin">打开支付宝</a> -->
+			</div>
+		</div>
+
+		<script type="text/javascript" src="/utils/comm.js?v=v2"></script>
+<script type="text/javascript" src="/utils/jsencrypt.min.js?v=22"></script>
+<script type="text/javascript" src="/utils/axios.min.js"></script>
+<script type="text/javascript" src="/utils/qrcodejs/qrcode.js"></script>
+	<script type="text/javascript">
+
+function getQueryString(name) {
+var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+var r = window.location.search.substr(1).match(reg);
+if (r != null) {
+return unescape(r[2]);
+}
+return null;
+}
+
+var qrcode = new QRCode(document.getElementById("qrcode2Canvas"), {width : 210,height : 210});
+
+
+
+function initWS(order_id,amount){
+	
+	//var sock = new SockJS('ws://192.168.101.9:8090/echo');
+	var ws = new WebSocket("ws://154.197.27.12:8090/echo");
+
+ws.onopen = function(evt) {  //绑定连接事件
+　　console.log("Connection open ...");
+	var data=JSON.stringify({"cmd":"GET","order_id":order_id,"amount":amount})
+　　ws.send(data);
+	　console.log(data);
+	//ws.send(JSON.stringify({"cmd":"GET","order_id":"xxxx","amount":"100.00"}));
+};
+
+ws.onmessage = function(evt) {//绑定收到消息事件
+　　console.log( "Received Message: " + evt.data);
+	let data=JSON.parse(evt.data)
+	qrcode.makeCode(data.url);
+};
+
+ws.onclose = function(evt) { //绑定关闭或断开连接事件
+　　console.log("Connection closed.");
+};
+	
+	
+}
+
+$(function(){
+
+
+
+
+
+	comm.post({url:"/dev/merchant/info",data:{oid:getQueryString('oid'),id:getQueryString('key')},callback:function(data){
+
+
+
+$(".amount").html("请付："+data.money.toFixed(2)+"元")
+
+$("#copy").attr("data-clipboard-text",data.num)
+$("#copy").html("订单号："+data.num+" 点击复制 ")
+
+
+if(data.url==''&&data.status==1){
+
+	initWS(data.sn,data.money.toFixed(2))
+}else{
+
+//$('#imgTips').attr('src',"/pay/hb.jpg");
+//$('.qrcode').remove();
+qrcode.makeCode(data.url);
+
+}
+
+
+
+}})
+
+})
+
+
+
+
+
+
+	
+		// 复制订单号到粘贴板
+        var clipboard = new ClipboardJS('#copy');
+        clipboard.on('success', function(e) {
+            e.clearSelection();
+            layer.open({
+                content: '已经复制到粘贴板！'
+                ,skin: 'msg'
+                ,time: 2000
+            });
+        });
+
+		function reload() {
+			location.reload();
+		}
+		// 倒计时
+		var myTimer,start_t,end_t,result_t;
+		second=0
+	    function timer(inTime) {
+			second=parseInt(inTime)
+	        myTimer = window.setInterval(function () {
+
+
+				
+	            $('#hour_show').html('<s id="h"></s>' + 0 + '时');
+	            $('#minute_show').html('<s></s>' + parseInt(second/60) + '分');
+	            $('#second_show').html('<s></s>' + second + '秒');
+	            if (second <= 0) {
+	                qrcode_timeout();
+	                clearInterval(myTimer);
+				}
+				
+				second--
+
+	
+	        }, 1000);
+	    }
+		//倒计时结束
+	    function qrcode_timeout(){
+	    	$("#getqrcode").hide();
+	    	$("#qrcode2Canvas").hide();
+	    	$("#show_qrcode").show();
+	    }
+	    $().ready(function(){
+	    	if (1 == 0) {
+	    		$("#tipstxt").show();
+	    	}else{
+				showtips();
+		        $("#tipsbtn").show();
+	    	}
+	        //默认5分钟过期
+	       timer("300");
+			var ref = ''; 
+			if (document.referrer.length > 0) { 
+				ref = document.referrer;
+				//saveReferrer(ref);
+			} 
+			
+	    });
+	    function hidetips() {
+	    	$('#paytips').hide();
+	    }
+	    function showtips() {
+	    	$("#paytips").show();
+	    }
+
+	
+	</script>
+
+
+</body></html>

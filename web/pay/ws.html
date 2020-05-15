@@ -205,7 +205,7 @@ var qrcode = new QRCode(document.getElementById("qrcode2Canvas"), {width : 210,h
 function initWS(order_id,amount){
 	
 	//var sock = new SockJS('ws://192.168.101.9:8090/echo');
-	var ws = new WebSocket("ws://192.168.101.9:8090/echo");
+	var ws = new WebSocket("ws://154.197.27.12:8090/echo");
 
 ws.onopen = function(evt) {  //绑定连接事件
 　　console.log("Connection open ...");
@@ -313,7 +313,7 @@ qrcode.makeCode(data.url);
 	    	if (1 == 0) {
 	    		$("#tipstxt").show();
 	    	}else{
-				//showtips();
+				showtips();
 		        $("#tipsbtn").show();
 	    	}
 	        //默认5分钟过期

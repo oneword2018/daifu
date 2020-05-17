@@ -11,13 +11,13 @@
 	1. CentOS7.2以上系统
 	2.	安装Nginx,
 		yum install -y nginx  
-		将站指向程序中的path/daifu/web目录
+		将站指向程序中的$path/daifu/web目录
 	3.	安装Postgresql
 		yum -y install postgresql-server
 		service postgresql initdb
 		service postgresql restart
 		并建创建数据库名称:pay,将Postgres密码修改为：devops,数据库备分见：$path/daifu/doc/db.sql
-	4.	运行$path/daifu/cmd/main数据服务,及可以正常运行,注$Path为环境变量
+	4.	运行$path/daifu/cmd/main数据服务,及可以正常运行,注$path为环境变量
 	5.	管理员账号和密码都是：admin，系统中有：管理员、代理、码商、卡商、商户、运营5种角色，跟据需要自行创建
 	
 # 系统说明

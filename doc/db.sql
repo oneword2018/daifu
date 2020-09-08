@@ -2,42 +2,24 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 10.6
--- Dumped by pg_dump version 10.6
-
 SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
+SET standard_conforming_strings = off;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
-SET row_security = off;
+SET escape_string_warning = off;
 
---
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
+SET search_path = public, pg_catalog;
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- Name: std_ads; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_ads; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
-CREATE TABLE public.std_ads (
+CREATE TABLE std_ads (
     id bigint NOT NULL,
     channel_id integer,
     member_id bigint,
@@ -64,11 +46,11 @@ ALTER TABLE public.std_ads OWNER TO postgres;
 -- Name: std_ads_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_ads_id_seq
+CREATE SEQUENCE std_ads_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -78,14 +60,21 @@ ALTER TABLE public.std_ads_id_seq OWNER TO postgres;
 -- Name: std_ads_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_ads_id_seq OWNED BY public.std_ads.id;
+ALTER SEQUENCE std_ads_id_seq OWNED BY std_ads.id;
 
 
 --
--- Name: std_agency; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_ads_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_agency (
+SELECT pg_catalog.setval('std_ads_id_seq', 2, true);
+
+
+--
+-- Name: std_agency; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_agency (
     id bigint NOT NULL,
     channel_id integer,
     status bigint,
@@ -104,11 +93,11 @@ ALTER TABLE public.std_agency OWNER TO postgres;
 -- Name: std_agency_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_agency_id_seq
+CREATE SEQUENCE std_agency_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -118,14 +107,21 @@ ALTER TABLE public.std_agency_id_seq OWNER TO postgres;
 -- Name: std_agency_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_agency_id_seq OWNED BY public.std_agency.id;
+ALTER SEQUENCE std_agency_id_seq OWNED BY std_agency.id;
 
 
 --
--- Name: std_balances; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_agency_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_balances (
+SELECT pg_catalog.setval('std_agency_id_seq', 10, true);
+
+
+--
+-- Name: std_balances; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_balances (
     id bigint NOT NULL,
     channel_id integer,
     status bigint,
@@ -151,11 +147,11 @@ ALTER TABLE public.std_balances OWNER TO postgres;
 -- Name: std_balances_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_balances_id_seq
+CREATE SEQUENCE std_balances_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -165,14 +161,21 @@ ALTER TABLE public.std_balances_id_seq OWNER TO postgres;
 -- Name: std_balances_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_balances_id_seq OWNED BY public.std_balances.id;
+ALTER SEQUENCE std_balances_id_seq OWNED BY std_balances.id;
 
 
 --
--- Name: std_banks; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_balances_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_banks (
+SELECT pg_catalog.setval('std_balances_id_seq', 5631, true);
+
+
+--
+-- Name: std_banks; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_banks (
     id bigint NOT NULL,
     type bigint,
     channel_id integer,
@@ -190,11 +193,11 @@ ALTER TABLE public.std_banks OWNER TO postgres;
 -- Name: std_banks_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_banks_id_seq
+CREATE SEQUENCE std_banks_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -204,14 +207,21 @@ ALTER TABLE public.std_banks_id_seq OWNER TO postgres;
 -- Name: std_banks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_banks_id_seq OWNED BY public.std_banks.id;
+ALTER SEQUENCE std_banks_id_seq OWNED BY std_banks.id;
 
 
 --
--- Name: std_catalogs; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_banks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_catalogs (
+SELECT pg_catalog.setval('std_banks_id_seq', 16, true);
+
+
+--
+-- Name: std_catalogs; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_catalogs (
     id bigint NOT NULL,
     channel_id integer,
     member_id bigint,
@@ -233,11 +243,11 @@ ALTER TABLE public.std_catalogs OWNER TO postgres;
 -- Name: std_catalogs_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_catalogs_id_seq
+CREATE SEQUENCE std_catalogs_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -247,14 +257,21 @@ ALTER TABLE public.std_catalogs_id_seq OWNER TO postgres;
 -- Name: std_catalogs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_catalogs_id_seq OWNED BY public.std_catalogs.id;
+ALTER SEQUENCE std_catalogs_id_seq OWNED BY std_catalogs.id;
 
 
 --
--- Name: std_chains; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_catalogs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_chains (
+SELECT pg_catalog.setval('std_catalogs_id_seq', 49, true);
+
+
+--
+-- Name: std_chains; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_chains (
     id bigint NOT NULL,
     type bigint,
     member_id bigint,
@@ -273,11 +290,11 @@ ALTER TABLE public.std_chains OWNER TO postgres;
 -- Name: std_chains_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_chains_id_seq
+CREATE SEQUENCE std_chains_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -287,14 +304,21 @@ ALTER TABLE public.std_chains_id_seq OWNER TO postgres;
 -- Name: std_chains_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_chains_id_seq OWNED BY public.std_chains.id;
+ALTER SEQUENCE std_chains_id_seq OWNED BY std_chains.id;
 
 
 --
--- Name: std_channels; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_chains_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_channels (
+SELECT pg_catalog.setval('std_chains_id_seq', 55, true);
+
+
+--
+-- Name: std_channels; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_channels (
     id bigint NOT NULL,
     type bigint,
     status bigint,
@@ -316,11 +340,11 @@ ALTER TABLE public.std_channels OWNER TO postgres;
 -- Name: std_channels_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_channels_id_seq
+CREATE SEQUENCE std_channels_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -330,14 +354,21 @@ ALTER TABLE public.std_channels_id_seq OWNER TO postgres;
 -- Name: std_channels_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_channels_id_seq OWNED BY public.std_channels.id;
+ALTER SEQUENCE std_channels_id_seq OWNED BY std_channels.id;
 
 
 --
--- Name: std_classes; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_channels_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_classes (
+SELECT pg_catalog.setval('std_channels_id_seq', 19, true);
+
+
+--
+-- Name: std_classes; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_classes (
     id bigint NOT NULL,
     channel_id integer,
     member_id bigint,
@@ -363,11 +394,11 @@ ALTER TABLE public.std_classes OWNER TO postgres;
 -- Name: std_classes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_classes_id_seq
+CREATE SEQUENCE std_classes_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -377,14 +408,21 @@ ALTER TABLE public.std_classes_id_seq OWNER TO postgres;
 -- Name: std_classes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_classes_id_seq OWNED BY public.std_classes.id;
+ALTER SEQUENCE std_classes_id_seq OWNED BY std_classes.id;
 
 
 --
--- Name: std_comments; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_classes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_comments (
+SELECT pg_catalog.setval('std_classes_id_seq', 4, true);
+
+
+--
+-- Name: std_comments; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_comments (
     id bigint NOT NULL,
     channel_id integer,
     reply_id bigint,
@@ -411,11 +449,11 @@ ALTER TABLE public.std_comments OWNER TO postgres;
 -- Name: std_comments_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_comments_id_seq
+CREATE SEQUENCE std_comments_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -425,14 +463,21 @@ ALTER TABLE public.std_comments_id_seq OWNER TO postgres;
 -- Name: std_comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_comments_id_seq OWNED BY public.std_comments.id;
+ALTER SEQUENCE std_comments_id_seq OWNED BY std_comments.id;
 
 
 --
--- Name: std_courses; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_comments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_courses (
+SELECT pg_catalog.setval('std_comments_id_seq', 16, true);
+
+
+--
+-- Name: std_courses; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_courses (
     id bigint NOT NULL,
     channel_id integer,
     type bigint,
@@ -471,11 +516,11 @@ ALTER TABLE public.std_courses OWNER TO postgres;
 -- Name: std_courses_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_courses_id_seq
+CREATE SEQUENCE std_courses_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -485,14 +530,21 @@ ALTER TABLE public.std_courses_id_seq OWNER TO postgres;
 -- Name: std_courses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_courses_id_seq OWNED BY public.std_courses.id;
+ALTER SEQUENCE std_courses_id_seq OWNED BY std_courses.id;
 
 
 --
--- Name: std_employees; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_courses_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_employees (
+SELECT pg_catalog.setval('std_courses_id_seq', 40, true);
+
+
+--
+-- Name: std_employees; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_employees (
     id bigint NOT NULL,
     channel_id integer,
     member_id bigint,
@@ -531,11 +583,11 @@ ALTER TABLE public.std_employees OWNER TO postgres;
 -- Name: std_employees_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_employees_id_seq
+CREATE SEQUENCE std_employees_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -545,14 +597,21 @@ ALTER TABLE public.std_employees_id_seq OWNER TO postgres;
 -- Name: std_employees_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_employees_id_seq OWNED BY public.std_employees.id;
+ALTER SEQUENCE std_employees_id_seq OWNED BY std_employees.id;
 
 
 --
--- Name: std_hosts; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_employees_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_hosts (
+SELECT pg_catalog.setval('std_employees_id_seq', 127, true);
+
+
+--
+-- Name: std_hosts; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_hosts (
     id bigint NOT NULL,
     type bigint,
     status bigint,
@@ -571,11 +630,11 @@ ALTER TABLE public.std_hosts OWNER TO postgres;
 -- Name: std_hosts_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_hosts_id_seq
+CREATE SEQUENCE std_hosts_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -585,14 +644,21 @@ ALTER TABLE public.std_hosts_id_seq OWNER TO postgres;
 -- Name: std_hosts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_hosts_id_seq OWNED BY public.std_hosts.id;
+ALTER SEQUENCE std_hosts_id_seq OWNED BY std_hosts.id;
 
 
 --
--- Name: std_lessons; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_hosts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_lessons (
+SELECT pg_catalog.setval('std_hosts_id_seq', 73, true);
+
+
+--
+-- Name: std_lessons; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_lessons (
     id bigint NOT NULL,
     channel_id integer,
     course_id integer,
@@ -626,11 +692,11 @@ ALTER TABLE public.std_lessons OWNER TO postgres;
 -- Name: std_lessons_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_lessons_id_seq
+CREATE SEQUENCE std_lessons_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -640,14 +706,21 @@ ALTER TABLE public.std_lessons_id_seq OWNER TO postgres;
 -- Name: std_lessons_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_lessons_id_seq OWNED BY public.std_lessons.id;
+ALTER SEQUENCE std_lessons_id_seq OWNED BY std_lessons.id;
 
 
 --
--- Name: std_members; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_lessons_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_members (
+SELECT pg_catalog.setval('std_lessons_id_seq', 1905, true);
+
+
+--
+-- Name: std_members; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_members (
     id bigint NOT NULL,
     channel_id integer,
     member_id bigint,
@@ -683,7 +756,13 @@ CREATE TABLE public.std_members (
     expire timestamp with time zone,
     updated_at timestamp with time zone,
     created_at timestamp with time zone,
-    auth numeric DEFAULT 0
+    auth numeric DEFAULT 0,
+    min numeric DEFAULT 0,
+    max numeric DEFAULT 0,
+    pwd text,
+    fee numeric DEFAULT 0,
+    login_ip text,
+    api_ip text
 );
 
 
@@ -693,11 +772,11 @@ ALTER TABLE public.std_members OWNER TO postgres;
 -- Name: std_members_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_members_id_seq
+CREATE SEQUENCE std_members_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -707,14 +786,21 @@ ALTER TABLE public.std_members_id_seq OWNER TO postgres;
 -- Name: std_members_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_members_id_seq OWNED BY public.std_members.id;
+ALTER SEQUENCE std_members_id_seq OWNED BY std_members.id;
 
 
 --
--- Name: std_merchant; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_members_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_merchant (
+SELECT pg_catalog.setval('std_members_id_seq', 85, true);
+
+
+--
+-- Name: std_merchant; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_merchant (
     id bigint NOT NULL,
     member_id bigint,
     channel_id integer,
@@ -744,11 +830,11 @@ ALTER TABLE public.std_merchant OWNER TO postgres;
 -- Name: std_merchant_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_merchant_id_seq
+CREATE SEQUENCE std_merchant_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -758,14 +844,21 @@ ALTER TABLE public.std_merchant_id_seq OWNER TO postgres;
 -- Name: std_merchant_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_merchant_id_seq OWNED BY public.std_merchant.id;
+ALTER SEQUENCE std_merchant_id_seq OWNED BY std_merchant.id;
 
 
 --
--- Name: std_order_info; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_merchant_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_order_info (
+SELECT pg_catalog.setval('std_merchant_id_seq', 17, true);
+
+
+--
+-- Name: std_order_info; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_order_info (
     id bigint NOT NULL,
     item_id bigint,
     order_id bigint,
@@ -783,11 +876,11 @@ ALTER TABLE public.std_order_info OWNER TO postgres;
 -- Name: std_order_info_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_order_info_id_seq
+CREATE SEQUENCE std_order_info_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -797,14 +890,21 @@ ALTER TABLE public.std_order_info_id_seq OWNER TO postgres;
 -- Name: std_order_info_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_order_info_id_seq OWNED BY public.std_order_info.id;
+ALTER SEQUENCE std_order_info_id_seq OWNED BY std_order_info.id;
 
 
 --
--- Name: std_orders; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_order_info_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_orders (
+SELECT pg_catalog.setval('std_order_info_id_seq', 35, true);
+
+
+--
+-- Name: std_orders; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_orders (
     id bigint NOT NULL,
     channel_id integer,
     member_id bigint,
@@ -844,11 +944,11 @@ ALTER TABLE public.std_orders OWNER TO postgres;
 -- Name: std_orders_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_orders_id_seq
+CREATE SEQUENCE std_orders_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -858,14 +958,21 @@ ALTER TABLE public.std_orders_id_seq OWNER TO postgres;
 -- Name: std_orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_orders_id_seq OWNED BY public.std_orders.id;
+ALTER SEQUENCE std_orders_id_seq OWNED BY std_orders.id;
 
 
 --
--- Name: std_recbanks; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_recbanks (
+SELECT pg_catalog.setval('std_orders_id_seq', 18391, true);
+
+
+--
+-- Name: std_recbanks; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_recbanks (
     id bigint NOT NULL,
     type bigint,
     status bigint,
@@ -886,11 +993,11 @@ ALTER TABLE public.std_recbanks OWNER TO postgres;
 -- Name: std_recbanks_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_recbanks_id_seq
+CREATE SEQUENCE std_recbanks_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -900,14 +1007,21 @@ ALTER TABLE public.std_recbanks_id_seq OWNER TO postgres;
 -- Name: std_recbanks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_recbanks_id_seq OWNED BY public.std_recbanks.id;
+ALTER SEQUENCE std_recbanks_id_seq OWNED BY std_recbanks.id;
 
 
 --
--- Name: std_regions; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_recbanks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_regions (
+SELECT pg_catalog.setval('std_recbanks_id_seq', 2, true);
+
+
+--
+-- Name: std_regions; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_regions (
     area_id integer NOT NULL,
     area_name character varying(128),
     parent_id integer,
@@ -924,10 +1038,10 @@ CREATE TABLE public.std_regions (
 ALTER TABLE public.std_regions OWNER TO postgres;
 
 --
--- Name: std_segments; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_segments; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
-CREATE TABLE public.std_segments (
+CREATE TABLE std_segments (
     id bigint NOT NULL,
     member_id bigint,
     channel_id integer,
@@ -951,11 +1065,11 @@ ALTER TABLE public.std_segments OWNER TO postgres;
 -- Name: std_segments_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_segments_id_seq
+CREATE SEQUENCE std_segments_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -965,14 +1079,21 @@ ALTER TABLE public.std_segments_id_seq OWNER TO postgres;
 -- Name: std_segments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_segments_id_seq OWNED BY public.std_segments.id;
+ALTER SEQUENCE std_segments_id_seq OWNED BY std_segments.id;
 
 
 --
--- Name: std_sign; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_segments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_sign (
+SELECT pg_catalog.setval('std_segments_id_seq', 19, true);
+
+
+--
+-- Name: std_sign; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_sign (
     id bigint NOT NULL,
     channel_id integer,
     student_id integer,
@@ -992,11 +1113,11 @@ ALTER TABLE public.std_sign OWNER TO postgres;
 -- Name: std_sign_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_sign_id_seq
+CREATE SEQUENCE std_sign_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -1006,14 +1127,21 @@ ALTER TABLE public.std_sign_id_seq OWNER TO postgres;
 -- Name: std_sign_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_sign_id_seq OWNED BY public.std_sign.id;
+ALTER SEQUENCE std_sign_id_seq OWNED BY std_sign.id;
 
 
 --
--- Name: std_sms; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_sign_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_sms (
+SELECT pg_catalog.setval('std_sign_id_seq', 9, true);
+
+
+--
+-- Name: std_sms; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_sms (
     id bigint NOT NULL,
     channel_id integer,
     type bigint,
@@ -1030,11 +1158,11 @@ ALTER TABLE public.std_sms OWNER TO postgres;
 -- Name: std_sms_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_sms_id_seq
+CREATE SEQUENCE std_sms_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -1044,14 +1172,21 @@ ALTER TABLE public.std_sms_id_seq OWNER TO postgres;
 -- Name: std_sms_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_sms_id_seq OWNED BY public.std_sms.id;
+ALTER SEQUENCE std_sms_id_seq OWNED BY std_sms.id;
 
 
 --
--- Name: std_students; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_sms_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_students (
+SELECT pg_catalog.setval('std_sms_id_seq', 1, true);
+
+
+--
+-- Name: std_students; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_students (
     id bigint NOT NULL,
     channel_id integer,
     member_id bigint,
@@ -1076,11 +1211,11 @@ ALTER TABLE public.std_students OWNER TO postgres;
 -- Name: std_students_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_students_id_seq
+CREATE SEQUENCE std_students_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -1090,14 +1225,21 @@ ALTER TABLE public.std_students_id_seq OWNER TO postgres;
 -- Name: std_students_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_students_id_seq OWNED BY public.std_students.id;
+ALTER SEQUENCE std_students_id_seq OWNED BY std_students.id;
 
 
 --
--- Name: std_users; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_students_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_users (
+SELECT pg_catalog.setval('std_students_id_seq', 16, true);
+
+
+--
+-- Name: std_users; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_users (
     id bigint NOT NULL,
     channel_id integer,
     member_id bigint,
@@ -1146,11 +1288,11 @@ ALTER TABLE public.std_users OWNER TO postgres;
 -- Name: std_users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_users_id_seq
+CREATE SEQUENCE std_users_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -1160,14 +1302,21 @@ ALTER TABLE public.std_users_id_seq OWNER TO postgres;
 -- Name: std_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_users_id_seq OWNED BY public.std_users.id;
+ALTER SEQUENCE std_users_id_seq OWNED BY std_users.id;
 
 
 --
--- Name: std_video; Type: TABLE; Schema: public; Owner: postgres
+-- Name: std_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.std_video (
+SELECT pg_catalog.setval('std_users_id_seq', 74, true);
+
+
+--
+-- Name: std_video; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE std_video (
     id bigint NOT NULL,
     channel_id integer,
     member_id bigint,
@@ -1190,11 +1339,11 @@ ALTER TABLE public.std_video OWNER TO postgres;
 -- Name: std_video_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.std_video_id_seq
+CREATE SEQUENCE std_video_id_seq
     START WITH 1
     INCREMENT BY 1
-    NO MINVALUE
     NO MAXVALUE
+    NO MINVALUE
     CACHE 1;
 
 
@@ -1204,184 +1353,191 @@ ALTER TABLE public.std_video_id_seq OWNER TO postgres;
 -- Name: std_video_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.std_video_id_seq OWNED BY public.std_video.id;
+ALTER SEQUENCE std_video_id_seq OWNED BY std_video.id;
 
 
 --
--- Name: std_ads id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: std_video_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_ads ALTER COLUMN id SET DEFAULT nextval('public.std_ads_id_seq'::regclass);
-
-
---
--- Name: std_agency id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_agency ALTER COLUMN id SET DEFAULT nextval('public.std_agency_id_seq'::regclass);
+SELECT pg_catalog.setval('std_video_id_seq', 7, true);
 
 
 --
--- Name: std_balances id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_balances ALTER COLUMN id SET DEFAULT nextval('public.std_balances_id_seq'::regclass);
-
-
---
--- Name: std_banks id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_banks ALTER COLUMN id SET DEFAULT nextval('public.std_banks_id_seq'::regclass);
+ALTER TABLE ONLY std_ads ALTER COLUMN id SET DEFAULT nextval('std_ads_id_seq'::regclass);
 
 
 --
--- Name: std_catalogs id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_catalogs ALTER COLUMN id SET DEFAULT nextval('public.std_catalogs_id_seq'::regclass);
-
-
---
--- Name: std_chains id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_chains ALTER COLUMN id SET DEFAULT nextval('public.std_chains_id_seq'::regclass);
+ALTER TABLE ONLY std_agency ALTER COLUMN id SET DEFAULT nextval('std_agency_id_seq'::regclass);
 
 
 --
--- Name: std_channels id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_channels ALTER COLUMN id SET DEFAULT nextval('public.std_channels_id_seq'::regclass);
-
-
---
--- Name: std_classes id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_classes ALTER COLUMN id SET DEFAULT nextval('public.std_classes_id_seq'::regclass);
+ALTER TABLE ONLY std_balances ALTER COLUMN id SET DEFAULT nextval('std_balances_id_seq'::regclass);
 
 
 --
--- Name: std_comments id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_comments ALTER COLUMN id SET DEFAULT nextval('public.std_comments_id_seq'::regclass);
-
-
---
--- Name: std_courses id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_courses ALTER COLUMN id SET DEFAULT nextval('public.std_courses_id_seq'::regclass);
+ALTER TABLE ONLY std_banks ALTER COLUMN id SET DEFAULT nextval('std_banks_id_seq'::regclass);
 
 
 --
--- Name: std_employees id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_employees ALTER COLUMN id SET DEFAULT nextval('public.std_employees_id_seq'::regclass);
-
-
---
--- Name: std_hosts id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_hosts ALTER COLUMN id SET DEFAULT nextval('public.std_hosts_id_seq'::regclass);
+ALTER TABLE ONLY std_catalogs ALTER COLUMN id SET DEFAULT nextval('std_catalogs_id_seq'::regclass);
 
 
 --
--- Name: std_lessons id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_lessons ALTER COLUMN id SET DEFAULT nextval('public.std_lessons_id_seq'::regclass);
-
-
---
--- Name: std_members id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_members ALTER COLUMN id SET DEFAULT nextval('public.std_members_id_seq'::regclass);
+ALTER TABLE ONLY std_chains ALTER COLUMN id SET DEFAULT nextval('std_chains_id_seq'::regclass);
 
 
 --
--- Name: std_merchant id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_merchant ALTER COLUMN id SET DEFAULT nextval('public.std_merchant_id_seq'::regclass);
-
-
---
--- Name: std_order_info id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_order_info ALTER COLUMN id SET DEFAULT nextval('public.std_order_info_id_seq'::regclass);
+ALTER TABLE ONLY std_channels ALTER COLUMN id SET DEFAULT nextval('std_channels_id_seq'::regclass);
 
 
 --
--- Name: std_orders id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_orders ALTER COLUMN id SET DEFAULT nextval('public.std_orders_id_seq'::regclass);
-
-
---
--- Name: std_recbanks id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_recbanks ALTER COLUMN id SET DEFAULT nextval('public.std_recbanks_id_seq'::regclass);
+ALTER TABLE ONLY std_classes ALTER COLUMN id SET DEFAULT nextval('std_classes_id_seq'::regclass);
 
 
 --
--- Name: std_segments id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_segments ALTER COLUMN id SET DEFAULT nextval('public.std_segments_id_seq'::regclass);
-
-
---
--- Name: std_sign id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_sign ALTER COLUMN id SET DEFAULT nextval('public.std_sign_id_seq'::regclass);
+ALTER TABLE ONLY std_comments ALTER COLUMN id SET DEFAULT nextval('std_comments_id_seq'::regclass);
 
 
 --
--- Name: std_sms id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_sms ALTER COLUMN id SET DEFAULT nextval('public.std_sms_id_seq'::regclass);
-
-
---
--- Name: std_students id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_students ALTER COLUMN id SET DEFAULT nextval('public.std_students_id_seq'::regclass);
+ALTER TABLE ONLY std_courses ALTER COLUMN id SET DEFAULT nextval('std_courses_id_seq'::regclass);
 
 
 --
--- Name: std_users id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_users ALTER COLUMN id SET DEFAULT nextval('public.std_users_id_seq'::regclass);
+ALTER TABLE ONLY std_employees ALTER COLUMN id SET DEFAULT nextval('std_employees_id_seq'::regclass);
 
 
 --
--- Name: std_video id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.std_video ALTER COLUMN id SET DEFAULT nextval('public.std_video_id_seq'::regclass);
+ALTER TABLE ONLY std_hosts ALTER COLUMN id SET DEFAULT nextval('std_hosts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_lessons ALTER COLUMN id SET DEFAULT nextval('std_lessons_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_members ALTER COLUMN id SET DEFAULT nextval('std_members_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_merchant ALTER COLUMN id SET DEFAULT nextval('std_merchant_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_order_info ALTER COLUMN id SET DEFAULT nextval('std_order_info_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_orders ALTER COLUMN id SET DEFAULT nextval('std_orders_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_recbanks ALTER COLUMN id SET DEFAULT nextval('std_recbanks_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_segments ALTER COLUMN id SET DEFAULT nextval('std_segments_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_sign ALTER COLUMN id SET DEFAULT nextval('std_sign_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_sms ALTER COLUMN id SET DEFAULT nextval('std_sms_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_students ALTER COLUMN id SET DEFAULT nextval('std_students_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_users ALTER COLUMN id SET DEFAULT nextval('std_users_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY std_video ALTER COLUMN id SET DEFAULT nextval('std_video_id_seq'::regclass);
 
 
 --
 -- Data for Name: std_ads; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_ads (id, channel_id, member_id, type, status, refer_id, cate_id, parent_id, jump_id, views, title, url, "desc", attach, expire, updated_at, created_at) FROM stdin;
-2	0	0	3	0	0	41	0	0	0	直播活动推广	直播活动推广	/pages/portal/motion/index?ads_id=2&item_id=3	[{"ext":"jpg","name":"dida/ads/fee30b30-a2cd-41d2-8082-2dff65ea150f.jpg","uid":"rc-upload-1567159451234-18","status":"done","url":"https://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/dida/ads/fee30b30-a2cd-41d2-8082-2dff65ea150f.jpg"},{"ext":"jpg","name":"dida/ads/6d76fa38-f67b-4d74-b96c-ca7c824258e5.jpg","uid":"rc-upload-1567159451234-20","status":"done","url":"https://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/dida/ads/6d76fa38-f67b-4d74-b96c-ca7c824258e5.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-08-30 18:15:15.307852+08	2019-08-23 15:02:45.043712+08
-1	0	0	1	0	0	38	0	0	0	sdfa	sdfa	asdf	[{"ext":"jpg","name":"dida/ads/37b00cb5-1bae-482c-8d4b-c0439bb9ef12.jpg","uid":"rc-upload-1567159451234-26","status":"done","url":"https://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/dida/ads/37b00cb5-1bae-482c-8d4b-c0439bb9ef12.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-08-30 18:49:57.204557+08	2019-08-15 23:30:23.415626+08
+COPY std_ads (id, channel_id, member_id, type, status, refer_id, cate_id, parent_id, jump_id, views, title, url, "desc", attach, expire, updated_at, created_at) FROM stdin;
+2	0	0	3	0	0	41	0	0	0	直播活动推广	直播活动推广	/pages/portal/motion/index?ads_id=2&item_id=3	[{"ext":"jpg","name":"dida/ads/fee30b30-a2cd-41d2-8082-2dff65ea150f.jpg","uid":"rc-upload-1567159451234-18","status":"done","url":"https://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/dida/ads/fee30b30-a2cd-41d2-8082-2dff65ea150f.jpg"},{"ext":"jpg","name":"dida/ads/6d76fa38-f67b-4d74-b96c-ca7c824258e5.jpg","uid":"rc-upload-1567159451234-20","status":"done","url":"https://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/dida/ads/6d76fa38-f67b-4d74-b96c-ca7c824258e5.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-08-30 18:15:15.307852+08	2019-08-23 15:02:45.043712+08
+1	0	0	1	0	0	38	0	0	0	sdfa	sdfa	asdf	[{"ext":"jpg","name":"dida/ads/37b00cb5-1bae-482c-8d4b-c0439bb9ef12.jpg","uid":"rc-upload-1567159451234-26","status":"done","url":"https://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/dida/ads/37b00cb5-1bae-482c-8d4b-c0439bb9ef12.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-08-30 18:49:57.204557+08	2019-08-15 23:30:23.415626+08
 \.
 
 
@@ -1389,7 +1545,7 @@ COPY public.std_ads (id, channel_id, member_id, type, status, refer_id, cate_id,
 -- Data for Name: std_agency; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_agency (id, channel_id, status, type, user_id, "desc", rate, updated_at, created_at) FROM stdin;
+COPY std_agency (id, channel_id, status, type, user_id, "desc", rate, updated_at, created_at) FROM stdin;
 9	17	1	0	57		0.6	2020-05-21 14:36:52.233109+08	2020-05-07 11:44:13.052161+08
 10	17	1	0	69		0.35	2020-06-18 18:51:02.008333+08	2020-06-18 16:32:20.06962+08
 \.
@@ -1399,88 +1555,13 @@ COPY public.std_agency (id, channel_id, status, type, user_id, "desc", rate, upd
 -- Data for Name: std_balances; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_balances (id, channel_id, status, type, user_id, bank_id, amount, fee, name, code, branch, updated_at, created_at, balance, refer_id, auth_id) FROM stdin;
-5549	0	1	1	62	8	20000	110	有限公司 	00095266		2020-05-21 11:04:47.736753+08	2020-05-21 11:04:47.736753+08	19890	0	0
-5550	0	1	1001	62	0	11	0				2020-05-21 13:02:49.736225+08	2020-05-21 13:02:49.736225+08	19879	18294	0
-5551	0	1	1001	62	0	11	0				2020-05-21 13:09:38.863066+08	2020-05-21 13:09:38.863066+08	19868	18295	0
+COPY std_balances (id, channel_id, status, type, user_id, bank_id, amount, fee, name, code, branch, updated_at, created_at, balance, refer_id, auth_id) FROM stdin;
+5631	0	1	1001	74	0	2	0				2020-09-08 22:01:09.444448+08	2020-09-08 22:01:09.444448+08	996	18391	0
 5547	0	2	1	1	8	1000	10	厦门组式服饰有限公司 	37540188000095266		2020-05-08 18:02:01.478688+08	2020-05-08 18:02:01.478688+08	0	0	0
 5548	0	2	1	1	8	10000	10	厦门组式服饰有限公司 	37540188000095266		2020-05-08 18:27:40.821805+08	2020-05-08 18:27:40.821805+08	0	0	0
-5552	0	2	2	62	3	5000	3	3413	343434		2020-05-21 13:12:19.671704+08	2020-05-21 13:12:19.671704+08	0	0	0
-5553	0	2	2	62	7	4999	3	245245	245245		2020-05-21 13:13:17.830682+08	2020-05-21 13:13:17.830682+08	0	0	0
-5554	0	2	2	62	7	100	3	1341	341341		2020-05-21 13:16:44.121165+08	2020-05-21 13:16:44.121165+08	0	0	0
-5555	0	1	2	62	3	50	3	吕亚丁	6228480078020682379		2020-05-21 16:49:18.783057+08	2020-05-21 16:49:18.783057+08	19815	0	0
-5556	0	1	2	62	3	70	3	吕亚丁	6228480078020682379		2020-05-21 16:53:27.255902+08	2020-05-21 16:53:27.255902+08	19742	0	0
-5557	0	1	1001	62	0	12	0				2020-05-21 20:08:20.0181+08	2020-05-21 20:08:20.0181+08	19730	18309	0
-5558	0	1	1001	62	0	11	0				2020-05-21 20:10:32.604745+08	2020-05-21 20:10:32.604745+08	19719	18308	0
-5559	0	1	1001	62	0	16	0				2020-05-21 20:25:15.579945+08	2020-05-21 20:25:15.579945+08	19703	18312	0
-5560	0	1	1001	62	0	20	0				2020-05-22 11:39:26.839309+08	2020-05-22 11:39:26.839309+08	19683	18315	0
-5561	0	1	1001	62	0	21	0				2020-05-22 11:44:27.793366+08	2020-05-22 11:44:27.793366+08	19662	18316	0
-5562	0	1	1001	62	0	3000	0				2020-05-22 16:28:56.918279+08	2020-05-22 16:28:56.918279+08	16662	18318	0
-5563	0	1	1001	62	0	300	0				2020-05-23 20:24:17.183461+08	2020-05-23 20:24:17.183461+08	16362	18319	0
-5564	0	1	1001	62	0	11	0				2020-05-24 21:06:14.116207+08	2020-05-24 21:06:14.116207+08	16351	18330	0
-5565	0	1	1001	62	0	11	0				2020-05-24 21:10:00.838599+08	2020-05-24 21:10:00.838599+08	16340	18329	0
-5566	0	1	1001	62	0	11	0				2020-05-24 21:16:31.456583+08	2020-05-24 21:16:31.456583+08	16329	18330	0
-5567	0	1	1001	62	0	11	0				2020-05-24 21:42:37.583682+08	2020-05-24 21:42:37.583682+08	16318	18329	0
-5568	0	1	1001	62	0	11	0				2020-05-24 22:36:09.008035+08	2020-05-24 22:36:09.008035+08	16307	18330	0
-5569	0	1	1001	62	0	11	0				2020-05-24 22:37:46.358045+08	2020-05-24 22:37:46.358045+08	16296	18330	0
-5570	0	1	1001	62	0	11	0				2020-05-24 23:21:32.701804+08	2020-05-24 23:21:32.701804+08	16285	18330	0
-5571	0	1	1	65	8	1000000	10	有限公司 	00095266		2020-05-24 23:41:52.294247+08	2020-05-24 23:41:52.294247+08	999990	0	0
-5572	0	0	2	65	16	1000	3	测试	54564854854		2020-05-24 23:43:05.30889+08	2020-05-24 23:43:05.30889+08	0	0	0
-5573	0	1	1001	62	0	10	0				2020-05-25 19:26:42.181634+08	2020-05-25 19:26:42.181634+08	16275	18331	0
-5574	0	1	1001	62	0	10	0				2020-05-25 19:33:31.911774+08	2020-05-25 19:33:31.911774+08	16265	18332	0
-5575	0	1	1001	62	0	11	0				2020-05-25 19:36:36.691085+08	2020-05-25 19:36:36.691085+08	16254	18333	0
-5576	0	1	1001	62	0	11	0				2020-05-25 20:05:02.742892+08	2020-05-25 20:05:02.742892+08	16243	18333	0
-5577	0	1	1001	62	0	10	0				2020-05-25 20:07:37.239554+08	2020-05-25 20:07:37.239554+08	16233	18332	0
-5578	0	1	1001	62	0	12	0				2020-05-25 21:19:11.151154+08	2020-05-25 21:19:11.151154+08	16221	18335	0
-5579	0	1	1001	62	0	15	0				2020-05-25 21:27:25.699669+08	2020-05-25 21:27:25.699669+08	16206	18337	0
-5580	0	1	1001	62	0	20	0				2020-05-25 21:31:24.40346+08	2020-05-25 21:31:24.40346+08	16186	18338	0
-5581	0	1	1001	62	0	21	0				2020-05-25 21:33:20.829274+08	2020-05-25 21:33:20.829274+08	16165	18339	0
-5582	0	1	1001	62	0	22	0				2020-05-25 21:35:17.58558+08	2020-05-25 21:35:17.58558+08	16143	18340	0
-5583	0	1	1001	62	0	23	0				2020-05-25 21:37:12.891581+08	2020-05-25 21:37:12.891581+08	16120	18341	0
-5584	0	1	1001	62	0	24	0				2020-05-25 21:39:09.742245+08	2020-05-25 21:39:09.742245+08	16096	18342	0
-5585	0	1	1001	62	0	10	0				2020-05-26 20:41:37.864273+08	2020-05-26 20:41:37.864273+08	16086	18344	0
-5586	0	1	1001	62	0	10	0				2020-05-26 22:16:24.330722+08	2020-05-26 22:16:24.330722+08	16076	18344	0
-5587	0	1	1001	62	0	12	0				2020-05-26 23:03:58.53071+08	2020-05-26 23:03:58.53071+08	16064	18345	0
-5588	0	1	1001	62	0	10	0				2020-05-26 23:14:39.041652+08	2020-05-26 23:14:39.041652+08	16054	18344	0
-5589	0	1	1001	62	0	11	0				2020-05-26 23:30:13.133278+08	2020-05-26 23:30:13.133278+08	16043	18346	0
-5590	0	1	1001	62	0	12	0				2020-05-26 23:32:19.316079+08	2020-05-26 23:32:19.316079+08	16031	18347	0
-5591	0	1	1001	62	0	13	0				2020-05-26 23:34:25.047922+08	2020-05-26 23:34:25.047922+08	16018	18348	0
-5592	0	1	1001	62	0	14	0				2020-05-26 23:36:31.614119+08	2020-05-26 23:36:31.614119+08	16004	18349	0
-5593	0	1	1001	62	0	15	0				2020-05-26 23:38:37.996001+08	2020-05-26 23:38:37.996001+08	15989	18350	0
-5594	0	1	1001	62	0	10	0				2020-05-27 12:09:09.879313+08	2020-05-27 12:09:09.879313+08	15979	18344	0
-5595	0	1	1001	62	0	11	0				2020-05-27 12:12:49.297601+08	2020-05-27 12:12:49.297601+08	15968	18344	0
-5596	0	1	1001	62	0	11	0				2020-05-27 12:57:48.568865+08	2020-05-27 12:57:48.568865+08	15957	18351	0
-5597	0	1	1001	62	0	22	0				2020-05-27 15:49:04.068549+08	2020-05-27 15:49:04.068549+08	15935	18352	0
-5598	0	1	1001	62	0	11	0				2020-05-27 15:52:24.523653+08	2020-05-27 15:52:24.523653+08	15924	18353	0
-5599	0	1	1001	62	0	50	0				2020-05-27 15:57:44.770172+08	2020-05-27 15:57:44.770172+08	15874	18354	0
-5600	0	1	1001	62	0	25	0				2020-05-27 21:48:32.325005+08	2020-05-27 21:48:32.325005+08	15849	18355	0
-5601	0	1	1001	62	0	11	0				2020-05-27 21:58:11.103202+08	2020-05-27 21:58:11.103202+08	15838	18357	0
-5602	0	1	1001	62	0	12	0				2020-05-27 22:00:03.784554+08	2020-05-27 22:00:03.784554+08	15826	18358	0
-5603	0	1	1001	62	0	13	0				2020-05-27 22:01:53.015786+08	2020-05-27 22:01:53.015786+08	15813	18359	0
-5604	0	1	1001	62	0	18	0				2020-05-28 00:10:35.357581+08	2020-05-28 00:10:35.357581+08	15795	18360	0
-5607	0	1	1001	62	0	11	0				2020-06-02 16:18:28.613659+08	2020-06-02 16:18:28.613659+08	15784	18344	0
-5609	0	1	1001	62	0	888	0				2020-06-02 16:34:56.681802+08	2020-06-02 16:34:56.681802+08	14896	18363	0
-5606	0	2	2	65	15	1000	3	2233	123		2020-06-02 16:16:41.359632+08	2020-06-02 16:16:41.359632+08	0	0	0
-5605	0	1	2	65	15	100	3	1111	12345556		2020-06-02 16:07:27.735197+08	2020-06-02 16:07:27.735197+08	1009880	0	0
-5610	0	1	1001	62	0	1000	0				2020-06-02 16:35:53.284807+08	2020-06-02 16:35:53.284807+08	13896	18361	0
-5611	0	1	1	62	8	10000	60	有限公司 	00095266		2020-06-02 16:36:44.419388+08	2020-06-02 16:36:44.419388+08	23836	0	0
-5612	0	1	1001	62	0	888	0				2020-06-02 18:54:01.243441+08	2020-06-02 18:54:01.243441+08	22948	18363	0
-5608	0	1	1	65	8	10000	10	有限公司 	00095266		2020-06-02 16:23:40.80428+08	2020-06-02 16:23:40.80428+08	1009980	0	0
-5613	0	1	1	62	8	10000	60	有限公司 	00095266		2020-06-02 19:07:16.309142+08	2020-06-02 19:07:16.309142+08	32888	0	0
-5614	0	1	1	62	8	10000	70	有限公司 	00095266		2020-06-02 19:14:01.932904+08	2020-06-02 19:14:01.932904+08	42818	0	0
 5615	0	1	1	1	8	15800	10	有限公司 	00095266		2020-06-04 17:30:09.104642+08	2020-06-04 17:30:09.104642+08	15790	0	0
-5616	0	1	1	62	8	14111	94.67	有限公司 	00095266		2020-06-04 17:34:44.990286+08	2020-06-04 17:34:44.990286+08	56834.33	0	0
-5617	0	1	1001	62	0	1321	0				2020-06-04 17:36:13.480852+08	2020-06-04 17:36:13.480852+08	55512.33	18364	0
-5618	0	1	1001	62	0	1321	0				2020-06-04 17:46:05.523815+08	2020-06-04 17:46:05.523815+08	54190.33	18364	0
-5619	0	1	1001	62	0	100	0				2020-06-05 23:08:00.34044+08	2020-06-05 23:08:00.34044+08	54089.33	18365	0
-5620	0	1	1001	62	0	10	0				2020-06-06 14:39:00.128649+08	2020-06-06 14:39:00.128649+08	54078.33	18367	0
 5621	0	1	1	1	8	10000	10	有限公司 	00095266		2020-06-17 07:12:04.27333+08	2020-06-17 07:12:04.27333+08	25780	0	0
 5622	0	0	1	1	8	2001	10	有限公司 	00095266		2020-06-17 21:35:40.668834+08	2020-06-17 21:35:40.668834+08	0	0	0
-5623	0	1	1001	70	0	300	0				2020-06-18 21:21:21.671075+08	2020-06-18 21:21:21.671075+08	699	18372	0
-5624	0	1	1001	70	0	200	0				2020-06-18 21:52:03.837974+08	2020-06-18 21:52:03.837974+08	498	18373	0
-5625	0	1	1001	70	0	200	0				2020-06-18 22:03:41.389124+08	2020-06-18 22:03:41.389124+08	297	18373	0
-5626	0	1	1	73	8	10000	10	有限公司 	00095266		2020-06-19 21:55:18.065242+08	2020-06-19 21:55:18.065242+08	9990	0	72
-5627	0	1	1	73	8	10000	60	有限公司 	00095266		2020-06-19 22:04:46.024273+08	2020-06-19 22:04:46.024273+08	19930	0	72
 \.
 
 
@@ -1488,7 +1569,7 @@ COPY public.std_balances (id, channel_id, status, type, user_id, bank_id, amount
 -- Data for Name: std_banks; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_banks (id, type, channel_id, status, code, name, updated_at, created_at) FROM stdin;
+COPY std_banks (id, type, channel_id, status, code, name, updated_at, created_at) FROM stdin;
 1	0	0	0	0	招商银行	2019-12-05 21:28:47.537639+08	2019-12-05 21:28:47.537639+08
 2	0	0	0	0	建设银行	2019-12-05 21:28:57.850264+08	2019-12-05 21:28:57.850264+08
 4	0	0	0	0	农业银行	2019-12-05 21:29:11.038209+08	2019-12-05 21:29:11.038209+08
@@ -1512,7 +1593,7 @@ COPY public.std_banks (id, type, channel_id, status, code, name, updated_at, cre
 -- Data for Name: std_catalogs; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_catalogs (id, channel_id, member_id, type, status, refer_id, parent_id, sort, name, "desc", updated_at, created_at) FROM stdin;
+COPY std_catalogs (id, channel_id, member_id, type, status, refer_id, parent_id, sort, name, "desc", updated_at, created_at) FROM stdin;
 19	0	0	0	0	0	15	0	集群	集群	2019-08-03 22:36:52.600123+08	2019-08-03 22:36:52.600123+08
 21	0	0	0	0	0	19	0	企业发展事业群	企业发展事业群	2019-08-03 22:37:54.854465+08	2019-08-03 22:37:54.854465+08
 20	0	0	0	0	0	16	0	销售	销售	2019-08-03 22:38:45.56995+08	2019-08-03 22:37:22.655633+08
@@ -1551,11 +1632,7 @@ COPY public.std_catalogs (id, channel_id, member_id, type, status, refer_id, par
 -- Data for Name: std_chains; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_chains (id, type, member_id, channel_id, rate, status, updated_at, created_at, user_id) FROM stdin;
-51	1	76	17	0.6	1	2020-05-21 14:36:37.472403+08	2020-05-07 11:47:49.27449+08	1
-52	1	78	17	0.6	1	2020-06-02 19:13:44.103775+08	2020-05-21 11:02:52.929831+08	1
-53	1	80	17	0.6	1	2020-06-09 19:32:15.352551+08	2020-06-09 19:32:15.352551+08	1
-54	1	82	17	0.5	1	2020-06-18 16:38:19.903275+08	2020-06-18 16:38:19.903275+08	69
+COPY std_chains (id, type, member_id, channel_id, rate, status, updated_at, created_at, user_id) FROM stdin;
 55	1	84	17	0.5	1	2020-06-19 22:04:08.952581+08	2020-06-19 22:04:08.952581+08	1
 \.
 
@@ -1564,8 +1641,8 @@ COPY public.std_chains (id, type, member_id, channel_id, rate, status, updated_a
 -- Data for Name: std_channels; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_channels (id, type, status, max, min, rate, title, remark, start_at, end_at, updated_at, created_at) FROM stdin;
-17	1	1	0	0	0.1	代付		0001-01-01 08:05:43+08:05:43	0001-01-01 08:05:43+08:05:43	2020-06-18 18:50:50.016022+08	2020-01-20 10:49:02.031001+08
+COPY std_channels (id, type, status, max, min, rate, title, remark, start_at, end_at, updated_at, created_at) FROM stdin;
+17	1	1	0	0	0.1	代付		0001-01-01 08:05:57+08:05:57	0001-01-01 08:05:57+08:05:57	2020-06-18 18:50:50.016022+08	2020-01-20 10:49:02.031001+08
 \.
 
 
@@ -1573,7 +1650,7 @@ COPY public.std_channels (id, type, status, max, min, rate, title, remark, start
 -- Data for Name: std_classes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_classes (id, channel_id, member_id, type, status, refer_id, parent_id, master_id, name, "desc", notice, attach, start, expire, updated_at, created_at) FROM stdin;
+COPY std_classes (id, channel_id, member_id, type, status, refer_id, parent_id, master_id, name, "desc", notice, attach, start, expire, updated_at, created_at) FROM stdin;
 3	0	0	0	1	0	0	125	S1班-周五18:30			[]	2019-09-09 14:02:48+08	2019-12-31 14:02:48+08	2019-09-09 14:03:48.850278+08	2019-09-09 14:02:55.225973+08
 4	0	0	0	1	0	0	126	P1班			[]	2019-09-01 14:18:03+08	2019-12-31 14:18:06+08	2019-09-09 14:18:12.237895+08	2019-09-09 14:18:12.237895+08
 1	0	0	0	1	0	0	125	Scratch活动推广	234		[{"ext":"jpeg","name":"dida/class/e0192890-3d53-49f5-8663-b8d988463e40.jpeg","uid":"rc-upload-1565429324365-2","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/dida/class/e0192890-3d53-49f5-8663-b8d988463e40.jpeg"}]	2019-08-02 17:29:12+08	2019-08-02 17:29:12+08	2019-09-10 18:42:08.746822+08	2019-08-10 17:36:17.642284+08
@@ -1584,7 +1661,7 @@ COPY public.std_classes (id, channel_id, member_id, type, status, refer_id, pare
 -- Data for Name: std_comments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_comments (id, channel_id, reply_id, type, status, share, up, down, uid, user_id, star, refer_id, parent_id, content, attach, updated_at, created_at) FROM stdin;
+COPY std_comments (id, channel_id, reply_id, type, status, share, up, down, uid, user_id, star, refer_id, parent_id, content, attach, updated_at, created_at) FROM stdin;
 1	1000	0	0	0	0	0	0	0	8	0	34	0	test	[]	2019-09-05 19:34:45.458387+08	2019-09-05 19:34:45.458387+08
 2	1000	0	0	0	0	0	0	0	8	0	40	0	111	[]	2019-09-07 11:11:11.39854+08	2019-09-07 11:11:11.39854+08
 3	1000	0	0	0	0	0	0	0	8	0	39	0	111	[]	2019-09-07 11:24:28.873604+08	2019-09-07 11:24:28.873604+08
@@ -1608,47 +1685,47 @@ COPY public.std_comments (id, channel_id, reply_id, type, status, share, up, dow
 -- Data for Name: std_courses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_courses (id, channel_id, type, status, count, "join", refer_id, free, share, up, down, favor, focus, spread, cate_id, grade_id, views, price, discount, uid, author_id, "desc", title, sub_title, attach, imgs, expire, updated_at, created_at) FROM stdin;
-2	0	1	1	6	8418	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	87		小飞侠彼得潘	小飞侠彼得潘	[{"key":1,"attach":[],"content":"<p>极维极限</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/course/i5NTbEsHrsKKsthwMh.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.232231+08	2019-09-01 18:49:59.232231+08
-3	0	1	1	28	10167	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	86		幼小衔接	幼小衔接	[{"key":1,"attach":[],"content":"<p>拼音王国历险记是一个面向所有幼儿的课程，可以帮助孩子在正式学习之前接触拼音，帮助孩子养成自习的好习惯。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/course/dmbRTfymhY.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.365462+08	2019-09-01 18:49:59.365462+08
-4	0	1	1	36	6924	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	85		六年级英语下册	六年级英语下册	[{"key":1,"attach":[],"content":"<p>沙拉老师，硕士研究生，毕业于英国莱斯特大学，已获大学英语8级证书，雅思8分。从2011年开始从事小学及初中英语教学及英语培训，对小升初英语、英语口语教学有丰富经验。擅长在课堂上对知识进行扩展延伸，旁征博引，力求在课堂上不仅带领学生完成教学目标的学习，更能使学生获得许多课外知识，完成育人的目标。课堂教学风格活泼轻松，引人入胜。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467874962402.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.377789+08	2019-09-01 18:49:59.377789+08
-5	0	1	1	38	7856	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	89		六年级数学上册	六年级数学上册	[{"key":1,"attach":[],"content":"<p>胡青清.于2011年毕业于杭州师范学院。课堂气氛生动活泼，趣味性强；工作认真负责，对学生有耐心。在两年期间，学生成绩大幅度提高，深受家长和学生的好评。2013年，《探究中国教师的现状和制度构建》获得省一等奖；2014年4月，获得院级优课竞赛三等奖。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15466940753097.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.495837+08	2019-09-01 18:49:59.495837+08
-6	0	1	1	203	10476	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	90		趣味阅读欢乐多	趣味阅读欢乐多	[{"key":1,"attach":[],"content":"<p></p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/course/dACpN7RWhcJY2NCihZ.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.498941+08	2019-09-01 18:49:59.498941+08
-7	0	1	1	36	8049	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	92		六年级语文下册	六年级语文下册	[{"key":1,"attach":[],"content":"<p>谢薇，语文，一级教师。2008年毕业于华东师范大学。长期担任小学语文教学及班主任工作。2014年获湖州市班主任技能大赛综合一等奖,2018年4月获全国“真语文”课堂大赛说课二等奖，任职期间曾被评为“优秀教师”“优秀班主任”“优秀德育工作者”。 主张“快乐学习，健康成长”！ 治班理念“动之以情，授之以渔”！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/1546702335955.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.51942+08	2019-09-01 18:49:59.51942+08
-8	0	1	1	63	9789	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	91		五年级语文下册	五年级语文下册	[{"key":1,"attach":[],"content":"<p>程宇，大专学历，一级教师，1985年参加工作。自参加工作以来，一心扑在教育上，从不计较名利，多次荣获各级优秀教师称号。人生格言是：倾注心血的爱能使孩子们早日鲜花绽放，让我们用自己的行和自己的心去教育我们的孩子</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467630177908.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.596703+08	2019-09-01 18:49:59.596703+08
-9	0	1	1	43	8095	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	94		五年级英语下册	五年级英语下册	[{"key":1,"attach":[],"content":"<p>大学本科，英语专业八级，英语教师。英语课堂轻松活跃，游戏丰富，歌谣不绝于耳。寓教于乐，帮助学生找方法，在情境中主动学习，致力于培养学生自主学习能力和运用英语的能力。她秉承“老师智慧地教，学生快乐地学”教育理念，让学生勤学，好学，乐学，为其今后长远学习英语打下坚实基础。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15466774143156.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.643399+08	2019-09-01 18:49:59.643399+08
-10	0	1	1	41	6129	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	93		六年级英语上册	六年级英语上册	[{"key":1,"attach":[],"content":"<p>Jane老师.具有多年的小学英语教学经验。在教学风格中一贯以活泼轻松的形式带动课堂，能让学生快速的跟着老师进入课堂，进入学习状态。其中Jane的教学理念也十分先锋，不仅在课堂上和学生为友进行学习，而且还倡导学生的自主学习，这也是学生与老师在另一方面可以更好更快的掌握知识以学以致用的重要途径。更希望同学们可以带着兴趣，快乐学习英语。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15466976227114.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.712567+08	2019-09-01 18:49:59.712567+08
-11	0	1	1	63	6494	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	96		六年级语文上册	六年级语文上册	[{"key":1,"attach":[],"content":"<p>王玲，本科学历，一级教师，语文学科带头人，高级家庭教育指导师，民办教育先进个人，校聘名师，多次承担国家级课题研究。1999年任小学语文教学及班主任工作至今，近年多次承担毕业班教学工作，取得的成绩得到各界认可。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467013068228.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.732566+08	2019-09-01 18:49:59.732566+08
-12	0	1	1	25	10374	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	95		六年级数学下册	六年级数学下册	[{"key":1,"attach":[],"content":"<p>涂熹恺老师.课堂教学模式新颖，擅长以趣味故事、游戏丰富课堂，多利用生活实践、数形结合的思想传递解题思路与方法，启迪学生智慧，快速理解题意，巧妙掌握方法，多年来致力于小学基础数学与奥数研究，所培训的学生多次获得奥数竞赛奖项，被评为“全国小学数学能力测评比赛”十佳指导教师。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15466964363684.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.808448+08	2019-09-01 18:49:59.808448+08
-13	0	1	1	65	9652	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	97		五年级语文上册	五年级语文上册	[{"key":1,"attach":[],"content":"<p>程宇，大专学历，一级教师，1985年参加工作。自参加工作以来，一心扑在教育上，从不计较名利，多次荣获各级优秀教师称号。人生格言是：倾注心血的爱能使孩子们早日鲜花绽放，让我们用自己的行和自己的心去教育我们的孩子</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467629765555.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.859178+08	2019-09-01 18:49:59.859178+08
-14	0	1	1	34	10704	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	99		五年级数学下册	五年级数学下册	[{"key":1,"attach":[],"content":"<p>涂熹恺老师.课堂教学模式新颖，擅长以趣味故事、游戏丰富课堂，多利用生活实践、数形结合的思想传递解题思路与方法，启迪学生智慧，快速理解题意，巧妙掌握方法，多年来致力于小学基础数学与奥数研究，所培训的学生多次获得奥数竞赛奖项，被评为“全国小学数学能力测评比赛”十佳指导教师。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467065194826.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.956607+08	2019-09-01 18:49:59.956607+08
-15	0	1	1	40	10100	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	98		五年级英语上册	五年级英语上册	[{"key":1,"attach":[],"content":"<p>Sunny.毕业于杭州师范大学，从事英语教师行业已有几年时间了，先后有在各知名机构任教，并且有许多学生在Sunny的辅导下，英语学习取得了不错的成绩！曾在区里面获得了英语课堂观摩赛一等奖、课堂设计一等奖、英语教师口语竞赛一等奖、教学论文也在长沙市荣获二等奖的好成绩等等，这些点点滴滴的成绩都是为了让学生们能收获更多的知识！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467065354482.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.958994+08	2019-09-01 18:49:59.958994+08
-16	0	1	1	42	10662	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	101		五年级数学上册	五年级数学上册	[{"key":1,"attach":[],"content":"<p>卜卜老师，毕业于上海某高校，多家培训机构任数学骨干教师，教学风格生动幽默，年轻且富有活力，注重培养学生的学习兴趣，提高学习积极性。所教学生成绩进步显著，且深受学生喜爱。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467065071715.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:49:59.998271+08	2019-09-01 18:49:59.998271+08
-17	0	1	1	43	9701	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	103		四年级英语下册	四年级英语下册	[{"key":1,"attach":[],"content":"<p>徐蕊老师 在从事少儿英语教育教学工作的四年时间里，深受学生喜爱，所教班级学生都具有相当的英语学习能力，在课堂教学中，不断激发学生的学习兴趣，调动学习英语积极性。生动活泼的课堂气氛深受学生喜欢，地道的美语发音吸引学生们的兴趣，各类游戏活动激发学生们的学习斗志，创新的沟通方式让学生迅速理解和融会贯通，多次被评为校级全能教师及学生喜爱的教师。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467628902828.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.123369+08	2019-09-01 18:50:00.123369+08
-18	0	1	1	79	10258	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	100		四年级语文下册	四年级语文下册	[{"key":1,"attach":[],"content":"<p>张爽毕业于乐山师范大学，2008年本科毕业后一直从事小学语文教学及班主任工作。工作踏实，积极进取，以爱心、细心、耐心对待每一位学生，善于发现、挖掘学生潜能，指导学生学生参加全国小学生作文精英赛，多次获国家、省市一、二、三等奖。目前刚带完2018届小学毕业生，所带班级成绩和各项活动中都取得优异成绩。得到了家长和学生的认可和支持，所著德育论文、专题研究论文在国家级、省级、市级等刊物发表或者获奖。教育格言:爱每一个学生，爱，首先意味着奉献，意味着把自己心灵的力量献给所爱的人，为所爱的人创造幸福。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467629318533.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.171847+08	2019-09-01 18:50:00.171847+08
-19	0	1	1	83	6906	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	102		四年级语文上册	四年级语文上册	[{"key":1,"attach":[],"content":"<p>陈雨莹2009年参加工作至今从事小学语文教育。注重学生基础知识与实际运用能力的结合。有责任心、有耐心，关注每一位学生，以德化育，树品树人。所带班级获“优秀班集体”荣誉称号，多篇论文在国家、市发表并获奖。教育感言：学生的快乐是我最大的快乐，学生的收获是我最大的收获。做不了大树，我宁愿做一株小草，当春风轻拂，带给大地一片生机！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467629103756.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.195571+08	2019-09-01 18:50:00.195571+08
-20	0	1	1	29	8257	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	106		四年级数学上册	四年级数学上册	[{"key":1,"attach":[],"content":"<p>小毛豆老师毕业于华东师范大学，有着过硬的教学技能，教学风格非常轻松，幽默的老师。年轻有活力，也不失经验。上课紧扣课程重点，详细讲解难点。 教学理念是：“教学是艺术，艺术的生命是创新！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467628383519.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.310469+08	2019-09-01 18:50:00.310469+08
-21	0	1	1	37	8339	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	104		四年级数学下册	四年级数学下册	[{"key":1,"attach":[],"content":"<p>腾溶老师.讲课深入浅出，条理清晰，层层剖析，环环相扣，论证严密。用思维的逻辑力量吸引学生的注意力，用理智控制课堂教学进程。善于把数学知识用一些简单易懂的方式展现给学生们，使学生们更易于接受和理解，从而让学生在轻松愉快的氛围下学习数学，感受数学的魅力。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467628673884.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.317128+08	2019-09-01 18:50:00.317128+08
-22	0	1	1	42	10769	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	105		四年级英语上册	四年级英语上册	[{"key":1,"attach":[],"content":"<p>宋晨，毕业于中南大学，曾在知名英语培训机构任教。并有一学期的海外（澳大利亚）教学经历。良好的英语发音，轻松，活泼，富有亲和力的教学方式，深得孩子们的喜爱。通过她的课堂，能扎实学习课本知识，了解中西文化，以及对所学知识的活学活用，将英语学习融入到生活的点点滴滴，快乐学习，快乐成长！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/1546763053428.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.343207+08	2019-09-01 18:50:00.343207+08
-23	0	1	1	44	6183	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	107		三年级英语下册	三年级英语下册	[{"key":1,"attach":[],"content":"<p>谢珑茜老师.一线小学英语教师，英语专业八级，有着扎实的英语基础与出色的教学能力；活泼开朗，幽默风趣，教学过程充满活力，善于抓住学生兴趣点进行英语教学，让学生快乐学习，快乐进步！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467055477679.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.482112+08	2019-09-01 18:50:00.482112+08
-24	0	1	1	34	10216	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	109		三年级数学下册	三年级数学下册	[{"key":1,"attach":[],"content":"<p>胡青清.于2011年毕业于杭州师范学院。课堂气氛生动活泼，趣味性强；工作认真负责，对学生有耐心。在两年期间，学生成绩大幅度提高，深受家长和学生的好评。2013年，《探究中国教师的现状和制度构建》获得省一等奖；2014年4月，获得院级优课竞赛三等奖。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467043920242.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.576953+08	2019-09-01 18:50:00.576953+08
-25	0	1	1	30	9877	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	113		三年级数学上册	三年级数学上册	[{"key":1,"attach":[],"content":"<p> 涂熹恺老师.课堂教学模式新颖，擅长以趣味故事、游戏丰富课堂，多利用生活实践、数形结合的思想传递解题思路与方法，启迪学生智慧，快速理解题意，巧妙掌握方法，多年来致力于小学基础数学与奥数研究，所培训的学生多次获得奥数竞赛奖项，被评为“全国小学数学能力测评比赛”十佳指导教师。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467039465402.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.610903+08	2019-09-01 18:50:00.610903+08
-26	0	1	1	34	6727	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	111		三年级英语上册	三年级英语上册	[{"key":1,"attach":[],"content":"<p>Linda，英语本科专业。在多家英语培训中心任英语骨干教师，教学风格生动幽默，年轻且富有活力，让孩子在快乐中学习。注重培养学生的学习兴趣，提高学习积极性。所教学生成绩进步显著，且深受学生喜爱。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/1546705022453.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.649143+08	2019-09-01 18:50:00.649143+08
-27	0	1	1	53	9125	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	108		三年级语文下册	三年级语文下册	[{"key":1,"attach":[],"content":"<p>刘婷，毕业于四川师范大学，我校市级名师工作室成员。任教以来始终怀揣着教育的梦想，活跃在三尺讲台，用心经营教育，用爱温暖童心。撰写的经验论文多次获国家、省、市级奖。励志做一名让学生喜欢、家长放心、同行认可、社会满意的智慧型教师。教育格言:用爱贴近学生的生活，用心倾听学</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467061600395.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.681898+08	2019-09-01 18:50:00.681898+08
-28	0	1	1	56	10153	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	110		三年级语文上册	三年级语文上册	[{"key":1,"attach":[],"content":"<p>谢薇，语文，一级教师。2008年毕业于华东师范大学。长期担任小学语文教学及班主任工作。2014年获湖州市班主任技能大赛综合一等奖,2018年4月获全国“真语文”课堂大赛说课二等奖，任职期间曾被评为“优秀教师”“优秀班主任”“优秀德育工作者”。 主张“快乐学习，健康成长”！ 治班理念“动之以情，授之以渔”！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/1546705654916.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.687369+08	2019-09-01 18:50:00.687369+08
-29	0	1	1	64	10762	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	114		二年级语文下册	二年级语文下册	[{"key":1,"attach":[],"content":"<p>江敏，毕业于华东师范大学，多篇论文在国家、省、市评比中获奖。荣获校级优秀教师和优秀班主任的称号，取得湖州市学校心理辅导员c级证书，所带班级2017届一班荣获都湖州市先进班集体，被评为校级名师。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467661723591.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.964694+08	2019-09-01 18:50:00.964694+08
-30	0	1	1	54	7370	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	115		二年级英语下册	二年级英语下册	[{"key":1,"attach":[],"content":"<p>贺凤姣老师，英语专业出身，专业八级，口语流利，专业基本功扎实毕业后一直从事英语教育工作。在多年的教研工作中积累了大量的教学经验，拥有多样的教学技巧，对儿童教育学和心理学有深厚的研究。老师教学风格生动活泼，富有活力，善于引导学生提高积极性，擅长用讲故事的形式来丰富课堂教学，讲课节奏和思路清晰，使学生不知不觉的领会课程中的知识，教学方法灵活多变，深受学生喜爱并获得家长的信赖。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467661231504.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.969536+08	2019-09-01 18:50:00.969536+08
-31	0	1	1	87	10986	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	112		二年级语文上册	二年级语文上册	[{"key":1,"attach":[],"content":"<p>鲁亦斐，毕业于江油师范学校，2008年参加工作。勤奋刻苦，踏实、认真，在教学中不断地反思，摸索出属于自己的一套教学方法。曾被评为优秀教职工；在市级班级管理及班主任工作经验交流会上，获得好评；所著论文在省市多次获奖；所带班级被多次评为“星级班级”，也在各项活动中取得优异成绩。人生格言是：今天的积蕴，是为了明天的放飞，还有什么比看着自己的学生飞得更高、更快、更远，更令教师欣慰的呢？ 教师最大的幸福就是看到学生们在成长。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/1546766152659.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:00.984648+08	2019-09-01 18:50:00.984648+08
-32	0	1	1	34	6256	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	118		一年级英语上册 	一年级英语上册 	[{"key":1,"attach":[],"content":"<p>一个年轻但富有活力的老师，毕业于湖南第一师范学院，专业小学英语教育，所授课程为人教版英语，外研社英语，湘少版英语，新概念英语、剑桥少儿英语。因课堂气氛生动活泼，趣味性强，深受家长和学生的好评。曾多次参加长沙市教学竞赛，获得长沙市芙蓉杯教学竞赛以及高效课堂等比赛中荣获奖项。我的教学理念是，从孩子的角度出发，让孩子们快乐学英语！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467023941821.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.007321+08	2019-09-01 18:50:01.007321+08
-33	0	1	1	28	10369	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	117		一年级英语下册	一年级英语下册	[{"key":1,"attach":[],"content":"<p>姚姚老师.国内知名211大学英语口译研究生，英文功底扎实，口语流利，拥有丰富的外事经验和国际视野。该老师教学经验丰富，擅长趣味教学。且拥有很好的主持和演讲功底，课堂充满激情，用情景法激发学生对英语的兴趣，寓教于乐。英语就像一把开启缤纷世界大门的钥匙，快来跟姚老师一起展开奇幻冒险吧</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467025049456.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.012916+08	2019-09-01 18:50:01.012916+08
-34	0	1	1	42	9827	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	116		一年级数学上册 	一年级数学上册 	[{"key":1,"attach":[],"content":"<p>许鲜老师.毕业于湖州师范大学小学教育专业，从事小学数学教育教学工作中，努力寻找儿童数学，打造动感课堂。一个信息的传递需要7%的语言38%的声音55%的态势语言。运用神气的态势语言，魅力的教学语言，巧妙的课堂方法努力在课堂上实现：手动、口动、脑动、心动、情动。富有节奏的语言，朗朗上口，夸张的动作又让人印象深刻。让兴趣先行，让孩子爱上学习</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467024470418.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.064198+08	2019-09-01 18:50:01.064198+08
-35	0	1	1	62	7603	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	119		一年级语文上册	一年级语文上册	[{"key":1,"attach":[],"content":"<p>谢老师，汉语言文学本科学历，一级教师（原”小学语文高级教师”称谓），成都市小语学会会员，都江堰市学科带头人、教学科研先进个人、小语中心组成员。践行真语文教学理念，已逐步形成朴实中创新，扎实中发展，真实中成就学生与自我的教学风格。所授课、撰写论文及所带徒弟、学生在多项赛事中获得诸多荣誉。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467037927283.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.267487+08	2019-09-01 18:50:01.267487+08
-36	0	1	1	24	7142	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	120		一年级数学下册	一年级数学下册	[{"key":1,"attach":[],"content":"<p>李麒麟老师：首都师范大学硕士学历，获得高级教师资格认证。李老师经验丰富，主张鼓励式教学，擅长用生动的方式讲授知识，同时引导和启发学生思考。她能将自己对于科学规律的把握同课本知识相结合，培养学生正确的科学观念和学习方法。好的方法和习惯将让孩子的学习事半功倍，获益终生。在李老师轻松活泼的课堂上，学生既能全面掌握知识点又能将重难点突破，在轻松的氛围中</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467024571159.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.31015+08	2019-09-01 18:50:01.31015+08
-37	0	1	1	54	9353	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	122		二年级数学下册	二年级数学下册	[{"key":1,"attach":[],"content":"<p>大冰老师.北京重点大学毕业。从小学习奥数，多次获得中小学数学竞赛奖项，高中时获得全国数学联赛省三等奖、全国生物联赛省二等奖。近几年面授小班教学，深受孩子们喜爱，所教孩子多次获得华杯赛一、二、三等奖；走美杯一、二、三等奖。 课堂轻松有趣，注重引导孩子们独立思考。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467662073367.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.323577+08	2019-09-01 18:50:01.323577+08
-38	0	1	1	37	7282	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	121		二年级英语上册	二年级英语上册	[{"key":1,"attach":[],"content":"<p>Cossia老师。本科毕业于首都师范学院，英语专业八级。有三年的小学英语教学经验，包括一对一、小班教学，大班教学。英语口语流利，教学生动有趣！    信奉学习新的语言可以提升一个人的气质！信奉新的语言学习需要不断的听故事 不断积累语感，这样才可以流利的输出新的语言！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467661119804.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.346182+08	2019-09-01 18:50:01.346182+08
-39	0	1	1	64	10649	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	124		一年级语文下册	一年级语文下册	[{"key":1,"attach":[],"content":"<p>杨老师，自2011年参加工作以来一直担任语文教学兼班主任工作。教学工作中，善用现代教育技术手段辅助教学，寓教于乐，尊重信任学生，让学生做课堂的主人，营造简单活泼的气氛，生气而灵动的课堂是她的追求，深受学生的喜爱。所带班级在各项活动中表现优异，学生个性活泼，各有所长。多篇论文在市、区评比中获奖。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467038033939.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.351561+08	2019-09-01 18:50:01.351561+08
-40	0	1	1	27	9752	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	123		二年级数学上册	二年级数学上册	[{"key":1,"attach":[],"content":"<p>杨老师.毕业于华东师范大学，多年从事小学数学和奥数教育及教研工作，并在全国多次教学比赛中取得优异的成绩。他根据多年的教学经验，依靠多种教学手段，理解孩子的思考方式，教学过程符合孩子思维发展程度，让孩子学习更轻松。他的课堂风格幽默风趣，形象生动，深受学生喜爱。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467661970201.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.383993+08	2019-09-01 18:50:01.383993+08
-1	0	1	1	1	8167	0	1	0	0	0	5	5000	0	49	37	0	49	0.01	0	125		Scratch图形化编程	Scratch图形化编程	[{"key":1,"attach":[],"content":"<p>Scratch 编程语言是由麻省理工大学 MIT 和 Google 主导开发的针对6-16 岁儿童的图形化编程语言，它去除了枯燥的编程语法，使用图形化和模块化的编程方式进行程序的创造。只需要使用鼠标，孩子就可以编写自己的故事书，动画片或者小游戏。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/course/6Ac8RWPhb2E8m3ZdmT.jpg"}]	0001-01-01 08:05:43+08:05:43	2019-09-09 14:40:27.604301+08	2019-09-01 18:49:59.150108+08
+COPY std_courses (id, channel_id, type, status, count, "join", refer_id, free, share, up, down, favor, focus, spread, cate_id, grade_id, views, price, discount, uid, author_id, "desc", title, sub_title, attach, imgs, expire, updated_at, created_at) FROM stdin;
+2	0	1	1	6	8418	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	87		小飞侠彼得潘	小飞侠彼得潘	[{"key":1,"attach":[],"content":"<p>极维极限</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/course/i5NTbEsHrsKKsthwMh.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.232231+08	2019-09-01 18:49:59.232231+08
+3	0	1	1	28	10167	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	86		幼小衔接	幼小衔接	[{"key":1,"attach":[],"content":"<p>拼音王国历险记是一个面向所有幼儿的课程，可以帮助孩子在正式学习之前接触拼音，帮助孩子养成自习的好习惯。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/course/dmbRTfymhY.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.365462+08	2019-09-01 18:49:59.365462+08
+4	0	1	1	36	6924	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	85		六年级英语下册	六年级英语下册	[{"key":1,"attach":[],"content":"<p>沙拉老师，硕士研究生，毕业于英国莱斯特大学，已获大学英语8级证书，雅思8分。从2011年开始从事小学及初中英语教学及英语培训，对小升初英语、英语口语教学有丰富经验。擅长在课堂上对知识进行扩展延伸，旁征博引，力求在课堂上不仅带领学生完成教学目标的学习，更能使学生获得许多课外知识，完成育人的目标。课堂教学风格活泼轻松，引人入胜。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467874962402.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.377789+08	2019-09-01 18:49:59.377789+08
+5	0	1	1	38	7856	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	89		六年级数学上册	六年级数学上册	[{"key":1,"attach":[],"content":"<p>胡青清.于2011年毕业于杭州师范学院。课堂气氛生动活泼，趣味性强；工作认真负责，对学生有耐心。在两年期间，学生成绩大幅度提高，深受家长和学生的好评。2013年，《探究中国教师的现状和制度构建》获得省一等奖；2014年4月，获得院级优课竞赛三等奖。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15466940753097.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.495837+08	2019-09-01 18:49:59.495837+08
+6	0	1	1	203	10476	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	90		趣味阅读欢乐多	趣味阅读欢乐多	[{"key":1,"attach":[],"content":"<p></p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/course/dACpN7RWhcJY2NCihZ.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.498941+08	2019-09-01 18:49:59.498941+08
+7	0	1	1	36	8049	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	92		六年级语文下册	六年级语文下册	[{"key":1,"attach":[],"content":"<p>谢薇，语文，一级教师。2008年毕业于华东师范大学。长期担任小学语文教学及班主任工作。2014年获湖州市班主任技能大赛综合一等奖,2018年4月获全国“真语文”课堂大赛说课二等奖，任职期间曾被评为“优秀教师”“优秀班主任”“优秀德育工作者”。 主张“快乐学习，健康成长”！ 治班理念“动之以情，授之以渔”！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/1546702335955.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.51942+08	2019-09-01 18:49:59.51942+08
+8	0	1	1	63	9789	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	91		五年级语文下册	五年级语文下册	[{"key":1,"attach":[],"content":"<p>程宇，大专学历，一级教师，1985年参加工作。自参加工作以来，一心扑在教育上，从不计较名利，多次荣获各级优秀教师称号。人生格言是：倾注心血的爱能使孩子们早日鲜花绽放，让我们用自己的行和自己的心去教育我们的孩子</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467630177908.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.596703+08	2019-09-01 18:49:59.596703+08
+9	0	1	1	43	8095	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	94		五年级英语下册	五年级英语下册	[{"key":1,"attach":[],"content":"<p>大学本科，英语专业八级，英语教师。英语课堂轻松活跃，游戏丰富，歌谣不绝于耳。寓教于乐，帮助学生找方法，在情境中主动学习，致力于培养学生自主学习能力和运用英语的能力。她秉承“老师智慧地教，学生快乐地学”教育理念，让学生勤学，好学，乐学，为其今后长远学习英语打下坚实基础。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15466774143156.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.643399+08	2019-09-01 18:49:59.643399+08
+10	0	1	1	41	6129	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	93		六年级英语上册	六年级英语上册	[{"key":1,"attach":[],"content":"<p>Jane老师.具有多年的小学英语教学经验。在教学风格中一贯以活泼轻松的形式带动课堂，能让学生快速的跟着老师进入课堂，进入学习状态。其中Jane的教学理念也十分先锋，不仅在课堂上和学生为友进行学习，而且还倡导学生的自主学习，这也是学生与老师在另一方面可以更好更快的掌握知识以学以致用的重要途径。更希望同学们可以带着兴趣，快乐学习英语。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15466976227114.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.712567+08	2019-09-01 18:49:59.712567+08
+11	0	1	1	63	6494	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	96		六年级语文上册	六年级语文上册	[{"key":1,"attach":[],"content":"<p>王玲，本科学历，一级教师，语文学科带头人，高级家庭教育指导师，民办教育先进个人，校聘名师，多次承担国家级课题研究。1999年任小学语文教学及班主任工作至今，近年多次承担毕业班教学工作，取得的成绩得到各界认可。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467013068228.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.732566+08	2019-09-01 18:49:59.732566+08
+12	0	1	1	25	10374	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	95		六年级数学下册	六年级数学下册	[{"key":1,"attach":[],"content":"<p>涂熹恺老师.课堂教学模式新颖，擅长以趣味故事、游戏丰富课堂，多利用生活实践、数形结合的思想传递解题思路与方法，启迪学生智慧，快速理解题意，巧妙掌握方法，多年来致力于小学基础数学与奥数研究，所培训的学生多次获得奥数竞赛奖项，被评为“全国小学数学能力测评比赛”十佳指导教师。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15466964363684.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.808448+08	2019-09-01 18:49:59.808448+08
+13	0	1	1	65	9652	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	97		五年级语文上册	五年级语文上册	[{"key":1,"attach":[],"content":"<p>程宇，大专学历，一级教师，1985年参加工作。自参加工作以来，一心扑在教育上，从不计较名利，多次荣获各级优秀教师称号。人生格言是：倾注心血的爱能使孩子们早日鲜花绽放，让我们用自己的行和自己的心去教育我们的孩子</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467629765555.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.859178+08	2019-09-01 18:49:59.859178+08
+14	0	1	1	34	10704	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	99		五年级数学下册	五年级数学下册	[{"key":1,"attach":[],"content":"<p>涂熹恺老师.课堂教学模式新颖，擅长以趣味故事、游戏丰富课堂，多利用生活实践、数形结合的思想传递解题思路与方法，启迪学生智慧，快速理解题意，巧妙掌握方法，多年来致力于小学基础数学与奥数研究，所培训的学生多次获得奥数竞赛奖项，被评为“全国小学数学能力测评比赛”十佳指导教师。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467065194826.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.956607+08	2019-09-01 18:49:59.956607+08
+15	0	1	1	40	10100	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	98		五年级英语上册	五年级英语上册	[{"key":1,"attach":[],"content":"<p>Sunny.毕业于杭州师范大学，从事英语教师行业已有几年时间了，先后有在各知名机构任教，并且有许多学生在Sunny的辅导下，英语学习取得了不错的成绩！曾在区里面获得了英语课堂观摩赛一等奖、课堂设计一等奖、英语教师口语竞赛一等奖、教学论文也在长沙市荣获二等奖的好成绩等等，这些点点滴滴的成绩都是为了让学生们能收获更多的知识！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467065354482.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.958994+08	2019-09-01 18:49:59.958994+08
+16	0	1	1	42	10662	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	101		五年级数学上册	五年级数学上册	[{"key":1,"attach":[],"content":"<p>卜卜老师，毕业于上海某高校，多家培训机构任数学骨干教师，教学风格生动幽默，年轻且富有活力，注重培养学生的学习兴趣，提高学习积极性。所教学生成绩进步显著，且深受学生喜爱。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467065071715.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:49:59.998271+08	2019-09-01 18:49:59.998271+08
+17	0	1	1	43	9701	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	103		四年级英语下册	四年级英语下册	[{"key":1,"attach":[],"content":"<p>徐蕊老师 在从事少儿英语教育教学工作的四年时间里，深受学生喜爱，所教班级学生都具有相当的英语学习能力，在课堂教学中，不断激发学生的学习兴趣，调动学习英语积极性。生动活泼的课堂气氛深受学生喜欢，地道的美语发音吸引学生们的兴趣，各类游戏活动激发学生们的学习斗志，创新的沟通方式让学生迅速理解和融会贯通，多次被评为校级全能教师及学生喜爱的教师。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467628902828.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.123369+08	2019-09-01 18:50:00.123369+08
+18	0	1	1	79	10258	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	100		四年级语文下册	四年级语文下册	[{"key":1,"attach":[],"content":"<p>张爽毕业于乐山师范大学，2008年本科毕业后一直从事小学语文教学及班主任工作。工作踏实，积极进取，以爱心、细心、耐心对待每一位学生，善于发现、挖掘学生潜能，指导学生学生参加全国小学生作文精英赛，多次获国家、省市一、二、三等奖。目前刚带完2018届小学毕业生，所带班级成绩和各项活动中都取得优异成绩。得到了家长和学生的认可和支持，所著德育论文、专题研究论文在国家级、省级、市级等刊物发表或者获奖。教育格言:爱每一个学生，爱，首先意味着奉献，意味着把自己心灵的力量献给所爱的人，为所爱的人创造幸福。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467629318533.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.171847+08	2019-09-01 18:50:00.171847+08
+19	0	1	1	83	6906	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	102		四年级语文上册	四年级语文上册	[{"key":1,"attach":[],"content":"<p>陈雨莹2009年参加工作至今从事小学语文教育。注重学生基础知识与实际运用能力的结合。有责任心、有耐心，关注每一位学生，以德化育，树品树人。所带班级获“优秀班集体”荣誉称号，多篇论文在国家、市发表并获奖。教育感言：学生的快乐是我最大的快乐，学生的收获是我最大的收获。做不了大树，我宁愿做一株小草，当春风轻拂，带给大地一片生机！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467629103756.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.195571+08	2019-09-01 18:50:00.195571+08
+20	0	1	1	29	8257	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	106		四年级数学上册	四年级数学上册	[{"key":1,"attach":[],"content":"<p>小毛豆老师毕业于华东师范大学，有着过硬的教学技能，教学风格非常轻松，幽默的老师。年轻有活力，也不失经验。上课紧扣课程重点，详细讲解难点。 教学理念是：“教学是艺术，艺术的生命是创新！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467628383519.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.310469+08	2019-09-01 18:50:00.310469+08
+21	0	1	1	37	8339	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	104		四年级数学下册	四年级数学下册	[{"key":1,"attach":[],"content":"<p>腾溶老师.讲课深入浅出，条理清晰，层层剖析，环环相扣，论证严密。用思维的逻辑力量吸引学生的注意力，用理智控制课堂教学进程。善于把数学知识用一些简单易懂的方式展现给学生们，使学生们更易于接受和理解，从而让学生在轻松愉快的氛围下学习数学，感受数学的魅力。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467628673884.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.317128+08	2019-09-01 18:50:00.317128+08
+22	0	1	1	42	10769	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	105		四年级英语上册	四年级英语上册	[{"key":1,"attach":[],"content":"<p>宋晨，毕业于中南大学，曾在知名英语培训机构任教。并有一学期的海外（澳大利亚）教学经历。良好的英语发音，轻松，活泼，富有亲和力的教学方式，深得孩子们的喜爱。通过她的课堂，能扎实学习课本知识，了解中西文化，以及对所学知识的活学活用，将英语学习融入到生活的点点滴滴，快乐学习，快乐成长！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/1546763053428.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.343207+08	2019-09-01 18:50:00.343207+08
+23	0	1	1	44	6183	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	107		三年级英语下册	三年级英语下册	[{"key":1,"attach":[],"content":"<p>谢珑茜老师.一线小学英语教师，英语专业八级，有着扎实的英语基础与出色的教学能力；活泼开朗，幽默风趣，教学过程充满活力，善于抓住学生兴趣点进行英语教学，让学生快乐学习，快乐进步！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467055477679.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.482112+08	2019-09-01 18:50:00.482112+08
+24	0	1	1	34	10216	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	109		三年级数学下册	三年级数学下册	[{"key":1,"attach":[],"content":"<p>胡青清.于2011年毕业于杭州师范学院。课堂气氛生动活泼，趣味性强；工作认真负责，对学生有耐心。在两年期间，学生成绩大幅度提高，深受家长和学生的好评。2013年，《探究中国教师的现状和制度构建》获得省一等奖；2014年4月，获得院级优课竞赛三等奖。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467043920242.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.576953+08	2019-09-01 18:50:00.576953+08
+25	0	1	1	30	9877	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	113		三年级数学上册	三年级数学上册	[{"key":1,"attach":[],"content":"<p> 涂熹恺老师.课堂教学模式新颖，擅长以趣味故事、游戏丰富课堂，多利用生活实践、数形结合的思想传递解题思路与方法，启迪学生智慧，快速理解题意，巧妙掌握方法，多年来致力于小学基础数学与奥数研究，所培训的学生多次获得奥数竞赛奖项，被评为“全国小学数学能力测评比赛”十佳指导教师。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467039465402.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.610903+08	2019-09-01 18:50:00.610903+08
+26	0	1	1	34	6727	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	111		三年级英语上册	三年级英语上册	[{"key":1,"attach":[],"content":"<p>Linda，英语本科专业。在多家英语培训中心任英语骨干教师，教学风格生动幽默，年轻且富有活力，让孩子在快乐中学习。注重培养学生的学习兴趣，提高学习积极性。所教学生成绩进步显著，且深受学生喜爱。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/1546705022453.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.649143+08	2019-09-01 18:50:00.649143+08
+27	0	1	1	53	9125	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	108		三年级语文下册	三年级语文下册	[{"key":1,"attach":[],"content":"<p>刘婷，毕业于四川师范大学，我校市级名师工作室成员。任教以来始终怀揣着教育的梦想，活跃在三尺讲台，用心经营教育，用爱温暖童心。撰写的经验论文多次获国家、省、市级奖。励志做一名让学生喜欢、家长放心、同行认可、社会满意的智慧型教师。教育格言:用爱贴近学生的生活，用心倾听学</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467061600395.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.681898+08	2019-09-01 18:50:00.681898+08
+28	0	1	1	56	10153	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	110		三年级语文上册	三年级语文上册	[{"key":1,"attach":[],"content":"<p>谢薇，语文，一级教师。2008年毕业于华东师范大学。长期担任小学语文教学及班主任工作。2014年获湖州市班主任技能大赛综合一等奖,2018年4月获全国“真语文”课堂大赛说课二等奖，任职期间曾被评为“优秀教师”“优秀班主任”“优秀德育工作者”。 主张“快乐学习，健康成长”！ 治班理念“动之以情，授之以渔”！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/1546705654916.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.687369+08	2019-09-01 18:50:00.687369+08
+29	0	1	1	64	10762	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	114		二年级语文下册	二年级语文下册	[{"key":1,"attach":[],"content":"<p>江敏，毕业于华东师范大学，多篇论文在国家、省、市评比中获奖。荣获校级优秀教师和优秀班主任的称号，取得湖州市学校心理辅导员c级证书，所带班级2017届一班荣获都湖州市先进班集体，被评为校级名师。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467661723591.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.964694+08	2019-09-01 18:50:00.964694+08
+30	0	1	1	54	7370	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	115		二年级英语下册	二年级英语下册	[{"key":1,"attach":[],"content":"<p>贺凤姣老师，英语专业出身，专业八级，口语流利，专业基本功扎实毕业后一直从事英语教育工作。在多年的教研工作中积累了大量的教学经验，拥有多样的教学技巧，对儿童教育学和心理学有深厚的研究。老师教学风格生动活泼，富有活力，善于引导学生提高积极性，擅长用讲故事的形式来丰富课堂教学，讲课节奏和思路清晰，使学生不知不觉的领会课程中的知识，教学方法灵活多变，深受学生喜爱并获得家长的信赖。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467661231504.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.969536+08	2019-09-01 18:50:00.969536+08
+31	0	1	1	87	10986	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	112		二年级语文上册	二年级语文上册	[{"key":1,"attach":[],"content":"<p>鲁亦斐，毕业于江油师范学校，2008年参加工作。勤奋刻苦，踏实、认真，在教学中不断地反思，摸索出属于自己的一套教学方法。曾被评为优秀教职工；在市级班级管理及班主任工作经验交流会上，获得好评；所著论文在省市多次获奖；所带班级被多次评为“星级班级”，也在各项活动中取得优异成绩。人生格言是：今天的积蕴，是为了明天的放飞，还有什么比看着自己的学生飞得更高、更快、更远，更令教师欣慰的呢？ 教师最大的幸福就是看到学生们在成长。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/1546766152659.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:00.984648+08	2019-09-01 18:50:00.984648+08
+32	0	1	1	34	6256	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	118		一年级英语上册 	一年级英语上册 	[{"key":1,"attach":[],"content":"<p>一个年轻但富有活力的老师，毕业于湖南第一师范学院，专业小学英语教育，所授课程为人教版英语，外研社英语，湘少版英语，新概念英语、剑桥少儿英语。因课堂气氛生动活泼，趣味性强，深受家长和学生的好评。曾多次参加长沙市教学竞赛，获得长沙市芙蓉杯教学竞赛以及高效课堂等比赛中荣获奖项。我的教学理念是，从孩子的角度出发，让孩子们快乐学英语！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467023941821.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.007321+08	2019-09-01 18:50:01.007321+08
+33	0	1	1	28	10369	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	117		一年级英语下册	一年级英语下册	[{"key":1,"attach":[],"content":"<p>姚姚老师.国内知名211大学英语口译研究生，英文功底扎实，口语流利，拥有丰富的外事经验和国际视野。该老师教学经验丰富，擅长趣味教学。且拥有很好的主持和演讲功底，课堂充满激情，用情景法激发学生对英语的兴趣，寓教于乐。英语就像一把开启缤纷世界大门的钥匙，快来跟姚老师一起展开奇幻冒险吧</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467025049456.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.012916+08	2019-09-01 18:50:01.012916+08
+34	0	1	1	42	9827	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	116		一年级数学上册 	一年级数学上册 	[{"key":1,"attach":[],"content":"<p>许鲜老师.毕业于湖州师范大学小学教育专业，从事小学数学教育教学工作中，努力寻找儿童数学，打造动感课堂。一个信息的传递需要7%的语言38%的声音55%的态势语言。运用神气的态势语言，魅力的教学语言，巧妙的课堂方法努力在课堂上实现：手动、口动、脑动、心动、情动。富有节奏的语言，朗朗上口，夸张的动作又让人印象深刻。让兴趣先行，让孩子爱上学习</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467024470418.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.064198+08	2019-09-01 18:50:01.064198+08
+35	0	1	1	62	7603	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	119		一年级语文上册	一年级语文上册	[{"key":1,"attach":[],"content":"<p>谢老师，汉语言文学本科学历，一级教师（原”小学语文高级教师”称谓），成都市小语学会会员，都江堰市学科带头人、教学科研先进个人、小语中心组成员。践行真语文教学理念，已逐步形成朴实中创新，扎实中发展，真实中成就学生与自我的教学风格。所授课、撰写论文及所带徒弟、学生在多项赛事中获得诸多荣誉。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467037927283.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.267487+08	2019-09-01 18:50:01.267487+08
+36	0	1	1	24	7142	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	120		一年级数学下册	一年级数学下册	[{"key":1,"attach":[],"content":"<p>李麒麟老师：首都师范大学硕士学历，获得高级教师资格认证。李老师经验丰富，主张鼓励式教学，擅长用生动的方式讲授知识，同时引导和启发学生思考。她能将自己对于科学规律的把握同课本知识相结合，培养学生正确的科学观念和学习方法。好的方法和习惯将让孩子的学习事半功倍，获益终生。在李老师轻松活泼的课堂上，学生既能全面掌握知识点又能将重难点突破，在轻松的氛围中</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467024571159.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.31015+08	2019-09-01 18:50:01.31015+08
+37	0	1	1	54	9353	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	122		二年级数学下册	二年级数学下册	[{"key":1,"attach":[],"content":"<p>大冰老师.北京重点大学毕业。从小学习奥数，多次获得中小学数学竞赛奖项，高中时获得全国数学联赛省三等奖、全国生物联赛省二等奖。近几年面授小班教学，深受孩子们喜爱，所教孩子多次获得华杯赛一、二、三等奖；走美杯一、二、三等奖。 课堂轻松有趣，注重引导孩子们独立思考。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467662073367.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.323577+08	2019-09-01 18:50:01.323577+08
+38	0	1	1	37	7282	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	121		二年级英语上册	二年级英语上册	[{"key":1,"attach":[],"content":"<p>Cossia老师。本科毕业于首都师范学院，英语专业八级。有三年的小学英语教学经验，包括一对一、小班教学，大班教学。英语口语流利，教学生动有趣！    信奉学习新的语言可以提升一个人的气质！信奉新的语言学习需要不断的听故事 不断积累语感，这样才可以流利的输出新的语言！</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467661119804.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.346182+08	2019-09-01 18:50:01.346182+08
+39	0	1	1	64	10649	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	124		一年级语文下册	一年级语文下册	[{"key":1,"attach":[],"content":"<p>杨老师，自2011年参加工作以来一直担任语文教学兼班主任工作。教学工作中，善用现代教育技术手段辅助教学，寓教于乐，尊重信任学生，让学生做课堂的主人，营造简单活泼的气氛，生气而灵动的课堂是她的追求，深受学生的喜爱。所带班级在各项活动中表现优异，学生个性活泼，各有所长。多篇论文在市、区评比中获奖。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467038033939.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.351561+08	2019-09-01 18:50:01.351561+08
+40	0	1	1	27	9752	0	1	0	0	0	5	5000	0	35	37	0	199	199	0	123		二年级数学上册	二年级数学上册	[{"key":1,"attach":[],"content":"<p>杨老师.毕业于华东师范大学，多年从事小学数学和奥数教育及教研工作，并在全国多次教学比赛中取得优异的成绩。他根据多年的教学经验，依靠多种教学手段，理解孩子的思考方式，教学过程符合孩子思维发展程度，让孩子学习更轻松。他的课堂风格幽默风趣，形象生动，深受学生喜爱。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/files/course/15467661970201.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.383993+08	2019-09-01 18:50:01.383993+08
+1	0	1	1	1	8167	0	1	0	0	0	5	5000	0	49	37	0	49	0.01	0	125		Scratch图形化编程	Scratch图形化编程	[{"key":1,"attach":[],"content":"<p>Scratch 编程语言是由麻省理工大学 MIT 和 Google 主导开发的针对6-16 岁儿童的图形化编程语言，它去除了枯燥的编程语法，使用图形化和模块化的编程方式进行程序的创造。只需要使用鼠标，孩子就可以编写自己的故事书，动画片或者小游戏。</p>","title":"段落 1"}]	[{"ext":"jpg","name":"f5f86eb9-ccfe-4c4e-b635-0482c8fd09b1.jpg","uid":"rc-upload-1566182186734-5","status":"done","url":"http://default-oss-shanghai.oss-cn-shanghai.aliyuncs.com/ddk/course/6Ac8RWPhb2E8m3ZdmT.jpg"}]	0001-01-01 08:05:57+08:05:57	2019-09-09 14:40:27.604301+08	2019-09-01 18:49:59.150108+08
 \.
 
 
@@ -1656,7 +1733,7 @@ COPY public.std_courses (id, channel_id, type, status, count, "join", refer_id, 
 -- Data for Name: std_employees; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_employees (id, channel_id, member_id, parent_id, sex, job_id, prov, city, dist, type, status, refer_id, group_id, uid, bank_id, "desc", remark, attach, idcode, idname, mobile, email, bank_code, address, expire, "join", birthday, updated_at, created_at) FROM stdin;
+COPY std_employees (id, channel_id, member_id, parent_id, sex, job_id, prov, city, dist, type, status, refer_id, group_id, uid, bank_id, "desc", remark, attach, idcode, idname, mobile, email, bank_code, address, expire, "join", birthday, updated_at, created_at) FROM stdin;
 \.
 
 
@@ -1664,9 +1741,7 @@ COPY public.std_employees (id, channel_id, member_id, parent_id, sex, job_id, pr
 -- Data for Name: std_hosts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_hosts (id, type, status, member_id, sign, title, ip, updated_at, created_at) FROM stdin;
-72	1	1	0	7376c5feb9c17e2be9fe2d566d4c27e3	43.242.34.83	43.242.34.83	2020-06-18 20:45:51.061962+08	2020-06-18 20:45:51.061962+08
-73	1	1	0	ee7753f928f395c84781ac1db71fd9bb	45.119.98.205	45.119.98.205	2020-06-18 20:46:01.926021+08	2020-06-18 20:46:01.926021+08
+COPY std_hosts (id, type, status, member_id, sign, title, ip, updated_at, created_at) FROM stdin;
 \.
 
 
@@ -1674,1912 +1749,1912 @@ COPY public.std_hosts (id, type, status, member_id, sign, title, ip, updated_at,
 -- Data for Name: std_lessons; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_lessons (id, channel_id, course_id, type, status, refer_id, free, share, up, down, favor, views, price, uid, "desc", title, track_id, attach, point, action, imgs, expire, updated_at, created_at) FROM stdin;
-1	0	1	1	0	0	1	0	0	0	0	0	0	0		星空漫步	191a7ba01c77422c8421ac4f7560ca7d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.602854+08	2019-09-01 18:50:01.602854+08
-2	0	2	1	0	0	2	0	0	0	0	0	0	0		永远长不大的男孩	496d13cd01a640ec937b2b691c6a4336	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.677147+08	2019-09-01 18:50:01.677147+08
-3	0	2	1	0	0	2	0	0	0	0	0	0	0		飞往永无岛	578ec9b57f1e4e9aaeaca93d4c4f0fb2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.731508+08	2019-09-01 18:50:01.731508+08
-4	0	2	1	0	0	2	0	0	0	0	0	0	0		自由的代价	c590081a7e8a4cf0a45c76cb543d6be1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.792539+08	2019-09-01 18:50:01.792539+08
-5	0	2	1	0	0	2	0	0	0	0	0	0	0		决战虎克船长	5cf69dcbdaf84556a2b1d34d4dfdf025	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.851148+08	2019-09-01 18:50:01.851148+08
-6	0	2	1	0	0	2	0	0	0	0	0	0	0		长大之后的故事	f6def925b1e245d2a39f590b969b2c67	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.925664+08	2019-09-01 18:50:01.925664+08
-7	0	2	1	0	0	1	0	0	0	0	0	0	0		【文化小知识】做买卖的人为什么叫商人？	b7f98dfb76b4453d901f41937c9c4692	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:01.998042+08	2019-09-01 18:50:01.998042+08
-8	0	3	1	0	0	1	0	0	0	0	0	0	0		01前言	e35549dd31624d5dbd7f080ca948988e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.049006+08	2019-09-01 18:50:02.049006+08
-9	0	3	1	0	0	1	0	0	0	0	0	0	0		02单韵母家族	93cb4a3f93544a12899971b0ad118315	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.106492+08	2019-09-01 18:50:02.106492+08
-10	0	3	1	0	0	2	0	0	0	0	0	0	0		03开着汽车去旅行	7d58b085d1fd4392bc37439d40f1b4db	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.167472+08	2019-09-01 18:50:02.167472+08
-11	0	3	1	0	0	2	0	0	0	0	0	0	0		04声母家族大聚会（一）	36b663a6bafe4b75b42ed89228f0e5f1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.225477+08	2019-09-01 18:50:02.225477+08
-12	0	3	1	0	0	2	0	0	0	0	0	0	0		05声母家族大聚会（二）	306bf04a47e14854abdf55845fa10a99	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.287676+08	2019-09-01 18:50:02.287676+08
-13	0	3	1	0	0	2	0	0	0	0	0	0	0		06声母家族大聚会（三）	caf2382aa5144de5be5131d3afc6240d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.324381+08	2019-09-01 18:50:02.324381+08
-14	0	3	1	0	0	2	0	0	0	0	0	0	0		07声母家族大聚会（四）	6e341940f3ef4520994d739e35bc8ad4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.386579+08	2019-09-01 18:50:02.386579+08
-15	0	3	1	0	0	2	0	0	0	0	0	0	0		08声母家族大聚会（五）	8957c5b3d2f142359686ba565927821c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.446002+08	2019-09-01 18:50:02.446002+08
-16	0	3	1	0	0	2	0	0	0	0	0	0	0		09智勇大冲关	32eb9967389848c58615072e52910c4d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.515938+08	2019-09-01 18:50:02.515938+08
-17	0	3	1	0	0	2	0	0	0	0	0	0	0		10复韵母家族（一）	15dcf413a27c4858a82c8123aedb8a66	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.574224+08	2019-09-01 18:50:02.574224+08
-18	0	3	1	0	0	2	0	0	0	0	0	0	0		11复韵母家族（二）	d5510899ced24b6cb1790db9e253ed35	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.630813+08	2019-09-01 18:50:02.630813+08
-19	0	3	1	0	0	2	0	0	0	0	0	0	0		12复韵母家族（三）	64b975c595074a30849de69a16d2d913	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.718442+08	2019-09-01 18:50:02.718442+08
-20	0	3	1	0	0	2	0	0	0	0	0	0	0		13鼻韵母家族（一）	988dff7b59bf491c98e6b8afebd165ee	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.786899+08	2019-09-01 18:50:02.786899+08
-21	0	3	1	0	0	2	0	0	0	0	0	0	0		14鼻韵母家族（二）	78ec413b2ef94a01a24bb94bb260c805	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.816398+08	2019-09-01 18:50:02.816398+08
-22	0	3	1	0	0	2	0	0	0	0	0	0	0		15声母韵母游乐场	f10d0673df2745a4acf7fcf9abb59a31	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.866442+08	2019-09-01 18:50:02.866442+08
-23	0	3	1	0	0	2	0	0	0	0	0	0	0		16字母找朋友 1 声母、单韵母	837de11c52b147dbb8dd04012d1b711d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.929165+08	2019-09-01 18:50:02.929165+08
-24	0	3	1	0	0	2	0	0	0	0	0	0	0		17字母找朋友 2 声母、单韵母	32185b3393cb4690919dfbceb39f9fe4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:02.982136+08	2019-09-01 18:50:02.982136+08
-25	0	3	1	0	0	2	0	0	0	0	0	0	0		18字母找朋友3 声母、复韵母	86883046591a4dc9bafb0a3005f43087	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.053561+08	2019-09-01 18:50:03.053561+08
-26	0	3	1	0	0	2	0	0	0	0	0	0	0		19字母找朋友4 声母、前鼻韵母	f96da83ab02846bbbc9decf9602dcc88	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.104916+08	2019-09-01 18:50:03.104916+08
-27	0	3	1	0	0	2	0	0	0	0	0	0	0		20字母找朋友5 声母、后鼻韵母	1ab2466eac4546c0a701c502d9099741	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.169525+08	2019-09-01 18:50:03.169525+08
-28	0	3	1	0	0	2	0	0	0	0	0	0	0		21字母找朋友6	a75f0c1110f84b1d96b2188edb71d5bc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.225819+08	2019-09-01 18:50:03.225819+08
-29	0	3	1	0	0	2	0	0	0	0	0	0	0		22字母找朋友7	c7b508a5fa164fa7b4cbdab397f3e06e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.295796+08	2019-09-01 18:50:03.295796+08
-30	0	3	1	0	0	2	0	0	0	0	0	0	0		23字母找朋友8	c71a24aa3f184c52af28effe29d4f347	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.344619+08	2019-09-01 18:50:03.344619+08
-31	0	3	1	0	0	2	0	0	0	0	0	0	0		24字母找朋友9	3b07133c03114da09e49f20b8280ac2e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.416351+08	2019-09-01 18:50:03.416351+08
-32	0	3	1	0	0	2	0	0	0	0	0	0	0		25特殊的音节（一）	3073b7d2e31d40c3a11c30b2f1b83c9f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.477599+08	2019-09-01 18:50:03.477599+08
-33	0	3	1	0	0	2	0	0	0	0	0	0	0		26特殊的音节（二）	c46f041333a7485babc5e0fd9ca3ee5e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.542614+08	2019-09-01 18:50:03.542614+08
-34	0	3	1	0	0	2	0	0	0	0	0	0	0		27特殊的音节（三）	58660560e2ad443d86054ece8ddf3aca	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.593196+08	2019-09-01 18:50:03.593196+08
-35	0	3	1	0	0	2	0	0	0	0	0	0	0		28拼音大联欢	f4099d77d2ea46c38d2123b704931fbc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.658717+08	2019-09-01 18:50:03.658717+08
-36	0	4	1	0	0	1	0	0	0	0	0	0	0		001 沙拉-前言	977a55f00ac54a0992f7b4d458237a14	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.700833+08	2019-09-01 18:50:03.700833+08
-37	0	4	1	0	0	1	0	0	0	0	0	0	0		002 沙拉-period（一）	24578ea9e68b41babad65aa0d149445b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.783052+08	2019-09-01 18:50:03.783052+08
-38	0	4	1	0	0	2	0	0	0	0	0	0	0		003 沙拉-period（二）	5ca912f0ee42405f93788b077226437a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.830313+08	2019-09-01 18:50:03.830313+08
-39	0	4	1	0	0	2	0	0	0	0	0	0	0		004 沙拉-period（三）	d8e874472a24418598a1f7dcb9227c80	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.897591+08	2019-09-01 18:50:03.897591+08
-40	0	4	1	0	0	2	0	0	0	0	0	0	0		005 沙拉-period（四）	06a4bf713ae742dc8e8e54241743ef04	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:03.950799+08	2019-09-01 18:50:03.950799+08
-41	0	4	1	0	0	2	0	0	0	0	0	0	0		006 沙拉-period（五）	4a9baa6560fa4704889280c6abfde1a8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.020257+08	2019-09-01 18:50:04.020257+08
-42	0	4	1	0	0	2	0	0	0	0	0	0	0		007 沙拉-period（六）	dc04353cb46445abbfee1e8284a2bf4f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.066547+08	2019-09-01 18:50:04.066547+08
-43	0	4	1	0	0	2	0	0	0	0	0	0	0		008 沙拉-period（一）	c0a9a8dac0a04409b54421ae8a248b50	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.124147+08	2019-09-01 18:50:04.124147+08
-44	0	4	1	0	0	2	0	0	0	0	0	0	0		009 沙拉-period（二）	0166898446df4c85a21e3683b0c0f476	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.183354+08	2019-09-01 18:50:04.183354+08
-45	0	4	1	0	0	2	0	0	0	0	0	0	0		010 沙拉-period（三）	abd340dbf8a843ccac253427216cd67b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.245097+08	2019-09-01 18:50:04.245097+08
-46	0	4	1	0	0	2	0	0	0	0	0	0	0		011 沙拉-period（四）	92753f5615ea4dc88eafcbbe95897d66	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.302142+08	2019-09-01 18:50:04.302142+08
-47	0	4	1	0	0	2	0	0	0	0	0	0	0		012 沙拉-period（五）	ac60e43cebaf409090735be1e4ab34ae	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.37604+08	2019-09-01 18:50:04.37604+08
-48	0	4	1	0	0	2	0	0	0	0	0	0	0		013 沙拉-period（六）	b41b2e625e274b599f6bacd0c41acc1c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.448629+08	2019-09-01 18:50:04.448629+08
-49	0	4	1	0	0	2	0	0	0	0	0	0	0		014 沙拉-period（一）	d8f53754c5b84e109b891b8a52f40902	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.482918+08	2019-09-01 18:50:04.482918+08
-50	0	4	1	0	0	2	0	0	0	0	0	0	0		015 沙拉-period（二）	11f9b4966d0844888ac096c968d43592	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.545051+08	2019-09-01 18:50:04.545051+08
-51	0	4	1	0	0	2	0	0	0	0	0	0	0		016 沙拉-period（三）	af7baaf28f5349e3aa431bdabf53e4a3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.618678+08	2019-09-01 18:50:04.618678+08
-52	0	4	1	0	0	2	0	0	0	0	0	0	0		017 沙拉-period（四）	fac6bf07682f4a1296fcd135a56e4754	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.669503+08	2019-09-01 18:50:04.669503+08
-53	0	4	1	0	0	2	0	0	0	0	0	0	0		018 沙拉-period（五）	3dceb9552a1f49b2b87c25b3eadfceaf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.733216+08	2019-09-01 18:50:04.733216+08
-54	0	4	1	0	0	2	0	0	0	0	0	0	0		019 沙拉-period（六）	5a8a003738714dc19b9449fb5aee78bc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.786792+08	2019-09-01 18:50:04.786792+08
-55	0	4	1	0	0	2	0	0	0	0	0	0	0		020 沙拉-period（一）	e791065ff09d4249aba40b70b2e2ea77	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.854547+08	2019-09-01 18:50:04.854547+08
-56	0	4	1	0	0	2	0	0	0	0	0	0	0		021 沙拉-period（二）	7fdf0ba0263a47f9a10dbd134226fe24	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.910228+08	2019-09-01 18:50:04.910228+08
-57	0	4	1	0	0	2	0	0	0	0	0	0	0		022 沙拉-period（三）	08cb27390f5648fb9d2cc4485489391a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:04.971909+08	2019-09-01 18:50:04.971909+08
-58	0	4	1	0	0	2	0	0	0	0	0	0	0		023 沙拉-period（四）	c535a50ff67746168dc2284075b59bda	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.03382+08	2019-09-01 18:50:05.03382+08
-59	0	4	1	0	0	2	0	0	0	0	0	0	0		024 沙拉-period（五）	700120f33d314289af1f6e7d56e826fb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.094157+08	2019-09-01 18:50:05.094157+08
-60	0	4	1	0	0	2	0	0	0	0	0	0	0		025 沙拉-period（六）	6ea4c7f9c6764821a170cbde916d0b55	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.150478+08	2019-09-01 18:50:05.150478+08
-61	0	4	1	0	0	2	0	0	0	0	0	0	0		026 沙拉-period（一）	e2daed17d9004ddca8081b4ad08e7b3f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.212437+08	2019-09-01 18:50:05.212437+08
-62	0	4	1	0	0	2	0	0	0	0	0	0	0		027 沙拉-period（二）	4afd2f7552c54dd19058ecc659bf355a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.272972+08	2019-09-01 18:50:05.272972+08
-63	0	4	1	0	0	2	0	0	0	0	0	0	0		028 沙拉-period（三）	12b6aa3a83344d1f8d3440a7bbdd28a2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.328628+08	2019-09-01 18:50:05.328628+08
-64	0	4	1	0	0	2	0	0	0	0	0	0	0		029 沙拉-period（四）	35d013aa0fa9415f82d0274372d40d00	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.396832+08	2019-09-01 18:50:05.396832+08
-65	0	4	1	0	0	2	0	0	0	0	0	0	0		030 沙拉-period（五）	c5be3df631b64357884db3b6b6480b1b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.449299+08	2019-09-01 18:50:05.449299+08
-66	0	4	1	0	0	2	0	0	0	0	0	0	0		031 沙拉-period（六）	8cd4b6fd242a4638a648e2928e6add8a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.515957+08	2019-09-01 18:50:05.515957+08
-67	0	4	1	0	0	2	0	0	0	0	0	0	0		032 沙拉-总复习（一）	5d9a90e06e00492a99011784afe4a313	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.582993+08	2019-09-01 18:50:05.582993+08
-68	0	4	1	0	0	2	0	0	0	0	0	0	0		033 沙拉-总复习（二）	c8b69970eb8645cfa415187153db7071	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.61514+08	2019-09-01 18:50:05.61514+08
-69	0	4	1	0	0	2	0	0	0	0	0	0	0		034 沙拉-总复习（三）	f7fd9a2fc1fa47348c12bf3b968e7f78	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.685196+08	2019-09-01 18:50:05.685196+08
-70	0	4	1	0	0	2	0	0	0	0	0	0	0		035 沙拉-short plays（一）	4240e6330dd7472ea2eae3691702a33d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.750741+08	2019-09-01 18:50:05.750741+08
-71	0	4	1	0	0	2	0	0	0	0	0	0	0		036 沙拉-short plays（二）	fd2ce740633943dd8f5c143d95f41894	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.813351+08	2019-09-01 18:50:05.813351+08
-72	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】中国诗歌那多么，为什么唐诗流传最广？	ec8fae2ed2d841c3af7531537c79c795	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.867028+08	2019-09-01 18:50:05.867028+08
-73	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】如果月亮突然消失会怎样？	6a922e890b9e47258048e649461c9a2a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.930898+08	2019-09-01 18:50:05.930898+08
-74	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】清华学霸提高数学成绩的方法	783765b58b534f489425f6cd0f393d58	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:05.986835+08	2019-09-01 18:50:05.986835+08
-75	0	6	1	0	0	1	0	0	0	0	0	0	0		【财商】为什么没有3元的人民币？	d46ff7205d4b4afeaf3808cb444806fd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.047968+08	2019-09-01 18:50:06.047968+08
-76	0	6	1	0	0	1	0	0	0	0	0	0	0		【安全】剥完橙子千万别碰气球	7ec90c6440424bec800beb82da90efb4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.109916+08	2019-09-01 18:50:06.109916+08
-77	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】斑马的黑白条纹，功能让你意想不到	0374740d8286487ea91a2599565ed9c8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.167274+08	2019-09-01 18:50:06.167274+08
-78	0	6	1	0	0	1	0	0	0	0	0	0	0		【心理】人为什么会害羞？	c06d200a380b48b3a83e52b09cacee3b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.231394+08	2019-09-01 18:50:06.231394+08
-79	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】 为什么第一名叫“状元”？	301d92f99865449eacad35374f43a441	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.292633+08	2019-09-01 18:50:06.292633+08
-80	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】细菌可以被彻底消灭吗？	69f03d31bbbe44a58447fcbe455d1dca	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.358677+08	2019-09-01 18:50:06.358677+08
-81	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】每天运动30分钟，学习效率高两倍	59299a1e2efb46b2b2518a310959668c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.404219+08	2019-09-01 18:50:06.404219+08
-82	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】著名的英国巨石阵，其实没那么神秘	0ee45a48f457454bbb20bbbdf62f798c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.466912+08	2019-09-01 18:50:06.466912+08
-83	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】树干为什么是圆柱形？	44ea98fd4ab341f8a7e2b0a3aac1bfc1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.528037+08	2019-09-01 18:50:06.528037+08
-84	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】高尔夫球表面为什么会有许多凹坑	4473411e743d4a0c8059761d7ae62c12	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.59358+08	2019-09-01 18:50:06.59358+08
-85	0	6	1	0	0	1	0	0	0	0	0	0	0		【节日】愚人节开过的那些世纪玩笑	4ad827db5fb141359805d8fe0dc97ac0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.654949+08	2019-09-01 18:50:06.654949+08
-86	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】《最强大脑》孙弈东的学习动力从哪来？（家长必听）	bd8cb01631ce4d70bb51378e8e7c424e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.715278+08	2019-09-01 18:50:06.715278+08
-87	0	6	1	0	0	1	0	0	0	0	0	0	0		【财商】为什么有钱人喜欢把钱存在瑞士银行？	b25dc0352e1f4f8fa5ed63c376b7dac9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.766024+08	2019-09-01 18:50:06.766024+08
-88	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】世界上最毒的植物是什么？	01f91418308e4ebb803704f19507b1ef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.825264+08	2019-09-01 18:50:06.825264+08
-89	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】鸡蛋为什么要竖着放？	3f9114a4912946bbad8bcb597d5602be	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.888005+08	2019-09-01 18:50:06.888005+08
-90	0	6	1	0	0	1	0	0	0	0	0	0	0		【心理】为什么老师改完试卷，分数下面要画两条横线？	058e21529d594dd18f8d41e1b54771b2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:06.94807+08	2019-09-01 18:50:06.94807+08
-91	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】螃蟹煮熟后为什么会变红？	4ae33659a5f44a1495e7de4fcdc09204	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.010493+08	2019-09-01 18:50:07.010493+08
-92	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】不是所有鹦鹉都会说话	fdff242755734e88a6d803b5635b420c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.073643+08	2019-09-01 18:50:07.073643+08
-93	0	6	1	0	0	1	0	0	0	0	0	0	0		【节日】清明节为什么要回乡祭祖？	7477326f3a0b4ff19abc6929ef582dc1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.139232+08	2019-09-01 18:50:07.139232+08
-94	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】不同动物之间会交朋友吗？	c8e2393938d34ebeb9d579e622cbef2a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.190717+08	2019-09-01 18:50:07.190717+08
-95	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】从学渣到哈佛学霸，他用了这3个方法	1a13643ceda84682b16ea6dadf316187	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.252251+08	2019-09-01 18:50:07.252251+08
-96	0	6	1	0	0	1	0	0	0	0	0	0	0		【数学】为什么耳机线总是爱打结？	c8e1287c666947f58fd548ffb1bf1789	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.319288+08	2019-09-01 18:50:07.319288+08
-97	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】机器人也会“生病”	5811e0df19034b1cb6f827ad74a59443	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.388071+08	2019-09-01 18:50:07.388071+08
-98	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】考试后别再说“太粗心了，其实我都会…”	3ef2e184a0e540f19a9dad7c563de90d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.441071+08	2019-09-01 18:50:07.441071+08
-99	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么自己挠痒不会笑？	e96fcb7f40b14a968c31c3cd95273bcc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.493967+08	2019-09-01 18:50:07.493967+08
-100	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】猿和猴有什么区别？	899399419e3545b1b2bc03e9f90a3942	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.547827+08	2019-09-01 18:50:07.547827+08
-101	0	6	1	0	0	1	0	0	0	0	0	0	0		【热点】《老师•好》：老师管你，是因为心里有你！	0c274fb3b12e478fb0fa6faad9fe8380	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.605322+08	2019-09-01 18:50:07.605322+08
-102	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】刷牙为什么会起小泡泡？	249d399d5e7a410980a5fceb9b5f2ac3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.672449+08	2019-09-01 18:50:07.672449+08
-103	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】为什么英国法官和律师上庭时要戴假发？	cea948efa071425fb8813093acbf2106	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.729529+08	2019-09-01 18:50:07.729529+08
-104	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】一天中什么时候空气最新鲜？	ab2ef65acd2b4d31ac178de56ee50140	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.789144+08	2019-09-01 18:50:07.789144+08
-105	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】“北京时间”是北京当地的时间吗？	5c13efd3f98348afae344ec39033e0b4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.853283+08	2019-09-01 18:50:07.853283+08
-106	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】两个轮子的自行车为什么不会倒？	8dd436caf4c24322921bb5f948a78d21	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.910227+08	2019-09-01 18:50:07.910227+08
-107	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】交通灯为什么要用红、绿、黄三种颜色？	4bdf09a6c98540cdb538949ac168fa01	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:07.971667+08	2019-09-01 18:50:07.971667+08
-108	0	6	1	0	0	1	0	0	0	0	0	0	0		【心理】挤电梯时，大家为什么总喜欢向上看？	b27e8d93ca8e4d80b17a0a68bd154789	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.022886+08	2019-09-01 18:50:08.022886+08
-109	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】衡水中学学霸的记忆秘籍	c5abf23edcd54b4bb7912d6dc2813464	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.103679+08	2019-09-01 18:50:08.103679+08
-110	0	6	1	0	0	1	0	0	0	0	0	0	0		【医学】为什么饭后半小时才能吃药？	445f96b2d00b46539433dab9dd3b35e1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.152113+08	2019-09-01 18:50:08.152113+08
-111	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】动物的尾巴有哪些神奇作用？	3af1239010534bcdaaa0de8f382b42df	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.201822+08	2019-09-01 18:50:08.201822+08
-112	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】电池是怎么工作的？	f7cffd50cd4f4020ab675bbd2b357ded	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.275756+08	2019-09-01 18:50:08.275756+08
-113	0	6	1	0	0	1	0	0	0	0	0	0	0		【安全】去春游，这几种常见的植物不能碰！	4c73668403694c289b8d3a2703c08648	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.338456+08	2019-09-01 18:50:08.338456+08
-114	0	6	1	0	0	1	0	0	0	0	0	0	0		【健康】汤泡饭会破坏你的消化系统	6e25e395a1514a07ab3fd3535a757199	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.381664+08	2019-09-01 18:50:08.381664+08
-115	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】没有翅膀的鸟真的存在吗？	8292b9e6b7fd46da8be1be3e8ae3d429	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.444252+08	2019-09-01 18:50:08.444252+08
-116	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】人类首张黑洞照片冲洗了2年	6dbde2ce342a4159b56b830d813d8a86	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.517875+08	2019-09-01 18:50:08.517875+08
-117	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】古代皇子们是怎么上学的？	705b23bf286d4f9280df3517d70a7400	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.561474+08	2019-09-01 18:50:08.561474+08
-118	0	6	1	0	0	1	0	0	0	0	0	0	0		【体育】中国武术里真的有轻功吗？	384a99ad887046a5854e4848d6288ae1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.634344+08	2019-09-01 18:50:08.634344+08
-119	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】高考语文148分是怎样炼成的？	5f3ffb566ae0434d8be1f078457f5e51	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.701224+08	2019-09-01 18:50:08.701224+08
-120	0	6	1	0	0	1	0	0	0	0	0	0	0		【地理】 森林大火为何会引发天上飞火？	8cb89b10a96446398c8a44cbfd8e2855	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.756985+08	2019-09-01 18:50:08.756985+08
-121	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】电报竟然是画家发明的！	37fe81fddd2548bdb3c70a96587ed82e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.800853+08	2019-09-01 18:50:08.800853+08
-122	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】假传“圣旨”？不存在的	f318191cd0ce4154a8ab19a6d4506ec6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.860383+08	2019-09-01 18:50:08.860383+08
-123	0	6	1	0	0	1	0	0	0	0	0	0	0		【气象】为什么春天还没走夏天就到了？	753b5ec4b07f4ab8aa922e6f12691ff9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.926065+08	2019-09-01 18:50:08.926065+08
-124	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】打喷嚏时心脏会停止1%秒	89ae497e30124a6e979fac19194d26bc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:08.98594+08	2019-09-01 18:50:08.98594+08
-125	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】麻省理工大学的SQ3R学习法	8ecf4c909ba243f08ccb895913f9b14c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.057247+08	2019-09-01 18:50:09.057247+08
-126	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】包青天真的是黑脸吗？	94da67eaa9bf40729d35328b3793ab23	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.112801+08	2019-09-01 18:50:09.112801+08
-127	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】“家庭作业”是怎么来的？	94d9316f648749db8ff3379d0946f6c4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.169598+08	2019-09-01 18:50:09.169598+08
-128	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】汉语里让你大跌眼镜的词汇来源	830917dddec7418d996f451eb0843021	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.234652+08	2019-09-01 18:50:09.234652+08
-129	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】鲤鱼为什么喜欢跳水？	de3f5b33a2c74da1bfd80aa26aabf3d1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.289633+08	2019-09-01 18:50:09.289633+08
-130	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】汉语拼音是怎么来的？	c78d070a76184ab688ae9761af1edd77	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.357238+08	2019-09-01 18:50:09.357238+08
-131	0	6	1	0	0	1	0	0	0	0	0	0	0		【热点】巴黎圣母院的大火为何不能及时扑灭？	a239e6701b8b405c8e0d584f5f0bd8de	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.401428+08	2019-09-01 18:50:09.401428+08
-132	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】古印度人会因为相貌丑陋被判刑	ae00449d2c984a8ebba5a6ecabc78518	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.465361+08	2019-09-01 18:50:09.465361+08
-133	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】黑匣子到底有什么用？	f7fe150223b047199e97a17ebe7c14e3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.521622+08	2019-09-01 18:50:09.521622+08
-134	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】语数外考前学习要点	1d819ceec9674a048d352ccf699de509	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.59734+08	2019-09-01 18:50:09.59734+08
-135	0	6	1	0	0	1	0	0	0	0	0	0	0		【科普】黄瓜明明是绿色，为什么叫黄瓜呢？	af1d0c17452e47d3a6f7004a7f8748ae	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.65397+08	2019-09-01 18:50:09.65397+08
-136	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】七尺男儿到底是多高？	d2b3bab384ea4f63ac1b6f9c701bcea7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.762469+08	2019-09-01 18:50:09.762469+08
-137	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】金鱼的记忆有3个月，不是7秒！	ce39b3722f084fa5a11a22043238b8d4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.780439+08	2019-09-01 18:50:09.780439+08
-138	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】星期制度是怎么来的？	3d41b47bfbca4db18e145f5ef4d50c42	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.884413+08	2019-09-01 18:50:09.884413+08
-139	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么血液是红色，血管是绿色？	8d4b6278d43440dea640281f2bc3666e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.893274+08	2019-09-01 18:50:09.893274+08
-140	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】鲁迅，一个被文学耽搁的理科学霸	b46423603573414faf6105596ac44e8b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:09.956094+08	2019-09-01 18:50:09.956094+08
-141	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】鲁迅先生的读书技巧	fab6bc16986a45ec90fd0d287f712fc8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.009874+08	2019-09-01 18:50:10.009874+08
-142	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】鱼肉比畜肉更容易坏	5df83673a5b446b992b0e4b4dcae7e21	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.071744+08	2019-09-01 18:50:10.071744+08
-143	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】动物也会给自己治病	4cbb574c6aa44f10aef67e3c3901e12a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.135663+08	2019-09-01 18:50:10.135663+08
-144	0	6	1	0	0	1	0	0	0	0	0	0	0		【生物】蚊子有22颗牙齿，最长能活100天	fe7ac516e8a04235ae7cca70396a63dc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.195171+08	2019-09-01 18:50:10.195171+08
-145	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】天鹅是世界上飞得最高的鸟类之一	bbfb959d4f4944a79302249ae467eea5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.255984+08	2019-09-01 18:50:10.255984+08
-146	0	6	1	0	0	1	0	0	0	0	0	0	0		【节日】4月30日是“国际不打小孩日”	552f8cdb90ea4c43ae0859f32e2d9208	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.306671+08	2019-09-01 18:50:10.306671+08
-147	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】编程将成为像英语一样的日常技能	7e4266eb6c3c47e296ab6604e0b36a71	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.376629+08	2019-09-01 18:50:10.376629+08
-148	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】钢笔里的毛细原理	3bd7b71948db4caf90f811962d204c50	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.422803+08	2019-09-01 18:50:10.422803+08
-149	0	6	1	0	0	1	0	0	0	0	0	0	0		【动物】蜗牛有25000颗牙齿，是世界之最	011c82978d47460aa5276869b0f9b617	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.492307+08	2019-09-01 18:50:10.492307+08
-150	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】成都七中学霸们的3个学习要点	8100fdf0269e4c15a8b82f34c2a26e8e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.545281+08	2019-09-01 18:50:10.545281+08
-151	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】 “拍马屁“的由来	bed13390706e4080914a5066d9f16a90	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.617739+08	2019-09-01 18:50:10.617739+08
-152	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】大笑能减轻身体痛感	e4034d0b9dd745328952e4f7f7b02413	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.66115+08	2019-09-01 18:50:10.66115+08
-153	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】蚂蚁从高空摔下会死吗？	242361b7a798472cb104c4eed73154cf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.726968+08	2019-09-01 18:50:10.726968+08
-154	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】动物到底有没有思维？	4f8ee2bd2deb428397f94512756980d9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.787793+08	2019-09-01 18:50:10.787793+08
-155	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】是谁砍掉了2月30日这一天？	efcdb789cf774ac69bb49c40d9b32d5f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.84566+08	2019-09-01 18:50:10.84566+08
-156	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】海水结的冰融化后会变成淡水	95bc2042204941449f06f5e8ac35d49e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.911614+08	2019-09-01 18:50:10.911614+08
-157	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】为什么烟花是五颜六色的？	50977ba85db7426da62357c26466536f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:10.96875+08	2019-09-01 18:50:10.96875+08
-158	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】植物也会午睡	84943c4e921e49cbb4c906d25fbbbeda	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.021957+08	2019-09-01 18:50:11.021957+08
-159	0	6	1	0	0	1	0	0	0	0	0	0	0		【生物】猫吃老鼠是为了获取牛磺酸	6d91a2871a0341d299504e928ed23df6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.08721+08	2019-09-01 18:50:11.08721+08
-160	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】吉尼斯世界纪录的“吉尼斯”是什么意思？	e1b7e160de394726b86955533975c4e9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.143832+08	2019-09-01 18:50:11.143832+08
-161	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】电影为什么用绿幕成像，而不是其他颜色？	70952ab306344010b5a76085041f13d9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.218531+08	2019-09-01 18:50:11.218531+08
-162	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】创始人为什么叫“鼻祖”？和鼻子有关系吗？	829abe93c2a74af68488bad383ec9d98	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.25995+08	2019-09-01 18:50:11.25995+08
-163	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】一闪一闪的星星都是恒星	b6b53c8779dd4ffb867a94d9d6ec6bef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.335003+08	2019-09-01 18:50:11.335003+08
-164	0	6	1	0	0	1	0	0	0	0	0	0	0		【地理】什么颜色的土壤最肥沃？	d04a234ac6294814b2bb05e5d13a31b8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.388348+08	2019-09-01 18:50:11.388348+08
-165	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】何猷君：学习要有仪式感	820266ea850f47e6ac9f31577bb1e396	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.456581+08	2019-09-01 18:50:11.456581+08
-166	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】解密海洋里的“移动实验室”	87f11062ef39438886a8508bc7a3f602	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.500163+08	2019-09-01 18:50:11.500163+08
-167	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】“一炷香”的时间到底是多长？	ce9cc88915804ef3937761f844cd7362	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.569145+08	2019-09-01 18:50:11.569145+08
-168	0	6	1	0	0	1	0	0	0	0	0	0	0		【地理】为什么大海有很多不同的颜色？	2c93b07b8cd94668924cb1644185edb9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.636659+08	2019-09-01 18:50:11.636659+08
-169	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】没有牙刷的古代，古人用什么清洁牙齿？	dae395b8858b49d8baaa81442a5fe9cf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.676444+08	2019-09-01 18:50:11.676444+08
-170	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】学语文就是要“死记硬背”	1f8e95c61e1e4642a05fbd57cc033909	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.751142+08	2019-09-01 18:50:11.751142+08
-171	0	6	1	0	0	1	0	0	0	0	0	0	0		【环保】“节能建筑”将成为城市主流	023da9cf6bd84f9e9d6574358c5063c9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.809082+08	2019-09-01 18:50:11.809082+08
-172	0	6	1	0	0	1	0	0	0	0	0	0	0		【心理】小孩子也会得抑郁症	95d247f83e664303b245b9514866ddbc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.87495+08	2019-09-01 18:50:11.87495+08
-173	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】古代消费者如何维权？	2a492edc5bed43f1b71336c2498b2187	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.932654+08	2019-09-01 18:50:11.932654+08
-174	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】额前的头发为什么叫“刘海”？	6a230bd2a77642818cd30fbb0e68b94e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:11.987682+08	2019-09-01 18:50:11.987682+08
-175	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】什么时候开始金额要用大写	ed635bd449fc4aa987576f25f8ffcc65	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.039101+08	2019-09-01 18:50:12.039101+08
-176	0	6	1	0	0	1	0	0	0	0	0	0	0		【节日】母亲节是怎么来的？	35e28d5b50a741e89b19eb7ed75e20b8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.107003+08	2019-09-01 18:50:12.107003+08
-177	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】雨水到底脏不脏？	f827ffd968b7498781b3d02c621ba52d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.166548+08	2019-09-01 18:50:12.166548+08
-178	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】时间为什么是60进制？	626c61858cf048259fd6d005f51d5907	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.228346+08	2019-09-01 18:50:12.228346+08
-179	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】条形码是信息时代的伟大发明	c7275c1b744b4920a281794d2589a852	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.286706+08	2019-09-01 18:50:12.286706+08
-180	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】清华学霸是如何整理错题本的？	8c46816ce29a49248281c4fb4c3cc5e0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.34758+08	2019-09-01 18:50:12.34758+08
-181	0	6	1	0	0	1	0	0	0	0	0	0	0		【天文】人类永远无法到达银河	475053ee97df4349aa8fded8e8786f06	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.410347+08	2019-09-01 18:50:12.410347+08
-182	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】世界上第一部科幻小说是怎么来的？	035c13f866c047729c9220995d145d4a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.465844+08	2019-09-01 18:50:12.465844+08
-183	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】新能源汽车是否真的环保？	0d8bcf00668c47ecabd8ea9ac4ffd386	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.526246+08	2019-09-01 18:50:12.526246+08
-184	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】科学家为什么要研究和推广人工智能？	50ca2fe0dd734603bda2a20a2da2e5bc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.583331+08	2019-09-01 18:50:12.583331+08
-185	0	6	1	0	0	1	0	0	0	0	0	0	0		【动物】猛兽看到电视上的猎物能分辨真假吗？	b0fe06ba85f948c5a457977b2ed01685	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.653884+08	2019-09-01 18:50:12.653884+08
-186	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】古人结婚拜堂为何都在傍晚?	098c155d9f3847ba8c13900fa5df5fa1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.709379+08	2019-09-01 18:50:12.709379+08
-187	0	6	1	0	0	1	0	0	0	0	0	0	0		【生物】为什么罐头里食品不容易变坏?	99a53d416ff24734b3aa8e6041937c35	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.77749+08	2019-09-01 18:50:12.77749+08
-188	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】小学英语“阅读理解”该如何作答？	15fbb6d0ce1c45df9b40547c90e50d80	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.816001+08	2019-09-01 18:50:12.816001+08
-189	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】为什么是“不到黄河心不死”，而不是“不到长江心不死”？	0eb92f0e48634769ba19e3e683ef7c4c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.890854+08	2019-09-01 18:50:12.890854+08
-190	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】为什么黑色的花很少见？	05dd8315ebc04ba99e5c9940c3280495	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:12.951585+08	2019-09-01 18:50:12.951585+08
-191	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】唐宋八大家是怎么评选出来的？	4a8df5322977412fa52d42affd0100ea	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.006593+08	2019-09-01 18:50:13.006593+08
-192	0	6	1	0	0	1	0	0	0	0	0	0	0		【心理】你有双重人格吗？	c4fa28b16c2d4b928c7782c8611a335b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.067472+08	2019-09-01 18:50:13.067472+08
-193	0	6	1	0	0	1	0	0	0	0	0	0	0		【环保】生态系统对我们有多重要？	9eddd7d834c0461287ac496f8ef0f806	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.128664+08	2019-09-01 18:50:13.128664+08
-194	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】庞贝，一个被火山活埋的城市	29ca846d6e4940eeaf145e9093981e10	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.187018+08	2019-09-01 18:50:13.187018+08
-195	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】衡水中学王末默：做学习的主人	7e618fa8a8f44737b42b0a5f592b4085	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.255869+08	2019-09-01 18:50:13.255869+08
-196	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】古代女子是如何化妆的？	c9bea030cf9e46509c30a3c20a90cd31	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.308381+08	2019-09-01 18:50:13.308381+08
-197	0	6	1	0	0	1	0	0	0	0	0	0	0		【军事】为什么导弹接近目标后才会爆炸？	4f1b797851ae4600b8ba0ffd39a8dfc0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.37286+08	2019-09-01 18:50:13.37286+08
-198	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】我国的第一口水井是怎么打出来的？	2ea5ac5b8f244a0cb68a96c2b9f36928	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.421501+08	2019-09-01 18:50:13.421501+08
-199	0	6	1	0	0	1	0	0	0	0	0	0	0		【环保】玻璃幕墙会导致光污染	34dad4fa97c24ae0973f10bb424c2e5f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.491268+08	2019-09-01 18:50:13.491268+08
-200	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】 为什么卫星发射都是在晚上？	cb881b5aab5d4fa9aa9240559e488fde	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.555739+08	2019-09-01 18:50:13.555739+08
-201	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】“肥皂剧”竟然真的和肥皂有关	b2f372e769ea489999d38b2e7bd38860	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.611607+08	2019-09-01 18:50:13.611607+08
-202	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】三十年河东、三十年河西，指的是哪条河？	04ed02e26a134c57bd531b8b30533fd1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.671541+08	2019-09-01 18:50:13.671541+08
-203	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】初中物理应该怎么学？	96c36811987241c291dcc00af0f5be3d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.738114+08	2019-09-01 18:50:13.738114+08
-204	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】汉剑和唐刀，谁是历史的兵器巅峰？	f7e088afde9647febefe1766bba02b4d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.785324+08	2019-09-01 18:50:13.785324+08
-205	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】人的大脑真的只开发了10%吗？	ac1331de9124424aa80d2c6116a8dfb3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.842845+08	2019-09-01 18:50:13.842845+08
-206	0	6	1	0	0	1	0	0	0	0	0	0	0		【医学】网红大胃王的胃究竟多大？	a907898a08d641358ef1eb46db8dcfde	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.903082+08	2019-09-01 18:50:13.903082+08
-207	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】当前方既有食物又有危险时，猫会怎样行动？	f25a60e9446b4552a1bde4c553118dcd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:13.964884+08	2019-09-01 18:50:13.964884+08
-208	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】为什么汽车前雾灯是黄色，后雾灯是红色？	deecf564e232435892848622b9582540	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.023768+08	2019-09-01 18:50:14.023768+08
-209	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】“芯片女皇”何庭波也是个标准的“学霸”	8cc5b1707ea9439ba5fafdef76009a0f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.095198+08	2019-09-01 18:50:14.095198+08
-210	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么打针前要把针筒里的药水挤掉一点？	8714cd8c9181477b86e67f8d0556bf6f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.140879+08	2019-09-01 18:50:14.140879+08
-211	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】中国古代真的有“蒙汗药”吗？	dc224342e5664cbfa654de27f73baf0e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.202468+08	2019-09-01 18:50:14.202468+08
-212	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】美洲虎不是真正的虎	b911a947b77a4052835019dee163349a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.268267+08	2019-09-01 18:50:14.268267+08
-213	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】中国是应用指纹的发源地	6e95981ef3dc45a3bd7a49180cdde5bd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.329271+08	2019-09-01 18:50:14.329271+08
-214	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】 “人造肉”将成为国际食品趋势	5c8c7953226f45b0ba127f6e718d16a5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.402628+08	2019-09-01 18:50:14.402628+08
-215	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】学霸公认的最强学习方法费曼技巧	86948c378d98460cb974b6837677611d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.47377+08	2019-09-01 18:50:14.47377+08
-216	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】为什么古希腊的雕塑都是裸体？	2f2985fb57e245e7a8217af5af0ee1cb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.508469+08	2019-09-01 18:50:14.508469+08
-217	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】 六一儿童节是怎么来的？	a724f4035e1041bbb58d6c7e61ad9c16	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.577655+08	2019-09-01 18:50:14.577655+08
-218	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】什么人最容易被蚊子叮咬？	ec46a11e68d24bbca3f396e39a695ca5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.620867+08	2019-09-01 18:50:14.620867+08
-219	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】“卖关子”这个说法是怎么来的？	6d4c88de91f645f980e22b93a05dcdde	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.691626+08	2019-09-01 18:50:14.691626+08
-220	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么降落伞能落到精准的位置？	2d1339f167664b9aa2b8a45c7f5bf773	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.747582+08	2019-09-01 18:50:14.747582+08
-221	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】人打哈欠时为什么会流泪？	09a949df03ca42e3877e8a771b6db6dd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.801032+08	2019-09-01 18:50:14.801032+08
-222	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】飞机降落时嚼口香糖可以防止耳膜胀裂	b469234216bc40e29c1b83a7ca49e8d3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.859249+08	2019-09-01 18:50:14.859249+08
-223	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么救生衣多为橙黄色？	6ec600655a6a49d3a9861691acd78f21	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.933637+08	2019-09-01 18:50:14.933637+08
-224	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】清华双胞胎学霸的“学习计划表”，中等生改良后，成绩猛蹿！	0ec7755b9e4749238e61e57abba15d48	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:14.991534+08	2019-09-01 18:50:14.991534+08
-225	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】章鱼的血是蓝色的	d2830f56ae5442dea4d14648552704e8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.054348+08	2019-09-01 18:50:15.054348+08
-226	0	6	1	0	0	1	0	0	0	0	0	0	0		【动物】啄木鸟啄木的速度能达到每小时2092公里	9ae1538d8f05477898933fc01f41f454	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.09617+08	2019-09-01 18:50:15.09617+08
-227	0	6	1	0	0	1	0	0	0	0	0	0	0		【健康】 人字拖比高跟鞋更伤脚	eb679722c314440d954662f9fd6bf1f3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.1687+08	2019-09-01 18:50:15.1687+08
-228	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】人一生为什么会长两副牙？	977ae92ad301496da04043f293365a66	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.227888+08	2019-09-01 18:50:15.227888+08
-229	0	6	1	0	0	1	0	0	0	0	0	0	0		【美食】古代人们是如何烹饪食物的？	0d9d49a5e78f4946a96f003adb1102c9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.298958+08	2019-09-01 18:50:15.298958+08
-230	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】很多动物都冬眠，海参则要夏眠	2e3d5bb103584a5f90d4b899b8cbdcb3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.337868+08	2019-09-01 18:50:15.337868+08
-231	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】学数学前，先明白为什么要学	66cb4749881346dfaf129369c604c14a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.406611+08	2019-09-01 18:50:15.406611+08
-232	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】白头发真的会“拔一根长十根”？	b80ee8f036dc4cea94b3b76c12492e17	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.462295+08	2019-09-01 18:50:15.462295+08
-233	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】古代有星期天吗？	2052d7fab23b4b0085483a6e3d7ad8b5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.534278+08	2019-09-01 18:50:15.534278+08
-234	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】为什么大雁喜欢成“人”或“一”字飞行	e1111a09b199477b96da8ec4dda01526	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.582927+08	2019-09-01 18:50:15.582927+08
-235	0	6	1	0	0	1	0	0	0	0	0	0	0		【健康】指甲上的月牙代表什么？	6fe51ab64d194b92b5f18defab03cc75	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.655194+08	2019-09-01 18:50:15.655194+08
-236	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】防弹玻璃的雏形原来是汉堡包	07770eb829fa4b0e9ee8bfbc274c6274	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.701633+08	2019-09-01 18:50:15.701633+08
-237	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么大拇指只有两节？	59dc2c91aed04749a5775cc29308ca8e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.765798+08	2019-09-01 18:50:15.765798+08
-238	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】为什么新疆的西瓜特别甜？	59edf2aa4358457bb430b2acc6bf98cc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.821154+08	2019-09-01 18:50:15.821154+08
-239	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】高三满分学霸分享的五种高效学习方法	d532805c2c144d20b48ef15933f1430b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.876373+08	2019-09-01 18:50:15.876373+08
-240	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】世界上最短航线只需要一分钟	dde5f5ea71d14014beeb50dd7316fc7c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:15.942337+08	2019-09-01 18:50:15.942337+08
-241	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】电子科学离不开电真空技术	ef7a37eb481645bda5dd0916a45ec989	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.014324+08	2019-09-01 18:50:16.014324+08
-242	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】夏天自行车更易爆胎	7393814354884f239eade6b11dac00e5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.073269+08	2019-09-01 18:50:16.073269+08
-243	0	6	1	0	0	1	0	0	0	0	0	0	0		【娱乐】哪些明星的高考成绩非常高？	3156f39a6e8641d98d8615c4e8e84bad	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.119366+08	2019-09-01 18:50:16.119366+08
-244	0	6	1	0	0	1	0	0	0	0	0	0	0		【动物】为什么老虎喜欢淋浴不爱泡澡？	5670305e1ab641dda2b31a1719c65c9b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.189826+08	2019-09-01 18:50:16.189826+08
-245	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】午餐后我们为何格外困乏？	f9addf1842e842929b95b5d283f7cb4c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.250578+08	2019-09-01 18:50:16.250578+08
-246	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】亚洲其他国家的“高考”怎么样？新加坡最“变态”	46c04ae84e14480ca168a2c04f602ec5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.304941+08	2019-09-01 18:50:16.304941+08
-247	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】 古代多少钱可以买一套房？	874040c1c557466197b316cbeac11e7a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.37033+08	2019-09-01 18:50:16.37033+08
-248	0	6	1	0	0	1	0	0	0	0	0	0	0		【植物】能吸光人血的“吸血树”	39f73d57cb284d62aedc20c754f9f75a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.435631+08	2019-09-01 18:50:16.435631+08
-249	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】西班牙人为什么喜欢斗牛？	4bbbc0e9fc84441c9c5ad39808f7f663	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.486033+08	2019-09-01 18:50:16.486033+08
-250	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】杨幂的“英语教学”能快速提升英语语感	05f49f108264473fa68847dc6b9e2ff9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.554722+08	2019-09-01 18:50:16.554722+08
-251	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】坐飞机可以随心所欲使用手机了吗？	b44aec178da54ca596929a49ab490bf7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.601693+08	2019-09-01 18:50:16.601693+08
-252	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】 “人民币”的缩写竟然不是RMB	1f87c53b701f49518de887fea47c1d74	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.665321+08	2019-09-01 18:50:16.665321+08
-253	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么上完课要休息“10分钟”？	b637f07981454211857bdee2d7903fd9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.723743+08	2019-09-01 18:50:16.723743+08
-254	0	6	1	0	0	1	0	0	0	0	0	0	0		【地理】我国唯一一个“不夜城”——漠河	2d5a83f03fac42c2b434f2b51264ca15	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.786165+08	2019-09-01 18:50:16.786165+08
-255	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】高考状元说：复习要从高二暑假开始才有优势	c804d6a678bc411cb6376c47cb39abe7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.840455+08	2019-09-01 18:50:16.840455+08
-256	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】飞机飞行时怕闪电吗？	7043df8f2cc2427a96c2a9acba651114	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.920541+08	2019-09-01 18:50:16.920541+08
-257	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】在民国考大学，你需要多少分才能够被录取？	1124254c5d50405c9273a2ed6556774b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:16.960789+08	2019-09-01 18:50:16.960789+08
-258	0	6	1	0	0	1	0	0	0	0	0	0	0		【社会】大学最易被误会的专业，你选了吗？	a392b94682d04438868cd904d9071110	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.032604+08	2019-09-01 18:50:17.032604+08
-259	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】彗星为什么被称作“扫帚星”	daf304bed1294e18837c271e1704d732	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.094456+08	2019-09-01 18:50:17.094456+08
-260	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】双黄蛋能孵出两只小鸡吗？	d373ffa8bd5d4ed3b27ae9139a8e9783	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.143613+08	2019-09-01 18:50:17.143613+08
-364	0	9	1	0	0	2	0	0	0	0	0	0	0		016 Ellie-Lesson 3	7e4e42a7eae440ad80cd5fab8d20a2a7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.382296+08	2019-09-01 18:50:23.382296+08
-261	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】为什么学生又称“桃李”？	6a7edfffb0be422890ac6f9c6472979c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.201592+08	2019-09-01 18:50:17.201592+08
-262	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】圣人孔子也是有武艺的	0b2da112273b4a3a85012185b125e9b6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.269213+08	2019-09-01 18:50:17.269213+08
-263	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】一个人最多能拎得起多少钱	668a7fd9417b4fc9991106f58391dbc5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.325603+08	2019-09-01 18:50:17.325603+08
-264	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】上课听懂了，下课会做了，考试为什么还出错？	04cb0fc4f0fa4f0590f5e5d1788e97e9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.397753+08	2019-09-01 18:50:17.397753+08
-265	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】有哪些损坏手机电池的坏习惯？	5de1cecee3f64d4fa8f88494024aa0cb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.443041+08	2019-09-01 18:50:17.443041+08
-266	0	6	1	0	0	1	0	0	0	0	0	0	0		【节气】夏至为什么叫夏至？	fefba1521a294669bbd9c79f0aa83fae	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.512852+08	2019-09-01 18:50:17.512852+08
-267	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】蜘蛛吐丝的奥秘	1c16be2cd63f4d7fb711345055531f80	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.558739+08	2019-09-01 18:50:17.558739+08
-268	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】“闭门羹”是一种什么“羹”	8bd70062730a4b518fec59cce2d9f133	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.627074+08	2019-09-01 18:50:17.627074+08
-269	0	6	1	0	0	1	0	0	0	0	0	0	0		【生活】牛奶香蕉真的不能空腹吃吗？	dc0107f90bdd4f0184ad0f29c4faf786	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.701776+08	2019-09-01 18:50:17.701776+08
-270	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】右耳接电话会损伤大脑吗？	44883e8d048c47aa98f59e8ed4b52ac3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.743193+08	2019-09-01 18:50:17.743193+08
-271	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】一天中人体的身高数据都是不同的	ee0ba08a54e847ceb665fc02118ff087	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.796988+08	2019-09-01 18:50:17.796988+08
-272	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】扑克牌中4个K上面印的人物都大有来头	abbb1e46bdc5476eb60e4754cc83f987	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.86772+08	2019-09-01 18:50:17.86772+08
-273	0	6	1	0	0	1	0	0	0	0	0	0	0		【医学】为什么有些中学生会长白头发？	11bdd8e7365043fc80e793386a30deb7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.923348+08	2019-09-01 18:50:17.923348+08
-274	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】不笑的脸比笑脸看起来年轻2岁	850daba957b1453386c7e5df72ddccd9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:17.976453+08	2019-09-01 18:50:17.976453+08
-275	0	5	1	0	0	1	0	0	0	0	0	0	0		001 分数乘整数	4c519a44f5af406baa52d1fcf030fc1a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.040109+08	2019-09-01 18:50:18.040109+08
-276	0	5	1	0	0	1	0	0	0	0	0	0	0		002 胡青清-分数乘分数、分数的简便运算	8ee66a074578403ea9229df42c85a4ff	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.117361+08	2019-09-01 18:50:18.117361+08
-277	0	5	1	0	0	2	0	0	0	0	0	0	0		003 胡青清-分数乘小数	92ce1b6ec2854146a70301f68bd81310	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.161923+08	2019-09-01 18:50:18.161923+08
-278	0	5	1	0	0	2	0	0	0	0	0	0	0		004 胡青清-分数乘法混合运算	338c929370bc403ab57f74851e14df5e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.223513+08	2019-09-01 18:50:18.223513+08
-279	0	5	1	0	0	2	0	0	0	0	0	0	0		005 胡青清-分数应用题	d1f71cb99afd4815bb6240482949fcd8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.294587+08	2019-09-01 18:50:18.294587+08
-280	0	5	1	0	0	2	0	0	0	0	0	0	0		006 胡青清-方向与位置（一）	811ac5b546cd4ebeb857efcf8da84b9f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.335467+08	2019-09-01 18:50:18.335467+08
-281	0	5	1	0	0	2	0	0	0	0	0	0	0		007 胡青清-方向与位置（二）	e9feaadfbc844b02984b6e5e8993d5c5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.410328+08	2019-09-01 18:50:18.410328+08
-282	0	5	1	0	0	2	0	0	0	0	0	0	0		008 胡青清-位置与方向	fb44dc7b681b4b31b6f03fa1a16bba48	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.471209+08	2019-09-01 18:50:18.471209+08
-283	0	5	1	0	0	2	0	0	0	0	0	0	0		009 胡青清-倒数的认识	4dfda287955e4f5aad9e78e4708c10e7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.533099+08	2019-09-01 18:50:18.533099+08
-284	0	5	1	0	0	2	0	0	0	0	0	0	0		010 胡青清-分数除整数	bd9a83aeabb847bb8cd1bd5af2e87fa2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.588558+08	2019-09-01 18:50:18.588558+08
-285	0	5	1	0	0	2	0	0	0	0	0	0	0		011 胡青清-除法的混合运算	74f0918b891d44b8a08319e95052d96d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.648186+08	2019-09-01 18:50:18.648186+08
-286	0	5	1	0	0	2	0	0	0	0	0	0	0		012 胡青清-已知一个数的几分之几求另一个数	9c0722420b574a3daea73ac0f985b00b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.707022+08	2019-09-01 18:50:18.707022+08
-287	0	5	1	0	0	2	0	0	0	0	0	0	0		013 胡青清-已知比一个数多（少）求另一个数	d9b48456c65d49e1bcb982f5e3bd8148	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.767254+08	2019-09-01 18:50:18.767254+08
-288	0	5	1	0	0	2	0	0	0	0	0	0	0		014 胡青清-两个未知数的和倍问题	52db9d92309d484a9f13d98206b0b875	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.83505+08	2019-09-01 18:50:18.83505+08
-289	0	5	1	0	0	2	0	0	0	0	0	0	0		015 胡青清-分数除法	7aec726be43c4a228799a8b98d650b2b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.92149+08	2019-09-01 18:50:18.92149+08
-290	0	5	1	0	0	2	0	0	0	0	0	0	0		016 胡青清-分数乘法总复习	61fecdcff9b74b7c9d729b6b8ea4f850	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:18.958983+08	2019-09-01 18:50:18.958983+08
-291	0	5	1	0	0	2	0	0	0	0	0	0	0		017 胡青清-方向与位置总复习	5206599c274b4cdab4a9e7961803627a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.000143+08	2019-09-01 18:50:19.000143+08
-292	0	5	1	0	0	2	0	0	0	0	0	0	0		018 胡青清-分数乘法的总复习	052b939a1ec44bb6a0cbb762ae9f605b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.072268+08	2019-09-01 18:50:19.072268+08
-293	0	5	1	0	0	2	0	0	0	0	0	0	0		019 胡青清-比的意义	597dd526dfe147119dec25c665734595	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.131854+08	2019-09-01 18:50:19.131854+08
-294	0	5	1	0	0	2	0	0	0	0	0	0	0		020 胡青清-比的基本性质	d25a0464e3464197b34899e946a15729	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.196722+08	2019-09-01 18:50:19.196722+08
-295	0	5	1	0	0	2	0	0	0	0	0	0	0		021 胡青清-比例的分配	3b5b7a250533452180041a6dfddbf389	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.240834+08	2019-09-01 18:50:19.240834+08
-296	0	5	1	0	0	2	0	0	0	0	0	0	0		022 胡青清-圆的认识	6d5b967a91224c73b7d6966e8ac3437b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.305395+08	2019-09-01 18:50:19.305395+08
-297	0	5	1	0	0	2	0	0	0	0	0	0	0		023 胡青清-圆的周长	86b17804c229475485201bb6aee9e2da	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.356232+08	2019-09-01 18:50:19.356232+08
-298	0	5	1	0	0	2	0	0	0	0	0	0	0		024 胡青清-圆的面积（一）	d3762664f65c41aa949382a657a5b1a4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.424216+08	2019-09-01 18:50:19.424216+08
-299	0	5	1	0	0	2	0	0	0	0	0	0	0		025 胡青清-圆的面积（二）	33f52f6ffe7e4554930748d5be81ea5e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.48455+08	2019-09-01 18:50:19.48455+08
-300	0	5	1	0	0	2	0	0	0	0	0	0	0		026 胡青清-扇形	c17dbec7c02a49299de3e38c707e8151	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.550484+08	2019-09-01 18:50:19.550484+08
-301	0	5	1	0	0	2	0	0	0	0	0	0	0		027 胡青清-百分数的认识	908c10d0353c4771a22968d3735e61ab	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.601945+08	2019-09-01 18:50:19.601945+08
-302	0	5	1	0	0	2	0	0	0	0	0	0	0		028 胡青清-百分数的换算	70cc5336deb84c75b77684f1a43c2886	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.663016+08	2019-09-01 18:50:19.663016+08
-303	0	5	1	0	0	2	0	0	0	0	0	0	0		029 胡青清-百分数和分数的互化	b8548410622741f5834251fa41b30992	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.727986+08	2019-09-01 18:50:19.727986+08
-304	0	5	1	0	0	2	0	0	0	0	0	0	0		030 胡青清-百分数的应用 求一个数比另一个数	02d7416ff42f4fa68ed25c1afd0d5f3c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.794416+08	2019-09-01 18:50:19.794416+08
-305	0	5	1	0	0	2	0	0	0	0	0	0	0		031 胡青清-百分数 解决问题	763139c9f6ff4eafb4d11bfed506929b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.833441+08	2019-09-01 18:50:19.833441+08
-306	0	5	1	0	0	2	0	0	0	0	0	0	0		032 胡青清-比的认识总复习	e4f542ca0bff446abf64ec9ce30873af	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.90565+08	2019-09-01 18:50:19.90565+08
-307	0	5	1	0	0	2	0	0	0	0	0	0	0		033 胡青清-圆的总复习	ab573cd3cc07424da9287b465b4214a6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:19.966763+08	2019-09-01 18:50:19.966763+08
-308	0	5	1	0	0	2	0	0	0	0	0	0	0		034 胡青清-百分数的整理与复习	eb3fc65219304f14a96244d9d9ad5c8b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.025073+08	2019-09-01 18:50:20.025073+08
-309	0	5	1	0	0	2	0	0	0	0	0	0	0		035 胡青清-扇形图	8427ba614faf4e978481be8137a82ac4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.089699+08	2019-09-01 18:50:20.089699+08
-310	0	5	1	0	0	2	0	0	0	0	0	0	0		036 胡青清-扇形统计图（选择）	937112c9d9ff434ab71a7f83b292f149	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.147907+08	2019-09-01 18:50:20.147907+08
-311	0	5	1	0	0	2	0	0	0	0	0	0	0		037 胡青清-数学广角	f7d04f1725d34be18853ce14ec2a8ff1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.208028+08	2019-09-01 18:50:20.208028+08
-312	0	5	1	0	0	2	0	0	0	0	0	0	0		038 胡青清-期末总结	9f1bde3914a64982b9a94030e4bf41be	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.26688+08	2019-09-01 18:50:20.26688+08
-313	0	7	1	0	0	1	0	0	0	0	0	0	0		001 谢薇-学弈	3420bb58430b408ebc8ad502a4e9ea8c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.324814+08	2019-09-01 18:50:20.324814+08
-314	0	7	1	0	0	1	0	0	0	0	0	0	0		002 谢薇-两小儿辩日	6af962703e8b48a890e5dad8f59c034a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.388103+08	2019-09-01 18:50:20.388103+08
-315	0	7	1	0	0	2	0	0	0	0	0	0	0		003 谢薇-匆匆（一）	6e96607ec7154a42a4a5fcd15d93bc42	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.438139+08	2019-09-01 18:50:20.438139+08
-316	0	7	1	0	0	2	0	0	0	0	0	0	0		004 谢薇-匆匆（二）	b5461a4da0f4488bbfccd153e82623a4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.509798+08	2019-09-01 18:50:20.509798+08
-317	0	7	1	0	0	2	0	0	0	0	0	0	0		005 谢薇-桃花心木（一）	f9f23a02ab634a68a2d20cba56573f24	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.57901+08	2019-09-01 18:50:20.57901+08
-318	0	7	1	0	0	2	0	0	0	0	0	0	0		006 谢薇-桃花心木（二）	9c01f642d02244fca8314aeb2b1f601a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.642003+08	2019-09-01 18:50:20.642003+08
-319	0	7	1	0	0	2	0	0	0	0	0	0	0		007 谢薇-顶碗少年	4bc6900791dd4a95b1eb90161c652d56	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.901541+08	2019-09-01 18:50:20.901541+08
-320	0	7	1	0	0	2	0	0	0	0	0	0	0		008 谢薇-手指	206e3f6b34634b91976c673ce360c45a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.92672+08	2019-09-01 18:50:20.92672+08
-321	0	7	1	0	0	2	0	0	0	0	0	0	0		009 谢薇-语文园地一	bdc19cf74718480abcc765c5a229659d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.932336+08	2019-09-01 18:50:20.932336+08
-322	0	7	1	0	0	2	0	0	0	0	0	0	0		010 谢薇-北京的春节（一）	ec2a2f440ade407fba97cc482af814f0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.980326+08	2019-09-01 18:50:20.980326+08
-323	0	7	1	0	0	2	0	0	0	0	0	0	0		011 谢薇-北京的春节（二）	682ab97ec01f424b99c5cb9f948b00a4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:20.989997+08	2019-09-01 18:50:20.989997+08
-324	0	7	1	0	0	2	0	0	0	0	0	0	0		013 谢薇-各具特色的民居	b9d150de46da423b928d05546231dafe	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.075098+08	2019-09-01 18:50:21.075098+08
-325	0	7	1	0	0	2	0	0	0	0	0	0	0		012 谢薇-藏戏	1c90f238656c45f994c34757432bf06b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.090582+08	2019-09-01 18:50:21.090582+08
-326	0	7	1	0	0	2	0	0	0	0	0	0	0		014 谢薇-和田的维吾尔人	c3e0f5aa28aa479b84dd6e1d130c5ca1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.107148+08	2019-09-01 18:50:21.107148+08
-327	0	7	1	0	0	2	0	0	0	0	0	0	0		015 谢薇-语文园地二	2545bf942183414fb99e8818c3f2da8f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.163403+08	2019-09-01 18:50:21.163403+08
-328	0	7	1	0	0	2	0	0	0	0	0	0	0		016 谢薇-十六年前的回忆（一）	a07e796c984c427286c29392c06df513	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.222172+08	2019-09-01 18:50:21.222172+08
-329	0	7	1	0	0	2	0	0	0	0	0	0	0		017 谢薇-十六年前的回忆（二）	2dbb5b458ea643b28885d217b24628b1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.293108+08	2019-09-01 18:50:21.293108+08
-330	0	7	1	0	0	2	0	0	0	0	0	0	0		018 谢薇-灯光	aad5433519ac4ba89d43b01f75878a74	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.335445+08	2019-09-01 18:50:21.335445+08
-331	0	7	1	0	0	2	0	0	0	0	0	0	0		019 谢薇-为人民服务（一）	eb30a4b7b7764cc09ef215ea282e14d4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.401728+08	2019-09-01 18:50:21.401728+08
-332	0	7	1	0	0	2	0	0	0	0	0	0	0		020 谢薇-为人民服务（二）	9b561a9ef2374a8b9b93d15a622d16f2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.466345+08	2019-09-01 18:50:21.466345+08
-333	0	7	1	0	0	2	0	0	0	0	0	0	0		021 谢薇-一夜的工作	58677b7aeef84501ac8dc32f83fde390	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.524423+08	2019-09-01 18:50:21.524423+08
-334	0	7	1	0	0	2	0	0	0	0	0	0	0		022 谢薇-语文园地三	85abaf50e0e34406943919e1dd8a2049	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.596783+08	2019-09-01 18:50:21.596783+08
-335	0	7	1	0	0	2	0	0	0	0	0	0	0		023 谢薇-卖火柴的小女孩（一）	7e327b5c0ef34e89a0fdd8eb36753d84	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.638512+08	2019-09-01 18:50:21.638512+08
-336	0	7	1	0	0	2	0	0	0	0	0	0	0		024 谢薇-卖火柴的小女孩（二）	ee0a5f518add494aaf81bfbf6dfa1617	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.701143+08	2019-09-01 18:50:21.701143+08
-337	0	7	1	0	0	2	0	0	0	0	0	0	0		025 谢薇-凡卡（一）	6122618360b146eaa254b106b474eddc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.764713+08	2019-09-01 18:50:21.764713+08
-338	0	7	1	0	0	2	0	0	0	0	0	0	0		026 谢薇-凡卡（二）	c8710a012c9d4ef185e9c5d60a8f9123	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.818349+08	2019-09-01 18:50:21.818349+08
-339	0	7	1	0	0	2	0	0	0	0	0	0	0		027 谢薇-鲁滨孙漂流记	b448eb713dcb4c7d8e68ef5d1bc570ed	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.885146+08	2019-09-01 18:50:21.885146+08
-340	0	7	1	0	0	2	0	0	0	0	0	0	0		028 谢薇-汤姆索亚历险记	725d670de51e417fad4653b67daf4aea	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:21.952892+08	2019-09-01 18:50:21.952892+08
-341	0	7	1	0	0	2	0	0	0	0	0	0	0		029 谢薇-语文园地四	25dcdf3005504f97bb66fdd27389b865	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.013451+08	2019-09-01 18:50:22.013451+08
-342	0	7	1	0	0	2	0	0	0	0	0	0	0		030 谢薇-跨越百年的美丽（一）	aa2bd4f69ca14d739178fad26ca9c8c4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.073718+08	2019-09-01 18:50:22.073718+08
-343	0	7	1	0	0	2	0	0	0	0	0	0	0		031 谢薇-跨越百年的美丽（二）	7a46ed0ebf614a19ad2d7da5b7b8f6a1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.12454+08	2019-09-01 18:50:22.12454+08
-344	0	7	1	0	0	2	0	0	0	0	0	0	0		032 谢薇-千年梦圆在今朝	01fb924c5fcf432b954d8ad0d1da20e0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.182988+08	2019-09-01 18:50:22.182988+08
-345	0	7	1	0	0	2	0	0	0	0	0	0	0		033 谢薇-真理诞生于一百个问号之后（一）	62b7302a6ef0410e91b2745e94ebfcb4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.243636+08	2019-09-01 18:50:22.243636+08
-346	0	7	1	0	0	2	0	0	0	0	0	0	0		034 谢薇-真理诞生于一百个问号之后（二）	8a682bdba5c94a79986973502cd53377	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.307361+08	2019-09-01 18:50:22.307361+08
-347	0	7	1	0	0	2	0	0	0	0	0	0	0		035 谢薇-我最好的老师	027e1525390148aaa172df4a1b42969c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.372299+08	2019-09-01 18:50:22.372299+08
-348	0	7	1	0	0	2	0	0	0	0	0	0	0		036 谢薇-语文园地五	4713cb044cc64cf8a7ad1bc43e4ecdb5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.414721+08	2019-09-01 18:50:22.414721+08
-349	0	9	1	0	0	1	0	0	0	0	0	0	0		001 Ellie-课程介绍	776f4b53d0044100a41a2037ca3631ea	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.48579+08	2019-09-01 18:50:22.48579+08
-350	0	9	1	0	0	1	0	0	0	0	0	0	0		002 Ellie-Lesson 1	ac2991fb5fcc4ed19ead375f5c65687a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.543413+08	2019-09-01 18:50:22.543413+08
-351	0	9	1	0	0	2	0	0	0	0	0	0	0		003 Ellie-Lesson 2	6957e019b7314d2fadb060b774a7edd9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.604002+08	2019-09-01 18:50:22.604002+08
-352	0	9	1	0	0	2	0	0	0	0	0	0	0		004 Ellie-Lesson 3	4f1b0c0f382f463a92e1c0be614be79d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.670104+08	2019-09-01 18:50:22.670104+08
-353	0	9	1	0	0	2	0	0	0	0	0	0	0		005 Ellie-Lesson 4	70fad6cd2d1e475ea8eeb01a84fc2ac6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.73315+08	2019-09-01 18:50:22.73315+08
-354	0	9	1	0	0	2	0	0	0	0	0	0	0		006 Ellie-Lesson 5	8f682d5ef70442d5a2dd35c2d9b4e037	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.796308+08	2019-09-01 18:50:22.796308+08
-355	0	9	1	0	0	2	0	0	0	0	0	0	0		007 Ellie-Lesson 6	c925f4557eff4c4f94e7acda31b27d30	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.834693+08	2019-09-01 18:50:22.834693+08
-356	0	9	1	0	0	2	0	0	0	0	0	0	0		008 Ellie-Lesson 1	0b8e9dec0a2144afa0118832da90f95b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.899246+08	2019-09-01 18:50:22.899246+08
-357	0	9	1	0	0	2	0	0	0	0	0	0	0		009 Ellie-Lesson 2	64a80d9c94d9477cba39f1fa9edcb476	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:22.968356+08	2019-09-01 18:50:22.968356+08
-358	0	9	1	0	0	2	0	0	0	0	0	0	0		010 Ellie-Lesson 3	15f21a76afa244fd82fc893e7c3fcbbe	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.023002+08	2019-09-01 18:50:23.023002+08
-359	0	9	1	0	0	2	0	0	0	0	0	0	0		011 Ellie-Lesson 4	202152fc876a419e860f0f6780019f4d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.085488+08	2019-09-01 18:50:23.085488+08
-360	0	9	1	0	0	2	0	0	0	0	0	0	0		012 Ellie-Lesson 5	e754fa11b66548a48012ea8410bea792	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.14093+08	2019-09-01 18:50:23.14093+08
-361	0	9	1	0	0	2	0	0	0	0	0	0	0		013 Ellie-Lesson 6	84d1387e7574489096696d1bfbd943ac	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.211173+08	2019-09-01 18:50:23.211173+08
-362	0	9	1	0	0	2	0	0	0	0	0	0	0		014 Ellie-Lesson 1	fb4e8d4721dd41daa9a0ea18b40f7034	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.266908+08	2019-09-01 18:50:23.266908+08
-363	0	9	1	0	0	2	0	0	0	0	0	0	0		015 Ellie-Lesson 2	54763c12662b47af8f7d7b20e0699612	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.319819+08	2019-09-01 18:50:23.319819+08
-365	0	9	1	0	0	2	0	0	0	0	0	0	0		017 Ellie-Lesson 4	a93f55c5c9a8488b93f272c389bdf99d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.451168+08	2019-09-01 18:50:23.451168+08
-366	0	9	1	0	0	2	0	0	0	0	0	0	0		018 Ellie-Lesson 5	aca3f680125046bb894e8ade77c6ae53	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.498024+08	2019-09-01 18:50:23.498024+08
-367	0	9	1	0	0	2	0	0	0	0	0	0	0		019 Ellie-Lesson 6	7cafa2d24015437f8537c1e75b877800	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.564979+08	2019-09-01 18:50:23.564979+08
-368	0	9	1	0	0	2	0	0	0	0	0	0	0		020 Ellie-Lesson 1	ceb1ed1171a344a0be4896d4a55da1fe	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.619681+08	2019-09-01 18:50:23.619681+08
-369	0	9	1	0	0	2	0	0	0	0	0	0	0		021 Ellie-Lesson 2	29e63b62394e46a28584a5193a973268	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.687929+08	2019-09-01 18:50:23.687929+08
-370	0	9	1	0	0	2	0	0	0	0	0	0	0		022 Ellie-Lesson 3	6394eb86fc44433085210bef910a1f3b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.740648+08	2019-09-01 18:50:23.740648+08
-371	0	9	1	0	0	2	0	0	0	0	0	0	0		023 Ellie-Lesson 1	a5856ace248b43a4b08064f871c8e21b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.810881+08	2019-09-01 18:50:23.810881+08
-372	0	9	1	0	0	2	0	0	0	0	0	0	0		024 Ellie-Lesson 2	37212702686748aeb8026919ea92da36	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.85283+08	2019-09-01 18:50:23.85283+08
-373	0	9	1	0	0	2	0	0	0	0	0	0	0		025 Ellie-Lesson 3	1b5b2a82d5b54d8bab8fcfc41bc87db7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.926117+08	2019-09-01 18:50:23.926117+08
-374	0	9	1	0	0	2	0	0	0	0	0	0	0		026 Ellie-Lesson 4	025188ef46e04ecfbb236f071aeb0105	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:23.985218+08	2019-09-01 18:50:23.985218+08
-375	0	9	1	0	0	2	0	0	0	0	0	0	0		027 Ellie-Lesson 5	9acafee84bd1404bb1ae20f5ac2d461a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.035689+08	2019-09-01 18:50:24.035689+08
-376	0	9	1	0	0	2	0	0	0	0	0	0	0		028 Ellie-Lesson 6	5c623ab3023743a1820986bbe6e31386	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.105713+08	2019-09-01 18:50:24.105713+08
-377	0	9	1	0	0	2	0	0	0	0	0	0	0		029 Ellie-Lesson 1	78191d32c97345f6a7691d3f850abc88	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.169658+08	2019-09-01 18:50:24.169658+08
-378	0	9	1	0	0	2	0	0	0	0	0	0	0		030 Ellie-Lesson 2	5e9d3b9a328245c19a4c83a3549aaa7b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.21938+08	2019-09-01 18:50:24.21938+08
-379	0	9	1	0	0	2	0	0	0	0	0	0	0		031 Ellie-Lesson 3	0f5251e5d2c14796af26ea52d17155b4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.287087+08	2019-09-01 18:50:24.287087+08
-380	0	9	1	0	0	2	0	0	0	0	0	0	0		032 Ellie-Lesson 4	4ef4f9301c3a4cf2875cac7edb1e1c6f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.342323+08	2019-09-01 18:50:24.342323+08
-381	0	9	1	0	0	2	0	0	0	0	0	0	0		033 Ellie-Lesson 5	6c8f857f67f341a09d7b074cac08b9a7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.407662+08	2019-09-01 18:50:24.407662+08
-382	0	9	1	0	0	2	0	0	0	0	0	0	0		034 Ellie-Lesson 6	422b106c939c4a9a87e8da9769baa286	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.451315+08	2019-09-01 18:50:24.451315+08
-383	0	9	1	0	0	2	0	0	0	0	0	0	0		035 Ellie-Lesson 1	0e6c3e21a557447ca2eb1ee978fd8b7d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.593069+08	2019-09-01 18:50:24.593069+08
-384	0	9	1	0	0	2	0	0	0	0	0	0	0		036 Ellie-Lesson 2	59e5cb6c076e442190047b9a348b1538	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.629105+08	2019-09-01 18:50:24.629105+08
-385	0	9	1	0	0	2	0	0	0	0	0	0	0		037 Ellie-Lesson 3	35923b80620e4ec8b51ca8ea6514e5f3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.651047+08	2019-09-01 18:50:24.651047+08
-386	0	9	1	0	0	2	0	0	0	0	0	0	0		038 Ellie-Lesson 4	1aa54506b0824db598c5c5bc9d56e164	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.701428+08	2019-09-01 18:50:24.701428+08
-387	0	9	1	0	0	2	0	0	0	0	0	0	0		039 Ellie-Lesson 5	9a9aa6c291a540bca923f06310a4abde	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.757459+08	2019-09-01 18:50:24.757459+08
-388	0	9	1	0	0	2	0	0	0	0	0	0	0		040 Ellie-Lesson 6	45dc7b3d4cf147d4924d3295c83121d5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.832142+08	2019-09-01 18:50:24.832142+08
-389	0	9	1	0	0	2	0	0	0	0	0	0	0		041 Ellie-lesson 1	26417b86efb846dab2d8e4814d570737	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.884906+08	2019-09-01 18:50:24.884906+08
-390	0	9	1	0	0	2	0	0	0	0	0	0	0		042 Ellie-lesson 2	264983fbc6024312b398ecc5cf4f467f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:24.941077+08	2019-09-01 18:50:24.941077+08
-391	0	9	1	0	0	2	0	0	0	0	0	0	0		043 Ellie-lesson 3	831c4fd816a7476caaf2008efa8a89f1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.010509+08	2019-09-01 18:50:25.010509+08
-392	0	8	1	0	0	1	0	0	0	0	0	0	0		001 程宇-草原（一）	7cb7954b078348aa90d8d082b2ed0d8b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.070049+08	2019-09-01 18:50:25.070049+08
-393	0	8	1	0	0	1	0	0	0	0	0	0	0		002 程宇-草原（二）	be3c28f5fe1b4223ae39a64f4f93ee38	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.116291+08	2019-09-01 18:50:25.116291+08
-394	0	8	1	0	0	2	0	0	0	0	0	0	0		003 程宇-丝绸之路	e7c64e9a3fd043638e914dceab04c1c2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.185444+08	2019-09-01 18:50:25.185444+08
-395	0	8	1	0	0	2	0	0	0	0	0	0	0		004 程宇-白杨	6d4fe325471147a2a6995bcd09c9daac	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.234555+08	2019-09-01 18:50:25.234555+08
-396	0	8	1	0	0	2	0	0	0	0	0	0	0		005 程程宇-把铁路修到拉萨去	9e24e0c0f36e423aa5b0c6e626185a3e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.302368+08	2019-09-01 18:50:25.302368+08
-397	0	8	1	0	0	2	0	0	0	0	0	0	0		006 程宇-回顾拓展	b3ca0bfe40d9480cbbae47beb2f98e28	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.364871+08	2019-09-01 18:50:25.364871+08
-398	0	8	1	0	0	2	0	0	0	0	0	0	0		007 程宇-习作	f86c177405ae4e1f96c5dddae84f941e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.430273+08	2019-09-01 18:50:25.430273+08
-399	0	8	1	0	0	2	0	0	0	0	0	0	0		008 程宇-牧童	a0af540d6ddd43cba9ffeb47f7be9f2d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.476697+08	2019-09-01 18:50:25.476697+08
-400	0	8	1	0	0	2	0	0	0	0	0	0	0		009 程宇-舟过安仁	4bd59eff497f4d91b06b310c13f9e023	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.548895+08	2019-09-01 18:50:25.548895+08
-401	0	8	1	0	0	2	0	0	0	0	0	0	0		010 程宇-清平乐·村居	ec5c975795e74643b0b6ee55a5fa7143	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.607272+08	2019-09-01 18:50:25.607272+08
-402	0	8	1	0	0	2	0	0	0	0	0	0	0		011 程宇-冬阳 童年 骆驼队	5f6ac182a39e4f17af90e60c6c8b6f08	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.660813+08	2019-09-01 18:50:25.660813+08
-403	0	8	1	0	0	2	0	0	0	0	0	0	0		012 程宇-祖父的园	73d1a2a8a02c4c2eb0007ceeed3ae997	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.724577+08	2019-09-01 18:50:25.724577+08
-404	0	8	1	0	0	2	0	0	0	0	0	0	0		013 程宇-童年的发现	4a7ffb85c87d4a4981d5e9619fcb82f8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.786733+08	2019-09-01 18:50:25.786733+08
-405	0	8	1	0	0	2	0	0	0	0	0	0	0		014 程宇-我想	0951d5ade84244a3ac968f1a30da5f5c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.835734+08	2019-09-01 18:50:25.835734+08
-406	0	8	1	0	0	2	0	0	0	0	0	0	0		015 程宇-童年的水墨画	15e3d3d430a7448aac404563ccc9c4d5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.904523+08	2019-09-01 18:50:25.904523+08
-407	0	8	1	0	0	2	0	0	0	0	0	0	0		016 程宇-回顾扩展 二	4d337877163042a1afbcce21c4d51689	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:25.953104+08	2019-09-01 18:50:25.953104+08
-408	0	8	1	0	0	2	0	0	0	0	0	0	0		017 程宇-习作 二	9fe3f7d6bba94e1ca871014a04a5fcc2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.020933+08	2019-09-01 18:50:26.020933+08
-409	0	8	1	0	0	2	0	0	0	0	0	0	0		018 程宇-杨氏之子	00dd579ebd564ac39d53f89b3a2634ff	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.093232+08	2019-09-01 18:50:26.093232+08
-410	0	8	1	0	0	2	0	0	0	0	0	0	0		019 程宇-晏子使楚	212dbed8c9954769ab629e4679ade048	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.138181+08	2019-09-01 18:50:26.138181+08
-411	0	8	1	0	0	2	0	0	0	0	0	0	0		020 程宇-半截蜡烛	74697cf6d23f42d8bfc7294408c2201d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.191318+08	2019-09-01 18:50:26.191318+08
-412	0	8	1	0	0	2	0	0	0	0	0	0	0		021 程宇-打电话	553a19bf24c2453ca340eec06135387f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.259224+08	2019-09-01 18:50:26.259224+08
-413	0	8	1	0	0	2	0	0	0	0	0	0	0		022 程宇-回顾扩展 三	94fda6998bad4718847412fc7846eee5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.317303+08	2019-09-01 18:50:26.317303+08
-414	0	8	1	0	0	2	0	0	0	0	0	0	0		023 程宇-习作 三	dfcce4df25e8469aa91fd66377ea6daa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.386479+08	2019-09-01 18:50:26.386479+08
-415	0	8	1	0	0	2	0	0	0	0	0	0	0		024 程宇-再见了亲人（一）	16fd792bcab048a58ab5608655010c36	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.440552+08	2019-09-01 18:50:26.440552+08
-416	0	8	1	0	0	2	0	0	0	0	0	0	0		025 程宇-再见了亲人（二）	c9a15fc6474e4545ae57a9cad0414f03	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.508727+08	2019-09-01 18:50:26.508727+08
-417	0	8	1	0	0	2	0	0	0	0	0	0	0		026 程宇-金色的鱼钩	e63505302fe2485c8e4928b709629df5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.567985+08	2019-09-01 18:50:26.567985+08
-418	0	8	1	0	0	2	0	0	0	0	0	0	0		027 程宇-桥	031bffc3664548ae8381e755b7b4b8bd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.632887+08	2019-09-01 18:50:26.632887+08
-419	0	8	1	0	0	2	0	0	0	0	0	0	0		028 程宇-梦想的力量	67c58813a5284749ad6f8ba2fe2b246e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.682567+08	2019-09-01 18:50:26.682567+08
-420	0	8	1	0	0	2	0	0	0	0	0	0	0		029 程宇-回顾拓展 四	e87e64221d0c4c88aad5dd596996c99f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.729484+08	2019-09-01 18:50:26.729484+08
-421	0	8	1	0	0	2	0	0	0	0	0	0	0		030 程宇-习作 四	dce82f6a983b497f8d963643e1509cb1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.803136+08	2019-09-01 18:50:26.803136+08
-422	0	8	1	0	0	2	0	0	0	0	0	0	0		031 程宇-将相和（一）	39874dd4d7e145f99402038367ea72ff	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.86774+08	2019-09-01 18:50:26.86774+08
-423	0	8	1	0	0	2	0	0	0	0	0	0	0		032 程宇-将相和（二）	f82c76c8839d431881c6d5041fff5bdc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.926577+08	2019-09-01 18:50:26.926577+08
-424	0	8	1	0	0	2	0	0	0	0	0	0	0		033 程宇-草船借箭（一）	b54694e222ea4626ae08652fc2c88b7b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:26.983675+08	2019-09-01 18:50:26.983675+08
-425	0	8	1	0	0	2	0	0	0	0	0	0	0		034 程宇-草船借箭（二）	e659ca23e6cd4a0eb5f9bc32f308a047	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.050397+08	2019-09-01 18:50:27.050397+08
-426	0	8	1	0	0	2	0	0	0	0	0	0	0		035 程宇-景阳冈	77bf77e977c948f588b057ebbe69c8ac	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.102235+08	2019-09-01 18:50:27.102235+08
-427	0	8	1	0	0	2	0	0	0	0	0	0	0		036 程宇-猴王出世	2c8965f7059c4321960b46f32abb6232	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.172378+08	2019-09-01 18:50:27.172378+08
-428	0	8	1	0	0	2	0	0	0	0	0	0	0		037 程宇-回顾拓展 五	a2a570494d684def907bcb22359600cd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.210926+08	2019-09-01 18:50:27.210926+08
-429	0	8	1	0	0	2	0	0	0	0	0	0	0		038 程宇-习作 五	63700d396cd7442887a53dd40c5ac7b7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.284736+08	2019-09-01 18:50:27.284736+08
-430	0	8	1	0	0	2	0	0	0	0	0	0	0		039 程宇-信息传递改变着我们的生活（一）	df2ccdb116c64230876a421ee41adab4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.340703+08	2019-09-01 18:50:27.340703+08
-431	0	8	1	0	0	2	0	0	0	0	0	0	0		040 程宇-信息传递改变着我们的生活（二）	76afe4f2b8144ac4af540bc39e7a97fc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.407159+08	2019-09-01 18:50:27.407159+08
-432	0	8	1	0	0	2	0	0	0	0	0	0	0		041 程宇-利用信息写简单的研究报告	e3065c2ac1a24204b962cf564421414d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.459205+08	2019-09-01 18:50:27.459205+08
-433	0	8	1	0	0	2	0	0	0	0	0	0	0		042 程宇-人物描写一组（一）	96b3b812b285411ca6ee74b9666c634e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.522874+08	2019-09-01 18:50:27.522874+08
-434	0	8	1	0	0	2	0	0	0	0	0	0	0		043 程宇-人物描写一组（二）	fcdc388a3a7043a8a2b5c65107d9c803	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.58482+08	2019-09-01 18:50:27.58482+08
-435	0	8	1	0	0	2	0	0	0	0	0	0	0		044 程宇-人物描写一组（三）	2ad299ce06b645aa85b252960de4af06	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.636959+08	2019-09-01 18:50:27.636959+08
-436	0	8	1	0	0	2	0	0	0	0	0	0	0		045 程宇-刷子李	61b3be93a0174fc990835ccfafb1eeaa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.708425+08	2019-09-01 18:50:27.708425+08
-437	0	8	1	0	0	2	0	0	0	0	0	0	0		046 程宇-金钱的魔力	2c22e3dc42034052928b1904b4c2d798	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.767127+08	2019-09-01 18:50:27.767127+08
-438	0	8	1	0	0	2	0	0	0	0	0	0	0		047 程宇-回顾拓展 七	f6f9c100659a47f6989076aecf933f46	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.819006+08	2019-09-01 18:50:27.819006+08
-439	0	8	1	0	0	2	0	0	0	0	0	0	0		048 程宇-习作 七	e5867661c69e46c98bebe6b1704ae925	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.882182+08	2019-09-01 18:50:27.882182+08
-440	0	8	1	0	0	2	0	0	0	0	0	0	0		049 程宇-自己的花是让别人看的	de1e3d05291b4d16b1141f78dcd23295	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:27.935921+08	2019-09-01 18:50:27.935921+08
-441	0	8	1	0	0	2	0	0	0	0	0	0	0		050 程宇-威尼斯的小艇	ea7119940e7c4178a1238ed9732b62a4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.001409+08	2019-09-01 18:50:28.001409+08
-442	0	8	1	0	0	2	0	0	0	0	0	0	0		051 程宇-与象共舞	e3c89d46c302439c87273f5be98ae8cc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.060771+08	2019-09-01 18:50:28.060771+08
-443	0	8	1	0	0	2	0	0	0	0	0	0	0		052 程宇-彩色的非洲	530b111f85bb4bd9a5496760101c4119	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.11614+08	2019-09-01 18:50:28.11614+08
-444	0	8	1	0	0	2	0	0	0	0	0	0	0		053 程宇-回顾拓展 八	add03442582946a59d6bfd4aeeadbdfb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.184341+08	2019-09-01 18:50:28.184341+08
-445	0	8	1	0	0	2	0	0	0	0	0	0	0		054 程宇-习作 八（一）	6e97fd558d4541d6a2dbcf0fa8be6830	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.244745+08	2019-09-01 18:50:28.244745+08
-446	0	8	1	0	0	2	0	0	0	0	0	0	0		055 程宇-习作 八（二）	593afde85fe84347a20198c21089123f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.302763+08	2019-09-01 18:50:28.302763+08
-447	0	8	1	0	0	2	0	0	0	0	0	0	0		056 程宇-选读单元（一）	e1341b02c6b24933862cf9b0ec5307f8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.37087+08	2019-09-01 18:50:28.37087+08
-448	0	8	1	0	0	2	0	0	0	0	0	0	0		057 程宇-选读单元（二）	c1040a0934f0404aaa3fb0a246d7e0e0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.417204+08	2019-09-01 18:50:28.417204+08
-449	0	8	1	0	0	2	0	0	0	0	0	0	0		058 程宇-选读单元（三）	175164922fe849fdafeb0832bd537a73	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.48237+08	2019-09-01 18:50:28.48237+08
-450	0	8	1	0	0	2	0	0	0	0	0	0	0		059 程宇-总复习（一）	e86ae203d2b04be1b238ec993f9991f5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.542596+08	2019-09-01 18:50:28.542596+08
-451	0	8	1	0	0	2	0	0	0	0	0	0	0		060 程宇-总复习（二）	90747acf91764b19b8019bfce96ac681	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.604795+08	2019-09-01 18:50:28.604795+08
-452	0	8	1	0	0	2	0	0	0	0	0	0	0		061 程宇-选读单元（一）	ecfd86514c5b482792f88b3930f1f47f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.671929+08	2019-09-01 18:50:28.671929+08
-453	0	8	1	0	0	2	0	0	0	0	0	0	0		062 程宇-选读单元（二）	5ca9b41ebbfe4dac8d452818e90aeb89	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.719214+08	2019-09-01 18:50:28.719214+08
-454	0	8	1	0	0	2	0	0	0	0	0	0	0		063 程宇-选读单元（三）	4f3bfb734ed4433cadba441609939ccf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.788458+08	2019-09-01 18:50:28.788458+08
-455	0	11	1	0	0	1	0	0	0	0	0	0	0		001 王玲-前言	960a894d185744d3a927bf6010248902	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.837581+08	2019-09-01 18:50:28.837581+08
-456	0	11	1	0	0	1	0	0	0	0	0	0	0		002 王玲-山中访友（一）	4839dc90c6bc4bca858fbb5847778b27	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.900203+08	2019-09-01 18:50:28.900203+08
-457	0	11	1	0	0	2	0	0	0	0	0	0	0		003王玲-山中访友（二） 	e7d16a810c3a43deac29722748c49e20	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:28.957867+08	2019-09-01 18:50:28.957867+08
-458	0	11	1	0	0	2	0	0	0	0	0	0	0		004 王玲-山雨	f025c2888e9944eea3beaafa8cfc406f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.036724+08	2019-09-01 18:50:29.036724+08
-459	0	11	1	0	0	2	0	0	0	0	0	0	0		005 王玲-草虫的村落（一）	b8a08351c21740fd82ef774b569dd32d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.07881+08	2019-09-01 18:50:29.07881+08
-460	0	11	1	0	0	2	0	0	0	0	0	0	0		006 王玲-草虫的村落（二）	fa65442360d9422aa4fe447d4beb14a2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.134661+08	2019-09-01 18:50:29.134661+08
-461	0	11	1	0	0	2	0	0	0	0	0	0	0		007 王玲-索溪峪的”野“	9e57415ac18a412f809a2aa23ecbc69f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.204934+08	2019-09-01 18:50:29.204934+08
-462	0	11	1	0	0	2	0	0	0	0	0	0	0		008 王玲-口语交际 习作一	48c4a6e4ce5b445d824ea17f31110d4e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.271731+08	2019-09-01 18:50:29.271731+08
-463	0	11	1	0	0	2	0	0	0	0	0	0	0		009 王玲-回顾拓展一	2fae11ebf9244bb2bff254b438ac31ba	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.317587+08	2019-09-01 18:50:29.317587+08
-464	0	11	1	0	0	2	0	0	0	0	0	0	0		010 王玲-詹天佑（一）	cb560248d6e7452995aed0a1ec3030fe	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.39278+08	2019-09-01 18:50:29.39278+08
-465	0	11	1	0	0	2	0	0	0	0	0	0	0		011 王玲-詹天佑（二）	24649267fd434018a44e7dafaa1a723b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.434201+08	2019-09-01 18:50:29.434201+08
-466	0	11	1	0	0	2	0	0	0	0	0	0	0		012 王玲-怀念母亲（一）	522ab806648b4a61802a3041f9e546fa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.501523+08	2019-09-01 18:50:29.501523+08
-467	0	11	1	0	0	2	0	0	0	0	0	0	0		013 王玲-怀念母亲（二）	2bb93c5c339445be9de2c9227b3851b0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.564108+08	2019-09-01 18:50:29.564108+08
-468	0	11	1	0	0	2	0	0	0	0	0	0	0		014 王玲-彩色的翅膀	c6707fdad91345c08109b575d1163e92	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.61901+08	2019-09-01 18:50:29.61901+08
-469	0	11	1	0	0	2	0	0	0	0	0	0	0		015 王玲-中华少年	e9536e6c87cb4e09b7b6769104e6e56b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.678831+08	2019-09-01 18:50:29.678831+08
-470	0	11	1	0	0	2	0	0	0	0	0	0	0		016 王玲-口语交际 习作二	437abf5fd5b5464699868983c2728dce	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.745109+08	2019-09-01 18:50:29.745109+08
-471	0	11	1	0	0	2	0	0	0	0	0	0	0		017 王玲-回顾拓展二	fca8bfedc92b42b9b689ebe4d4192994	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.808538+08	2019-09-01 18:50:29.808538+08
-472	0	11	1	0	0	2	0	0	0	0	0	0	0		018 王玲-穷人（一）	74c1bae62070403a8fcb68ab62e1b24c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.873447+08	2019-09-01 18:50:29.873447+08
-473	0	11	1	0	0	2	0	0	0	0	0	0	0		019 王玲-穷人（二）	1269b381ba504f6c80a28f2207aced30	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.929607+08	2019-09-01 18:50:29.929607+08
-474	0	11	1	0	0	2	0	0	0	0	0	0	0		020 王玲-别饿坏了那匹马	439ca379594e40bf9272144ba48b42dc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:29.977187+08	2019-09-01 18:50:29.977187+08
-475	0	11	1	0	0	2	0	0	0	0	0	0	0		021 王玲-唯一的听众（一）	1b8ad497b1e54e4ca287a1aaeb4d8505	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.03343+08	2019-09-01 18:50:30.03343+08
-476	0	11	1	0	0	2	0	0	0	0	0	0	0		022 王玲-唯一的听众（二）	767e816e4b3d4664b0fda16b58a1b11f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.098915+08	2019-09-01 18:50:30.098915+08
-477	0	11	1	0	0	2	0	0	0	0	0	0	0		023 王玲-用心灵去倾听	ffb58cf985564c8a9a5e0b55b43b59ec	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.16949+08	2019-09-01 18:50:30.16949+08
-478	0	11	1	0	0	2	0	0	0	0	0	0	0		024 王玲-口语交际 习作三	09c59a00c227471e932a31f84b3768d4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.219232+08	2019-09-01 18:50:30.219232+08
-479	0	11	1	0	0	2	0	0	0	0	0	0	0		025 王玲-回顾拓展三	43a8344324ea4dbd9b98d6a1c3c55394	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.286717+08	2019-09-01 18:50:30.286717+08
-480	0	11	1	0	0	2	0	0	0	0	0	0	0		026 王玲-只有一个地球（一）	83bcfc8fa99f446aa5dfadfa23493db3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.348022+08	2019-09-01 18:50:30.348022+08
-481	0	11	1	0	0	2	0	0	0	0	0	0	0		027 王玲-只有一个地球（二）	9263e940d4614b4cac4de2741fd01c33	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.390841+08	2019-09-01 18:50:30.390841+08
-482	0	11	1	0	0	2	0	0	0	0	0	0	0		028 王玲-狼和鹿的故事	a6fefd9140b741d39ef7a0de040181f2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.469233+08	2019-09-01 18:50:30.469233+08
-483	0	11	1	0	0	2	0	0	0	0	0	0	0		029 王玲-这片土地是神圣的（一）	d63fa660c098441eb0af22063f9f21bf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.509653+08	2019-09-01 18:50:30.509653+08
-484	0	11	1	0	0	2	0	0	0	0	0	0	0		030 王玲-这片土地是神圣的（二）	80e8cdbefa464c0095472dc5f7aad217	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.581373+08	2019-09-01 18:50:30.581373+08
-485	0	11	1	0	0	2	0	0	0	0	0	0	0		031 王玲-青山不老	32c31409d5cb43b3a4d8539aa2601b1f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.641858+08	2019-09-01 18:50:30.641858+08
-486	0	11	1	0	0	2	0	0	0	0	0	0	0		032 王玲-口语交际 习作四	922040bd8ea0452b9def397eeee21e01	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.689212+08	2019-09-01 18:50:30.689212+08
-487	0	11	1	0	0	2	0	0	0	0	0	0	0		033 王玲-回顾拓展四	75d2122cfc434f0ba7cbdfd3c9ac9c2c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.761432+08	2019-09-01 18:50:30.761432+08
-488	0	11	1	0	0	2	0	0	0	0	0	0	0		034 王玲-少年闰土（一）	ceaf33d037464596a636439fdee10a85	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.820477+08	2019-09-01 18:50:30.820477+08
-489	0	11	1	0	0	2	0	0	0	0	0	0	0		035 王玲-少年闰土（二）	f4bb1e5f76db4fd79ff7e3819653c01c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.890182+08	2019-09-01 18:50:30.890182+08
-490	0	11	1	0	0	2	0	0	0	0	0	0	0		036 王玲-我的伯父鲁迅先生（一）	6efe90975b414d58ae131aa7d27df048	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:30.937948+08	2019-09-01 18:50:30.937948+08
-491	0	11	1	0	0	2	0	0	0	0	0	0	0		037 王玲-我的伯父鲁迅先生（二）	df07b16a2e534ee0a956e7d997d7e5a8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.00234+08	2019-09-01 18:50:31.00234+08
-492	0	11	1	0	0	2	0	0	0	0	0	0	0		038 王玲-一面	0dba5cf8c35e4d82a668d0885f5dcd93	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.05747+08	2019-09-01 18:50:31.05747+08
-493	0	11	1	0	0	2	0	0	0	0	0	0	0		039 王玲-有的人	1a9c1f2e6d254628acb2be73111be5e8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.120767+08	2019-09-01 18:50:31.120767+08
-494	0	11	1	0	0	2	0	0	0	0	0	0	0		040 王玲-口语交际 习作五	5aca72dfe8cf4136af523a59eb7d52a5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.184664+08	2019-09-01 18:50:31.184664+08
-495	0	11	1	0	0	2	0	0	0	0	0	0	0		041 王玲-回顾拓展五	fb92171bf365425eb885dfaa5ac1e567	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.252839+08	2019-09-01 18:50:31.252839+08
-496	0	11	1	0	0	2	0	0	0	0	0	0	0		042 王玲-采薇	bc7c88ea8c9745178cf5166bf0315bc7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.300101+08	2019-09-01 18:50:31.300101+08
-497	0	11	1	0	0	2	0	0	0	0	0	0	0		043 王玲-春夜喜雨	45f0884a8010441e8f4c0ad10ed7e593	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.367514+08	2019-09-01 18:50:31.367514+08
-498	0	11	1	0	0	2	0	0	0	0	0	0	0		044 王玲-西江月·夜行黄沙道中	514b06eb01eb4d18b9767d7ce14f7744	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.423936+08	2019-09-01 18:50:31.423936+08
-499	0	11	1	0	0	2	0	0	0	0	0	0	0		045 王玲-天净沙·秋	f5a144c82bee4aa4ba2ba4ac2df94fe2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.476031+08	2019-09-01 18:50:31.476031+08
-500	0	11	1	0	0	2	0	0	0	0	0	0	0		046 王玲-太阳的话	492e3126872d497ea1a144796d95c8ad	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.54061+08	2019-09-01 18:50:31.54061+08
-501	0	11	1	0	0	2	0	0	0	0	0	0	0		047 王玲-白桦	8a5fd6801c53486e931e6ae6c5915743	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.601161+08	2019-09-01 18:50:31.601161+08
-502	0	11	1	0	0	2	0	0	0	0	0	0	0		048 王玲-我们去看海	16a0610f7ade4b8fab5bcba306a1cdbb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.662947+08	2019-09-01 18:50:31.662947+08
-503	0	11	1	0	0	2	0	0	0	0	0	0	0		049 王玲-致老鼠	2a8073ef328d4deaa511c77cd20e63a1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.719027+08	2019-09-01 18:50:31.719027+08
-504	0	11	1	0	0	2	0	0	0	0	0	0	0		050 王玲-给诗加“腰”	d299818ea03142b98c8cc1cdc456d666	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.782173+08	2019-09-01 18:50:31.782173+08
-505	0	11	1	0	0	2	0	0	0	0	0	0	0		051 王玲-诗中的“秋”	3fd4b365b5af4a15a82b9190b90ac48a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.837438+08	2019-09-01 18:50:31.837438+08
-506	0	11	1	0	0	2	0	0	0	0	0	0	0		052 王玲-老人与海鸥（一）	64d9bdb8e650491fb79004f84d3ac424	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.900359+08	2019-09-01 18:50:31.900359+08
-507	0	11	1	0	0	2	0	0	0	0	0	0	0		053 王玲-老人与海鸥（二）	30785dfae1164d89ae561a2fcd594478	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:31.968265+08	2019-09-01 18:50:31.968265+08
-508	0	11	1	0	0	2	0	0	0	0	0	0	0		054 王玲-跑进家来的松鼠	3f2afb82fb0343aba1eae717e8c4818f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.027451+08	2019-09-01 18:50:32.027451+08
-509	0	11	1	0	0	2	0	0	0	0	0	0	0		055 王玲-最后一头战象（一）	9852401034ee4bd39bdb913f8452ce55	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.073996+08	2019-09-01 18:50:32.073996+08
-510	0	11	1	0	0	2	0	0	0	0	0	0	0		057 王玲-金色的脚印	338d23f032ec44bfa8374b7662cbb3a4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.134905+08	2019-09-01 18:50:32.134905+08
-511	0	11	1	0	0	2	0	0	0	0	0	0	0		058 王玲-口语交际 习作七	1bee94d231a9425f894d43ff8b5d1157	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.205976+08	2019-09-01 18:50:32.205976+08
-512	0	11	1	0	0	2	0	0	0	0	0	0	0		061 王玲-月光曲（一）	ff10f5bf941943d4b669ac9dc5cff815	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.260644+08	2019-09-01 18:50:32.260644+08
-513	0	11	1	0	0	2	0	0	0	0	0	0	0		062 王玲-月光曲（二）	5b49e79a268e4ae7ba9f89a09751b5bd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.317693+08	2019-09-01 18:50:32.317693+08
-514	0	11	1	0	0	2	0	0	0	0	0	0	0		063 王玲-蒙娜丽莎之约	1fe7080364a14a4ca84dbce7bdac76ef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.38675+08	2019-09-01 18:50:32.38675+08
-515	0	11	1	0	0	2	0	0	0	0	0	0	0		064 王玲-我的舞台	b35385dd371d488b8e729ef1996f88cb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.438111+08	2019-09-01 18:50:32.438111+08
-516	0	11	1	0	0	2	0	0	0	0	0	0	0		065 王玲-口语交际 习作八	535bd2420fb947a69d8757cec804b063	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.491763+08	2019-09-01 18:50:32.491763+08
-517	0	11	1	0	0	2	0	0	0	0	0	0	0		066 王玲-回顾 拓展八	aac8f5af55d74af487235b3a083ff52e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.556114+08	2019-09-01 18:50:32.556114+08
-518	0	10	1	0	0	1	0	0	0	0	0	0	0		001 Jane-Unit 1~1	c5e540e46fc64c72931713c8cd1b3e22	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.620751+08	2019-09-01 18:50:32.620751+08
-519	0	10	1	0	0	1	0	0	0	0	0	0	0		002 Jane-Unit 1~2	293b1d0e2524409a8ef6f9e86d6e1f7f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.680669+08	2019-09-01 18:50:32.680669+08
-520	0	10	1	0	0	2	0	0	0	0	0	0	0		003 Jane-Unit 1~3_1	b5717b0bd897492a8f46341718947135	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.740147+08	2019-09-01 18:50:32.740147+08
-521	0	10	1	0	0	2	0	0	0	0	0	0	0		004 Jane-Unit 1~4	5c602799d289465985f4fceb03de50db	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.795336+08	2019-09-01 18:50:32.795336+08
-522	0	10	1	0	0	2	0	0	0	0	0	0	0		005 Jane-Unit 1~5_1	d689333ff2644d809403b110c6f64963	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.8548+08	2019-09-01 18:50:32.8548+08
-523	0	10	1	0	0	2	0	0	0	0	0	0	0		006 Jane-Unit 1~6	6aaeafffceb747a388d2a4ac1fda3715	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.924695+08	2019-09-01 18:50:32.924695+08
-524	0	10	1	0	0	2	0	0	0	0	0	0	0		007 Jane-Unit 1~7	db83c3a26a7247cb91e38aa1e8afda1b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:32.972917+08	2019-09-01 18:50:32.972917+08
-525	0	10	1	0	0	2	0	0	0	0	0	0	0		008 Jane-Unit2~1	fa9924fe61a4447a9693dbff5de46ec7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.03614+08	2019-09-01 18:50:33.03614+08
-526	0	10	1	0	0	2	0	0	0	0	0	0	0		009 Jane-Unit2~2	f9031e4420bc4f44a0c216f55f9a4240	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.098929+08	2019-09-01 18:50:33.098929+08
-527	0	10	1	0	0	2	0	0	0	0	0	0	0		010 Jane-Unit2~3	80ec5bcb274e4f53922bbd28e0d403ae	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.15697+08	2019-09-01 18:50:33.15697+08
-528	0	10	1	0	0	2	0	0	0	0	0	0	0		011 Jane-Unit2~4	1387f3de7c2f48c1a39807df912149f4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.221788+08	2019-09-01 18:50:33.221788+08
-529	0	10	1	0	0	2	0	0	0	0	0	0	0		012 Jane-Unit2~5	3230a831d5ea46f1b49545083c39cb3d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.281698+08	2019-09-01 18:50:33.281698+08
-530	0	10	1	0	0	2	0	0	0	0	0	0	0		013 Jane-Unit2~6	2e4595ee7f9b4a358ae143dfa7ac41dd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.334994+08	2019-09-01 18:50:33.334994+08
-531	0	10	1	0	0	2	0	0	0	0	0	0	0		014 Jane-Unit3~1	793f8dd189f04b8faa2cf219749e24ce	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.404169+08	2019-09-01 18:50:33.404169+08
-532	0	10	1	0	0	2	0	0	0	0	0	0	0		015 Jane-Unit3~2	7bfb66bc43604f2ea3f006c1193c0778	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.457729+08	2019-09-01 18:50:33.457729+08
-533	0	10	1	0	0	2	0	0	0	0	0	0	0		016 Jane-Unit3~3	1140e59caa8d4213a520c495e056af87	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.523531+08	2019-09-01 18:50:33.523531+08
-534	0	10	1	0	0	2	0	0	0	0	0	0	0		017 Jane-Unit3~4	bac2049988604001b6b1425b35d2784f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.577508+08	2019-09-01 18:50:33.577508+08
-535	0	10	1	0	0	2	0	0	0	0	0	0	0		018 Jane-Unit3~5	8f037d1cd495459898953dcb0f44238c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.631989+08	2019-09-01 18:50:33.631989+08
-536	0	10	1	0	0	2	0	0	0	0	0	0	0		019 Jane-Unit3~6	70dbdb5f0fba4c6fb8e68e99e8047d1b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.695976+08	2019-09-01 18:50:33.695976+08
-537	0	10	1	0	0	2	0	0	0	0	0	0	0		020 Jane-Recycle1~1	fb4d5dc362104a83b05b0e086da791ee	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.758623+08	2019-09-01 18:50:33.758623+08
-538	0	10	1	0	0	2	0	0	0	0	0	0	0		021 Jane-Recycle1~2	e3c80a9dcab043cda9a857352827ca18	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.810725+08	2019-09-01 18:50:33.810725+08
-539	0	10	1	0	0	2	0	0	0	0	0	0	0		022 Jane-Unit4~1	002aeeb441d14e68b8a4e823fa2b68b1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.87475+08	2019-09-01 18:50:33.87475+08
-540	0	10	1	0	0	2	0	0	0	0	0	0	0		023 Jane-Unit4~2	36a5ac3abff74476955200deeea5e484	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:33.941788+08	2019-09-01 18:50:33.941788+08
-541	0	10	1	0	0	2	0	0	0	0	0	0	0		024 Jane-Unit4~3	f0350a3000f6483ea9a957c921a6fa55	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.001831+08	2019-09-01 18:50:34.001831+08
-542	0	10	1	0	0	2	0	0	0	0	0	0	0		025 Jane-Unit4~4	43277710db414add9dc85f05cc511b51	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.056518+08	2019-09-01 18:50:34.056518+08
-543	0	10	1	0	0	2	0	0	0	0	0	0	0		026 Jane-Unit4~5	bc39a4a259dd4abb9852cd1f7bf5de90	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.126274+08	2019-09-01 18:50:34.126274+08
-544	0	10	1	0	0	2	0	0	0	0	0	0	0		027 Jane-Unit4~6	063cbf6dee20490a96bab6516efa733c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.171652+08	2019-09-01 18:50:34.171652+08
-545	0	10	1	0	0	2	0	0	0	0	0	0	0		028 Jane-Unit5~1	4a87f257d8d54e85871a0e3fbb25ab2d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.252612+08	2019-09-01 18:50:34.252612+08
-546	0	10	1	0	0	2	0	0	0	0	0	0	0		029 Jane-Unit5~2	9554d9b282a244d7b77bd108d844a199	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.337613+08	2019-09-01 18:50:34.337613+08
-547	0	10	1	0	0	2	0	0	0	0	0	0	0		030 Jane-Unit5~3	4688c1362a8a4968bd8982c46caa1cd8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.358834+08	2019-09-01 18:50:34.358834+08
-548	0	10	1	0	0	2	0	0	0	0	0	0	0		031 Jane-Unit5~4	0301a2d2d93b44549512e33f7e2a79b4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.418277+08	2019-09-01 18:50:34.418277+08
-549	0	10	1	0	0	2	0	0	0	0	0	0	0		032 Jane-Unit5~5	16436407869f48bc95f459cb071df791	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.47857+08	2019-09-01 18:50:34.47857+08
-550	0	10	1	0	0	2	0	0	0	0	0	0	0		033 Jane-Unit5~6	a198a7c8baf64173a41d1fe56383c8ca	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.533473+08	2019-09-01 18:50:34.533473+08
-551	0	10	1	0	0	2	0	0	0	0	0	0	0		034 Jane-Unit6~1	75f8a28d762542b9a0afd7d125c85503	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.607934+08	2019-09-01 18:50:34.607934+08
-552	0	10	1	0	0	2	0	0	0	0	0	0	0		035 Jane-Unit6~2	19c9ed58717e4c6fac0eb62058e27a61	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.657527+08	2019-09-01 18:50:34.657527+08
-553	0	10	1	0	0	2	0	0	0	0	0	0	0		036 Jane-Unit6~3	42d11f0341e94b138427c8c9948d66ed	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.718976+08	2019-09-01 18:50:34.718976+08
-554	0	10	1	0	0	2	0	0	0	0	0	0	0		037 Jane-Unit6~4	daabe53d69e944f682e64f7621bb0c6b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.785232+08	2019-09-01 18:50:34.785232+08
-555	0	10	1	0	0	2	0	0	0	0	0	0	0		038 Jane-Unit6~5	b256fd0b3e664409ae0bbf6502ab24b2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.838601+08	2019-09-01 18:50:34.838601+08
-556	0	10	1	0	0	2	0	0	0	0	0	0	0		039 Jane-Unit6-6	d6da732c2cc548d7a892e7c6034ebc0c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.891027+08	2019-09-01 18:50:34.891027+08
-557	0	10	1	0	0	2	0	0	0	0	0	0	0		040 Jane-Recycle2-1	c17243c222e54caea932a592134f4897	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:34.951999+08	2019-09-01 18:50:34.951999+08
-558	0	10	1	0	0	2	0	0	0	0	0	0	0		041 Jane-Recycle2-2	7e131f12321b4d8bbe081bac10d02eed	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.025167+08	2019-09-01 18:50:35.025167+08
-559	0	13	1	0	0	1	0	0	0	0	0	0	0		001 程宇-窃读记	5e2f9e32c6bd4694925a1ede77d9ae3c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.084913+08	2019-09-01 18:50:35.084913+08
-560	0	13	1	0	0	1	0	0	0	0	0	0	0		002 程宇-小苗与大树的对话	2745bb85694648748d81d06bb85bb8c6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.153565+08	2019-09-01 18:50:35.153565+08
-561	0	13	1	0	0	2	0	0	0	0	0	0	0		003 程宇-走遍天下书为侣（一）	be083740306545f6ae6b16bbd75f280c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.203815+08	2019-09-01 18:50:35.203815+08
-562	0	13	1	0	0	2	0	0	0	0	0	0	0		004 程宇-走遍天下书为侣（二）	06f1561738144cfe8c05299f368d66dc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.264988+08	2019-09-01 18:50:35.264988+08
-563	0	13	1	0	0	2	0	0	0	0	0	0	0		005 程宇-我的长生果	b4c62f60c7e84a5e953e709f042ce723	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.31097+08	2019-09-01 18:50:35.31097+08
-564	0	13	1	0	0	2	0	0	0	0	0	0	0		006 程宇-第一单元回顾拓展	c81a1c3f56b24c208d80c0dca87edfdc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.378056+08	2019-09-01 18:50:35.378056+08
-565	0	13	1	0	0	2	0	0	0	0	0	0	0		007 程宇-古诗三首-泊船瓜洲	09834721b7904c47aa526a808180ecb5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.435633+08	2019-09-01 18:50:35.435633+08
-566	0	13	1	0	0	2	0	0	0	0	0	0	0		008 程宇-古诗三首-秋思	6d5b7ce528d74b6fa8ee20a1ce78990a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.50145+08	2019-09-01 18:50:35.50145+08
-567	0	13	1	0	0	2	0	0	0	0	0	0	0		009 程宇-古诗三首-长相思	cd5de979553442ad8065b1c069c48465	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.55608+08	2019-09-01 18:50:35.55608+08
-568	0	13	1	0	0	2	0	0	0	0	0	0	0		010 程宇-古诗三首-总结	319ba39407784c3381522f26f18290c3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.61857+08	2019-09-01 18:50:35.61857+08
-569	0	13	1	0	0	2	0	0	0	0	0	0	0		011 程宇-梅花魂（一）	abca27fa7e2e4299bb5974ce6af950f0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.676507+08	2019-09-01 18:50:35.676507+08
-570	0	13	1	0	0	2	0	0	0	0	0	0	0		012 程宇-梅花魂（二）	abca27fa7e2e4299bb5974ce6af950f0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.753441+08	2019-09-01 18:50:35.753441+08
-571	0	13	1	0	0	2	0	0	0	0	0	0	0		013 程宇-桂花雨	5c27da0a35d44e5a980df5400a9eae8d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.787569+08	2019-09-01 18:50:35.787569+08
-572	0	13	1	0	0	2	0	0	0	0	0	0	0		014 程宇-小桥流水人家（一）	af89017d242542ff928d16ab3449fd33	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.850471+08	2019-09-01 18:50:35.850471+08
-573	0	13	1	0	0	2	0	0	0	0	0	0	0		015 程宇-小桥流水人家（二）	7e45243278ee4c5aae2360bc9cc1d319	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.917848+08	2019-09-01 18:50:35.917848+08
-574	0	13	1	0	0	2	0	0	0	0	0	0	0		016 程宇-第二单元回顾拓展	70075245f836423b8c5819ffdc05fc08	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:35.973801+08	2019-09-01 18:50:35.973801+08
-575	0	13	1	0	0	2	0	0	0	0	0	0	0		017 程宇-单元习作	75a8e731f15b4082a5880e090df18430	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.042083+08	2019-09-01 18:50:36.042083+08
-576	0	13	1	0	0	2	0	0	0	0	0	0	0		018 程宇-鲸（一）	f93a9519bc1043f3813b845772c72bb5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.100256+08	2019-09-01 18:50:36.100256+08
-577	0	13	1	0	0	2	0	0	0	0	0	0	0		019 程宇-鲸（二）	093b477a6f1542d2901782efafee83f7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.171128+08	2019-09-01 18:50:36.171128+08
-578	0	13	1	0	0	2	0	0	0	0	0	0	0		020 程宇-鲸（三）	dd965f2fc4c34f5db2619a8cd998eaf6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.219648+08	2019-09-01 18:50:36.219648+08
-579	0	13	1	0	0	2	0	0	0	0	0	0	0		021 程宇-松鼠（一）	9b35c5331d27471190aab7376eadd2b1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.285698+08	2019-09-01 18:50:36.285698+08
-580	0	13	1	0	0	2	0	0	0	0	0	0	0		022 程宇-松鼠（二）	3e660dd56fd143279c8ed42f469c715d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.326185+08	2019-09-01 18:50:36.326185+08
-581	0	13	1	0	0	2	0	0	0	0	0	0	0		023 程宇-新型玻璃	0939018ffc814305be38fea78de89590	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.402458+08	2019-09-01 18:50:36.402458+08
-582	0	13	1	0	0	2	0	0	0	0	0	0	0		024 程宇-假如没有灰尘	9eb8b2113a6246d78306883dab37b208	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.451012+08	2019-09-01 18:50:36.451012+08
-583	0	13	1	0	0	2	0	0	0	0	0	0	0		025 程宇-第三单元回顾与拓展	d067e67c9b6648678ec5b34f985cab30	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.505775+08	2019-09-01 18:50:36.505775+08
-584	0	13	1	0	0	2	0	0	0	0	0	0	0		026 程宇-介绍一种物品	26042eddb75449a894b075fd40f15ecf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.583204+08	2019-09-01 18:50:36.583204+08
-585	0	13	1	0	0	2	0	0	0	0	0	0	0		027 程宇-钓鱼的启示	3b3c0e9f39744e79bdf9a3a0a3163691	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.639727+08	2019-09-01 18:50:36.639727+08
-586	0	13	1	0	0	2	0	0	0	0	0	0	0		028 程宇-通往广场的路不止一条	e213ab7873bc4633b73a64a31bf6cbe2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.6863+08	2019-09-01 18:50:36.6863+08
-587	0	13	1	0	0	2	0	0	0	0	0	0	0		029 程宇-落花生	8a7431d3cba344e5aa3ad7ae2bf40953	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.759249+08	2019-09-01 18:50:36.759249+08
-588	0	13	1	0	0	2	0	0	0	0	0	0	0		030 程宇-珍珠鸟	4448e44f489d45e3a5da2d37480cc2b1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.819353+08	2019-09-01 18:50:36.819353+08
-589	0	13	1	0	0	2	0	0	0	0	0	0	0		031 程宇-拓展与回顾	a30869df2c64485c9c1121b758fbdd87	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.880366+08	2019-09-01 18:50:36.880366+08
-590	0	13	1	0	0	2	0	0	0	0	0	0	0		032 程宇-漫画作文	8f6f281266c248e58680533d2dd32567	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.935504+08	2019-09-01 18:50:36.935504+08
-591	0	13	1	0	0	2	0	0	0	0	0	0	0		033 程宇-遨游汉字王国（一）	0ddb039c46e943269c1b86cb5320d117	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:36.991835+08	2019-09-01 18:50:36.991835+08
-592	0	13	1	0	0	2	0	0	0	0	0	0	0		034 程宇-遨游汉字王国（二）	0e2a1a77b93e4438961aa5c2f57abfac	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.054598+08	2019-09-01 18:50:37.054598+08
-593	0	13	1	0	0	2	0	0	0	0	0	0	0		035 程宇-遨游汉字王国（三）	1e3f9b416f624b2c9fa0d06c4427df04	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.11866+08	2019-09-01 18:50:37.11866+08
-594	0	13	1	0	0	2	0	0	0	0	0	0	0		036 程宇-地震中的父与子	bbdc0e9b922e4b7a91612b2f8a93366d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.171774+08	2019-09-01 18:50:37.171774+08
-595	0	13	1	0	0	2	0	0	0	0	0	0	0		037 程宇-慈母情深	3733973364ec4f5aa5ff8b51944f64c0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.22488+08	2019-09-01 18:50:37.22488+08
-596	0	13	1	0	0	2	0	0	0	0	0	0	0		038 程宇-精彩极了和糟糕透了	d95b9a2895814e9b895bb20317cefd1d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.291554+08	2019-09-01 18:50:37.291554+08
-597	0	13	1	0	0	2	0	0	0	0	0	0	0		039 程宇-学会看病	8209344847db47cc8d33561961c58fd0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.353897+08	2019-09-01 18:50:37.353897+08
-598	0	13	1	0	0	2	0	0	0	0	0	0	0		040 程宇-第六单元 回顾拓展	f2a91f4b20394d7490175a1dca71e4c0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.420333+08	2019-09-01 18:50:37.420333+08
-599	0	13	1	0	0	2	0	0	0	0	0	0	0		041 程宇-第六单元 习作_1	43e6da170b8b4807b7e3a829735d5dd8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.475881+08	2019-09-01 18:50:37.475881+08
-600	0	13	1	0	0	2	0	0	0	0	0	0	0		042 程宇-圆明园的毁灭（一）	0c6bd96aecab4c2cb3bb29a0e0d5995d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.549184+08	2019-09-01 18:50:37.549184+08
-601	0	13	1	0	0	2	0	0	0	0	0	0	0		043 程宇-圆明园的毁灭（二）	921ce0cd82e442d19c1755aa36d36e44	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.591875+08	2019-09-01 18:50:37.591875+08
-602	0	13	1	0	0	2	0	0	0	0	0	0	0		044 程宇-圆明园的毁灭（三）	52f742f0968148e8a769f37fb6619f20	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.657171+08	2019-09-01 18:50:37.657171+08
-603	0	13	1	0	0	2	0	0	0	0	0	0	0		045 程宇-难忘的一课	56af8c9396ff4a1aac49e7ed16180b3c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.711466+08	2019-09-01 18:50:37.711466+08
-604	0	13	1	0	0	2	0	0	0	0	0	0	0		046 程宇-最后一分钟	5015c4d8c98c44828ce1ebc8df09d3ff	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.785227+08	2019-09-01 18:50:37.785227+08
-605	0	13	1	0	0	2	0	0	0	0	0	0	0		047 程宇-第七单元回顾与拓展	7cb9425c65184306858b845f83de7803	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.840884+08	2019-09-01 18:50:37.840884+08
-606	0	13	1	0	0	2	0	0	0	0	0	0	0		048 程宇-第七单元习作读后感	fe3ed0b5f8db4a1ca8b233072d61876e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.907779+08	2019-09-01 18:50:37.907779+08
-607	0	13	1	0	0	2	0	0	0	0	0	0	0		049 程宇-七律 长征（一）	2000f7c9d22f42728385ce443eac63d3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:37.962152+08	2019-09-01 18:50:37.962152+08
-608	0	13	1	0	0	2	0	0	0	0	0	0	0		050 程宇-七律 长征（二）	aff3d4fd8c5c4bcab01c27557853ff44	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.010479+08	2019-09-01 18:50:38.010479+08
-609	0	13	1	0	0	2	0	0	0	0	0	0	0		051 程宇-七律 长征（三）	7388f46d655747ddb62524d13021d355	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.082433+08	2019-09-01 18:50:38.082433+08
-610	0	13	1	0	0	2	0	0	0	0	0	0	0		052 程宇-开国大典（一）	6ab907e035de4818ac2a8a33dafc64c5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.141405+08	2019-09-01 18:50:38.141405+08
-611	0	13	1	0	0	2	0	0	0	0	0	0	0		053 程宇-开国大典（二）	7c38419c78f34b3fb62beafe0cc1a948	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.192419+08	2019-09-01 18:50:38.192419+08
-612	0	13	1	0	0	2	0	0	0	0	0	0	0		054 程宇-青山处处埋忠骨	68606ffe756a4d2c8e1d61cc24603b90	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.259027+08	2019-09-01 18:50:38.259027+08
-613	0	13	1	0	0	2	0	0	0	0	0	0	0		055 程宇-毛主席在花山	3876381fac964ce7a3125052ce18b1a5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.31722+08	2019-09-01 18:50:38.31722+08
-614	0	13	1	0	0	2	0	0	0	0	0	0	0		056 程宇-第八单元回顾与拓展	5c0d56569b4f4e1898d266cf3d5646ca	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.387569+08	2019-09-01 18:50:38.387569+08
-615	0	13	1	0	0	2	0	0	0	0	0	0	0		057 程宇-习作八（一）	eed4473d4d4245c2832899e6ff256bfa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.428563+08	2019-09-01 18:50:38.428563+08
-616	0	13	1	0	0	2	0	0	0	0	0	0	0		058 程宇-习作八（二）	a6d666cdb3a04c2b92847f25eef7d180	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.496565+08	2019-09-01 18:50:38.496565+08
-617	0	13	1	0	0	2	0	0	0	0	0	0	0		059 程宇-选读单元（一）	c7e61a0afd7946a4b0f8cde87465f908	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.555618+08	2019-09-01 18:50:38.555618+08
-618	0	13	1	0	0	2	0	0	0	0	0	0	0		060 程宇-选读单元（二）	a0eead8055b84e4bba3f4ed7d60467da	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.613473+08	2019-09-01 18:50:38.613473+08
-619	0	13	1	0	0	2	0	0	0	0	0	0	0		061 程宇-阅读理解（一）	bc520fc0dba04564b21616e90350d94e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.673044+08	2019-09-01 18:50:38.673044+08
-620	0	13	1	0	0	2	0	0	0	0	0	0	0		062 程宇-阅读理解（二）	2cb5586ed365493b8e0fa875262969ea	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.747284+08	2019-09-01 18:50:38.747284+08
-621	0	13	1	0	0	2	0	0	0	0	0	0	0		063 程宇-阅读理解（三）	b178de54a2054efaaf5e21699182310c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.798257+08	2019-09-01 18:50:38.798257+08
-622	0	13	1	0	0	2	0	0	0	0	0	0	0		064 程宇-期末作文（一）	ce6ca64ef2404c1e865b71c71097af25	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.854297+08	2019-09-01 18:50:38.854297+08
-623	0	13	1	0	0	2	0	0	0	0	0	0	0		065 程宇-期末作文（二）	34aa4e575fe84d33aa2f309defccad1b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.916488+08	2019-09-01 18:50:38.916488+08
-624	0	12	1	0	0	1	0	0	0	0	0	0	0		001 涂熹恺-旅行中的发现	95fda9009a994456b639b983f8ee5679	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:38.9827+08	2019-09-01 18:50:38.9827+08
-625	0	12	1	0	0	1	0	0	0	0	0	0	0		002 涂熹恺-精明的主妇.百分数	7be40cd9ea9d4a60882e888dcdc4f53e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.035485+08	2019-09-01 18:50:39.035485+08
-626	0	12	1	0	0	2	0	0	0	0	0	0	0		003 涂熹恺-精明的主妇.百分数强化训练	f07d3c22ec214848983c7e61f7ea898f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.107557+08	2019-09-01 18:50:39.107557+08
-627	0	12	1	0	0	2	0	0	0	0	0	0	0		004 涂熹恺-特色的建筑.圆柱的认识	2ced0a6c5b6542dcb35893dc71e014bb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.154189+08	2019-09-01 18:50:39.154189+08
-628	0	12	1	0	0	2	0	0	0	0	0	0	0		005 涂熹恺-特色的建筑.圆柱的表面积和体积	00ec0495c2914e1b8e24b94e9d967824	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.217662+08	2019-09-01 18:50:39.217662+08
-629	0	12	1	0	0	2	0	0	0	0	0	0	0		006 涂熹恺-特色的建筑.圆锥	1929ee3c668b4c139dfd0b175d442639	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.269484+08	2019-09-01 18:50:39.269484+08
-630	0	12	1	0	0	2	0	0	0	0	0	0	0		007 涂熹恺-特色的建筑.圆柱、圆锥强化训练	50c39553ddb043199b47caa0b9f169aa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.334373+08	2019-09-01 18:50:39.334373+08
-631	0	12	1	0	0	2	0	0	0	0	0	0	0		008 涂熹恺-我和爸比谁棒？ 比例的意义和基本性质	9ac60dc08f534c2eaed0da75430d733c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.389486+08	2019-09-01 18:50:39.389486+08
-632	0	12	1	0	0	2	0	0	0	0	0	0	0		009 涂熹恺-我和爸比谁棒？ 正比例和反比例	0b7b735fa7c644739c2977c6fac615b0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.463833+08	2019-09-01 18:50:39.463833+08
-633	0	12	1	0	0	2	0	0	0	0	0	0	0		010 涂熹恺-我和爸比谁棒？ 比例尺	edceecaa7d084d9a85f7b6b9c6d87ad5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.518342+08	2019-09-01 18:50:39.518342+08
-634	0	12	1	0	0	2	0	0	0	0	0	0	0		011 涂熹恺-用比例解决实际问题	be73ad8a7211495aa7f97990905b5be6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.576616+08	2019-09-01 18:50:39.576616+08
-635	0	12	1	0	0	2	0	0	0	0	0	0	0		012 涂熹恺-鸽巢问题	36b93169a94c45b2b7b5ccccd8910f4d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.633895+08	2019-09-01 18:50:39.633895+08
-636	0	12	1	0	0	2	0	0	0	0	0	0	0		013 涂熹恺-数的认识（一）	7ba3173530e4473f8f2194df934ead38	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.702767+08	2019-09-01 18:50:39.702767+08
-637	0	12	1	0	0	2	0	0	0	0	0	0	0		014 涂熹恺-数的认识（二）	4fd48e78a7ab4aa1bb9d290bb6782bf5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.763103+08	2019-09-01 18:50:39.763103+08
-638	0	12	1	0	0	2	0	0	0	0	0	0	0		015 涂熹恺-数的运算（一）	004a206b5061461c957358a8559fb302	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.825274+08	2019-09-01 18:50:39.825274+08
-639	0	12	1	0	0	2	0	0	0	0	0	0	0		016 涂熹恺-数的运算（二）	93a44c533288459090916297c17444dc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.887304+08	2019-09-01 18:50:39.887304+08
-640	0	12	1	0	0	2	0	0	0	0	0	0	0		017 涂熹恺-式与方程	1347661037e7438498de6fcf66e54f53	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.946574+08	2019-09-01 18:50:39.946574+08
-641	0	12	1	0	0	2	0	0	0	0	0	0	0		018 涂熹恺-图形专题	d87ad0f3e7a04f4fb2326c22b1a54168	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:39.985181+08	2019-09-01 18:50:39.985181+08
-642	0	12	1	0	0	2	0	0	0	0	0	0	0		019 涂熹恺-统计	ba5cce3352ce42099d528f10eafbaf7e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.053634+08	2019-09-01 18:50:40.053634+08
-643	0	12	1	0	0	2	0	0	0	0	0	0	0		020 涂熹恺-概率	0e4dd1cd2f804a1b8216c0f41f855306	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.110952+08	2019-09-01 18:50:40.110952+08
-644	0	12	1	0	0	2	0	0	0	0	0	0	0		021 涂熹恺-数学思考	c4ab3482ea9d408d91556f3bbe4c6aa8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.183375+08	2019-09-01 18:50:40.183375+08
-645	0	12	1	0	0	2	0	0	0	0	0	0	0		022 涂熹恺-综合与实践（一）	68dfd7c0eb5f48b8a8b873c5232df4dc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.241838+08	2019-09-01 18:50:40.241838+08
-646	0	12	1	0	0	2	0	0	0	0	0	0	0		023 涂熹恺-综合与实践（二）	595a558f4d824cb19187a1a91843493d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.284557+08	2019-09-01 18:50:40.284557+08
-647	0	12	1	0	0	2	0	0	0	0	0	0	0		024 涂熹恺-综合练习（一）	06c86c677016459da9565a45016c5d39	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.357379+08	2019-09-01 18:50:40.357379+08
-648	0	12	1	0	0	2	0	0	0	0	0	0	0		025 涂熹恺-综合练习（二）	b300dc59acc6456d8016b05453860e76	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.418525+08	2019-09-01 18:50:40.418525+08
-649	0	15	1	0	0	1	0	0	0	0	0	0	0		001 Sunny-lesson 1	5c2513b0927a4c70b90056b501f2907b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.479889+08	2019-09-01 18:50:40.479889+08
-650	0	15	1	0	0	1	0	0	0	0	0	0	0		002 Sunny-lesson 2	474be94ce73840a88e13803fe7dd4304	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.535585+08	2019-09-01 18:50:40.535585+08
-651	0	15	1	0	0	2	0	0	0	0	0	0	0		003 Sunny-lesson 3	11a966e9cbd84fc49fb825559d7320ff	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.602584+08	2019-09-01 18:50:40.602584+08
-652	0	15	1	0	0	2	0	0	0	0	0	0	0		004 Sunny-lesson 4	bdbe89bfa3444bd28710e2de553617ed	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.657228+08	2019-09-01 18:50:40.657228+08
-653	0	15	1	0	0	2	0	0	0	0	0	0	0		005 Sunny-lesson 5	0efc6a21937f4109ae12520348c64f54	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.725289+08	2019-09-01 18:50:40.725289+08
-654	0	15	1	0	0	2	0	0	0	0	0	0	0		006 Sunny-lesson 6	f5f5458195784a04bf57459a2da0de75	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.787684+08	2019-09-01 18:50:40.787684+08
-655	0	15	1	0	0	2	0	0	0	0	0	0	0		007 Sunny-lesson 1	f1391c21f9184e029b163f3e7073ff0a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.835461+08	2019-09-01 18:50:40.835461+08
-656	0	15	1	0	0	2	0	0	0	0	0	0	0		008 Sunny-lesson 2	aacc60e2aeb940dcae50cf31ff3e0d52	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.895673+08	2019-09-01 18:50:40.895673+08
-657	0	15	1	0	0	2	0	0	0	0	0	0	0		009 Sunny-lesson 3	2892dc02164e47619d136317de3061b0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:40.95721+08	2019-09-01 18:50:40.95721+08
-658	0	15	1	0	0	2	0	0	0	0	0	0	0		010 Sunny-lesson 4	8d104156a138479a8271d71571b5d73d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.018679+08	2019-09-01 18:50:41.018679+08
-659	0	15	1	0	0	2	0	0	0	0	0	0	0		011 Sunny-lesson 5	2ce8d654c7194be18bf763d0fd5741f5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.086109+08	2019-09-01 18:50:41.086109+08
-660	0	15	1	0	0	2	0	0	0	0	0	0	0		012 Sunny-lesson 6	63c7528fab6f43d097060b610c6c39af	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.152393+08	2019-09-01 18:50:41.152393+08
-661	0	15	1	0	0	2	0	0	0	0	0	0	0		013 Sunny-lesson 1	8815eea9a6c94e36ae9f82ac80fc5901	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.210102+08	2019-09-01 18:50:41.210102+08
-662	0	15	1	0	0	2	0	0	0	0	0	0	0		014 Sunny-lesson 2	2c98e5c173074bbe9e74c46a56c2c9a9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.251305+08	2019-09-01 18:50:41.251305+08
-663	0	15	1	0	0	2	0	0	0	0	0	0	0		015 Sunny-lesson 3	a3c67422a54c4a52afe61388e216e53b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.307932+08	2019-09-01 18:50:41.307932+08
-664	0	15	1	0	0	2	0	0	0	0	0	0	0		016 Sunny-lesson 4	fce68030b0a84d50a275cb8bd45ec9cc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.375838+08	2019-09-01 18:50:41.375838+08
-665	0	15	1	0	0	2	0	0	0	0	0	0	0		017 Sunny-lesson 5	d13c911705a044c189807fbd783932f3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.432688+08	2019-09-01 18:50:41.432688+08
-666	0	15	1	0	0	2	0	0	0	0	0	0	0		018 Sunny-lesson 6	d688fa4e0b18433a8b79aac73f816fb3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.501257+08	2019-09-01 18:50:41.501257+08
-667	0	15	1	0	0	2	0	0	0	0	0	0	0		019 Sunny-recycle1（一）	a31cd7eb466a4e498fd0c50eeb833440	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.558877+08	2019-09-01 18:50:41.558877+08
-668	0	15	1	0	0	2	0	0	0	0	0	0	0		020 Sunny-recycle2（二）	1fe282d45e0e45b18a61a2b44c2d83e5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.665891+08	2019-09-01 18:50:41.665891+08
-669	0	15	1	0	0	2	0	0	0	0	0	0	0		021 Sunny-recycle3（三）	133166306eeb4ea7bc2eea874b0e751d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.675837+08	2019-09-01 18:50:41.675837+08
-670	0	15	1	0	0	2	0	0	0	0	0	0	0		022 Sunny-lesson 1	e9e6e21e97954b9594ca3bea533242a1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.731758+08	2019-09-01 18:50:41.731758+08
-671	0	15	1	0	0	2	0	0	0	0	0	0	0		023 Sunny-lesson 2	0f894c0180bc48a28abb6a6705f01265	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.787626+08	2019-09-01 18:50:41.787626+08
-672	0	15	1	0	0	2	0	0	0	0	0	0	0		024 Sunny-lesson 3	22fca1c8ef634337bbd7a90d158e8124	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.858755+08	2019-09-01 18:50:41.858755+08
-673	0	15	1	0	0	2	0	0	0	0	0	0	0		025 Sunny-lesson 4	5a696cd01c6a4d8d8602f660a5c1020d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.916967+08	2019-09-01 18:50:41.916967+08
-674	0	15	1	0	0	2	0	0	0	0	0	0	0		026 Sunny-lesson 5	9db053dae77c4b458eb03d1c566d7407	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:41.985546+08	2019-09-01 18:50:41.985546+08
-675	0	15	1	0	0	2	0	0	0	0	0	0	0		027 Sunny-lesson 6	854b75c416f94fde9af2dbaa6545d82e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.039856+08	2019-09-01 18:50:42.039856+08
-676	0	15	1	0	0	2	0	0	0	0	0	0	0		028 Sunny-lesson 1	426681e9573b43eaa6e7738e431e957b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.086997+08	2019-09-01 18:50:42.086997+08
-677	0	15	1	0	0	2	0	0	0	0	0	0	0		029 Sunny-lesson 2	d1d917c59f4d4f849214913a04a98202	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.158297+08	2019-09-01 18:50:42.158297+08
-678	0	15	1	0	0	2	0	0	0	0	0	0	0		030 Sunny-lesson 3	fa032e2258ee453eb87d7c3e2ea404c8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.209157+08	2019-09-01 18:50:42.209157+08
-679	0	15	1	0	0	2	0	0	0	0	0	0	0		031 Sunny-lesson 4	9a5bf9803fc049f88d54cafbc76132b1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.280361+08	2019-09-01 18:50:42.280361+08
-680	0	15	1	0	0	2	0	0	0	0	0	0	0		032 Sunny-lesson 5	b84df881cece409abf5f0bc7e4fa8200	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.337581+08	2019-09-01 18:50:42.337581+08
-681	0	15	1	0	0	2	0	0	0	0	0	0	0		033 Sunny-lesson 6	63c1e9fadf66408b8103ef8d7b29ad0c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.405524+08	2019-09-01 18:50:42.405524+08
-682	0	15	1	0	0	2	0	0	0	0	0	0	0		034 Sunny-lesson 1	8a10fa5c40e644fdaf6ec27f60182b18	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.469323+08	2019-09-01 18:50:42.469323+08
-683	0	15	1	0	0	2	0	0	0	0	0	0	0		035 Sunny-lesson 2	5cb783b426bd4b98b8469e52e72defdc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.519903+08	2019-09-01 18:50:42.519903+08
-684	0	15	1	0	0	2	0	0	0	0	0	0	0		036 Sunny-lesson 3	9c08908a6d0b4dce95a8fe734aa985c7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.572481+08	2019-09-01 18:50:42.572481+08
-685	0	15	1	0	0	2	0	0	0	0	0	0	0		037 Sunny-lesson 4	9e1a2ade22d244b4951b667e9b035c67	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.644595+08	2019-09-01 18:50:42.644595+08
-686	0	15	1	0	0	2	0	0	0	0	0	0	0		038 Sunny-lesson 5	608f3a50d7624ee08deebc7f6a7e70f9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.683289+08	2019-09-01 18:50:42.683289+08
-687	0	15	1	0	0	2	0	0	0	0	0	0	0		039 Sunny-lesson 1	f284ecea6f774b64b0e94e120294cf98	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.755087+08	2019-09-01 18:50:42.755087+08
-688	0	15	1	0	0	2	0	0	0	0	0	0	0		040 Sunny-lesson 2	15f8636f41c5488cb35f844a5cbd9148	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.808535+08	2019-09-01 18:50:42.808535+08
-689	0	16	1	0	0	1	0	0	0	0	0	0	0		001 五年级数学上册 前言	be8ab5af83db41c09c1137e98e0c1674	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.883685+08	2019-09-01 18:50:42.883685+08
-690	0	16	1	0	0	1	0	0	0	0	0	0	0		002 卜卜-小数乘整数	3fe3ebd4505b4a76b53249e77bb8612c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:42.925451+08	2019-09-01 18:50:42.925451+08
-691	0	16	1	0	0	2	0	0	0	0	0	0	0		003 卜卜-小数乘小数	e6cc3d5f9f914817a0740fc1ad2c77fa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.000903+08	2019-09-01 18:50:43.000903+08
-692	0	16	1	0	0	2	0	0	0	0	0	0	0		004 卜卜-小数乘法应用	ed88139273c644f9abdf51650defd36f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.055811+08	2019-09-01 18:50:43.055811+08
-693	0	16	1	0	0	2	0	0	0	0	0	0	0		005 卜卜-积的近似数	7ec174d4829240da9820651c7df35e89	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.121662+08	2019-09-01 18:50:43.121662+08
-694	0	16	1	0	0	2	0	0	0	0	0	0	0		006 卜卜-整数乘法运算定律	a77698190cc849129310137a62588ecb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.18268+08	2019-09-01 18:50:43.18268+08
-695	0	16	1	0	0	2	0	0	0	0	0	0	0		007 卜卜-小数乘法的应用（一）	7cae7341ae124fd4a8fe5da04325bd39	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.229675+08	2019-09-01 18:50:43.229675+08
-696	0	16	1	0	0	2	0	0	0	0	0	0	0		008 卜卜-小数乘法的应用（二）	fdc48c450711495fae6a0db8d3905496	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.300994+08	2019-09-01 18:50:43.300994+08
-697	0	16	1	0	0	2	0	0	0	0	0	0	0		009 卜卜-位置（一）	e19164976e7b4733bc03f45186de7274	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.367853+08	2019-09-01 18:50:43.367853+08
-698	0	16	1	0	0	2	0	0	0	0	0	0	0		010 卜卜-位置（二）	79cce7e89267498e9fa2f21fa9eb3774	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.405303+08	2019-09-01 18:50:43.405303+08
-699	0	16	1	0	0	2	0	0	0	0	0	0	0		011 卜卜-除数是整数的小数除法	58dd370a1c1546c094f294f6361e4c97	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.473032+08	2019-09-01 18:50:43.473032+08
-700	0	16	1	0	0	2	0	0	0	0	0	0	0		012 卜卜-一个数除以小数	8c3191deae8b452a873b91c6ce4382c9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.525714+08	2019-09-01 18:50:43.525714+08
-701	0	16	1	0	0	2	0	0	0	0	0	0	0		013 卜卜-商的近似数	9246147a4ab74343a5ec366409de5607	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.60252+08	2019-09-01 18:50:43.60252+08
-702	0	16	1	0	0	2	0	0	0	0	0	0	0		014 卜卜-循环小数	588264d1d31349edba0fc6e8d1b7a646	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.659109+08	2019-09-01 18:50:43.659109+08
-703	0	16	1	0	0	2	0	0	0	0	0	0	0		015 卜卜-用计算器探索规律	f0f24299627540afbe447e99d58a1570	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.714509+08	2019-09-01 18:50:43.714509+08
-704	0	16	1	0	0	2	0	0	0	0	0	0	0		016 卜卜-小数除法的应用	ccf633c0f9e542f6b7ce3b35a6f630a4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.775758+08	2019-09-01 18:50:43.775758+08
-705	0	16	1	0	0	2	0	0	0	0	0	0	0		017 卜卜-整理与复习	523c86a8f1a54791a05755383036fa4d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.832874+08	2019-09-01 18:50:43.832874+08
-706	0	16	1	0	0	2	0	0	0	0	0	0	0		018 卜卜-可能性（一）	29604ce327ab43cfb6fc81f43571bc89	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.901302+08	2019-09-01 18:50:43.901302+08
-707	0	16	1	0	0	2	0	0	0	0	0	0	0		019 卜卜-可能性（二）	e1768522cc0446a1b5df5c9d2173199a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:43.946726+08	2019-09-01 18:50:43.946726+08
-708	0	16	1	0	0	2	0	0	0	0	0	0	0		020 卜卜-简易方程（一）	0710fb408dd04a529b945bece22ae631	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.016779+08	2019-09-01 18:50:44.016779+08
-709	0	16	1	0	0	2	0	0	0	0	0	0	0		021 卜卜-简易方程（二）	07d5a9d19bb24eea8eafed0b24faf259	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.074971+08	2019-09-01 18:50:44.074971+08
-710	0	16	1	0	0	2	0	0	0	0	0	0	0		022 卜卜-简易方程（三）	907d98e63d8c467889b753db3b7210d6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.145017+08	2019-09-01 18:50:44.145017+08
-711	0	16	1	0	0	2	0	0	0	0	0	0	0		023 卜卜-简易方程（四）	454ce39a6ba4454a821fcc245619f68c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.195464+08	2019-09-01 18:50:44.195464+08
-712	0	16	1	0	0	2	0	0	0	0	0	0	0		024 卜卜-简易方程（五）	3cdc7c7f40c4431f9e5c9b5486c37117	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.265147+08	2019-09-01 18:50:44.265147+08
-713	0	16	1	0	0	2	0	0	0	0	0	0	0		025 卜卜-简易方程（六）	0f4a8e390df94e788e8c0f453c3aaaa8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.314771+08	2019-09-01 18:50:44.314771+08
-714	0	16	1	0	0	2	0	0	0	0	0	0	0		026 卜卜-简易方程（七）	fcc4322fe84944809196941eba347eb4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.383696+08	2019-09-01 18:50:44.383696+08
-715	0	16	1	0	0	2	0	0	0	0	0	0	0		027 卜卜-简易方程（八）	5012867535a14a8e83d1956b1110e9ff	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.441604+08	2019-09-01 18:50:44.441604+08
-716	0	16	1	0	0	2	0	0	0	0	0	0	0		028 卜卜-简易方程（九）	aca6c2c93ce14d53bcdf9e6cb16017e1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.485995+08	2019-09-01 18:50:44.485995+08
-717	0	16	1	0	0	2	0	0	0	0	0	0	0		029 卜卜-简易方程（十）	41776453c6ec4173bb88286000cad3a7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.553112+08	2019-09-01 18:50:44.553112+08
-718	0	16	1	0	0	2	0	0	0	0	0	0	0		030 卜卜-简易方程（十一）	ab76271900154719a261014a12eca96c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.609258+08	2019-09-01 18:50:44.609258+08
-719	0	16	1	0	0	2	0	0	0	0	0	0	0		031 卜卜-简易方程（十二）	2dfb2130b6a94824b0dc6f11eb5e286c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.678506+08	2019-09-01 18:50:44.678506+08
-720	0	16	1	0	0	2	0	0	0	0	0	0	0		032 卜卜-简易方程（十三）	38f868934cc445eaa661ff96537605c7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.738192+08	2019-09-01 18:50:44.738192+08
-721	0	16	1	0	0	2	0	0	0	0	0	0	0		033 卜卜-多边形的面积（一）	34344cb7e899488b864d4e0a73c5e719	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.798118+08	2019-09-01 18:50:44.798118+08
-722	0	16	1	0	0	2	0	0	0	0	0	0	0		034 卜卜-多边形的面积（二）	16392b4e839849119c2926cc0a345df0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.87041+08	2019-09-01 18:50:44.87041+08
-723	0	16	1	0	0	2	0	0	0	0	0	0	0		035 卜卜-多边形的面积（三）	7eed7b009488400cb06fd21f4aced3ea	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.915723+08	2019-09-01 18:50:44.915723+08
-724	0	16	1	0	0	2	0	0	0	0	0	0	0		036 卜卜-多边形的面积（四）	7dffaf791f1745368716aafc410396d9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:44.986459+08	2019-09-01 18:50:44.986459+08
-725	0	16	1	0	0	2	0	0	0	0	0	0	0		037 卜卜-多边形的面积（五）	f7774e6a973e4201934a9d9c65f1f30a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.026105+08	2019-09-01 18:50:45.026105+08
-726	0	16	1	0	0	2	0	0	0	0	0	0	0		038 卜卜-多边形的面积（六）	fbd96543d4ac4bceaf5da523e308db98	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.099931+08	2019-09-01 18:50:45.099931+08
-727	0	16	1	0	0	2	0	0	0	0	0	0	0		039 卜卜-植树问题（一）	1a5f8a74146a4f8ca380c829efb92bd3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.153911+08	2019-09-01 18:50:45.153911+08
-728	0	16	1	0	0	2	0	0	0	0	0	0	0		040 卜卜-植树问题（二）	91e8cfebc0d743eab6e930f3f55590d4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.220985+08	2019-09-01 18:50:45.220985+08
-729	0	16	1	0	0	2	0	0	0	0	0	0	0		041 卜卜-植树问题（三）	d8360d4c2ea748c98db4560a93b2b228	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.279778+08	2019-09-01 18:50:45.279778+08
-730	0	16	1	0	0	2	0	0	0	0	0	0	0		042 卜卜-总复习（一）	408d9f4f56144422a06137f2b3b0f4e3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.324591+08	2019-09-01 18:50:45.324591+08
-731	0	14	1	0	0	1	0	0	0	0	0	0	0		001 涂熹恺-观察图形（三）	2c15f600f6404b8cbe32a97f92d31ab2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.387657+08	2019-09-01 18:50:45.387657+08
-732	0	14	1	0	0	1	0	0	0	0	0	0	0		002 涂熹恺-因数和倍数（一）	996f133ea7b6453a95d33556d96b9524	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.453198+08	2019-09-01 18:50:45.453198+08
-733	0	14	1	0	0	2	0	0	0	0	0	0	0		003 涂熹恺-因数和倍数（二）	d345ae9fb44f42e9bc20c573ff52f5ba	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.507446+08	2019-09-01 18:50:45.507446+08
-734	0	14	1	0	0	2	0	0	0	0	0	0	0		004 涂熹恺-2、5的倍数特征	4620e16a9bd048adbe83849b9fa9103d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.583439+08	2019-09-01 18:50:45.583439+08
-735	0	14	1	0	0	2	0	0	0	0	0	0	0		005 涂熹恺-3的倍数	22cb2b4d81934a28af2523aaade507b2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.630377+08	2019-09-01 18:50:45.630377+08
-736	0	14	1	0	0	2	0	0	0	0	0	0	0		006 涂熹恺-质数和合数（一）	1a4f77c197074a7e8280877280ef5d87	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.701424+08	2019-09-01 18:50:45.701424+08
-737	0	14	1	0	0	2	0	0	0	0	0	0	0		007 涂熹恺-质数和合数（二）	515cd875b9914ec7a5ccc9739bf63d34	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.749708+08	2019-09-01 18:50:45.749708+08
-738	0	14	1	0	0	2	0	0	0	0	0	0	0		008 涂熹恺-综合训练	7e75e4a5c75246d9bd472b5d85aead81	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.807357+08	2019-09-01 18:50:45.807357+08
-739	0	14	1	0	0	2	0	0	0	0	0	0	0		009 涂熹恺-长方体	164849b39d2345dca9a2836b55e41a00	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.873886+08	2019-09-01 18:50:45.873886+08
-740	0	14	1	0	0	2	0	0	0	0	0	0	0		010 涂熹恺-正方体	dedf58a68f064a8f966240cfc9ea47e7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.933819+08	2019-09-01 18:50:45.933819+08
-741	0	14	1	0	0	2	0	0	0	0	0	0	0		011 涂熹恺-长方体和正方体的表面积	544fb2c8af0a49daa961adcbd1405320	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:45.993927+08	2019-09-01 18:50:45.993927+08
-742	0	14	1	0	0	2	0	0	0	0	0	0	0		012 涂熹恺-体积和体积单位	8253861591744015bb052072ba0ce0a9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.051527+08	2019-09-01 18:50:46.051527+08
-743	0	14	1	0	0	2	0	0	0	0	0	0	0		013 涂熹恺-长方体和正方体的体积	34087d2f28934aa3ba17910eb3d55844	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.11368+08	2019-09-01 18:50:46.11368+08
-744	0	14	1	0	0	2	0	0	0	0	0	0	0		014 涂熹恺-体积单位的进率	a0fe8cdfbbbc494d9a342881106022f9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.188693+08	2019-09-01 18:50:46.188693+08
-745	0	14	1	0	0	2	0	0	0	0	0	0	0		015 涂熹恺-容积和容积单位	cad85cd832274e0d9bead68aac3b1d09	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.235177+08	2019-09-01 18:50:46.235177+08
-746	0	14	1	0	0	2	0	0	0	0	0	0	0		016 涂熹恺-长方体和正方体总复习	8806013d8dda444db0c4b5e7f5fb1523	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.283355+08	2019-09-01 18:50:46.283355+08
-747	0	14	1	0	0	2	0	0	0	0	0	0	0		017 涂熹恺-图形的探索	732044f1afdb43c9b42925336d8e9ce5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.36505+08	2019-09-01 18:50:46.36505+08
-748	0	14	1	0	0	2	0	0	0	0	0	0	0		018 涂熹恺-分数的意义、与除法的关系	687854b3160a46378365add0834610bd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.407293+08	2019-09-01 18:50:46.407293+08
-749	0	14	1	0	0	2	0	0	0	0	0	0	0		019 涂熹恺-分数的分类	e9511f7cfd3b4c8eb606d30964722b20	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.473329+08	2019-09-01 18:50:46.473329+08
-750	0	14	1	0	0	2	0	0	0	0	0	0	0		020 涂熹恺-分数的基本性质	de51b3e867a94d0d99c35da7d3452997	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.530909+08	2019-09-01 18:50:46.530909+08
-751	0	14	1	0	0	2	0	0	0	0	0	0	0		021 涂熹恺-最大公因数、约分	09cfb866c9e64d95a88fc2f7addea36d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.592342+08	2019-09-01 18:50:46.592342+08
-752	0	14	1	0	0	2	0	0	0	0	0	0	0		022 涂熹恺-最小公倍数、通分	8543397ac3d04c729a551a4bf1e218fc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.655882+08	2019-09-01 18:50:46.655882+08
-753	0	14	1	0	0	2	0	0	0	0	0	0	0		023 涂熹恺-分数和小数互化	72eeb22e84c2441c8a8c228c1152f128	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.729107+08	2019-09-01 18:50:46.729107+08
-754	0	14	1	0	0	2	0	0	0	0	0	0	0		024 涂熹恺-分数总复习	66f8d479b8834a5e843884beff44a10b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.759051+08	2019-09-01 18:50:46.759051+08
-755	0	14	1	0	0	2	0	0	0	0	0	0	0		025 涂熹恺-图形的运动（三）	bc8966b8bac9407c9e6bb2f1905d1e71	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.829875+08	2019-09-01 18:50:46.829875+08
-756	0	14	1	0	0	2	0	0	0	0	0	0	0		026 涂熹恺-同分母加减法	29cc812721c74edb9175d429aae68a9f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.891773+08	2019-09-01 18:50:46.891773+08
-757	0	14	1	0	0	2	0	0	0	0	0	0	0		027 涂熹恺-异分母加减法	e1497047cfe3413f9d06e87131233147	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:46.953682+08	2019-09-01 18:50:46.953682+08
-758	0	14	1	0	0	2	0	0	0	0	0	0	0		028 涂熹恺-分数混合运算	90d93c7e566a4002b35ab5a05439507c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.005923+08	2019-09-01 18:50:47.005923+08
-759	0	14	1	0	0	2	0	0	0	0	0	0	0		029 涂熹恺-分数计算加强训练	27f8303eb6db4e7481683153ea171587	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.06858+08	2019-09-01 18:50:47.06858+08
-760	0	14	1	0	0	2	0	0	0	0	0	0	0		030 涂熹恺-打电话	58e06426851f47d1bc451e2708cb756b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.131657+08	2019-09-01 18:50:47.131657+08
-761	0	14	1	0	0	2	0	0	0	0	0	0	0		031 涂熹恺-统计图	e1f14ee85cf64a4ab99fab5d1edabc50	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.19124+08	2019-09-01 18:50:47.19124+08
-762	0	14	1	0	0	2	0	0	0	0	0	0	0		032 涂熹恺-找次品	ab612c0fdb5844569766b4327412f852	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.248748+08	2019-09-01 18:50:47.248748+08
-763	0	14	1	0	0	2	0	0	0	0	0	0	0		033 涂熹恺-总复习（一）	a0b42c99c05241b7a83489ee8a92f54a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.317884+08	2019-09-01 18:50:47.317884+08
-764	0	14	1	0	0	2	0	0	0	0	0	0	0		034 涂熹恺-总复习（二）	eeaf61a1fd934edd95fd310d5a4f880e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.369532+08	2019-09-01 18:50:47.369532+08
-765	0	17	1	0	0	1	0	0	0	0	0	0	0		001 徐蕊-前言	7848f1bf5b8947eea162c681896da857	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.441342+08	2019-09-01 18:50:47.441342+08
-766	0	17	1	0	0	2	0	0	0	0	0	0	0		002 徐蕊-Lesson 1	3e5b30e8f3494c95ba58516e53680d12	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.488701+08	2019-09-01 18:50:47.488701+08
-767	0	17	1	0	0	2	0	0	0	0	0	0	0		003 徐蕊-Lesson 2	b213a90d195e4ab7a5b9477ac120fe06	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.558938+08	2019-09-01 18:50:47.558938+08
-768	0	17	1	0	0	2	0	0	0	0	0	0	0		004 徐蕊-Lesson 3	46521655bf9f43f3b85ffef97f855cbb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.61544+08	2019-09-01 18:50:47.61544+08
-769	0	17	1	0	0	2	0	0	0	0	0	0	0		005 徐蕊-Lesson 4	f1a72e7544b7491d9a4d4832d2f0542c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.671726+08	2019-09-01 18:50:47.671726+08
-770	0	17	1	0	0	2	0	0	0	0	0	0	0		006 徐蕊-Lesson 5	bf6c74b45fda4a30b9694acb6c5568ca	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.739339+08	2019-09-01 18:50:47.739339+08
-771	0	17	1	0	0	2	0	0	0	0	0	0	0		007 徐蕊-Lesson 6	81d6ef3d9bf443ebaf883bd60b5431d0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.790583+08	2019-09-01 18:50:47.790583+08
-772	0	17	1	0	0	2	0	0	0	0	0	0	0		008 徐蕊-Lesson 1	f29a8bcf16cb4daaaa4536a90554fe07	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.850942+08	2019-09-01 18:50:47.850942+08
-773	0	17	1	0	0	2	0	0	0	0	0	0	0		009 徐蕊-Lesson 2	55449d4550bb47329b6090e8b81d3c89	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.916596+08	2019-09-01 18:50:47.916596+08
-774	0	17	1	0	0	2	0	0	0	0	0	0	0		010 徐蕊-Lesson 3	1245ed367d7f498b81ee8417a6eaa1e6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:47.982718+08	2019-09-01 18:50:47.982718+08
-775	0	17	1	0	0	2	0	0	0	0	0	0	0		011 徐蕊-Lesson 4	2e36e9d3b2c04efaa08d5278786e7223	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.02628+08	2019-09-01 18:50:48.02628+08
-776	0	17	1	0	0	2	0	0	0	0	0	0	0		012 徐蕊-Lesson 5	70a820e08b3e425a84014309d84bc9fb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.099776+08	2019-09-01 18:50:48.099776+08
-777	0	17	1	0	0	2	0	0	0	0	0	0	0		013 徐蕊-Lesson 6	160d1a916ab7438e83820518cfce0856	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.146058+08	2019-09-01 18:50:48.146058+08
-778	0	17	1	0	0	2	0	0	0	0	0	0	0		014 徐蕊-Lesson 1	dd4d5dc700f247208220d004cfb31944	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.216566+08	2019-09-01 18:50:48.216566+08
-779	0	17	1	0	0	2	0	0	0	0	0	0	0		015 徐蕊-Lesson 2	ecbfb49f4ca1464db09e36aef6ab9d1e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.274263+08	2019-09-01 18:50:48.274263+08
-780	0	17	1	0	0	2	0	0	0	0	0	0	0		016 徐蕊-Lesson 3	b3e14b16bafa4cfa99c1733062b5a161	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.341271+08	2019-09-01 18:50:48.341271+08
-781	0	17	1	0	0	2	0	0	0	0	0	0	0		017 徐蕊-Lesson 4	ae75ceaff5ad42bda63a3721da4a30b2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.396392+08	2019-09-01 18:50:48.396392+08
-782	0	17	1	0	0	2	0	0	0	0	0	0	0		018 徐蕊-Lesson 5	e78e6bd20e884ef59e55cbe9ebbf87c6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.455223+08	2019-09-01 18:50:48.455223+08
-783	0	17	1	0	0	2	0	0	0	0	0	0	0		019 徐蕊-Lesson 6	d69662d73dda4942a210c3bd7f804c79	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.515734+08	2019-09-01 18:50:48.515734+08
-784	0	17	1	0	0	2	0	0	0	0	0	0	0		020 徐蕊-Recycle 1	64388a2214bb4b2ead137b5862af599a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.56735+08	2019-09-01 18:50:48.56735+08
-785	0	17	1	0	0	2	0	0	0	0	0	0	0		021 徐蕊-Recycle 2	e579d98165614d8384e7ffbb5313dab1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.635857+08	2019-09-01 18:50:48.635857+08
-786	0	17	1	0	0	2	0	0	0	0	0	0	0		022 徐蕊-Recycle 3	a4d9457293d5428facb4ff3a6f7b327c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.69897+08	2019-09-01 18:50:48.69897+08
-787	0	17	1	0	0	2	0	0	0	0	0	0	0		023 徐蕊-Lesson 1	b537951571244e49b3bfe2da334bd871	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.743113+08	2019-09-01 18:50:48.743113+08
-788	0	17	1	0	0	2	0	0	0	0	0	0	0		024 徐蕊-Lesson 2	4ccb83f5379b47a4a0c9ac0e63ef2a1e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.814667+08	2019-09-01 18:50:48.814667+08
-789	0	17	1	0	0	2	0	0	0	0	0	0	0		025 徐蕊-Lesson 3	9070796782374490aa7dbf4c289a3554	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.876362+08	2019-09-01 18:50:48.876362+08
-790	0	17	1	0	0	2	0	0	0	0	0	0	0		026 徐蕊-Lesson 4	910670d6c78b4f16a2fe69f7d4e70d0a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:48.938029+08	2019-09-01 18:50:48.938029+08
-791	0	17	1	0	0	2	0	0	0	0	0	0	0		027 徐蕊-Lesson 5	5225a5a7522947478e7060b30c9c2a09	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.002899+08	2019-09-01 18:50:49.002899+08
-792	0	17	1	0	0	2	0	0	0	0	0	0	0		028 徐蕊-Lesson 6	2dfa91cef40b482b8c59db52d10b37b2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.055748+08	2019-09-01 18:50:49.055748+08
-793	0	17	1	0	0	2	0	0	0	0	0	0	0		029 徐蕊-Lesson 1	91e58b47656c4bafa5614a64df8eba7f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.107189+08	2019-09-01 18:50:49.107189+08
-794	0	17	1	0	0	2	0	0	0	0	0	0	0		030 徐蕊-Lesson 2	c9c80cd05e9d4e3999944e95deb361c2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.177167+08	2019-09-01 18:50:49.177167+08
-795	0	17	1	0	0	2	0	0	0	0	0	0	0		031 徐蕊-Lesson 3	ffacb26920734c439ada17d2aebb6806	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.23525+08	2019-09-01 18:50:49.23525+08
-796	0	17	1	0	0	2	0	0	0	0	0	0	0		032 徐蕊-Lesson 4	42a968202bde4cdf9a3f321ac5fa37d3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.293917+08	2019-09-01 18:50:49.293917+08
-797	0	17	1	0	0	2	0	0	0	0	0	0	0		033 徐蕊-Lesson 5	22e85095dc0548ea85b67ee8ea0a139a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.360192+08	2019-09-01 18:50:49.360192+08
-798	0	17	1	0	0	2	0	0	0	0	0	0	0		034 徐蕊-Lesson 6	8173744c78994470a241441734eddf5a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.475824+08	2019-09-01 18:50:49.475824+08
-799	0	17	1	0	0	2	0	0	0	0	0	0	0		035 徐蕊-Lesson 1	73955e252fbe4bbc831a2b242cec74f8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.497099+08	2019-09-01 18:50:49.497099+08
-800	0	17	1	0	0	2	0	0	0	0	0	0	0		036 徐蕊-Lesson 2	ba9c20066aed45be8d8139cb964f58b2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.539244+08	2019-09-01 18:50:49.539244+08
-801	0	17	1	0	0	2	0	0	0	0	0	0	0		037 徐蕊-Lesson 3	f36fbc5ec9c245cababd2a3fecf4ed9e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.593614+08	2019-09-01 18:50:49.593614+08
-802	0	17	1	0	0	2	0	0	0	0	0	0	0		038 徐蕊-Lesson 4	9d2595183bf2463e8b1e26e3593ddf58	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.65235+08	2019-09-01 18:50:49.65235+08
-803	0	17	1	0	0	2	0	0	0	0	0	0	0		039 徐蕊-Lesson 5	fe9fe9b038a24dc6b03aab77d9f97a96	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.706418+08	2019-09-01 18:50:49.706418+08
-804	0	17	1	0	0	2	0	0	0	0	0	0	0		040 徐蕊-Lesson 6	0319a4787904427f9afd6bda0efa84c4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.773696+08	2019-09-01 18:50:49.773696+08
-805	0	17	1	0	0	2	0	0	0	0	0	0	0		041 徐蕊-recycle 1	71eed48c6d7540fdb1e4ef1976edb98f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.833736+08	2019-09-01 18:50:49.833736+08
-806	0	17	1	0	0	2	0	0	0	0	0	0	0		042 徐蕊-recycle 2	0d47b3217ccc4fce84814923df40d8df	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.884957+08	2019-09-01 18:50:49.884957+08
-807	0	17	1	0	0	2	0	0	0	0	0	0	0		043 徐蕊-recycle 3	d037f112e4824b4095d0c399317528c0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:49.952465+08	2019-09-01 18:50:49.952465+08
-808	0	18	1	0	0	1	0	0	0	0	0	0	0		001张爽-古诗三首-独坐敬亭山	4620a7d7021243d79652c7e72a2781b5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.018703+08	2019-09-01 18:50:50.018703+08
-809	0	18	1	0	0	1	0	0	0	0	0	0	0		002张爽-古诗三首-望洞庭湖	12b765186e214a13b35dedf01e48fd52	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.065846+08	2019-09-01 18:50:50.065846+08
-810	0	18	1	0	0	2	0	0	0	0	0	0	0		003张爽-古诗三首-忆江南	d6284faebf7c45049401e2df48779fb2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.131329+08	2019-09-01 18:50:50.131329+08
-811	0	18	1	0	0	2	0	0	0	0	0	0	0		004张爽-桂林山水（一）	80350a71425f465ca864f8526f1056df	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.200017+08	2019-09-01 18:50:50.200017+08
-812	0	18	1	0	0	2	0	0	0	0	0	0	0		005张爽-桂林山水（二）	6c8862c689844a889fa93e1cda55e2b4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.240794+08	2019-09-01 18:50:50.240794+08
-813	0	18	1	0	0	2	0	0	0	0	0	0	0		006张爽-桂林山水（三）	d72dcf38a3eb4714b167273d36f3e5c3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.314175+08	2019-09-01 18:50:50.314175+08
-814	0	18	1	0	0	2	0	0	0	0	0	0	0		007张爽-记金华的双龙洞（一）	9409776d87e24592b47b0f011adcd59f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.374955+08	2019-09-01 18:50:50.374955+08
-815	0	18	1	0	0	2	0	0	0	0	0	0	0		008张爽-记金华的双龙洞（二）	53cebe9462a84f9fb211ccef59b95fd0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.430627+08	2019-09-01 18:50:50.430627+08
-816	0	18	1	0	0	2	0	0	0	0	0	0	0		009张爽-记金华的双龙洞（三）	197f231062534c959f50ebc1d4732231	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.494623+08	2019-09-01 18:50:50.494623+08
-817	0	18	1	0	0	2	0	0	0	0	0	0	0		010张爽-七月的天山（一）	f9f45e567095481dbf163d2c3a31e546	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.548019+08	2019-09-01 18:50:50.548019+08
-818	0	18	1	0	0	2	0	0	0	0	0	0	0		011张爽-七月的天山（二）	db536f1d105345339585d1194c7d2eb6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.614162+08	2019-09-01 18:50:50.614162+08
-819	0	18	1	0	0	2	0	0	0	0	0	0	0		012张爽-中彩那天（一）	b026fa166d8d45d6bfd963a74ebdaf83	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.667569+08	2019-09-01 18:50:50.667569+08
-820	0	18	1	0	0	2	0	0	0	0	0	0	0		013张爽-中彩那天（二）	4b69777a9db941459d73493a66206063	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.736537+08	2019-09-01 18:50:50.736537+08
-821	0	18	1	0	0	2	0	0	0	0	0	0	0		014张爽-中彩那天（三）	9b176975d01340a9a3fb05e15f10d913	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.78872+08	2019-09-01 18:50:50.78872+08
-822	0	18	1	0	0	2	0	0	0	0	0	0	0		015张爽-万年牢（一）	8a4964b3d2e64fa5bc782f73a6762c13	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:50.877997+08	2019-09-01 18:50:50.877997+08
-823	0	18	1	0	0	2	0	0	0	0	0	0	0		016张爽-万年牢（二）	18d7432e35834e619bfc80576eef2ab6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.003194+08	2019-09-01 18:50:51.003194+08
-824	0	18	1	0	0	2	0	0	0	0	0	0	0		017张爽-尊严（一）	b2a16bb3ebfe4ba6860fdfb64edd6ece	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.039362+08	2019-09-01 18:50:51.039362+08
-825	0	18	1	0	0	2	0	0	0	0	0	0	0		018张爽-尊严（二）	c8c663a8e3554e5d932d294dc10ee0f6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.053724+08	2019-09-01 18:50:51.053724+08
-826	0	18	1	0	0	2	0	0	0	0	0	0	0		019张爽-尊严（三）	4c48c5da419d4037a64744bef268548e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.157777+08	2019-09-01 18:50:51.157777+08
-827	0	18	1	0	0	2	0	0	0	0	0	0	0		020张爽-将心比心	586c89ab27884c42bb095f63a4bc1329	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.174107+08	2019-09-01 18:50:51.174107+08
-828	0	18	1	0	0	2	0	0	0	0	0	0	0		021张爽-语文园地	48a96e5d8f2e4e08a9e07154c456babb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.233693+08	2019-09-01 18:50:51.233693+08
-829	0	18	1	0	0	2	0	0	0	0	0	0	0		022张爽-自然之道（一）	69cf37aeda7d4fe2aa9ec04cd9890dfb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.460422+08	2019-09-01 18:50:51.460422+08
-830	0	18	1	0	0	2	0	0	0	0	0	0	0		025张爽-黄河是怎样变化的（一）	bf753faddfa44d47b5633b9cb1bbdaec	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.520829+08	2019-09-01 18:50:51.520829+08
-831	0	18	1	0	0	2	0	0	0	0	0	0	0		023张爽-自然之道（二）	d8ba6605302a4a45b277826c7bc39b0b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.536222+08	2019-09-01 18:50:51.536222+08
-832	0	18	1	0	0	2	0	0	0	0	0	0	0		024张爽-自然之道（三）	fe6fb4b5487e461db3ff27dbb91ac5d3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.52769+08	2019-09-01 18:50:51.52769+08
-833	0	18	1	0	0	2	0	0	0	0	0	0	0		026张爽-黄河是怎样变化的（二）	060ef47f7667428cb65e775445cc1bee	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.574531+08	2019-09-01 18:50:51.574531+08
-834	0	18	1	0	0	2	0	0	0	0	0	0	0		027张爽-蝙蝠和雷达（一）	e3068e459654407ea5979a489ea176d9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.682349+08	2019-09-01 18:50:51.682349+08
-835	0	18	1	0	0	2	0	0	0	0	0	0	0		028张爽-蝙蝠和雷达（二）	84ed73eb525b4e79b4f685cc616eef04	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.745632+08	2019-09-01 18:50:51.745632+08
-836	0	18	1	0	0	2	0	0	0	0	0	0	0		030张爽-大自然的启示（一）	74953209f64744d1bab6805782fa206e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.833893+08	2019-09-01 18:50:51.833893+08
-837	0	18	1	0	0	2	0	0	0	0	0	0	0		029张爽-蝙蝠和雷达（三）	0de9db8e32cf4893b0e451092cbf2873	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.861862+08	2019-09-01 18:50:51.861862+08
-838	0	18	1	0	0	2	0	0	0	0	0	0	0		031张爽-大自然的启示（二）	17f8d852b8d441ba88a59e0440660f56	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.889603+08	2019-09-01 18:50:51.889603+08
-839	0	18	1	0	0	2	0	0	0	0	0	0	0		032张爽-夜莺的歌声（一）	1cc4901833c44bdf8b4d2c051b05bc61	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:51.936403+08	2019-09-01 18:50:51.936403+08
-840	0	18	1	0	0	2	0	0	0	0	0	0	0		033张爽-夜莺的歌声（二）	322b9580cf034bf586989508ea3a3223	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:52.111515+08	2019-09-01 18:50:52.111515+08
-841	0	18	1	0	0	2	0	0	0	0	0	0	0		034张爽-夜莺的歌声（三）	084f835d039c471bbba696e99fc6b631	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:52.205998+08	2019-09-01 18:50:52.205998+08
-842	0	18	1	0	0	2	0	0	0	0	0	0	0		035张爽-小英雄雨来（一）	4f2db15a4f094a4e8dfe022508f11afb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:52.237596+08	2019-09-01 18:50:52.237596+08
-843	0	18	1	0	0	2	0	0	0	0	0	0	0		041张爽-和我们一样享受春天（二）	59b0457d62024b4c93b44d410c2322db	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.247892+08	2019-09-01 18:50:53.247892+08
-844	0	18	1	0	0	2	0	0	0	0	0	0	0		038张爽-一个中国孩子的呼声（二）	22b4bdb60e9049099e6a704f17adf2ac	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.251037+08	2019-09-01 18:50:53.251037+08
-845	0	18	1	0	0	2	0	0	0	0	0	0	0		037张爽-一个中国孩子的呼声（一）	1252d9a326af4e65aab3612831e2afa3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.253576+08	2019-09-01 18:50:53.253576+08
-846	0	18	1	0	0	2	0	0	0	0	0	0	0		039张爽-一个中国孩子的呼声（三）	dcf213eb4fec4dcab1dcc489b814386f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.255444+08	2019-09-01 18:50:53.255444+08
-847	0	18	1	0	0	2	0	0	0	0	0	0	0		036张爽-小英雄雨来（二）	ce3545593a7a4181b01ad12b557f5daa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.257115+08	2019-09-01 18:50:53.257115+08
-848	0	18	1	0	0	2	0	0	0	0	0	0	0		040张爽-和我们一样享受春天（一）	0c25d854fab342fcbfbd5e432232c247	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.336261+08	2019-09-01 18:50:53.336261+08
-849	0	18	1	0	0	2	0	0	0	0	0	0	0		042张爽-触摸春天（一）	773b69284d9f422584fca887b5260bef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.489415+08	2019-09-01 18:50:53.489415+08
-850	0	18	1	0	0	2	0	0	0	0	0	0	0		043张爽-触摸春天（二）	e379e5d1f6684ff590caf69d39f705dd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.513468+08	2019-09-01 18:50:53.513468+08
-851	0	18	1	0	0	2	0	0	0	0	0	0	0		045张爽-触摸春天（四）	11610267ea4c4def81cff23c6f29d2f0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.526612+08	2019-09-01 18:50:53.526612+08
-852	0	18	1	0	0	2	0	0	0	0	0	0	0		044张爽-触摸春天（三）	e379e5d1f6684ff590caf69d39f705dd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.529965+08	2019-09-01 18:50:53.529965+08
-853	0	18	1	0	0	2	0	0	0	0	0	0	0		046张爽-永生的眼睛（一）	051a0e91a3e64f7c83903e664fa60b09	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.572371+08	2019-09-01 18:50:53.572371+08
-854	0	18	1	0	0	2	0	0	0	0	0	0	0		047张爽-永生的眼睛（二）	1adf319def604cb69229d0bdc51011cd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.635572+08	2019-09-01 18:50:53.635572+08
-855	0	18	1	0	0	2	0	0	0	0	0	0	0		048张爽-永生的眼睛（三）	7f7de69cdfdb4098b93cf8a6758891ba	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.691075+08	2019-09-01 18:50:53.691075+08
-856	0	18	1	0	0	2	0	0	0	0	0	0	0		052张爽-花的勇气（一）	d89ba7daa2334da08e4647eeea046b80	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.702646+08	2019-09-01 18:50:53.702646+08
-857	0	18	1	0	0	2	0	0	0	0	0	0	0		050张爽-生命 生命（二）	81e35540fe9a41e4a4ebceb3158fc12b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.705386+08	2019-09-01 18:50:53.705386+08
-858	0	18	1	0	0	2	0	0	0	0	0	0	0		051张爽-生命 生命（三）	28bb3f1fd7d741e992ef89c91b63fcea	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.706033+08	2019-09-01 18:50:53.706033+08
-859	0	18	1	0	0	2	0	0	0	0	0	0	0		049张爽-生命 生命（一）	3e2f8bf5550e4ab8a9a051d92696c83d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:53.738512+08	2019-09-01 18:50:53.738512+08
-860	0	18	1	0	0	2	0	0	0	0	0	0	0		056张爽-乡下人家（二）	a9f5b8ea3f3b49ae9c70dbfb08d5f7f6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.242311+08	2019-09-01 18:50:54.242311+08
-861	0	18	1	0	0	2	0	0	0	0	0	0	0		058张爽-牧场之国（二）	381b18fb076643d0916ca8261038a542	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.249098+08	2019-09-01 18:50:54.249098+08
-862	0	18	1	0	0	2	0	0	0	0	0	0	0		053张爽-花的勇气（二）	1697e162ba374e9fbb5b7391ee523790	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.250886+08	2019-09-01 18:50:54.250886+08
-863	0	18	1	0	0	2	0	0	0	0	0	0	0		054张爽-日积月累	4f7320efd6984aeca8063fe86235ab1b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.257323+08	2019-09-01 18:50:54.257323+08
-864	0	18	1	0	0	2	0	0	0	0	0	0	0		055张爽-乡下人家（一）	2ac9f1a7115f44c2afbe9c77c13e16e7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.268595+08	2019-09-01 18:50:54.268595+08
-865	0	18	1	0	0	2	0	0	0	0	0	0	0		057张爽-牧场之国（一）	ac7e08339d1143b48021c5ce60a4fe5e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.301691+08	2019-09-01 18:50:54.301691+08
-866	0	18	1	0	0	2	0	0	0	0	0	0	0		061张爽-古诗词三首（三）	03e69d7f70f74175bdc467b2d7543c3d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.451857+08	2019-09-01 18:50:54.451857+08
-867	0	18	1	0	0	2	0	0	0	0	0	0	0		060张爽-古诗词三首（二）	90853716bafe40e195045412c0c6e05c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.453067+08	2019-09-01 18:50:54.453067+08
-868	0	18	1	0	0	2	0	0	0	0	0	0	0		062张爽-麦哨（一）	ddf2350c12344cb0822b71069a1b9f53	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.459073+08	2019-09-01 18:50:54.459073+08
-869	0	18	1	0	0	2	0	0	0	0	0	0	0		064张爽-两个铁球同时落地（一）	d642ca4b073f44938fc6cdd34d77325b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.459829+08	2019-09-01 18:50:54.459829+08
-870	0	18	1	0	0	2	0	0	0	0	0	0	0		059张爽-古诗词三首（一）	5095d148e35e436582083327901f815a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.463196+08	2019-09-01 18:50:54.463196+08
-871	0	18	1	0	0	2	0	0	0	0	0	0	0		063张爽-麦哨（二）	21b76fdb66b84faea48a596388d92bea	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.513711+08	2019-09-01 18:50:54.513711+08
-872	0	18	1	0	0	2	0	0	0	0	0	0	0		066张爽-全神贯注（一）	b10303cad6ea4beeabf537cf2ec1e03c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.579376+08	2019-09-01 18:50:54.579376+08
-873	0	18	1	0	0	2	0	0	0	0	0	0	0		067张爽-全神贯注（二）	80d5a5fe81434503a48707bfc1c4c718	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.595488+08	2019-09-01 18:50:54.595488+08
-874	0	18	1	0	0	2	0	0	0	0	0	0	0		068张爽-鱼游到纸上（一）	cd6bc99a6aa94ead86162ad41ca8a284	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.6+08	2019-09-01 18:50:54.6+08
-875	0	18	1	0	0	2	0	0	0	0	0	0	0		065张爽-两个铁球同时落地（二）	ab56072570cc465eb72a13dff44d4c37	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:54.609602+08	2019-09-01 18:50:54.609602+08
-876	0	18	1	0	0	2	0	0	0	0	0	0	0		070张爽-父亲的菜园（一）	01c62f8a1f4e4743a3e0b732ba36fdc0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.213346+08	2019-09-01 18:50:55.213346+08
-877	0	18	1	0	0	2	0	0	0	0	0	0	0		069张爽-鱼游到了纸上（二）	24cfc1d94fd4460482025f4628fea271	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.216102+08	2019-09-01 18:50:55.216102+08
-878	0	18	1	0	0	2	0	0	0	0	0	0	0		072张爽-寓言两则（一）	762b0c0d4eb14350ba0ae8acbb954bf8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.221575+08	2019-09-01 18:50:55.221575+08
-879	0	18	1	0	0	2	0	0	0	0	0	0	0		071张爽-父亲的菜园（二）	8d970e33df7044cd855700294a189936	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.242069+08	2019-09-01 18:50:55.242069+08
-880	0	18	1	0	0	2	0	0	0	0	0	0	0		074张爽-文成公主进藏（一）	9f5d6307c4b048cc9b99b67d11b63c7c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.245215+08	2019-09-01 18:50:55.245215+08
-881	0	18	1	0	0	2	0	0	0	0	0	0	0		073张爽-寓言两则（二）	84faffd8019e44e59dfa5437aeb0e6cf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.262039+08	2019-09-01 18:50:55.262039+08
-882	0	18	1	0	0	2	0	0	0	0	0	0	0		075张爽-文成公主进藏（二）	153eaf60ffe742218b357bf7177384ce	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.381642+08	2019-09-01 18:50:55.381642+08
-883	0	18	1	0	0	2	0	0	0	0	0	0	0		076张爽-普罗米修斯（一）	d50c91b9ecd2442f9778a88fccb6afcf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.383828+08	2019-09-01 18:50:55.383828+08
-884	0	18	1	0	0	2	0	0	0	0	0	0	0		077张爽-普罗米修斯（二）	800f04df04c94c2492ded6b434c414a0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.420868+08	2019-09-01 18:50:55.420868+08
-885	0	19	1	0	0	1	0	0	0	0	0	0	0		001 陈雨莹-观潮（一）	94ffbb42ce5544a28f9dbb5339ec99a5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.426374+08	2019-09-01 18:50:55.426374+08
-886	0	18	1	0	0	2	0	0	0	0	0	0	0		078张爽-渔夫的故事（一）	dea6d79040b44c54aa97b30f3333fb6e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.529643+08	2019-09-01 18:50:55.529643+08
-887	0	19	1	0	0	1	0	0	0	0	0	0	0		002 陈雨莹-观潮（二）	ff39f1045c8e49caaf22895da85e604d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.57166+08	2019-09-01 18:50:55.57166+08
-888	0	18	1	0	0	2	0	0	0	0	0	0	0		079张爽-渔夫的故事（二）	26eb1d96627b45f29440d621acaa7760	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.634582+08	2019-09-01 18:50:55.634582+08
-889	0	19	1	0	0	2	0	0	0	0	0	0	0		003 陈雨莹-观潮（三）	00b12f3b75fd4c94a0150a3bd2bb562e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.774774+08	2019-09-01 18:50:55.774774+08
-890	0	19	1	0	0	2	0	0	0	0	0	0	0		005 陈雨莹-雅鲁藏布大峡谷（二）	4daa9cb54a3d4f50950ff0cb46a194c9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.779132+08	2019-09-01 18:50:55.779132+08
-891	0	19	1	0	0	2	0	0	0	0	0	0	0		006 陈雨莹-鸟的天堂（一）	08aea2406e1541e0a1e3abf3861dee9c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.79992+08	2019-09-01 18:50:55.79992+08
-892	0	19	1	0	0	2	0	0	0	0	0	0	0		004 陈雨莹-雅鲁藏布大峡谷（一）	7c8a4936f5cd4d0e9e9f271c7705b0fa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:55.812209+08	2019-09-01 18:50:55.812209+08
-893	0	19	1	0	0	2	0	0	0	0	0	0	0		007 陈雨莹-鸟的天堂（二）	bd2e42ea58744b91b947b021324d71ef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.241252+08	2019-09-01 18:50:56.241252+08
-894	0	19	1	0	0	2	0	0	0	0	0	0	0		012 陈雨莹-古诗两首（二）	b066be1ffda54e12acbf50c1cee0fb79	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.285759+08	2019-09-01 18:50:56.285759+08
-895	0	19	1	0	0	2	0	0	0	0	0	0	0		011 陈雨莹-古诗两首（一）	078211d5d84548c790ea8ba79f57452c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.307376+08	2019-09-01 18:50:56.307376+08
-896	0	19	1	0	0	2	0	0	0	0	0	0	0		009 陈雨莹-火烧云（一）	da43329e349d465682968aa2c98a106c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.318498+08	2019-09-01 18:50:56.318498+08
-897	0	19	1	0	0	2	0	0	0	0	0	0	0		008 陈雨莹-鸟的天堂（三）	ad519333829f49368c881f8b7333aade	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.405051+08	2019-09-01 18:50:56.405051+08
-898	0	19	1	0	0	2	0	0	0	0	0	0	0		010 陈雨莹-火烧云（二）	51dc745958cd4417a6bd4bbd6c950d90	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.407911+08	2019-09-01 18:50:56.407911+08
-899	0	19	1	0	0	2	0	0	0	0	0	0	0		013 陈雨莹-爬山虎的脚（一）	a53e90ab3a094ebb9b4ca1934cdd4a95	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.472648+08	2019-09-01 18:50:56.472648+08
-900	0	19	1	0	0	2	0	0	0	0	0	0	0		014 陈雨莹-爬山虎的脚（二）	a0f19e4c01014307ad23ac185466a322	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.54481+08	2019-09-01 18:50:56.54481+08
-901	0	19	1	0	0	2	0	0	0	0	0	0	0		016 陈雨莹-蟋蟀的住宅（一）	8463b0300442428ba8c96de22de73dc2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.58801+08	2019-09-01 18:50:56.58801+08
-902	0	19	1	0	0	2	0	0	0	0	0	0	0		015 陈雨莹-爬山虎的脚（三）	a60b594ec21d4011951a782588fc65fb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.634718+08	2019-09-01 18:50:56.634718+08
-903	0	19	1	0	0	2	0	0	0	0	0	0	0		019 陈雨莹-世界地图引出的发现（一）	19e3b4fee37046c8b5e4392f9c22007d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.690566+08	2019-09-01 18:50:56.690566+08
-904	0	19	1	0	0	2	0	0	0	0	0	0	0		017 陈雨莹-蟋蟀的住宅（二）	7099fcff21f347b587b26e8144ee4f1d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.625986+08	2019-09-01 18:50:56.625986+08
-905	0	19	1	0	0	2	0	0	0	0	0	0	0		020 陈雨莹-世界地图引出的发现（二）	1b3addd664be40459d3efce98dfbc17b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.977123+08	2019-09-01 18:50:56.977123+08
-906	0	19	1	0	0	2	0	0	0	0	0	0	0		018 陈雨莹-蟋蟀的住宅（三）	e099b74d63ca46278d7651b2fab624f3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:56.980557+08	2019-09-01 18:50:56.980557+08
-907	0	19	1	0	0	2	0	0	0	0	0	0	0		021 陈雨莹-巨人的花园（一）	b2b2a12da97548189306b2738b347c2e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.089503+08	2019-09-01 18:50:57.089503+08
-908	0	19	1	0	0	2	0	0	0	0	0	0	0		023 陈雨莹-巨人的花园（三）	2f7e1fd2849d4e7db6cae4e590dbaf6a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.152469+08	2019-09-01 18:50:57.152469+08
-909	0	19	1	0	0	2	0	0	0	0	0	0	0		022 陈雨莹-巨人的花园（二）	ce5a1e2f183f47e59e787518555ca770	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.173263+08	2019-09-01 18:50:57.173263+08
-910	0	19	1	0	0	2	0	0	0	0	0	0	0		024 陈雨莹-幸福是什么（一）	19a661cce1664305b50bb29606ed3398	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.219665+08	2019-09-01 18:50:57.219665+08
-911	0	19	1	0	0	2	0	0	0	0	0	0	0		026 陈雨莹-去年的树（一）	a638d7685a50497c922c3bdcbd7bd3cb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.27061+08	2019-09-01 18:50:57.27061+08
-912	0	19	1	0	0	2	0	0	0	0	0	0	0		025 陈雨莹 - 幸福是什么（二）	6167eeb39c434ee78ac63f0e1b035ff3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.351703+08	2019-09-01 18:50:57.351703+08
-913	0	19	1	0	0	2	0	0	0	0	0	0	0		027 陈雨莹-去年的树（二）	ab08e035b00a4650ac74fb43058ce44d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.300623+08	2019-09-01 18:50:57.300623+08
-914	0	19	1	0	0	2	0	0	0	0	0	0	0		031 陈雨莹-白鹅（一）	420065390e0448149d97bda0d701bd21	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.580098+08	2019-09-01 18:50:57.580098+08
-915	0	19	1	0	0	2	0	0	0	0	0	0	0		028 陈雨莹-去年的树（三）	7af8b80054d04905824af49831c8949a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.597714+08	2019-09-01 18:50:57.597714+08
-916	0	19	1	0	0	2	0	0	0	0	0	0	0		033 陈雨莹-白鹅（三）	eeee0b055e454c86a99e63f3f87fc0e7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.673099+08	2019-09-01 18:50:57.673099+08
-917	0	19	1	0	0	2	0	0	0	0	0	0	0		032 陈雨莹-白鹅（二）	8bdf302276df4ed6b1b101f55818a52f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.685062+08	2019-09-01 18:50:57.685062+08
-918	0	19	1	0	0	2	0	0	0	0	0	0	0		029 陈雨莹-小木偶的故事（一）	582214e51c1b401098d4a6a1d95e8649	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.675747+08	2019-09-01 18:50:57.675747+08
-919	0	19	1	0	0	2	0	0	0	0	0	0	0		030 陈雨莹-小木偶的故事（二）	af9906bde06541cb8676fb31e1bd7829	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.65647+08	2019-09-01 18:50:57.65647+08
-920	0	19	1	0	0	2	0	0	0	0	0	0	0		035 陈雨莹-白公鹅（二）	87eb9360654e42549ff38bdd459984bb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.97458+08	2019-09-01 18:50:57.97458+08
-921	0	19	1	0	0	2	0	0	0	0	0	0	0		037 陈雨莹-猫（二）	87eb6d056ba54dad8b834be35549beab	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.976929+08	2019-09-01 18:50:57.976929+08
-922	0	19	1	0	0	2	0	0	0	0	0	0	0		036 陈雨莹-猫（一）	a8d9cb6aedcc497e9aea43a59aa4fcde	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.981837+08	2019-09-01 18:50:57.981837+08
-923	0	19	1	0	0	2	0	0	0	0	0	0	0		038 陈雨莹-猫（三）	12281c9f2a864f4d9bdc1f1c38255610	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.986876+08	2019-09-01 18:50:57.986876+08
-924	0	19	1	0	0	2	0	0	0	0	0	0	0		039 陈雨莹-母鸡（一）	e70c61732cde493f8f6af7d9699f0f9f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:57.988029+08	2019-09-01 18:50:57.988029+08
-925	0	19	1	0	0	2	0	0	0	0	0	0	0		034 陈雨莹-白公鹅（一）	518d7c6b7a2f4dd4bc8c8951f253829d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.110797+08	2019-09-01 18:50:58.110797+08
-926	0	19	1	0	0	2	0	0	0	0	0	0	0		043 陈雨莹-长城（三）	b7272c9bbadf4038895656599b0145d8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.117263+08	2019-09-01 18:50:58.117263+08
-927	0	19	1	0	0	2	0	0	0	0	0	0	0		040 陈雨莹-母鸡（二）	fe8541d03e3a41d2ac6f9d136e5df0f7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.120815+08	2019-09-01 18:50:58.120815+08
-928	0	19	1	0	0	2	0	0	0	0	0	0	0		041 陈雨莹-长城（一）	26f992eceb0c4f41afb156b557e4a179	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.185351+08	2019-09-01 18:50:58.185351+08
-929	0	19	1	0	0	2	0	0	0	0	0	0	0		042 陈雨莹-长城（二）	feb4504b04ec44f4b8de22c63d2cfebe	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.23968+08	2019-09-01 18:50:58.23968+08
-930	0	19	1	0	0	2	0	0	0	0	0	0	0		044 陈雨莹-颐和园（一）	515fdf149ada4021be14d1b146c123d1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.283296+08	2019-09-01 18:50:58.283296+08
-931	0	19	1	0	0	2	0	0	0	0	0	0	0		047 陈雨莹-秦兵马俑（一）	f5cc84a657284dcfb4b38a9b7e01d36c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.346199+08	2019-09-01 18:50:58.346199+08
-932	0	19	1	0	0	2	0	0	0	0	0	0	0		046 陈雨莹-颐和园（三）	e3087af873fc4b209231a4edeecad152	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.377976+08	2019-09-01 18:50:58.377976+08
-933	0	19	1	0	0	2	0	0	0	0	0	0	0		045 陈雨莹-颐和园（二）	7106cd99b16e44dcb8389f7398fde0ef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.428098+08	2019-09-01 18:50:58.428098+08
-934	0	19	1	0	0	2	0	0	0	0	0	0	0		048 陈雨莹-秦兵马俑（二）	01b496a15c3847cb82b3c1b39b28e1ad	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.434538+08	2019-09-01 18:50:58.434538+08
-935	0	19	1	0	0	2	0	0	0	0	0	0	0		049 陈雨莹-古诗两首（一）	1523102b664d402b86a15dbc93247ab1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.45211+08	2019-09-01 18:50:58.45211+08
-936	0	19	1	0	0	2	0	0	0	0	0	0	0		051 陈雨莹-古诗两首（三）	651e87a8c00d4c1e91b84cea6a6e12af	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.473536+08	2019-09-01 18:50:58.473536+08
-937	0	19	1	0	0	2	0	0	0	0	0	0	0		050 陈雨莹-古诗两首（二）	0ac818dec6e14b6a8d0b82fbcc4a81c6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.545146+08	2019-09-01 18:50:58.545146+08
-938	0	19	1	0	0	2	0	0	0	0	0	0	0		053 陈雨莹-搭石（二）	b3a30660b7b04cf9bc22a10a85dfaa6b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.599172+08	2019-09-01 18:50:58.599172+08
-939	0	19	1	0	0	2	0	0	0	0	0	0	0		052 陈雨莹-搭石（一）	651e87a8c00d4c1e91b84cea6a6e12af	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.60325+08	2019-09-01 18:50:58.60325+08
-940	0	19	1	0	0	2	0	0	0	0	0	0	0		054 陈雨莹-搭石（三）	f760e108af4548a381afe9f51621c809	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.606218+08	2019-09-01 18:50:58.606218+08
-941	0	19	1	0	0	2	0	0	0	0	0	0	0		056 陈雨莹-跨越海峡的生命桥（二）	fe9ee280c6bb41599cdb4cc2358097db	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.668629+08	2019-09-01 18:50:58.668629+08
-942	0	19	1	0	0	2	0	0	0	0	0	0	0		055 陈雨莹-跨越海峡的生命桥（一）	c8fe6d83fa7b4286adb3b3b6d9679ea5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.706108+08	2019-09-01 18:50:58.706108+08
-943	0	19	1	0	0	2	0	0	0	0	0	0	0		058 陈雨莹-卡罗纳（一）	2f072fa470934dc6afa049537a94cb06	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.83436+08	2019-09-01 18:50:58.83436+08
-944	0	19	1	0	0	2	0	0	0	0	0	0	0		057 陈雨莹-跨越海峡的生命桥（三）	cb237ecd07eb425396863462ce72d600	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.838785+08	2019-09-01 18:50:58.838785+08
-945	0	19	1	0	0	2	0	0	0	0	0	0	0		060 陈雨莹-给予是快乐的（一）	70f8aa1ecffd4d0ea78208029b36ea8e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.881905+08	2019-09-01 18:50:58.881905+08
-946	0	19	1	0	0	2	0	0	0	0	0	0	0		059 陈雨莹-卡罗纳（二）	0ab8bd68076045f4957977cf2c713ab4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.937344+08	2019-09-01 18:50:58.937344+08
-947	0	19	1	0	0	2	0	0	0	0	0	0	0		061 陈雨莹-给予是快乐的（二）	0aab6a6fb2d8487d947f80903af77d55	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.939931+08	2019-09-01 18:50:58.939931+08
-948	0	19	1	0	0	2	0	0	0	0	0	0	0		062 陈雨莹-为中华之崛起而读书（一）	d65082f33e9d438f9852f9600979d309	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:58.94445+08	2019-09-01 18:50:58.94445+08
-949	0	19	1	0	0	2	0	0	0	0	0	0	0		063 陈雨莹-为中华之崛起而读书（二）	810147f51ef0484387c280e3f4bd72f2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.052836+08	2019-09-01 18:50:59.052836+08
-950	0	19	1	0	0	2	0	0	0	0	0	0	0		065 陈雨莹-那片绿绿的爬山虎（一）	21f89315afee4f8bafa844a3841f224e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.122051+08	2019-09-01 18:50:59.122051+08
-951	0	19	1	0	0	2	0	0	0	0	0	0	0		064 陈雨莹-为中华之崛起而读书（三）	21f89315afee4f8bafa844a3841f224e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.19586+08	2019-09-01 18:50:59.19586+08
-952	0	19	1	0	0	2	0	0	0	0	0	0	0		070 陈雨莹-尺有所短寸有所长（一）	fc2f19aa13724db888e9e22564bf17e2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.254533+08	2019-09-01 18:50:59.254533+08
-953	0	19	1	0	0	2	0	0	0	0	0	0	0		069 陈雨莹-乌塔（二）	648e56d8faf4481db0ad8012874e9700	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.258268+08	2019-09-01 18:50:59.258268+08
-954	0	19	1	0	0	2	0	0	0	0	0	0	0		067 陈雨莹-那片绿绿的爬山虎（三）	7fd645e830c942f09c81822b15e01c27	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.260336+08	2019-09-01 18:50:59.260336+08
-955	0	19	1	0	0	2	0	0	0	0	0	0	0		066 陈雨莹-那片绿绿的爬山虎（二）	e3dd6581872d43c2b63c5c3f977b8aad	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.233189+08	2019-09-01 18:50:59.233189+08
-956	0	19	1	0	0	2	0	0	0	0	0	0	0		068 陈雨莹-乌塔（一）	2934af20d6894bef86f070637350085f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.269383+08	2019-09-01 18:50:59.269383+08
-957	0	19	1	0	0	2	0	0	0	0	0	0	0		071 陈雨莹-尺有所短寸有所长（二）	39373bc6604c46259ea30e8f7efa964a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.416849+08	2019-09-01 18:50:59.416849+08
-958	0	19	1	0	0	2	0	0	0	0	0	0	0		072 陈雨莹-呼风唤雨的世纪（一）	bb71529bf2da4cf3a0848abdfb6d857c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.42259+08	2019-09-01 18:50:59.42259+08
-959	0	19	1	0	0	2	0	0	0	0	0	0	0		073 陈雨莹-呼风唤雨的世纪（二）	d21b823bb9bb4bad8bf58e32d84ada6b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.478869+08	2019-09-01 18:50:59.478869+08
-960	0	19	1	0	0	2	0	0	0	0	0	0	0		074 陈雨莹-呼风唤雨的世纪（三）	7a18a848f7ac418cb2d35fe83c5f7fd7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.472354+08	2019-09-01 18:50:59.472354+08
-961	0	19	1	0	0	2	0	0	0	0	0	0	0		075 陈雨莹-电脑住宅（一）	a4b3b89b1d0047e888344d3d6b3faf09	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.510419+08	2019-09-01 18:50:59.510419+08
-962	0	19	1	0	0	2	0	0	0	0	0	0	0		076 陈雨莹-电脑住宅（二）	18a29d33b7374e639b96cbd0d77d01cd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.554014+08	2019-09-01 18:50:59.554014+08
-963	0	19	1	0	0	2	0	0	0	0	0	0	0		076 陈雨莹-电脑住宅（二）	https://outin-0c5f7c2f0dd511e9a80a00163e1a3b4a.oss-cn-shanghai.aliyuncs.com/sv/29054068-168186d5f2b/29054068-168186d5f2b.mp4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.645419+08	2019-09-01 18:50:59.645419+08
-964	0	19	1	0	0	2	0	0	0	0	0	0	0		078 陈雨莹-飞向蓝天的恐龙（二）	efa8f354c63f44fe97b0c30cc46ed5c5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.676727+08	2019-09-01 18:50:59.676727+08
-965	0	19	1	0	0	2	0	0	0	0	0	0	0		077 陈雨莹-飞向蓝天的恐龙（一）	4ffa80e556e541f9a1916c308c8a1eb6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.679845+08	2019-09-01 18:50:59.679845+08
-966	0	19	1	0	0	2	0	0	0	0	0	0	0		077 陈雨莹-飞向蓝天的恐龙（一）	https://outin-0c5f7c2f0dd511e9a80a00163e1a3b4a.oss-cn-shanghai.aliyuncs.com/sv/1075f6fd-168186e0bbc/1075f6fd-168186e0bbc.mp4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.787261+08	2019-09-01 18:50:59.787261+08
-967	0	19	1	0	0	2	0	0	0	0	0	0	0		079 陈雨莹-飞向蓝天的恐龙（三）	a411dc28518248edb127f017e70b91d1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.828449+08	2019-09-01 18:50:59.828449+08
-968	0	19	1	0	0	2	0	0	0	0	0	0	0		081 陈雨莹-飞船上的特殊乘客（二）	93437a3af1574be7af0bcab0357cf6a9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.83306+08	2019-09-01 18:50:59.83306+08
-969	0	19	1	0	0	2	0	0	0	0	0	0	0		080 陈雨莹-飞船上的特殊乘客（一）	f7fb58b30fe841f4ae9d46e7ff5b9669	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.858859+08	2019-09-01 18:50:59.858859+08
-970	0	20	1	0	0	1	0	0	0	0	0	0	0		002 小毛豆-亿以内数的认识（一）	c9fade0ee2b94427a157f5767ed63130	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.905319+08	2019-09-01 18:50:59.905319+08
-971	0	20	1	0	0	1	0	0	0	0	0	0	0		001 小毛豆-前言	a005c2fae26a4888a71b66885f492695	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.923876+08	2019-09-01 18:50:59.923876+08
-972	0	20	1	0	0	2	0	0	0	0	0	0	0		003 小毛豆-亿以内数的认识（二）	92fc4961443446cf8a5a213c4b931947	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.97328+08	2019-09-01 18:50:59.97328+08
-973	0	20	1	0	0	2	0	0	0	0	0	0	0		004 小毛豆-数的产生和十进制计数法	7690d9b69cff4d1db64f081dbc1473da	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:50:59.996688+08	2019-09-01 18:50:59.996688+08
-974	0	20	1	0	0	2	0	0	0	0	0	0	0		005 小毛豆-亿以上数的认识	06f9bbc5e84343d8b83d9236895c72b4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.033062+08	2019-09-01 18:51:00.033062+08
-975	0	20	1	0	0	2	0	0	0	0	0	0	0		006 小毛豆-计算机工具的认识	33a94a7345164f1d96ee11474683727b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.093845+08	2019-09-01 18:51:00.093845+08
-976	0	20	1	0	0	2	0	0	0	0	0	0	0		007 小毛豆-一亿有多大	33c46c01306743f7a287312e1c749cdd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.138768+08	2019-09-01 18:51:00.138768+08
-977	0	20	1	0	0	2	0	0	0	0	0	0	0		008 小毛豆-公顷和平方千米	45ac715a60334af3adf277001fd28eac	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.159094+08	2019-09-01 18:51:00.159094+08
-978	0	20	1	0	0	2	0	0	0	0	0	0	0		009 小毛豆-直线、射线、线段	62d12d44a3d647738aa1639cecf74a9a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.202867+08	2019-09-01 18:51:00.202867+08
-979	0	20	1	0	0	2	0	0	0	0	0	0	0		010 小毛豆-角的度量	2760f9fe2c70456cb60037c476943325	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.267655+08	2019-09-01 18:51:00.267655+08
-980	0	20	1	0	0	2	0	0	0	0	0	0	0		011 小毛豆-角的分类	afc9836af97146058d0dccb9325f7876	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.33565+08	2019-09-01 18:51:00.33565+08
-981	0	20	1	0	0	2	0	0	0	0	0	0	0		012 小毛豆-角	ca691dafd63648c7818da8729561facc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.386212+08	2019-09-01 18:51:00.386212+08
-982	0	20	1	0	0	2	0	0	0	0	0	0	0		013 小毛豆-笔算乘法	db2832df543a41f7b084ce4bf0e3694a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.459386+08	2019-09-01 18:51:00.459386+08
-983	0	20	1	0	0	2	0	0	0	0	0	0	0		014 小毛豆-中间或末尾有0的乘法	58d2504ca1b249d78ccf5a5648598ac3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.50036+08	2019-09-01 18:51:00.50036+08
-984	0	20	1	0	0	2	0	0	0	0	0	0	0		015 小毛豆-积的变化规律和估算	85ed5fd9b8f849529977662f7e7b24d1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.564694+08	2019-09-01 18:51:00.564694+08
-985	0	20	1	0	0	2	0	0	0	0	0	0	0		016 小毛豆-单价公式和路程公式	0991bdb2eae449428744f7602d787e0d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.632404+08	2019-09-01 18:51:00.632404+08
-986	0	20	1	0	0	2	0	0	0	0	0	0	0		017 小毛豆-平行与垂直（一）	3ad1773cbccc48dd92da1e7c0ca51459	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.688478+08	2019-09-01 18:51:00.688478+08
-987	0	20	1	0	0	2	0	0	0	0	0	0	0		018 小毛豆-平行与垂直（二）	f1ebbd90de1c4b048b479ee607816bbb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.752189+08	2019-09-01 18:51:00.752189+08
-988	0	20	1	0	0	2	0	0	0	0	0	0	0		019 小毛豆-平行四边形和梯形	902648910de8434e8b664c503a536cbc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.80727+08	2019-09-01 18:51:00.80727+08
-989	0	20	1	0	0	2	0	0	0	0	0	0	0		020 小毛豆-口算除法	59ba30c6bb87428384ff6a018cb99cdb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.872095+08	2019-09-01 18:51:00.872095+08
-990	0	20	1	0	0	2	0	0	0	0	0	0	0		021 小毛豆-除数接近整十的除法	978803cb88ae43b48becaca970dc4249	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.938507+08	2019-09-01 18:51:00.938507+08
-991	0	20	1	0	0	2	0	0	0	0	0	0	0		022 小毛豆-除数为两位数的除法	ddacfc7dcb884d55b8f7fdca107f0339	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:00.984824+08	2019-09-01 18:51:00.984824+08
-992	0	20	1	0	0	2	0	0	0	0	0	0	0		023 小毛豆-商的变化规律	1fcd1ec30e7d4adf9901cdffc40cfd42	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.051005+08	2019-09-01 18:51:01.051005+08
-993	0	20	1	0	0	2	0	0	0	0	0	0	0		024 小毛豆-条形统计图	1f8241b143a64481a39b7aac1befdc68	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.108801+08	2019-09-01 18:51:01.108801+08
-994	0	20	1	0	0	2	0	0	0	0	0	0	0		025 小毛豆-数学广角（一）	4bc085f5daf94812bef1121f497f285c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.17233+08	2019-09-01 18:51:01.17233+08
-995	0	20	1	0	0	2	0	0	0	0	0	0	0		026 小毛豆-数学广角（二）	92352b74cf874dad8766f7991c96814f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.222318+08	2019-09-01 18:51:01.222318+08
-996	0	20	1	0	0	2	0	0	0	0	0	0	0		027 小毛豆-总复习（一）	c474b9b171014b09bcee8d47076a1bd4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.288413+08	2019-09-01 18:51:01.288413+08
-997	0	20	1	0	0	2	0	0	0	0	0	0	0		028 小毛豆-总复习（二）	c48f875e276c4578a6e10004e225820f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.349881+08	2019-09-01 18:51:01.349881+08
-998	0	20	1	0	0	2	0	0	0	0	0	0	0		029 小毛豆-总复习（三）	a4dba6677f814a2ba96e0a63429d8608	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.407474+08	2019-09-01 18:51:01.407474+08
-999	0	21	1	0	0	1	0	0	0	0	0	0	0		001 腾溶-前言	f268fa167fff4820959d1bfae2bd9cd3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.465193+08	2019-09-01 18:51:01.465193+08
-1000	0	21	1	0	0	1	0	0	0	0	0	0	0		002 腾溶-加减法的意义和各部分间的关系	6d684296b06d4074b53d7fd6a473a15d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.535231+08	2019-09-01 18:51:01.535231+08
-1001	0	21	1	0	0	2	0	0	0	0	0	0	0		003 腾溶-乘除法的意义和各部分间的关系	997731ddeb5240a1a941ac83ee34e804	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.583625+08	2019-09-01 18:51:01.583625+08
-1002	0	21	1	0	0	2	0	0	0	0	0	0	0		004 腾溶-括号	d0a417b6d16444d5808e877e952b9ae8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.64919+08	2019-09-01 18:51:01.64919+08
-1003	0	21	1	0	0	2	0	0	0	0	0	0	0		005 腾溶-第一单元总结	af3166028cf2443391b770ce6ad39171	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.70997+08	2019-09-01 18:51:01.70997+08
-1004	0	21	1	0	0	2	0	0	0	0	0	0	0		006 腾溶-观察物体	577a17c9458b4046b208c63d8efe5cf4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.770018+08	2019-09-01 18:51:01.770018+08
-1005	0	21	1	0	0	2	0	0	0	0	0	0	0		007 腾溶-加法的运算定律	a54a18c2b1854832aa599d820d696906	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.821178+08	2019-09-01 18:51:01.821178+08
-1006	0	21	1	0	0	2	0	0	0	0	0	0	0		008 腾溶-简便运算	3647174b20184aa483430373153a3f6a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.88765+08	2019-09-01 18:51:01.88765+08
-1007	0	21	1	0	0	2	0	0	0	0	0	0	0		009 腾溶-乘法的运算定律	7029fcfd162c4949a109bbefb80182bf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:01.948192+08	2019-09-01 18:51:01.948192+08
-1008	0	21	1	0	0	2	0	0	0	0	0	0	0		010 腾溶-简便运算	58449dca9d67405a8ca260a8829e2e94	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.006078+08	2019-09-01 18:51:02.006078+08
-1009	0	21	1	0	0	2	0	0	0	0	0	0	0		011 腾溶-第三单元总结	f9f0841ea0074232aaa4bfcbf9d923cd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.07337+08	2019-09-01 18:51:02.07337+08
-1010	0	21	1	0	0	2	0	0	0	0	0	0	0		012 腾溶-小数的含义	9adf5358dd6e4a0a85788dbf00bfb2e6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.124234+08	2019-09-01 18:51:02.124234+08
-1011	0	21	1	0	0	2	0	0	0	0	0	0	0		013 腾溶-小数的读法和写法	519e0ba089d745589d9375fab7b13c1d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.182074+08	2019-09-01 18:51:02.182074+08
-1012	0	21	1	0	0	2	0	0	0	0	0	0	0		014 腾溶-小数的性质和大小的比较	96e88223a9204f5e9a17a6a1e725e9b0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.242102+08	2019-09-01 18:51:02.242102+08
-1013	0	21	1	0	0	2	0	0	0	0	0	0	0		015 腾溶-小数点移动引起小数大小的变化	11e67ce20bc64e0189cf95999d779340	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.315988+08	2019-09-01 18:51:02.315988+08
-1014	0	21	1	0	0	2	0	0	0	0	0	0	0		016 腾溶-小数与单位换算	8b10356e4c3c4b9088c94694432d65d9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.369972+08	2019-09-01 18:51:02.369972+08
-1015	0	21	1	0	0	2	0	0	0	0	0	0	0		017 腾溶-小数的近似数	d6f3f68ff53742f1b9a55a2575cfcd41	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.413921+08	2019-09-01 18:51:02.413921+08
-1016	0	21	1	0	0	2	0	0	0	0	0	0	0		018 腾溶-第四单元总结	429bd1e2c6b745d5b97243bd7d71d7c1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.484508+08	2019-09-01 18:51:02.484508+08
-1017	0	21	1	0	0	2	0	0	0	0	0	0	0		019 腾溶-三角形的特性	1f454d628347496e8c2cda9c6c363190	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.567611+08	2019-09-01 18:51:02.567611+08
-1018	0	21	1	0	0	2	0	0	0	0	0	0	0		020 腾溶-三角形的分类	cc5116a0162f4afa8f5461300a2d939a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.600717+08	2019-09-01 18:51:02.600717+08
-1019	0	21	1	0	0	2	0	0	0	0	0	0	0		021 腾溶-三角形的内角和	81ec53952e7b4220826ec13313e30257	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.66035+08	2019-09-01 18:51:02.66035+08
-1020	0	21	1	0	0	2	0	0	0	0	0	0	0		022 腾溶-第五单元总结	d571aff2fda34728bde79caca2a9fd55	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.735941+08	2019-09-01 18:51:02.735941+08
-1021	0	21	1	0	0	2	0	0	0	0	0	0	0		023 腾溶-小数加减法	a03ac266080f49bd8c56dc6f8a0ab90d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.810943+08	2019-09-01 18:51:02.810943+08
-1022	0	21	1	0	0	2	0	0	0	0	0	0	0		024 腾溶-小数加减混合运算	6ece9295b91c4970b0e83f6fc58a47de	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.860284+08	2019-09-01 18:51:02.860284+08
-1023	0	21	1	0	0	2	0	0	0	0	0	0	0		025 腾溶-整数加减运算定律推广到小数	5e34dda647bc46eeab01429bd898c0b0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.919547+08	2019-09-01 18:51:02.919547+08
-1024	0	21	1	0	0	2	0	0	0	0	0	0	0		026 腾溶-第六单元总结	679ddd6ef72d47be9fb23da0d493cdb5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:02.984868+08	2019-09-01 18:51:02.984868+08
-1025	0	21	1	0	0	2	0	0	0	0	0	0	0		027 腾溶-轴对称	8075d0f3be194d5e901bb36e66bfd319	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.022116+08	2019-09-01 18:51:03.022116+08
-1026	0	21	1	0	0	2	0	0	0	0	0	0	0		028 腾溶-平移	c018db297e5c4a308acaeabe49ab4288	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.088015+08	2019-09-01 18:51:03.088015+08
-1027	0	21	1	0	0	2	0	0	0	0	0	0	0		029 腾溶-第七单元总结	21ed7027e3d448209247850cf582da4a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.158086+08	2019-09-01 18:51:03.158086+08
-1028	0	21	1	0	0	2	0	0	0	0	0	0	0		030 腾溶-平均数	6457a57b962246519fd75077099f3bcf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.202752+08	2019-09-01 18:51:03.202752+08
-1029	0	21	1	0	0	2	0	0	0	0	0	0	0		031 腾溶-复式条形统计图	efb5c08589fb40169bb9d58a73417788	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.268319+08	2019-09-01 18:51:03.268319+08
-1030	0	21	1	0	0	2	0	0	0	0	0	0	0		032 腾溶-第八单元及营养午餐	1292e8d6fd394bd28b0e54677db2f54e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.328441+08	2019-09-01 18:51:03.328441+08
-1031	0	21	1	0	0	2	0	0	0	0	0	0	0		033 腾溶-数学广角一鸡兔同笼	91df21b08a8b4facb18a62184d77c777	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.39014+08	2019-09-01 18:51:03.39014+08
-1032	0	21	1	0	0	2	0	0	0	0	0	0	0		034 腾溶-数与代数（一）	2d94cbf8963e4f939ef9aff6e3f1339f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.449388+08	2019-09-01 18:51:03.449388+08
-1033	0	21	1	0	0	2	0	0	0	0	0	0	0		035 腾溶-数与代数（二）	c6cc385c8af74712954901236882814e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.506297+08	2019-09-01 18:51:03.506297+08
-1034	0	21	1	0	0	2	0	0	0	0	0	0	0		036 腾溶-图形与几何	347e4faf71384a909cb7f1bc510db854	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.568832+08	2019-09-01 18:51:03.568832+08
-1035	0	21	1	0	0	2	0	0	0	0	0	0	0		037 腾溶-统计与概率	2a01d018655c434390a057733163c081	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.627495+08	2019-09-01 18:51:03.627495+08
-1036	0	22	1	0	0	1	0	0	0	0	0	0	0		001 宋晨-Unit 1-1	0ce4f963adc047fc815bf120996613c6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.685822+08	2019-09-01 18:51:03.685822+08
-1037	0	22	1	0	0	1	0	0	0	0	0	0	0		002 宋晨-Unit 1-2	99653c818890438e9a9d91c8d3d7c96f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.739739+08	2019-09-01 18:51:03.739739+08
-1038	0	22	1	0	0	2	0	0	0	0	0	0	0		003 宋晨-Unit 1-3	8b54a9f32d604ecd9a378bb6df4296ae	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.81854+08	2019-09-01 18:51:03.81854+08
-1039	0	22	1	0	0	2	0	0	0	0	0	0	0		004 宋晨-Unit 1-4	4b82192668bc4098a5fb3a7298bc6a25	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.857373+08	2019-09-01 18:51:03.857373+08
-1040	0	22	1	0	0	2	0	0	0	0	0	0	0		005 宋晨-Unit 1-5	9a71b9167a754693a188c3b150a34187	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.918561+08	2019-09-01 18:51:03.918561+08
-1041	0	22	1	0	0	2	0	0	0	0	0	0	0		006 宋晨-Unit 1-6	6329cb0b914640dbbd91c7e9488811cd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:03.989576+08	2019-09-01 18:51:03.989576+08
-1042	0	22	1	0	0	2	0	0	0	0	0	0	0		007 宋晨-Unit 2-1	d0fbb5ba1698474f85b56705398664da	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.051078+08	2019-09-01 18:51:04.051078+08
-1043	0	22	1	0	0	2	0	0	0	0	0	0	0		008 宋晨-Unit 2-2	68553a17bcc844d486abd34164b80de0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.098352+08	2019-09-01 18:51:04.098352+08
-1044	0	22	1	0	0	2	0	0	0	0	0	0	0		009 宋晨-Unit 2-3	c0d138b6dd53456bbb81363f50aaba00	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.165016+08	2019-09-01 18:51:04.165016+08
-1045	0	22	1	0	0	2	0	0	0	0	0	0	0		010 宋晨-Unit 2-4	ada07632da034c4a94cbaf6c60fe0d30	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.22066+08	2019-09-01 18:51:04.22066+08
-1046	0	22	1	0	0	2	0	0	0	0	0	0	0		011 宋晨-Unit 2-5	24c10532aa0640a0b8dcdd677e871653	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.295798+08	2019-09-01 18:51:04.295798+08
-1047	0	22	1	0	0	2	0	0	0	0	0	0	0		012 宋晨-Unit 2-6	0c7bc315675444b1adee8db1a7b4dac0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.336163+08	2019-09-01 18:51:04.336163+08
-1048	0	22	1	0	0	2	0	0	0	0	0	0	0		013 宋晨-Unit 3-1	4088b16367b5436a90b22f228c51b719	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.416532+08	2019-09-01 18:51:04.416532+08
-1049	0	22	1	0	0	2	0	0	0	0	0	0	0		014 宋晨-Unit 3-2	82b160c6ee424a61ba744ad5f22f9a98	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.468804+08	2019-09-01 18:51:04.468804+08
-1050	0	22	1	0	0	2	0	0	0	0	0	0	0		015 宋晨-Unit 3-3	ff7ec45faace4d22a98fa55ae967a5dd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.512342+08	2019-09-01 18:51:04.512342+08
-1051	0	22	1	0	0	2	0	0	0	0	0	0	0		016 宋晨-Unit 3-4	71d64a2369b94ce3b1c505751b3b9221	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.583649+08	2019-09-01 18:51:04.583649+08
-1052	0	22	1	0	0	2	0	0	0	0	0	0	0		017 宋晨-Unit 3-5	70c754015da740998df0f7717eeb3d3a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.654282+08	2019-09-01 18:51:04.654282+08
-1053	0	22	1	0	0	2	0	0	0	0	0	0	0		018 宋晨-Unit 3-6	8428c2fda35a47e3878725df242f940f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.707667+08	2019-09-01 18:51:04.707667+08
-1054	0	22	1	0	0	2	0	0	0	0	0	0	0		019 宋晨-Recycle 1-1	66f96bc3a6ed43a0ae31f7a77bee843b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.755931+08	2019-09-01 18:51:04.755931+08
-1055	0	22	1	0	0	2	0	0	0	0	0	0	0		020 宋晨-Recycle 1-2	205adf28b27442f395c7fa761068322e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.824541+08	2019-09-01 18:51:04.824541+08
-1056	0	22	1	0	0	2	0	0	0	0	0	0	0		021 宋晨-Recycle 1-3	f92ab35cfa3b40489705ce75d7e23f9a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.89197+08	2019-09-01 18:51:04.89197+08
-1057	0	22	1	0	0	2	0	0	0	0	0	0	0		022 宋晨-Unit 4-1	b6f1484bcd994feda374cf71eff5d5a5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:04.941684+08	2019-09-01 18:51:04.941684+08
-1058	0	22	1	0	0	2	0	0	0	0	0	0	0		023 宋晨-Unit 4-2	23485e5618724e3cb7621b779ced44b1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.017927+08	2019-09-01 18:51:05.017927+08
-1059	0	22	1	0	0	2	0	0	0	0	0	0	0		024 宋晨-Unit 4-3	c578ca1eae6947aa95457c84f99dddac	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.056027+08	2019-09-01 18:51:05.056027+08
-1060	0	22	1	0	0	2	0	0	0	0	0	0	0		025 宋晨-Unit 4-4	b6775f282f254cbf9b18cc3654ca7fc7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.131949+08	2019-09-01 18:51:05.131949+08
-1061	0	22	1	0	0	2	0	0	0	0	0	0	0		026 宋晨-Unit 4-5	f60a5d9632d14b2ca82c671ab162dbde	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.189501+08	2019-09-01 18:51:05.189501+08
-1062	0	22	1	0	0	2	0	0	0	0	0	0	0		027 宋晨-Unit 4-6	d7663364d9334a1492d628b79d852c7c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.242163+08	2019-09-01 18:51:05.242163+08
-1063	0	22	1	0	0	2	0	0	0	0	0	0	0		028 宋晨-Unit 5-1	32e128947c1d477b98f5a871fd0d5f68	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.302892+08	2019-09-01 18:51:05.302892+08
-1064	0	22	1	0	0	2	0	0	0	0	0	0	0		029 宋晨-Unit 5-2	6b9174e121e346c593faa2802fe012f9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.449908+08	2019-09-01 18:51:05.449908+08
-1065	0	22	1	0	0	2	0	0	0	0	0	0	0		030 宋晨-Unit 5-3	a8f61cfd57f4490894dd2368d3bfb208	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.463944+08	2019-09-01 18:51:05.463944+08
-1066	0	22	1	0	0	2	0	0	0	0	0	0	0		031 宋晨-Unit 5-4	652e304ddf204a9493d020405b18d0db	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.505773+08	2019-09-01 18:51:05.505773+08
-1067	0	22	1	0	0	2	0	0	0	0	0	0	0		032 宋晨-Unit 5-5	0a366b2c55d949828b21150dc9d56031	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.540321+08	2019-09-01 18:51:05.540321+08
-1068	0	22	1	0	0	2	0	0	0	0	0	0	0		033 宋晨-Unit 5-6	de04c453e60344d8acf6611b97002c42	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.604246+08	2019-09-01 18:51:05.604246+08
-1069	0	22	1	0	0	2	0	0	0	0	0	0	0		034 宋晨-Unit 6-1	4b946202091645c38a13483f0a33aee6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.665886+08	2019-09-01 18:51:05.665886+08
-1070	0	22	1	0	0	2	0	0	0	0	0	0	0		035 宋晨-Unit 6-2	ce41c40397eb4417a2f17412d73e1f77	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.736078+08	2019-09-01 18:51:05.736078+08
-1071	0	22	1	0	0	2	0	0	0	0	0	0	0		036 宋晨-Unit 6-3	bc145358c4aa4c7894718eed0317aaf5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.784075+08	2019-09-01 18:51:05.784075+08
-1072	0	22	1	0	0	2	0	0	0	0	0	0	0		037 宋晨-Unit 6-4	a6f3200cdf4f40c0b064c120ab2e196b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.844619+08	2019-09-01 18:51:05.844619+08
-1073	0	22	1	0	0	2	0	0	0	0	0	0	0		038 宋晨-Unit 6-5	f5e38af153cb4173a3e467c848a41892	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.901138+08	2019-09-01 18:51:05.901138+08
-1074	0	22	1	0	0	2	0	0	0	0	0	0	0		039 宋晨-Unit 6-6	43e2b633452142669b8d7fd5972cd39a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:05.972688+08	2019-09-01 18:51:05.972688+08
-1075	0	22	1	0	0	2	0	0	0	0	0	0	0		040 宋晨-Recycle 2-1	57f4b4b8b58d4bb0a3d390a81c4362c3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.035022+08	2019-09-01 18:51:06.035022+08
-1076	0	22	1	0	0	2	0	0	0	0	0	0	0		041 宋晨-Recycle 2-2	2d10dfb857b344db8a099407ddc82b17	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.081467+08	2019-09-01 18:51:06.081467+08
-1077	0	22	1	0	0	2	0	0	0	0	0	0	0		042 宋晨-Recycle 2-3	bad3dd025bdb44eb8fc181725868864c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.142664+08	2019-09-01 18:51:06.142664+08
-1078	0	23	1	0	0	1	0	0	0	0	0	0	0		001 谢珑茜-Unit 1-1 P2-5	640a3d5b6b7245018cd46ebdbb068b88	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.219588+08	2019-09-01 18:51:06.219588+08
-1079	0	23	1	0	0	1	0	0	0	0	0	0	0		002 谢珑茜-Unit 1-2 P4	8346c86991784424be1ead9233d11334	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.266124+08	2019-09-01 18:51:06.266124+08
-1080	0	23	1	0	0	2	0	0	0	0	0	0	0		003 谢珑茜-Unit 1-3 P2-5、P6	1d1e0c2eb96249daa93631a2a6543c24	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.313587+08	2019-09-01 18:51:06.313587+08
-1081	0	23	1	0	0	2	0	0	0	0	0	0	0		004 谢珑茜-Unit 1-4 P7	0cbfb83437f746c68aaaa7df687b5c8c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.386294+08	2019-09-01 18:51:06.386294+08
-1082	0	23	1	0	0	2	0	0	0	0	0	0	0		005 谢珑茜-Unit 1-5 P8	2e539a38c9ec44ad9a77e5c0ba7c7b7b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.449335+08	2019-09-01 18:51:06.449335+08
-1083	0	23	1	0	0	2	0	0	0	0	0	0	0		006 谢珑茜-Unit 1-6 P9-10	caafece37e234f1788462c5fe4785333	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.493992+08	2019-09-01 18:51:06.493992+08
-1084	0	23	1	0	0	2	0	0	0	0	0	0	0		007 谢珑茜-Unit 1-7 P11	83535f8986844117a9c9eb3aac481427	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.5679+08	2019-09-01 18:51:06.5679+08
-1085	0	23	1	0	0	2	0	0	0	0	0	0	0		008 谢珑茜-Unit 2-1 P12-13	ffd089c8f6b4496e87a28f2779b086b8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.624601+08	2019-09-01 18:51:06.624601+08
-1086	0	23	1	0	0	2	0	0	0	0	0	0	0		009 谢珑茜-Unit 2-2 P14	a0fd10a65b254545822d2c38531ebffd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.686576+08	2019-09-01 18:51:06.686576+08
-1087	0	23	1	0	0	2	0	0	0	0	0	0	0		010 谢珑茜-Unit 2-3 P15-16	65bd5bd432b34473ac421d4717f140d5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.755599+08	2019-09-01 18:51:06.755599+08
-1088	0	23	1	0	0	2	0	0	0	0	0	0	0		011 谢珑茜-Unit 2-4 P17	1d55f74078864491a5ab9cd87e254d0c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.797907+08	2019-09-01 18:51:06.797907+08
-1089	0	23	1	0	0	2	0	0	0	0	0	0	0		012 谢珑茜-Unit 2-5 P18	3db44deed91443a4a160c60ef973d35f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.865707+08	2019-09-01 18:51:06.865707+08
-1090	0	23	1	0	0	2	0	0	0	0	0	0	0		013 谢珑茜-Unit 2-6 P19-20	5e7ea0d592df429aba384386dae779a8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.920105+08	2019-09-01 18:51:06.920105+08
-1091	0	23	1	0	0	2	0	0	0	0	0	0	0		014 谢珑茜-Unit 2-7 P21	4ad52f59f9de47f8bdc62520e3bde4a4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:06.977072+08	2019-09-01 18:51:06.977072+08
-1092	0	23	1	0	0	2	0	0	0	0	0	0	0		015 谢珑茜-Unit 3-1 P22-23	482a9391a32143f68808c5ed1bdafa9f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.040655+08	2019-09-01 18:51:07.040655+08
-1093	0	23	1	0	0	2	0	0	0	0	0	0	0		016 谢珑茜-Unit 3-2 P24	81bee27c35f54793b2dcd1f2f092e588	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.102847+08	2019-09-01 18:51:07.102847+08
-1094	0	23	1	0	0	2	0	0	0	0	0	0	0		017 谢珑茜-Unit 3-3 P25-26	8af1121f93ff4bd5a8813f5329281a3c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.173297+08	2019-09-01 18:51:07.173297+08
-1095	0	23	1	0	0	2	0	0	0	0	0	0	0		018 谢珑茜-Unit 3-4 P27	a016a5c8f2254e9894ef100a5a7ebe96	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.218231+08	2019-09-01 18:51:07.218231+08
-1096	0	23	1	0	0	2	0	0	0	0	0	0	0		019 谢珑茜-Unit 3-5 P28	dd75e0564baa4a439a110771c2a08b26	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.286201+08	2019-09-01 18:51:07.286201+08
-1097	0	23	1	0	0	2	0	0	0	0	0	0	0		020 谢珑茜-Unit 3-6 P29-30	b9b6e418b87f4aa585a0d47f7d9bad2d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.348283+08	2019-09-01 18:51:07.348283+08
-1098	0	23	1	0	0	2	0	0	0	0	0	0	0		021 谢珑茜-Unit 3-7 P31	f63752c48c4c4f49a9b2dcb89db2c72f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.403226+08	2019-09-01 18:51:07.403226+08
-1099	0	23	1	0	0	2	0	0	0	0	0	0	0		022 谢珑茜-Recycle 1 P32-35	430b5f9146cc4d8bae672d2b5f54caef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.460673+08	2019-09-01 18:51:07.460673+08
-1100	0	23	1	0	0	2	0	0	0	0	0	0	0		023 谢珑茜-Unit 4-1 P36-37	d7ee865d112a4f739f11aa08eb623484	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.54282+08	2019-09-01 18:51:07.54282+08
-1101	0	23	1	0	0	2	0	0	0	0	0	0	0		024 谢珑茜-Unit 4-2 P38	f20e8f522bf3497185dfa2f5ff2584be	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.571221+08	2019-09-01 18:51:07.571221+08
-1102	0	23	1	0	0	2	0	0	0	0	0	0	0		025 谢珑茜-Unit 4-3 P39-40	da809b9167aa422fb7dba9b08abd0414	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.634311+08	2019-09-01 18:51:07.634311+08
-1103	0	23	1	0	0	2	0	0	0	0	0	0	0		026 谢珑茜-Unit 4-4 P41	9b9d2150b8544808b6acd2deea9eeb6e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.709273+08	2019-09-01 18:51:07.709273+08
-1104	0	23	1	0	0	2	0	0	0	0	0	0	0		027 谢珑茜-Unit 4-5 P42	43d1c28be56d48968a9dcea322293fd5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.773612+08	2019-09-01 18:51:07.773612+08
-1105	0	23	1	0	0	2	0	0	0	0	0	0	0		028 谢珑茜-Unit 4-6 P43-44	b66837bb7f3840f3a8207465b384428c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.826048+08	2019-09-01 18:51:07.826048+08
-1106	0	23	1	0	0	2	0	0	0	0	0	0	0		029 谢珑茜-Unit 4-7 P45	1be1c7996f3e4525a2922b6d663cd806	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.898565+08	2019-09-01 18:51:07.898565+08
-1107	0	23	1	0	0	2	0	0	0	0	0	0	0		030 谢珑茜-Unit 5-1 P46-47	7973f44e699641a7adff370e9f4087b4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:07.933036+08	2019-09-01 18:51:07.933036+08
-1108	0	23	1	0	0	2	0	0	0	0	0	0	0		031 谢珑茜-Unit 5-2 P48	355d42c53aa74473b755034f4c5f81c7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.007264+08	2019-09-01 18:51:08.007264+08
-1109	0	23	1	0	0	2	0	0	0	0	0	0	0		032 谢珑茜-Unit 5-3 P49-50	3529a098ae5f444cabbc54aa74648595	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.068012+08	2019-09-01 18:51:08.068012+08
-1110	0	23	1	0	0	2	0	0	0	0	0	0	0		033 谢珑茜-Unit 5-4 P51	8787a038b5454c4cb896e4ba39ee985b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.13472+08	2019-09-01 18:51:08.13472+08
-1111	0	23	1	0	0	2	0	0	0	0	0	0	0		034 谢珑茜-Unit 5-5 P52	39903af199964667b4c855dcdc877205	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.199365+08	2019-09-01 18:51:08.199365+08
-1112	0	23	1	0	0	2	0	0	0	0	0	0	0		035 谢珑茜-Unit 5-6 P53-54	0fb9957914824b9eab4e0f271a9a451a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.236533+08	2019-09-01 18:51:08.236533+08
-1113	0	23	1	0	0	2	0	0	0	0	0	0	0		036 谢珑茜-Unit 5-7 P55	5339bf86f0aa4d9ba35bcdd2f6d5968a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.305756+08	2019-09-01 18:51:08.305756+08
-1114	0	23	1	0	0	2	0	0	0	0	0	0	0		037 谢珑茜-Unit 6-1 P56-57	853fcd058bf54ce78d4b78fe09aa8d74	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.365078+08	2019-09-01 18:51:08.365078+08
-1115	0	23	1	0	0	2	0	0	0	0	0	0	0		038 谢珑茜-Unit 6-2 P58	3d5e027ce9a745aeb4319da28250e252	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.429051+08	2019-09-01 18:51:08.429051+08
-1116	0	23	1	0	0	2	0	0	0	0	0	0	0		039 谢珑茜-Unit 6-3 P59-60	bcd5f7af16504a4cb42bda068fd1f3a1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.478164+08	2019-09-01 18:51:08.478164+08
-1117	0	23	1	0	0	2	0	0	0	0	0	0	0		040 谢珑茜-Unit 6-4 P61	813180b1c0524b918a5406cd0ebdf8a7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.540797+08	2019-09-01 18:51:08.540797+08
-1118	0	23	1	0	0	2	0	0	0	0	0	0	0		041 谢珑茜-Unit 6-5 P62	0742fd19adf24cbc9beca2b72d05911f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.604574+08	2019-09-01 18:51:08.604574+08
-1119	0	23	1	0	0	2	0	0	0	0	0	0	0		042 谢珑茜-Unit 6-6 P63-64	1349210803874e5ea80e0593253f438b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.657294+08	2019-09-01 18:51:08.657294+08
-1120	0	23	1	0	0	2	0	0	0	0	0	0	0		043 谢珑茜-Unit 6-7 P65	3999e11aaf6546c5804d6fde03f60672	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.735361+08	2019-09-01 18:51:08.735361+08
-1121	0	23	1	0	0	2	0	0	0	0	0	0	0		044 谢珑茜-Recycle 2 P66-69	047b733b8a6c4dcbaa3c8c9e699c4deb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.77305+08	2019-09-01 18:51:08.77305+08
-1122	0	24	1	0	0	1	0	0	0	0	0	0	0		001 胡青清-方向与位置（一） P2-6	c3d46d9e26cf4dc9a346fbae5f4deb27	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.842524+08	2019-09-01 18:51:08.842524+08
-1123	0	24	1	0	0	1	0	0	0	0	0	0	0		002 胡青清-方向与位置（二） P7-10	937dd19a079a4bf7aaaa22b0d2c4c479	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.908901+08	2019-09-01 18:51:08.908901+08
-1124	0	24	1	0	0	2	0	0	0	0	0	0	0		003 胡青清-口算除法 P11-12	3229e3a1dd654a92a522dbec008b28b0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:08.968227+08	2019-09-01 18:51:08.968227+08
-1125	0	24	1	0	0	2	0	0	0	0	0	0	0		004 胡青清-口算练习 P13-14	b914c2f299354e9cbb6d7d443387449f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.018614+08	2019-09-01 18:51:09.018614+08
-1126	0	24	1	0	0	2	0	0	0	0	0	0	0		005 胡青清-笔算除法 P15	eac9dea7c66343f4a7d8bfa326f22a48	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.088676+08	2019-09-01 18:51:09.088676+08
-1127	0	24	1	0	0	2	0	0	0	0	0	0	0		006 胡青清-笔算除法练习题 P19	cffe74e37ee84ee6b6656ee26e45aaba	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.143248+08	2019-09-01 18:51:09.143248+08
-1128	0	24	1	0	0	2	0	0	0	0	0	0	0		007 胡青清-三位数除以一位数商是三位数 P17	e6d07e27ce974eff985a5dc82d5c8dec	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.211839+08	2019-09-01 18:51:09.211839+08
-1129	0	24	1	0	0	2	0	0	0	0	0	0	0		008 胡青清-三位数除以一位数，商是两位数 P18	f1cc67b006624c09ba0831d597611ee9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.266385+08	2019-09-01 18:51:09.266385+08
-1130	0	24	1	0	0	2	0	0	0	0	0	0	0		009 胡青清-除数是一位数的除法练习课 P21-22	7ad6543027e34d47b16e48602eecb815	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.33522+08	2019-09-01 18:51:09.33522+08
-1131	0	24	1	0	0	2	0	0	0	0	0	0	0		010 胡青清-0的除法和商的中间有0的除法 P23-24	04fe251071814319b3a7bbf76335621d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.381684+08	2019-09-01 18:51:09.381684+08
-1132	0	24	1	0	0	2	0	0	0	0	0	0	0		011 胡青清-商末尾有0的除法计算 P25	cc059de448a84af3b2cfe4ed33f42079	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.443386+08	2019-09-01 18:51:09.443386+08
-1133	0	24	1	0	0	2	0	0	0	0	0	0	0		012 胡青清-解决问题 P29-30	43c4de1f035f4cbfbb91e72974e2ba90	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.508106+08	2019-09-01 18:51:09.508106+08
-1134	0	24	1	0	0	2	0	0	0	0	0	0	0		013 胡青清-复式统计法 P36-40	33da7588f1c14f3ebe3b0c45938a57ff	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.561421+08	2019-09-01 18:51:09.561421+08
-1135	0	24	1	0	0	2	0	0	0	0	0	0	0		014 胡青清-口算乘法 P41-42	0f2bf96f6eec42e891ff1bf500ceef17	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.636119+08	2019-09-01 18:51:09.636119+08
-1136	0	24	1	0	0	2	0	0	0	0	0	0	0		015 胡青清-两位数乘两位数（不进位） P46-48	cdcaa3f98dc544f0bdc2f95289dac952	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.678952+08	2019-09-01 18:51:09.678952+08
-1137	0	24	1	0	0	2	0	0	0	0	0	0	0		016 胡青清-两位数乘两位数（进位） P49-51	75160060885f4e23b1c9671d5f1d9c73	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.749745+08	2019-09-01 18:51:09.749745+08
-1138	0	24	1	0	0	2	0	0	0	0	0	0	0		017 胡青清-解决问题 P53-57	20b19a9e6ef6412ab06f592cfab22f55	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.816148+08	2019-09-01 18:51:09.816148+08
-1139	0	24	1	0	0	2	0	0	0	0	0	0	0		018 胡青清-面积和面积单位 P60-65	90168f9e07f6478aa0bbf42f864ea58c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.865283+08	2019-09-01 18:51:09.865283+08
-1140	0	24	1	0	0	2	0	0	0	0	0	0	0		019 胡青清-正方形面积的计算 P66-69	988b9662a9ee41e6bc3298e35b89428c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.928617+08	2019-09-01 18:51:09.928617+08
-1141	0	24	1	0	0	2	0	0	0	0	0	0	0		020 胡青清-面积单位间的进率（一） P70-71	001e43a7c67d4ce688dda9e0cc35db6e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:09.977697+08	2019-09-01 18:51:09.977697+08
-1142	0	24	1	0	0	2	0	0	0	0	0	0	0		021 胡青清-面积单位间的进率（二） P72-75	742cec0e65394f2390cc5ff9d00c0f81	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.055379+08	2019-09-01 18:51:10.055379+08
-1143	0	24	1	0	0	2	0	0	0	0	0	0	0		022 胡青清-年.月.日 P76-78	87f4f398f30b482bb1fd666c1d64d75f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.092782+08	2019-09-01 18:51:10.092782+08
-1144	0	24	1	0	0	2	0	0	0	0	0	0	0		023 胡青清-平年和闰年 P79-81	0cc9f903f8bc4227bc6dbe288b89ff57	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.171017+08	2019-09-01 18:51:10.171017+08
-1145	0	24	1	0	0	2	0	0	0	0	0	0	0		024 胡青清-24时计时法 P82-90	3b316f301d7b4b84b0d7d8093dbd0e94	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.237223+08	2019-09-01 18:51:10.237223+08
-1146	0	24	1	0	0	2	0	0	0	0	0	0	0		025 胡青清-认识小数 P91-92	443ec49eeb2a42c9b5404d5dd02414dd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.275879+08	2019-09-01 18:51:10.275879+08
-1147	0	24	1	0	0	2	0	0	0	0	0	0	0		026 胡青清-小数的大小比较 P93	8face3abb9f14299a8053e3cfeede683	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.347338+08	2019-09-01 18:51:10.347338+08
-1148	0	24	1	0	0	2	0	0	0	0	0	0	0		027 胡青清-简单的小数加减法 P96	a42f8aa6c7cb48ad9b3420ce72172d6d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.404964+08	2019-09-01 18:51:10.404964+08
-1149	0	24	1	0	0	2	0	0	0	0	0	0	0		028 胡青清-数学广角（一） P101 P105	356a1dca8d874e25bff36c4cf3275d12	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.468359+08	2019-09-01 18:51:10.468359+08
-1150	0	24	1	0	0	2	0	0	0	0	0	0	0		029 胡青清-数学广角（二） P102	c6fc8ed7c9044c66919968671753ea16	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.532585+08	2019-09-01 18:51:10.532585+08
-1151	0	24	1	0	0	2	0	0	0	0	0	0	0		030 胡青清-数学广角（三） P103	c3b4fced69dc4009b83b40be7cd00afa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.584199+08	2019-09-01 18:51:10.584199+08
-1152	0	24	1	0	0	2	0	0	0	0	0	0	0		031 胡青清-数与代数（一） P108-114 P11-3	a51d3de835434b628edef611b5ef4dd2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.641693+08	2019-09-01 18:51:10.641693+08
-1153	0	24	1	0	0	2	0	0	0	0	0	0	0		032 胡青清-数与代数（二） P108-114 P11-3	220ffd70c0184d40afc956c634abef86	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.703874+08	2019-09-01 18:51:10.703874+08
-1154	0	24	1	0	0	2	0	0	0	0	0	0	0		033 胡青清-图形与几何 P108-114 P36-40 	31d268849971469aa7bef4491e5c0aef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.766097+08	2019-09-01 18:51:10.766097+08
-1155	0	24	1	0	0	2	0	0	0	0	0	0	0		034 胡青清-统计与概率 P108-114 P36-40 	7676aab696b24f999764175ba46f916e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.823995+08	2019-09-01 18:51:10.823995+08
-1156	0	25	1	0	0	1	0	0	0	0	0	0	0		001 涂熹恺-时分秒-认识 P2-3	818327fa2ac74140a184b52bcd441baa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.897767+08	2019-09-01 18:51:10.897767+08
-1157	0	25	1	0	0	1	0	0	0	0	0	0	0		002 涂熹恺-时分秒-计算 P4-5	ad06c4c1f12a4ff8a47c52ccbd8b6a6d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:10.940281+08	2019-09-01 18:51:10.940281+08
-1158	0	25	1	0	0	2	0	0	0	0	0	0	0		003 涂熹恺-时分秒-强化 P6-8	0dcaa0d6f48d4595995c27131d048e41	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.010346+08	2019-09-01 18:51:11.010346+08
-1159	0	25	1	0	0	2	0	0	0	0	0	0	0		004 涂熹恺-万以内的加减法（一）-两位数的加减法 P10-13	23533b8ea8284aae83a37ed16b4b16b0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.067826+08	2019-09-01 18:51:11.067826+08
-1160	0	25	1	0	0	2	0	0	0	0	0	0	0		005 涂熹恺-万以内的加减法（一）-整百数的加减法 P14-19	7ce89998f78145dfbd40a700f80bd3ba	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.121785+08	2019-09-01 18:51:11.121785+08
-1161	0	25	1	0	0	2	0	0	0	0	0	0	0		006 涂熹恺-万以内的加减法（一）-估算 P20	d50e76c0b6e44ebfb8cbf03d4b628cb7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.183125+08	2019-09-01 18:51:11.183125+08
-1162	0	25	1	0	0	2	0	0	0	0	0	0	0		007 涂熹恺-测量-毫米、分米的认识 P21-26	74561286a81843acb23d1d22735165fc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.249141+08	2019-09-01 18:51:11.249141+08
-1163	0	25	1	0	0	2	0	0	0	0	0	0	0		008 涂熹恺-测量-千的认识 P26-30	aea25dfc02aa4304ab5773a76d07dacd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.298088+08	2019-09-01 18:51:11.298088+08
-1164	0	25	1	0	0	2	0	0	0	0	0	0	0		009 涂熹恺-测量-吨的认识 P31-35	7c411007b0e746f5a39a8c0ffc6c4ca2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.365407+08	2019-09-01 18:51:11.365407+08
-1165	0	25	1	0	0	2	0	0	0	0	0	0	0		010 涂熹恺-万以内加减法（二）-竖式计算加法 P36-39	cee4f0a065624cd3b0dbba2df3c4dd2d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.424865+08	2019-09-01 18:51:11.424865+08
-1166	0	25	1	0	0	2	0	0	0	0	0	0	0		011 涂熹恺-万以内加减法（二）-竖式计算减法 P40-46	78579c8f16e346debdf1f4e2d9bcc4c2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.474835+08	2019-09-01 18:51:11.474835+08
-1200	0	26	1	0	0	2	0	0	0	0	0	0	0		015蔡林芝-Unit 3-5 P31	203146c7d05643c3a396ec1b2b36852e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.527283+08	2019-09-01 18:51:13.527283+08
-1167	0	25	1	0	0	2	0	0	0	0	0	0	0		012 涂熹恺-万以内加减法（二）-强化训练 P46-49	63c1f482fe9d491f995dd76fab0ae06b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.546543+08	2019-09-01 18:51:11.546543+08
-1168	0	25	1	0	0	2	0	0	0	0	0	0	0		013 涂熹恺-倍数-简单认识 P50-51	08f94d0e8ca44bf8b0f6822d30a00ec0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.601203+08	2019-09-01 18:51:11.601203+08
-1169	0	25	1	0	0	2	0	0	0	0	0	0	0		014 涂熹恺-倍数-简单应用 P52-55	626d4f6bd42f4479ba5546ef9b115ffa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.663565+08	2019-09-01 18:51:11.663565+08
-1170	0	25	1	0	0	2	0	0	0	0	0	0	0		015 涂熹恺-多位数乘以一位数-口算乘法 P56-59	fb174020d4994b98b8afdf76a760f02d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.723218+08	2019-09-01 18:51:11.723218+08
-1171	0	25	1	0	0	2	0	0	0	0	0	0	0		016 涂熹恺-多位数乘以一位数-笔算乘法 P60-65	14a30442ae5a4be891be48c1451c9a68	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.793764+08	2019-09-01 18:51:11.793764+08
-1172	0	25	1	0	0	2	0	0	0	0	0	0	0		017 涂熹恺-多位数乘以一位数-含0的计算 P66-67	3e39d3db39674e7c886c4909af93e402	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.838299+08	2019-09-01 18:51:11.838299+08
-1173	0	25	1	0	0	2	0	0	0	0	0	0	0		018 涂熹恺-多位数乘以一位数-估算及强化训练 P68-76	6ef7d831527c4769b5215eb69e795c20	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.90566+08	2019-09-01 18:51:11.90566+08
-1174	0	25	1	0	0	2	0	0	0	0	0	0	0		019 涂熹恺-数字编码 P77	3a57511bbdc34d5e94b972d94a7af723	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:11.9623+08	2019-09-01 18:51:11.9623+08
-1175	0	25	1	0	0	2	0	0	0	0	0	0	0		020 涂熹恺-长方形和正方形-认识 P79-82	bfec7c1f587544f5b8f1887c74818672	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.031497+08	2019-09-01 18:51:12.031497+08
-1176	0	25	1	0	0	2	0	0	0	0	0	0	0		021 涂熹恺-长方形和正方形-周长计算 P83-84	914511b7b33d415f87d6f21c8a334a39	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.084774+08	2019-09-01 18:51:12.084774+08
-1177	0	25	1	0	0	2	0	0	0	0	0	0	0		022 涂熹恺-长方形和正方形-强化训练 P85-88	229c176fd4514442b283dddfc5c9d3e9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.153518+08	2019-09-01 18:51:12.153518+08
-1178	0	25	1	0	0	2	0	0	0	0	0	0	0		023 涂熹恺-分数的初步认识-简单的认识 P90-95	f322f37586a24c079702bfb98fe76ee7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.199465+08	2019-09-01 18:51:12.199465+08
-1179	0	25	1	0	0	2	0	0	0	0	0	0	0		024 涂熹恺-分数的初步认识-简单的计算 P96-99	203b60db6d894b078a29a1055a33d655	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.265896+08	2019-09-01 18:51:12.265896+08
-1180	0	25	1	0	0	2	0	0	0	0	0	0	0		025 涂熹恺-分数的初步认识-简单的应用 P100-103	dab7a3606fb34c239e5b8da433ab11b8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.31301+08	2019-09-01 18:51:12.31301+08
-1181	0	25	1	0	0	2	0	0	0	0	0	0	0		026 涂熹恺-集合 P104-107	c05b8875f4ad4c4e889dbf84785c0ac2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.388783+08	2019-09-01 18:51:12.388783+08
-1182	0	25	1	0	0	2	0	0	0	0	0	0	0		027 涂熹恺-总复习（一）万以内的加减法 P111-112、P114	62cea533f7a440e486ebfd4c6087db7f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.442494+08	2019-09-01 18:51:12.442494+08
-1183	0	25	1	0	0	2	0	0	0	0	0	0	0		028 涂熹恺-总复习（二）多位数乘以一位数 P112	6210560297a048ed9218342f7a6d2a0f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.500882+08	2019-09-01 18:51:12.500882+08
-1184	0	25	1	0	0	2	0	0	0	0	0	0	0		029 涂熹恺-总复习（三）测量、长方形和正方形 P113	55c4171cbe924698b7a589238bf3fb3e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.561107+08	2019-09-01 18:51:12.561107+08
-1185	0	25	1	0	0	2	0	0	0	0	0	0	0		030 涂熹恺-总复习（四）时分秒、分数、集合 P108-114	146ba075f6c04ee0b4200d99807f0c68	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.621247+08	2019-09-01 18:51:12.621247+08
-1186	0	26	1	0	0	1	0	0	0	0	0	0	0		001蔡林芝-Unit 1-1 P2-4	9170f43f13e548d2a95650d74124a4a5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.683918+08	2019-09-01 18:51:12.683918+08
-1187	0	26	1	0	0	1	0	0	0	0	0	0	0		002蔡林芝-Unit 1-2 P5-6	9bc429110453483fb8dc9488e0131ae2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.736286+08	2019-09-01 18:51:12.736286+08
-1188	0	26	1	0	0	2	0	0	0	0	0	0	0		003蔡林芝-Unit 1-3 P5,P7-8	13456f78c7e64a8ca2ef0e7380ccd2bf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.802325+08	2019-09-01 18:51:12.802325+08
-1189	0	26	1	0	0	2	0	0	0	0	0	0	0		004蔡林芝-Unit 1-4 P9-10	eb979a36e8f94ee9b06ad3a6b0789d1d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.869931+08	2019-09-01 18:51:12.869931+08
-1190	0	26	1	0	0	2	0	0	0	0	0	0	0		005蔡林芝-Unit 1-5 P11	3c91d99fdc18481c8f63850da73dbad4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.918979+08	2019-09-01 18:51:12.918979+08
-1191	0	26	1	0	0	2	0	0	0	0	0	0	0		006蔡林芝-Unit 2-1 P12-14	d833c83c86c44ec2bec240ef2f2b8bb0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:12.987698+08	2019-09-01 18:51:12.987698+08
-1192	0	26	1	0	0	2	0	0	0	0	0	0	0		007蔡林芝-Unit 2-2 P15-16	f5b925b3eaa647d4a93fa62a8954a520	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.041857+08	2019-09-01 18:51:13.041857+08
-1193	0	26	1	0	0	2	0	0	0	0	0	0	0		008蔡林芝-Unit 2-3 P17-18	5e8039baaaae48c58b73bbe1d4448c84	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.116496+08	2019-09-01 18:51:13.116496+08
-1194	0	26	1	0	0	2	0	0	0	0	0	0	0		009蔡林芝-Unit 2-4 P19-20	59a77d7f47a24ef7ab06a7869f5f78cc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.156261+08	2019-09-01 18:51:13.156261+08
-1195	0	26	1	0	0	2	0	0	0	0	0	0	0		010蔡林芝-Unit 2-5 P21	d4f98533823840b5878850ea80573374	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.223882+08	2019-09-01 18:51:13.223882+08
-1196	0	26	1	0	0	2	0	0	0	0	0	0	0		011蔡林芝-Unit 3-1 P22-24	517fd02e52ea4b568e96cb5cca12955a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.285484+08	2019-09-01 18:51:13.285484+08
-1197	0	26	1	0	0	2	0	0	0	0	0	0	0		012蔡林芝-Unit 3-2 P25-26	9ba31244c71a48678658c8016d761811	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.351489+08	2019-09-01 18:51:13.351489+08
-1198	0	26	1	0	0	2	0	0	0	0	0	0	0		013蔡林芝-Unit 3-3 P27-28	c4b83cbf38b248cca40399267de46ebf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.419557+08	2019-09-01 18:51:13.419557+08
-1199	0	26	1	0	0	2	0	0	0	0	0	0	0		014蔡林芝-Unit 3-4 P29-30	e2e1d1ec68434601bb4f278727536895	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.459341+08	2019-09-01 18:51:13.459341+08
-1201	0	26	1	0	0	2	0	0	0	0	0	0	0		016蔡林芝-Recycle 1-1 P32-33	a24cf1ab74bc4aeaa0756b8c02bc4912	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.572743+08	2019-09-01 18:51:13.572743+08
-1202	0	26	1	0	0	2	0	0	0	0	0	0	0		017蔡林芝-Recycle 1-2 P34-35	2e977fedba71423299ae9f73961a3ca4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.649142+08	2019-09-01 18:51:13.649142+08
-1203	0	26	1	0	0	2	0	0	0	0	0	0	0		018蔡林芝-Unit 4-1 P36-38	c4b8b622314346918a0f3ac7dd2c832a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.700289+08	2019-09-01 18:51:13.700289+08
-1204	0	26	1	0	0	2	0	0	0	0	0	0	0		019蔡林芝-Unit 4-2 P39-40	638ba3204efd40a08f95b6724ce2f979	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.766487+08	2019-09-01 18:51:13.766487+08
-1205	0	26	1	0	0	2	0	0	0	0	0	0	0		020蔡林芝-Unit 4-3 P41-42	2ce53c7767df4757a242bb7682c68f53	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.814181+08	2019-09-01 18:51:13.814181+08
-1206	0	26	1	0	0	2	0	0	0	0	0	0	0		021蔡林芝-Unit 4-4 P43-44	4ec51f48a5684e8699faad83eb5c4e16	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.890209+08	2019-09-01 18:51:13.890209+08
-1207	0	26	1	0	0	2	0	0	0	0	0	0	0		022蔡林芝-Unit 4-5 P45	452ee7f91bab466391cb09d11c4590c8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:13.95093+08	2019-09-01 18:51:13.95093+08
-1208	0	26	1	0	0	2	0	0	0	0	0	0	0		023蔡林芝-Unit 5-1 P46-48	09301d8748454301b2659038dc0da4f2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.121733+08	2019-09-01 18:51:14.121733+08
-1209	0	26	1	0	0	2	0	0	0	0	0	0	0		024蔡林芝-Unit 5-2 P49-50	3d41a883ff7e48c29aa402ac0a56b858	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.146037+08	2019-09-01 18:51:14.146037+08
-1210	0	26	1	0	0	2	0	0	0	0	0	0	0		025蔡林芝-Unit 5-3 P51-52	2273420d7bd74eea8988c8e8e7c9cb5d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.181461+08	2019-09-01 18:51:14.181461+08
-1211	0	26	1	0	0	2	0	0	0	0	0	0	0		026蔡林芝-Unit 5-4 P53-54	3e763fda9daa4255aee5f330e27e3101	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.206402+08	2019-09-01 18:51:14.206402+08
-1212	0	26	1	0	0	2	0	0	0	0	0	0	0		027蔡林芝-Unit 5-5 P55	d8cb008de0c04904b8e334bf2e0728c0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.257411+08	2019-09-01 18:51:14.257411+08
-1213	0	26	1	0	0	2	0	0	0	0	0	0	0		028蔡林芝-Unit 6-1 P56-58	597f4c19376d437d8e7f2c54a5579b29	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.307281+08	2019-09-01 18:51:14.307281+08
-1214	0	26	1	0	0	2	0	0	0	0	0	0	0		029蔡林芝-Unit 6-2 P59-60	385647b7c43545b58565631f9bc5398d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.351586+08	2019-09-01 18:51:14.351586+08
-1215	0	26	1	0	0	2	0	0	0	0	0	0	0		030蔡林芝-Unit 6-3 P61-62	74973ce7caa043de813a847a4bbde6c9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.420726+08	2019-09-01 18:51:14.420726+08
-1216	0	26	1	0	0	2	0	0	0	0	0	0	0		031蔡林芝-Unit 6-4 P63-64	b236481668324be0ae5b01a577bbe021	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.488597+08	2019-09-01 18:51:14.488597+08
-1217	0	26	1	0	0	2	0	0	0	0	0	0	0		032蔡林芝-Unit 6-5 P65	7d7b391423db47978d0c231c7a13c690	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.536226+08	2019-09-01 18:51:14.536226+08
-1218	0	26	1	0	0	2	0	0	0	0	0	0	0		033蔡林芝-Recycle 2-1 P66-67	3b2957ee307b4d66a5e7209391b9a4e1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.600828+08	2019-09-01 18:51:14.600828+08
-1219	0	26	1	0	0	2	0	0	0	0	0	0	0		034蔡林芝-Recycle 2-2 P67-69	c36d2f766b5d4749be8fe2c744aa0755	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.655152+08	2019-09-01 18:51:14.655152+08
-1220	0	27	1	0	0	1	0	0	0	0	0	0	0		001 刘婷-燕子（一）	137799ba396546ed8056decdb1d13194	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.722391+08	2019-09-01 18:51:14.722391+08
-1221	0	27	1	0	0	1	0	0	0	0	0	0	0		002 刘婷-燕子（二）	3ca580ac80784c28b9151ca6dee2b643	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.782831+08	2019-09-01 18:51:14.782831+08
-1222	0	27	1	0	0	2	0	0	0	0	0	0	0		003 刘婷-古诗两首-咏柳	57dd7397a40c4c41b7553729b8372575	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.850105+08	2019-09-01 18:51:14.850105+08
-1223	0	27	1	0	0	2	0	0	0	0	0	0	0		004 刘婷-古诗两首-春日	3fd10e7461f7497c86313588651ec02d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.893058+08	2019-09-01 18:51:14.893058+08
-1224	0	27	1	0	0	2	0	0	0	0	0	0	0		005 刘婷-荷花（一）	b8b5b9e2539c4138b151f8648efe65e7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:14.960386+08	2019-09-01 18:51:14.960386+08
-1225	0	27	1	0	0	2	0	0	0	0	0	0	0		006 刘婷-荷花（二）	5d230a8a8571464e81e68433f0d067c3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.024774+08	2019-09-01 18:51:15.024774+08
-1226	0	27	1	0	0	2	0	0	0	0	0	0	0		007 刘婷-珍珠泉	35f2a8bda1544803ad969aa18f1915a5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.0865+08	2019-09-01 18:51:15.0865+08
-1227	0	27	1	0	0	2	0	0	0	0	0	0	0		008 刘婷-翠鸟（一）	ca41cfc8a2cd40d7b791be2a850fcfd5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.149944+08	2019-09-01 18:51:15.149944+08
-1228	0	27	1	0	0	2	0	0	0	0	0	0	0		009 刘婷-翠鸟（二）	f2bea3613ddb4f4c9c5f18e36b75b59a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.201388+08	2019-09-01 18:51:15.201388+08
-1229	0	27	1	0	0	2	0	0	0	0	0	0	0		010 刘婷-燕子专列（一）	fe06ca0f1f804565b8e2541cf857d4df	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.263095+08	2019-09-01 18:51:15.263095+08
-1230	0	27	1	0	0	2	0	0	0	0	0	0	0		011 刘婷-燕子专列（二）	80cf9caae9f8473e9f624b4279bd0689	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.318408+08	2019-09-01 18:51:15.318408+08
-1231	0	27	1	0	0	2	0	0	0	0	0	0	0		012 刘婷-一个小村庄的故事（一）	674cd4104fc1461faeed61517a5be6f0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.38476+08	2019-09-01 18:51:15.38476+08
-1232	0	27	1	0	0	2	0	0	0	0	0	0	0		013 刘婷-一个小村庄的故事（二）	4d4b4af798024f068c8662e44ba268c2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.445505+08	2019-09-01 18:51:15.445505+08
-1233	0	27	1	0	0	2	0	0	0	0	0	0	0		014 刘婷-路旁的橡树	cb406c83fafc47fbbb72e8ce74a06520	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.503547+08	2019-09-01 18:51:15.503547+08
-1234	0	27	1	0	0	2	0	0	0	0	0	0	0		015 刘婷-寓言两则-亡羊补牢	bd9b97c650094079a0558da66c9d4b91	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.568386+08	2019-09-01 18:51:15.568386+08
-1235	0	27	1	0	0	2	0	0	0	0	0	0	0		016 刘婷-寓言两则-南辕北辙	40d88453ce524c1d912efdedb3982604	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.612727+08	2019-09-01 18:51:15.612727+08
-1236	0	27	1	0	0	2	0	0	0	0	0	0	0		017 刘婷-惊弓之鸟（一）	810a94033631401dade717fd9d724b00	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.674253+08	2019-09-01 18:51:15.674253+08
-1237	0	27	1	0	0	2	0	0	0	0	0	0	0		018 刘婷-惊弓之鸟（二）	8191b1fb36bc4bc99931fe0d688a30a7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.743902+08	2019-09-01 18:51:15.743902+08
-1238	0	27	1	0	0	2	0	0	0	0	0	0	0		019 刘婷-画杨桃（一）	605e5c6003f34d2e8b1d77caa2a4016e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.805337+08	2019-09-01 18:51:15.805337+08
-1239	0	27	1	0	0	2	0	0	0	0	0	0	0		020 刘婷-画杨桃（二）	6060fa756fd54df1b8f3e619d832f720	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.858359+08	2019-09-01 18:51:15.858359+08
-1240	0	27	1	0	0	2	0	0	0	0	0	0	0		021 刘婷-想别人没想到的	8e2fce9931a0418f90e52fe8d9d5f7e7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.918662+08	2019-09-01 18:51:15.918662+08
-1241	0	27	1	0	0	2	0	0	0	0	0	0	0		022 刘婷-和时间赛跑（一）	e1ae356659c54f06b588122d84a0e075	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:15.987302+08	2019-09-01 18:51:15.987302+08
-1242	0	27	1	0	0	2	0	0	0	0	0	0	0		023 刘婷-和时间赛跑（二）	a5a19a7fd8ea4f5e86000065949142e4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.050966+08	2019-09-01 18:51:16.050966+08
-1243	0	27	1	0	0	2	0	0	0	0	0	0	0		024 刘婷-检阅（一）	46de236b48534fb2a0ac422d25c947fb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.102565+08	2019-09-01 18:51:16.102565+08
-1244	0	27	1	0	0	2	0	0	0	0	0	0	0		025 刘婷-检阅（二）	3619787a78d244c2bcfac9f42dd2272e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.168457+08	2019-09-01 18:51:16.168457+08
-1245	0	27	1	0	0	2	0	0	0	0	0	0	0		026 刘婷-争吵（一）	cb89f37fcd664abcb7f1ed3a3c02ddc0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.224977+08	2019-09-01 18:51:16.224977+08
-1246	0	27	1	0	0	2	0	0	0	0	0	0	0		027 刘婷-争吵（二）	2152a22c98534019a9db8560c2242c3a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.281734+08	2019-09-01 18:51:16.281734+08
-1247	0	27	1	0	0	2	0	0	0	0	0	0	0		028 刘婷-绝招	ea3b8182feee41d7bf73c7d8d10e2737	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.349623+08	2019-09-01 18:51:16.349623+08
-1248	0	27	1	0	0	2	0	0	0	0	0	0	0		029 刘婷-可贵的沉默（一）	6ae0c645776d43ef950c74bcd6069d31	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.39164+08	2019-09-01 18:51:16.39164+08
-1249	0	27	1	0	0	2	0	0	0	0	0	0	0		030 刘婷-可贵的沉默（二）	7e8f012e113b4ee09f5c0ed72f9dbd78	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.464704+08	2019-09-01 18:51:16.464704+08
-1250	0	27	1	0	0	2	0	0	0	0	0	0	0		031 刘婷-她是我的朋友（一）	2b5c1ddfe52243179002f4efdee91740	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.521928+08	2019-09-01 18:51:16.521928+08
-1251	0	27	1	0	0	2	0	0	0	0	0	0	0		032 刘婷-她是我的朋友（二）	841e9e6213044a86ace9ae73d29d6c4b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.589939+08	2019-09-01 18:51:16.589939+08
-1252	0	27	1	0	0	2	0	0	0	0	0	0	0		033 刘婷-七颗钻石（一）	8377160bcd134346919bc716c71a8d3d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.641639+08	2019-09-01 18:51:16.641639+08
-1253	0	27	1	0	0	2	0	0	0	0	0	0	0		034 刘婷-七颗钻石（二）	b1acbd60cb3b44309e9b4d407d142442	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.698839+08	2019-09-01 18:51:16.698839+08
-1254	0	27	1	0	0	2	0	0	0	0	0	0	0		035 刘婷-妈妈的账单	70e6ae1d7b6b4bd887e4d7692bbcf058	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.76053+08	2019-09-01 18:51:16.76053+08
-1255	0	27	1	0	0	2	0	0	0	0	0	0	0		036 刘婷-太阳（一）	790a53e47ca9462698ac63d8ea9746d4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.827097+08	2019-09-01 18:51:16.827097+08
-1256	0	27	1	0	0	2	0	0	0	0	0	0	0		037 刘婷-太阳（二）	f3395c9da7204ae8ae5604834701ad33	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.885753+08	2019-09-01 18:51:16.885753+08
-1257	0	27	1	0	0	2	0	0	0	0	0	0	0		038 刘婷-月球之谜（一）	cc9e5905e445401c91c2b85a37171b7e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:16.942426+08	2019-09-01 18:51:16.942426+08
-1258	0	27	1	0	0	2	0	0	0	0	0	0	0		039 刘婷-月球之谜（二）	bf3b26291b2f4dd690fe3e6efda17722	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.006346+08	2019-09-01 18:51:17.006346+08
-1259	0	27	1	0	0	2	0	0	0	0	0	0	0		040 刘婷-我家跨上了“信息高速路”	a1de417c04a948d1be3bf0eb8b274cd3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.067993+08	2019-09-01 18:51:17.067993+08
-1260	0	27	1	0	0	2	0	0	0	0	0	0	0		041 刘婷-果园机器人	de704bf604b648349cc520f50a895893	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.11749+08	2019-09-01 18:51:17.11749+08
-1261	0	27	1	0	0	2	0	0	0	0	0	0	0		042 刘婷-太阳是大家的	dd5fe0f1850c4174bb64df4ded8316e0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.186126+08	2019-09-01 18:51:17.186126+08
-1262	0	27	1	0	0	2	0	0	0	0	0	0	0		043 刘婷-一面五星红旗（一）	d2c78930a85f4e1b9066179512167ebf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.237676+08	2019-09-01 18:51:17.237676+08
-1263	0	27	1	0	0	2	0	0	0	0	0	0	0		044 刘婷-一面五星红旗（二）	c261b3db9f0e4670b04c765baa30542e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.307273+08	2019-09-01 18:51:17.307273+08
-1264	0	27	1	0	0	2	0	0	0	0	0	0	0		045 刘婷-卖木雕的少年（一）	461c430518814de7a8c1b6dfe4dd2a8f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.356429+08	2019-09-01 18:51:17.356429+08
-1265	0	27	1	0	0	2	0	0	0	0	0	0	0		046 刘婷-卖木雕的少年（二）	26a85b1d7ff94b5a9acea0adb5128393	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.42211+08	2019-09-01 18:51:17.42211+08
-1266	0	27	1	0	0	2	0	0	0	0	0	0	0		047 刘婷-中国国际救援队，真棒！	285d5542876a46cca517d31159e83668	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.482857+08	2019-09-01 18:51:17.482857+08
-1267	0	27	1	0	0	2	0	0	0	0	0	0	0		048 刘婷-乞巧	40d8fba3e98b4438a624e1a59dfa1382	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.539829+08	2019-09-01 18:51:17.539829+08
-1268	0	27	1	0	0	2	0	0	0	0	0	0	0		049 刘婷-嫦娥	10328440d6b643dd8c3431ed9bf8cefc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.603631+08	2019-09-01 18:51:17.603631+08
-1269	0	27	1	0	0	2	0	0	0	0	0	0	0		050 刘婷-西门豹（一）	a7af721f63cc435fa3a2ad410044a69b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.675399+08	2019-09-01 18:51:17.675399+08
-1270	0	27	1	0	0	2	0	0	0	0	0	0	0		051 刘婷-西门豹（二）	e70221f9b5134290b63d73c3c36842a7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.719076+08	2019-09-01 18:51:17.719076+08
-1271	0	27	1	0	0	2	0	0	0	0	0	0	0		052 刘婷-女娲补天	0b303676d35e42f9a1107af1153f2558	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.787948+08	2019-09-01 18:51:17.787948+08
-1272	0	27	1	0	0	2	0	0	0	0	0	0	0		053 刘婷-夸父追日	8173facb8eb849d1a6b753e7298425ff	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.841229+08	2019-09-01 18:51:17.841229+08
-1273	0	28	1	0	0	1	0	0	0	0	0	0	0		001 谢薇-我们的民族小学（一）	c132d760e742435fbc1fdfbfddfb4a50	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.915179+08	2019-09-01 18:51:17.915179+08
-1274	0	28	1	0	0	1	0	0	0	0	0	0	0		002 谢薇-我们的民族小学（二）	2aaa7b67ee5241dfb8d610556ab2b094	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:17.944973+08	2019-09-01 18:51:17.944973+08
-1275	0	28	1	0	0	2	0	0	0	0	0	0	0		003 谢薇-金色的草地（一）	8824bdf99f2f4ca88ef6de5e69184f49	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.026471+08	2019-09-01 18:51:18.026471+08
-1276	0	28	1	0	0	2	0	0	0	0	0	0	0		004 谢薇-金色的草地（二）	4b03d22f1e7c443f8e9c22fd7f2e67e9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.080688+08	2019-09-01 18:51:18.080688+08
-1277	0	28	1	0	0	2	0	0	0	0	0	0	0		005 谢薇-爬天都峰（一）	519f9ba26f2e48c49bd43e848cd6abf9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.151629+08	2019-09-01 18:51:18.151629+08
-1278	0	28	1	0	0	2	0	0	0	0	0	0	0		006 谢薇-爬天都峰（二）	0447884596f54b2eab77f06c3a2397cd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.191356+08	2019-09-01 18:51:18.191356+08
-1279	0	28	1	0	0	2	0	0	0	0	0	0	0		007 谢薇-槐乡的孩子	a5657b05685643f58f0658ba859a3083	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.255771+08	2019-09-01 18:51:18.255771+08
-1280	0	28	1	0	0	2	0	0	0	0	0	0	0		008 谢薇-灰雀（一）	82dedbf25a1642f18b0fe2c6be85dba3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.321137+08	2019-09-01 18:51:18.321137+08
-1281	0	28	1	0	0	2	0	0	0	0	0	0	0		009 谢薇-灰雀（二）	e0c022b9cc2548aebfd5a6e33f605176	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.376647+08	2019-09-01 18:51:18.376647+08
-1282	0	28	1	0	0	2	0	0	0	0	0	0	0		010 谢薇-小摄影师（一）	f3b00612a9ca4619ac5821b68c45faac	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.448708+08	2019-09-01 18:51:18.448708+08
-1283	0	28	1	0	0	2	0	0	0	0	0	0	0		011 谢薇-小摄影师（二）	dc4003188b3e474a8b0ad2ee7dad8cad	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.51263+08	2019-09-01 18:51:18.51263+08
-1284	0	28	1	0	0	2	0	0	0	0	0	0	0		012 谢薇-奇怪的大石头（一）	63619be46f904ee0b4b1bf2b2cd3fb78	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.550003+08	2019-09-01 18:51:18.550003+08
-1285	0	28	1	0	0	2	0	0	0	0	0	0	0		013 谢薇-奇怪的大石头（二）	fbd5845bd1054c77a69d849310c921be	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.623826+08	2019-09-01 18:51:18.623826+08
-1286	0	28	1	0	0	2	0	0	0	0	0	0	0		014 谢薇-我不能失信_batch	2292f509990645d0a783c4cc06c0d372	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.676189+08	2019-09-01 18:51:18.676189+08
-1287	0	28	1	0	0	2	0	0	0	0	0	0	0		015 谢薇-古诗两首（一)	1b93ad778a3d472fb322905775e97d42	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.739067+08	2019-09-01 18:51:18.739067+08
-1288	0	28	1	0	0	2	0	0	0	0	0	0	0		016 谢薇-古诗两首（二）_batch	31a48c1056be4838b6daa6314d3b3166	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.798901+08	2019-09-01 18:51:18.798901+08
-1289	0	28	1	0	0	2	0	0	0	0	0	0	0		017 谢薇-风筝（一）	768c5d14e24f45008c7406421caded1e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.854296+08	2019-09-01 18:51:18.854296+08
-1290	0	28	1	0	0	2	0	0	0	0	0	0	0		018 谢薇-风筝（二）	f399cbd459f1407583e201fbc71ec55b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.926785+08	2019-09-01 18:51:18.926785+08
-1291	0	28	1	0	0	2	0	0	0	0	0	0	0		019 谢薇-秋天的雨（一）	c45dee7b5899418280d9fd2249038884	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:18.97497+08	2019-09-01 18:51:18.97497+08
-1292	0	28	1	0	0	2	0	0	0	0	0	0	0		020 谢薇-秋天的雨（二）	ea6f975ea7ec4f55ace6142d21e68e8e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.050949+08	2019-09-01 18:51:19.050949+08
-1293	0	28	1	0	0	2	0	0	0	0	0	0	0		021 谢薇-听听秋天的声音	960f3a48f7144d6787283cc0437e79c2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.091699+08	2019-09-01 18:51:19.091699+08
-1294	0	28	1	0	0	2	0	0	0	0	0	0	0		022 谢薇-花钟（一）	77a02d7fe5cc40c4b0991ee68b981057	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.157749+08	2019-09-01 18:51:19.157749+08
-1295	0	28	1	0	0	2	0	0	0	0	0	0	0		023 谢薇-花钟（二）	0d07b01cd94140e8bb4f4048946a7266	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.220901+08	2019-09-01 18:51:19.220901+08
-1296	0	28	1	0	0	2	0	0	0	0	0	0	0		024 谢薇-蜜蜂（一）	777628af88704a7f845448ff0c18441a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.283543+08	2019-09-01 18:51:19.283543+08
-1297	0	28	1	0	0	2	0	0	0	0	0	0	0		025 谢薇-蜜蜂（二）	159a859b0b4b4daeb4b38193b9adf507	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.352136+08	2019-09-01 18:51:19.352136+08
-1298	0	28	1	0	0	2	0	0	0	0	0	0	0		026 谢薇-玩出名堂（一）	3e8ac3c5eca744209dda6c672485089c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.390454+08	2019-09-01 18:51:19.390454+08
-1299	0	28	1	0	0	2	0	0	0	0	0	0	0		027 谢薇-玩出名堂（二）	89ff7ce98e5d44719e853a07c2fa828e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.455797+08	2019-09-01 18:51:19.455797+08
-1300	0	28	1	0	0	2	0	0	0	0	0	0	0		028 谢薇-找骆驼	66d67e10e5b94bc8888c5883edf2f8e2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.520783+08	2019-09-01 18:51:19.520783+08
-1301	0	28	1	0	0	2	0	0	0	0	0	0	0		029 谢薇-孔子拜师（一）	779cba316a81476c87c9af570412b1a5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.58596+08	2019-09-01 18:51:19.58596+08
-1302	0	28	1	0	0	2	0	0	0	0	0	0	0		030 谢薇-孔子拜师（二）	87e544ae859b4b6a9dc1945d4a4d2ba5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.638857+08	2019-09-01 18:51:19.638857+08
-1303	0	28	1	0	0	2	0	0	0	0	0	0	0		031 谢薇-盘古开天地（一）	a011f4b299934aabbe68239081b4a737	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.698667+08	2019-09-01 18:51:19.698667+08
-1304	0	28	1	0	0	2	0	0	0	0	0	0	0		032 谢薇-盘古开天地（二）	a3c4bcb5b6564c2eb10ae24dc4f7cf0b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.756927+08	2019-09-01 18:51:19.756927+08
-1305	0	28	1	0	0	2	0	0	0	0	0	0	0		033 谢薇-赵州桥（一）	8a0e2aba7592467bbc6f346faa369c80	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.823983+08	2019-09-01 18:51:19.823983+08
-1306	0	28	1	0	0	2	0	0	0	0	0	0	0		034 谢薇-赵州桥（二）	4e4791034c6e4e49be0403b418f5d1fc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.878934+08	2019-09-01 18:51:19.878934+08
-1307	0	28	1	0	0	2	0	0	0	0	0	0	0		035 谢薇-名扬中外的画	1df1c5a3602b40c19fe89916c22f769d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.948877+08	2019-09-01 18:51:19.948877+08
-1308	0	28	1	0	0	2	0	0	0	0	0	0	0		036 谢薇-古诗两首（一）	c54be4fbb4544365b85d13154b324326	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:19.992476+08	2019-09-01 18:51:19.992476+08
-1309	0	28	1	0	0	2	0	0	0	0	0	0	0		037 谢薇-古诗两首（二）	b5bc0d0c3c1545fa9f0b525efb97c990	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.055967+08	2019-09-01 18:51:20.055967+08
-1310	0	28	1	0	0	2	0	0	0	0	0	0	0		038 谢薇-富饶的西沙群岛（一）	9fa4d3f48d3148beb8ce0bd5c9de92cd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.122953+08	2019-09-01 18:51:20.122953+08
-1311	0	28	1	0	0	2	0	0	0	0	0	0	0		039 谢薇-富饶的西沙群岛（二）	f6048b97257e4467b2af775cd0e462c2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.183387+08	2019-09-01 18:51:20.183387+08
-1312	0	28	1	0	0	2	0	0	0	0	0	0	0		040 谢薇-美丽的小兴安岭（一）	eb276f9415d24a1596adde1b2e31f0d2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.230835+08	2019-09-01 18:51:20.230835+08
-1313	0	28	1	0	0	2	0	0	0	0	0	0	0		041 谢薇-美丽的小兴安岭（二）	77819fccbc5a44a0a65e96a97b57f871	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.29439+08	2019-09-01 18:51:20.29439+08
-1314	0	28	1	0	0	2	0	0	0	0	0	0	0		042 谢薇-香港璀璨的明珠	bf893a51701a49839b2dea4454745206	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.357564+08	2019-09-01 18:51:20.357564+08
-1315	0	28	1	0	0	2	0	0	0	0	0	0	0		043 谢薇-矛与盾的集合（一）	6dcc7caedadb4dc38624b42064f531c0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.410152+08	2019-09-01 18:51:20.410152+08
-1316	0	28	1	0	0	2	0	0	0	0	0	0	0		044 谢薇-矛与盾的集合（二）	30ac2d9916b243938b8334b3ecde7ab0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.477995+08	2019-09-01 18:51:20.477995+08
-1317	0	28	1	0	0	2	0	0	0	0	0	0	0		045 谢薇-科里亚的木匣（一）	b688cbf361674ec6b13f3d0d1e3e9a39	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.53539+08	2019-09-01 18:51:20.53539+08
-1318	0	28	1	0	0	2	0	0	0	0	0	0	0		046 谢薇-科里亚的木匣（二）	7e96cf0c24934d448dad5410fa6e3c76	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.604305+08	2019-09-01 18:51:20.604305+08
-1319	0	28	1	0	0	2	0	0	0	0	0	0	0		047 谢薇-陶罐和铁罐（一）	5cae8d3ba25b4d4db7741d9d253254f1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.652792+08	2019-09-01 18:51:20.652792+08
-1320	0	28	1	0	0	2	0	0	0	0	0	0	0		048 谢薇-陶罐和铁罐（二）	f09d6ca9bd304239a4b90ef50e6a3df9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.718912+08	2019-09-01 18:51:20.718912+08
-1321	0	28	1	0	0	2	0	0	0	0	0	0	0		049 谢薇-狮子和鹿	d6614b18f3ff47478c20a0fd916ede13	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.773536+08	2019-09-01 18:51:20.773536+08
-1322	0	28	1	0	0	2	0	0	0	0	0	0	0		050 谢薇-掌声（一）	1ffa3ad65ca64641a4a61bb184c5e67b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.897094+08	2019-09-01 18:51:20.897094+08
-1323	0	28	1	0	0	2	0	0	0	0	0	0	0		051 谢薇-掌声（二）	cbaa7e9d44a042d9a261589c2d6ec76c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:20.960302+08	2019-09-01 18:51:20.960302+08
-1324	0	28	1	0	0	2	0	0	0	0	0	0	0		052 谢薇-一次成功的实验（一）	b578571fa26747f7b482fc392b6bd77b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.009663+08	2019-09-01 18:51:21.009663+08
-1325	0	28	1	0	0	2	0	0	0	0	0	0	0		053 谢薇-一次成功的实验（二）	d0dec1090eb345d78ee9d92d8de92e46	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.023151+08	2019-09-01 18:51:21.023151+08
-1326	0	28	1	0	0	2	0	0	0	0	0	0	0		054 谢薇-给予树（一）	f59783fe7a924f2ba1aed320df280614	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.08238+08	2019-09-01 18:51:21.08238+08
-1327	0	28	1	0	0	2	0	0	0	0	0	0	0		055 谢薇-给予树（二）	5bda6204c3d64efc87619f9295b646dd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.147339+08	2019-09-01 18:51:21.147339+08
-1328	0	28	1	0	0	2	0	0	0	0	0	0	0		056 谢薇-好汉查理	24e34b360c2c403f9ef43cbe56980448	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.192878+08	2019-09-01 18:51:21.192878+08
-1329	0	30	1	0	0	1	0	0	0	0	0	0	0		001 贺凤姣-lesson 1 P6	8644e9754e3f42d0b9eb1eebbe07b685	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.259418+08	2019-09-01 18:51:21.259418+08
-1330	0	30	1	0	0	1	0	0	0	0	0	0	0		002 贺凤姣-lesson 2 P4	00919a35432a4459a766f842e4b7701f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.322776+08	2019-09-01 18:51:21.322776+08
-1331	0	30	1	0	0	2	0	0	0	0	0	0	0		003 贺凤姣-lesson 3 P5	689661e0b5ba4de9af4f02100d2c48d9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.393169+08	2019-09-01 18:51:21.393169+08
-1332	0	30	1	0	0	2	0	0	0	0	0	0	0		004 贺凤姣-lesson 4 P2,P5,P8-9	d9b1d4ef67d14fbea4f49ffd323bc412	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.452906+08	2019-09-01 18:51:21.452906+08
-1333	0	30	1	0	0	2	0	0	0	0	0	0	0		005 贺凤姣-lesson 1 P14,P12	bc2517530d6a4911ac947d5f499b58bc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.487764+08	2019-09-01 18:51:21.487764+08
-1334	0	30	1	0	0	2	0	0	0	0	0	0	0		006 贺凤姣-lesson 2 P11,P13-14	adfcd60f49224a668f73a31344fa21ed	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.55217+08	2019-09-01 18:51:21.55217+08
-1335	0	30	1	0	0	2	0	0	0	0	0	0	0		007 贺凤姣-lesson 3	5ead90ab730f41af9be823d427286c2a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.631145+08	2019-09-01 18:51:21.631145+08
-1336	0	30	1	0	0	2	0	0	0	0	0	0	0		008 贺凤姣-lesson 4 P16-17	730a095b55d04f388d784770803c522b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.677063+08	2019-09-01 18:51:21.677063+08
-1337	0	30	1	0	0	2	0	0	0	0	0	0	0		009 贺凤姣-lesson 1 P22	4f717f0646f140d1969a988561bfad8c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.749264+08	2019-09-01 18:51:21.749264+08
-1338	0	30	1	0	0	2	0	0	0	0	0	0	0		010 贺凤姣-lesson 2 P20	f718e80f66b741f7b9555834b41202de	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.794326+08	2019-09-01 18:51:21.794326+08
-1339	0	30	1	0	0	2	0	0	0	0	0	0	0		011 贺凤姣-lesson 3 P18-19，P21	af01e3f0db934af2ae552b3ce05560e4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.867147+08	2019-09-01 18:51:21.867147+08
-1340	0	30	1	0	0	2	0	0	0	0	0	0	0		012 贺凤姣-lesson 4	493f77d105aa451ca54f8e0a4e906032	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.926571+08	2019-09-01 18:51:21.926571+08
-1341	0	30	1	0	0	2	0	0	0	0	0	0	0		013 贺凤姣-lesson 5 P22，P24-25	7607c888fa93441e92b79f3222f67bc8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:21.974923+08	2019-09-01 18:51:21.974923+08
-1342	0	30	1	0	0	2	0	0	0	0	0	0	0		014 贺凤姣-Revision 1 P26-27	f031294f63c94d5dad4fd8be1f860674	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.043745+08	2019-09-01 18:51:22.043745+08
-1343	0	30	1	0	0	2	0	0	0	0	0	0	0		015 贺凤姣-lesson 1 P32，P30-31	b13ef549266d428e9bc7a06043041fe6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.102909+08	2019-09-01 18:51:22.102909+08
-1344	0	30	1	0	0	2	0	0	0	0	0	0	0		016 贺凤姣-lesson 2	7dd4352faf084d0495c5398d80619449	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.172944+08	2019-09-01 18:51:22.172944+08
-1345	0	30	1	0	0	2	0	0	0	0	0	0	0		017 贺凤姣-lesson 3 P28-32	676e347cb1cb4099b51ef85281698392	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.20811+08	2019-09-01 18:51:22.20811+08
-1346	0	30	1	0	0	2	0	0	0	0	0	0	0		018 贺凤姣-lesson 4 P34-35	2a089dbe694f43dc8c506c8dbfb9c045	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.272541+08	2019-09-01 18:51:22.272541+08
-1347	0	30	1	0	0	2	0	0	0	0	0	0	0		019 贺凤姣-lesson 1 P40,P38	9e33952b668e4166ab459111eea28662	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.34693+08	2019-09-01 18:51:22.34693+08
-1348	0	30	1	0	0	2	0	0	0	0	0	0	0		020 贺凤姣-lesson 2 P39,P36-37	9674906e205b4f2d85edf1c3b833945e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.392757+08	2019-09-01 18:51:22.392757+08
-1349	0	30	1	0	0	2	0	0	0	0	0	0	0		021 贺凤姣-lesson 3 P40	e8f3755340934d839b58f6f596acc522	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.466255+08	2019-09-01 18:51:22.466255+08
-1350	0	30	1	0	0	2	0	0	0	0	0	0	0		022 贺凤姣-lesson 4 P42-43	c09a74e8890647898a2335dca0df853b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.509159+08	2019-09-01 18:51:22.509159+08
-1351	0	30	1	0	0	2	0	0	0	0	0	0	0		023 贺凤姣-lesson 1 P48	6ac9fb1a5b5949109bacc56176bca6e7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.576354+08	2019-09-01 18:51:22.576354+08
-1352	0	30	1	0	0	2	0	0	0	0	0	0	0		024 贺凤姣-lesson 2 P46-47	8a7e142f60e2468980fc13e54087302b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.637897+08	2019-09-01 18:51:22.637897+08
-1353	0	30	1	0	0	2	0	0	0	0	0	0	0		025 贺凤姣-lesson 3 P44-45，P47-48	18901b0e4ae7466d93a7de664880f51a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.696729+08	2019-09-01 18:51:22.696729+08
-1354	0	30	1	0	0	2	0	0	0	0	0	0	0		026 贺凤姣-lesson 4 P50-51	7a56cba982b2410c8a6af7c46d1ba58e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.760888+08	2019-09-01 18:51:22.760888+08
-1355	0	30	1	0	0	2	0	0	0	0	0	0	0		027 贺凤姣-Revision 2 P52-53	02fd8ff2f0bf468ebeb4a3f6422a26a2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.823441+08	2019-09-01 18:51:22.823441+08
-1356	0	30	1	0	0	2	0	0	0	0	0	0	0		028 贺凤姣-lesson 1 P6	826f42b0a20949ce9de1ef868a9bb26b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.887473+08	2019-09-01 18:51:22.887473+08
-1357	0	30	1	0	0	2	0	0	0	0	0	0	0		029 贺凤姣-lesson 2 P4	adeb7da0ad8244b2b84e21e21541c749	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:22.967709+08	2019-09-01 18:51:22.967709+08
-1358	0	30	1	0	0	2	0	0	0	0	0	0	0		031 贺凤姣-lesson 4 P2,P5,P8-9	d6ea5fb672034295a16c6fc2f01392ad	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.110817+08	2019-09-01 18:51:23.110817+08
-1359	0	30	1	0	0	2	0	0	0	0	0	0	0		030 贺凤姣-lesson 3 P5	ef260fbb913644e281e702e0ebe79351	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.118773+08	2019-09-01 18:51:23.118773+08
-1360	0	30	1	0	0	2	0	0	0	0	0	0	0		032 贺凤姣-lesson 1 P14,P12	ca916300745147589a616018658083f8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.136101+08	2019-09-01 18:51:23.136101+08
-1361	0	30	1	0	0	2	0	0	0	0	0	0	0		033 贺凤姣-lesson 2 P11,P13-14	d63037173c9349ebb97fb32f8817e7b1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.182317+08	2019-09-01 18:51:23.182317+08
-1362	0	30	1	0	0	2	0	0	0	0	0	0	0		034 贺凤姣-lesson 3	25f915ce04d84c3997cc5aa4cfe45eb8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.237268+08	2019-09-01 18:51:23.237268+08
-1363	0	30	1	0	0	2	0	0	0	0	0	0	0		035 贺凤姣-lesson 4 P16-17	1c78d395c1934765af64c35128fc57e7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.293732+08	2019-09-01 18:51:23.293732+08
-1364	0	30	1	0	0	2	0	0	0	0	0	0	0		036 贺凤姣-lesson 1 P22	9e3db2c0bef94a208f75118e5cc5e7de	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.363485+08	2019-09-01 18:51:23.363485+08
-1365	0	30	1	0	0	2	0	0	0	0	0	0	0		037 贺凤姣-lesson 2 P20	b17a1b995e904871b39f6533915835c9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.417677+08	2019-09-01 18:51:23.417677+08
-1366	0	30	1	0	0	2	0	0	0	0	0	0	0		038 贺凤姣-lesson 3 P18-19，P21	38e08f1167c548c78af4ecce68fe3d89	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.470993+08	2019-09-01 18:51:23.470993+08
-1367	0	30	1	0	0	2	0	0	0	0	0	0	0		039 贺凤姣-lesson 4	4315616a6163494a84405ea5604d9a13	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.536392+08	2019-09-01 18:51:23.536392+08
-1368	0	30	1	0	0	2	0	0	0	0	0	0	0		040 贺凤姣-lesson 5 P22，P24-25	50c0e64cb5ee43daae248d2030ebf58f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.59073+08	2019-09-01 18:51:23.59073+08
-1369	0	30	1	0	0	2	0	0	0	0	0	0	0		041 贺凤姣-Revision 1 P26-27	8e38df4c71f14b6788940403ac05a409	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.663272+08	2019-09-01 18:51:23.663272+08
-1370	0	30	1	0	0	2	0	0	0	0	0	0	0		042 贺凤姣-lesson 1 P32，P30-31	17396d7c6051458cb5a899022e6f35bc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.710704+08	2019-09-01 18:51:23.710704+08
-1371	0	30	1	0	0	2	0	0	0	0	0	0	0		043 贺凤姣-lesson 2	4e8183982c1841c2a4643f53a57c4a31	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.787427+08	2019-09-01 18:51:23.787427+08
-1372	0	30	1	0	0	2	0	0	0	0	0	0	0		044 贺凤姣-lesson 3 P28-32	e4fb8fc09c2e42e5a96ceb3b2d445f07	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.8395+08	2019-09-01 18:51:23.8395+08
-1373	0	30	1	0	0	2	0	0	0	0	0	0	0		045 贺凤姣-lesson 4 P34-35	0003dfcc754c45eb9c2cfec070e8c96f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.890298+08	2019-09-01 18:51:23.890298+08
-1374	0	30	1	0	0	2	0	0	0	0	0	0	0		046 贺凤姣-lesson 1 P40,P38	715c03ef979a4626865e16647842e9ab	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:23.957199+08	2019-09-01 18:51:23.957199+08
-1375	0	30	1	0	0	2	0	0	0	0	0	0	0		047 贺凤姣-lesson 2 P39,P36-37	da48de445734465db4fe13a2d0df66a9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.015809+08	2019-09-01 18:51:24.015809+08
-1376	0	30	1	0	0	2	0	0	0	0	0	0	0		048 贺凤姣-lesson 3 P40	de5d33a906f0460d9f6cb319462c9e9e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.085978+08	2019-09-01 18:51:24.085978+08
-1377	0	30	1	0	0	2	0	0	0	0	0	0	0		049 贺凤姣-lesson 4 P42-43	1ee381a7ff1c41fabb954bf0f2f882f6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.149993+08	2019-09-01 18:51:24.149993+08
-1378	0	30	1	0	0	2	0	0	0	0	0	0	0		050 贺凤姣-lesson 1 P48	6f0b50de58354c839726dc18e5d359ae	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.195245+08	2019-09-01 18:51:24.195245+08
-1379	0	30	1	0	0	2	0	0	0	0	0	0	0		051 贺凤姣-lesson 2 P46-47	e49d106b6be84764adba2db664d84728	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.256077+08	2019-09-01 18:51:24.256077+08
-1380	0	30	1	0	0	2	0	0	0	0	0	0	0		052 贺凤姣-lesson 3 P44-45，P47-48	be2c20624198449dacf3205c90ace1fe	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.326055+08	2019-09-01 18:51:24.326055+08
-1381	0	30	1	0	0	2	0	0	0	0	0	0	0		053 贺凤姣-lesson 4 P50-51	2c18fe4296d043ec9c0d3d35925d1710	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.388774+08	2019-09-01 18:51:24.388774+08
-1382	0	30	1	0	0	2	0	0	0	0	0	0	0		054 贺凤姣-Revision 2 P52-53	4e879a07ad514ffdb64d7b27e1294d76	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.453862+08	2019-09-01 18:51:24.453862+08
-1383	0	31	1	0	0	1	0	0	0	0	0	0	0		001 鲁亦斐-识字（一）	dcb9e1b10e6542408ff51af6c696ffe1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.491182+08	2019-09-01 18:51:24.491182+08
-1384	0	31	1	0	0	1	0	0	0	0	0	0	0		002 鲁亦斐-识字（二）	ec206b72564245b297a77c070b138930	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.567835+08	2019-09-01 18:51:24.567835+08
-1385	0	31	1	0	0	2	0	0	0	0	0	0	0		003 鲁亦斐-秋天的图画（一）	455d5233fa6743e08bf90c71695c8776	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.618238+08	2019-09-01 18:51:24.618238+08
-1386	0	31	1	0	0	2	0	0	0	0	0	0	0		004 鲁亦斐-秋天的图画（二)	bfb6bea8b01f414dbe1b510e31937aa5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.674193+08	2019-09-01 18:51:24.674193+08
-1387	0	31	1	0	0	2	0	0	0	0	0	0	0		005 鲁亦斐-黄山奇石（一)	dafa5d9475fd4486a2955086a5068f4d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.748688+08	2019-09-01 18:51:24.748688+08
-1388	0	31	1	0	0	2	0	0	0	0	0	0	0		006 鲁亦斐-黄山奇石（二）	bf487c71061640a3aa881d5b17d1c258	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.789769+08	2019-09-01 18:51:24.789769+08
-1389	0	31	1	0	0	2	0	0	0	0	0	0	0		007 鲁亦斐-植物妈妈有办法（一）	dc4ebdcd7f624e5fb583a94a526ef18a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.859005+08	2019-09-01 18:51:24.859005+08
-1390	0	31	1	0	0	2	0	0	0	0	0	0	0		008 鲁亦斐-植物妈妈有办法（二）	caaf52331d81430aa3aee09274afafb2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.922684+08	2019-09-01 18:51:24.922684+08
-1391	0	31	1	0	0	2	0	0	0	0	0	0	0		009 鲁亦斐-古诗两首（一）	9371d0bcba634943a602e285ceac9656	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:24.989301+08	2019-09-01 18:51:24.989301+08
-1392	0	31	1	0	0	2	0	0	0	0	0	0	0		010 鲁亦斐-古诗两首（二）	72bf44c322dd443db7b33038c1b58ae8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.039405+08	2019-09-01 18:51:25.039405+08
-1393	0	31	1	0	0	2	0	0	0	0	0	0	0		011 鲁亦斐-语文园地一	2667cd0f3b894628b580b07780837def	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.099783+08	2019-09-01 18:51:25.099783+08
-1394	0	31	1	0	0	2	0	0	0	0	0	0	0		012 鲁亦斐-识字二	12bc213a7582442bbfcf47b8ed0f4655	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.149091+08	2019-09-01 18:51:25.149091+08
-1395	0	31	1	0	0	2	0	0	0	0	0	0	0		013 鲁亦斐-一株紫丁香（一）	53238f9fea954a71939e93fe8f0ee8f4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.219866+08	2019-09-01 18:51:25.219866+08
-1396	0	31	1	0	0	2	0	0	0	0	0	0	0		014 鲁亦斐-一株紫丁香（二）	406b395000ea461fa3df2631f35129dc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.280026+08	2019-09-01 18:51:25.280026+08
-1397	0	31	1	0	0	2	0	0	0	0	0	0	0		015 鲁亦斐-我选我（一）	8566332dfb2141898902f837c5e008ea	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.349374+08	2019-09-01 18:51:25.349374+08
-1398	0	31	1	0	0	2	0	0	0	0	0	0	0		016 鲁亦斐-我选我（二）	cbc212d4f05f470385da77a883a78601	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.391779+08	2019-09-01 18:51:25.391779+08
-1399	0	31	1	0	0	2	0	0	0	0	0	0	0		017 鲁亦斐-一分钟（一）	3a8b1d93aa22415cb5554c9f605532e2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.458162+08	2019-09-01 18:51:25.458162+08
-1400	0	31	1	0	0	2	0	0	0	0	0	0	0		018 鲁亦斐-一分钟（二）	c1ec5720f5e24783b963dc4a048562f1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.51601+08	2019-09-01 18:51:25.51601+08
-1401	0	31	1	0	0	2	0	0	0	0	0	0	0		019 鲁亦斐-难忘的一天（一）	e9de452a1c71463ab7fa88ff650dcb31	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.574384+08	2019-09-01 18:51:25.574384+08
-1402	0	31	1	0	0	2	0	0	0	0	0	0	0		020 鲁亦斐-难忘的一天（二）	a80070e8fe85420a9cf92c33f05a05eb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.635512+08	2019-09-01 18:51:25.635512+08
-1403	0	31	1	0	0	2	0	0	0	0	0	0	0		021 鲁亦斐-语文天地二	f84dbaa2c8554a3898d5633409f33f87	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.701083+08	2019-09-01 18:51:25.701083+08
-1404	0	31	1	0	0	2	0	0	0	0	0	0	0		022 鲁亦斐-识字三	509f9be0d7d04c87ba1370fe035f3e9a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.756755+08	2019-09-01 18:51:25.756755+08
-1405	0	31	1	0	0	2	0	0	0	0	0	0	0		023 鲁亦斐-欢庆（一）	5e5e43772a2a45ca92ab6bc35f4bb980	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.822567+08	2019-09-01 18:51:25.822567+08
-1406	0	31	1	0	0	2	0	0	0	0	0	0	0		024 鲁亦斐-欢庆（二）	08eef7e2ccc7486eb5e7cc273fe8637a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.895461+08	2019-09-01 18:51:25.895461+08
-1407	0	31	1	0	0	2	0	0	0	0	0	0	0		025 鲁亦斐-北京（一）	c2fb31931f13482f9b5ab684526c0d96	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.924656+08	2019-09-01 18:51:25.924656+08
-1408	0	31	1	0	0	2	0	0	0	0	0	0	0		026 鲁亦斐-北京（二）	14181668a4d749ccabde9c4834d57bf6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:25.99191+08	2019-09-01 18:51:25.99191+08
-1409	0	31	1	0	0	2	0	0	0	0	0	0	0		027 鲁亦斐-我们成功了（一）	23457bff26234efe9a7394ad0ff17261	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.05628+08	2019-09-01 18:51:26.05628+08
-1410	0	31	1	0	0	2	0	0	0	0	0	0	0		028 鲁亦斐-我们成功了（二）	33dff121aad74d13825ac6e5fabfaab9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.122506+08	2019-09-01 18:51:26.122506+08
-1411	0	31	1	0	0	2	0	0	0	0	0	0	0		029 鲁亦斐-看雪（一）	f4f7a123d01f49238a2bfac0c9d2ed35	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.170672+08	2019-09-01 18:51:26.170672+08
-1412	0	31	1	0	0	2	0	0	0	0	0	0	0		030 鲁亦斐-看雪（二）	f074078cf25a4b67b70097c2b7bde7b7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.239336+08	2019-09-01 18:51:26.239336+08
-1413	0	31	1	0	0	2	0	0	0	0	0	0	0		031 鲁亦斐-语文园地三	b5db5ef0fd1444d0a83122d481b8dc4e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.303283+08	2019-09-01 18:51:26.303283+08
-1414	0	31	1	0	0	2	0	0	0	0	0	0	0		032 鲁亦斐-识字四	3edd58fef15c4e76b5daa409aeb32833	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.354263+08	2019-09-01 18:51:26.354263+08
-1415	0	31	1	0	0	2	0	0	0	0	0	0	0		033 鲁亦斐-坐井观天（一）	78d9b08888494c5aa2b5a9743c002d6b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.427524+08	2019-09-01 18:51:26.427524+08
-1416	0	31	1	0	0	2	0	0	0	0	0	0	0		034 鲁亦斐-坐井观天（二）	e7461472528a478e9177a73e6351cb82	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.465956+08	2019-09-01 18:51:26.465956+08
-1417	0	31	1	0	0	2	0	0	0	0	0	0	0		035 鲁亦斐-我要的是葫芦（一）	40055db946ac4daf9c68a57841ebf42c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.537116+08	2019-09-01 18:51:26.537116+08
-1418	0	31	1	0	0	2	0	0	0	0	0	0	0		036 鲁亦斐-我要的是葫芦（二）	d1246a189c8643edaca2bbd5a0367a30	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.599746+08	2019-09-01 18:51:26.599746+08
-1419	0	31	1	0	0	2	0	0	0	0	0	0	0		037 鲁亦斐-小柳树和小枣树（一）	2b3e5b1671744f64a1c0e9cf4de49dca	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.666681+08	2019-09-01 18:51:26.666681+08
-1420	0	31	1	0	0	2	0	0	0	0	0	0	0		038 鲁亦斐-小柳树和小枣树（二）	a9d6f634051f4f178746c525a8fd23b9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.708622+08	2019-09-01 18:51:26.708622+08
-1421	0	31	1	0	0	2	0	0	0	0	0	0	0		039 鲁亦斐-风娃娃（一）	6fb69c93fdcc4cc693ee17ae1c2f85ff	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.779095+08	2019-09-01 18:51:26.779095+08
-1422	0	31	1	0	0	2	0	0	0	0	0	0	0		040 鲁亦斐-风娃娃（二）	6cf329f6a0e44b98abec6f8e7a183046	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.834055+08	2019-09-01 18:51:26.834055+08
-1423	0	31	1	0	0	2	0	0	0	0	0	0	0		041 鲁亦斐-酸的和甜的（一）	8df77c5df70c4d088caaf23a6039ca83	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.90566+08	2019-09-01 18:51:26.90566+08
-1424	0	31	1	0	0	2	0	0	0	0	0	0	0		042 鲁亦斐-酸的和甜的（二）	04edb6937f2f4b28a1e06ec084fe7554	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:26.96227+08	2019-09-01 18:51:26.96227+08
-1425	0	31	1	0	0	2	0	0	0	0	0	0	0		043 鲁亦斐-语文园地四	578510aefc93422eb01d3f2d90bea026	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.021633+08	2019-09-01 18:51:27.021633+08
-1426	0	31	1	0	0	2	0	0	0	0	0	0	0		044 鲁亦斐-识字五	d4297d50e07e4816acb468fc7a038bfe	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.068262+08	2019-09-01 18:51:27.068262+08
-1427	0	31	1	0	0	2	0	0	0	0	0	0	0		045 鲁亦斐-称赞（一）	859e0660116f4d65ba6ef81743f69a59	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.137603+08	2019-09-01 18:51:27.137603+08
-1428	0	31	1	0	0	2	0	0	0	0	0	0	0		046 鲁亦斐-称赞（二 )	7291b6e298dd4c57b29bd569626e6562	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.196075+08	2019-09-01 18:51:27.196075+08
-1429	0	31	1	0	0	2	0	0	0	0	0	0	0		047 鲁亦斐-蓝色的树叶（一）	bcb48b7a2649496e98a516e55d9adf47	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.267763+08	2019-09-01 18:51:27.267763+08
-1430	0	31	1	0	0	2	0	0	0	0	0	0	0		048 鲁亦斐-蓝色的树叶（二）	2f2abc9833b64493a28c23b75ca5dba7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.308087+08	2019-09-01 18:51:27.308087+08
-1431	0	31	1	0	0	2	0	0	0	0	0	0	0		049 鲁亦斐-纸船和风筝（一）	de92a07b35094e78955d477927301a65	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.381682+08	2019-09-01 18:51:27.381682+08
-1432	0	31	1	0	0	2	0	0	0	0	0	0	0		050 鲁亦斐-纸船和风筝（二）	0cf412105e9144d3983cd96b9c86cb22	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.437883+08	2019-09-01 18:51:27.437883+08
-1433	0	31	1	0	0	2	0	0	0	0	0	0	0		051 鲁亦斐-从现在开始（一）	d3df521569b4424e814ed2525424ea06	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.490748+08	2019-09-01 18:51:27.490748+08
-1434	0	31	1	0	0	2	0	0	0	0	0	0	0		052 鲁亦斐-从现在开始（二）	e2fe74116f334166966e207fafe56472	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.555439+08	2019-09-01 18:51:27.555439+08
-1435	0	31	1	0	0	2	0	0	0	0	0	0	0		053鲁亦斐-语文园地五	dd398c65c45941a7b9731745ebbeda23	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.62441+08	2019-09-01 18:51:27.62441+08
-1436	0	31	1	0	0	2	0	0	0	0	0	0	0		054鲁亦斐-识字六	29e335e0b2d84e4f8270a1698d727f1e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.668576+08	2019-09-01 18:51:27.668576+08
-1437	0	31	1	0	0	2	0	0	0	0	0	0	0		055鲁亦斐-窗前的气球（一）	1ab58bd6ecb54a8e9e1a6a06a9169791	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.740009+08	2019-09-01 18:51:27.740009+08
-1438	0	31	1	0	0	2	0	0	0	0	0	0	0		056鲁亦斐-窗前的气球（二）	cb3ef1e5ae77498baf2f2fb4120113db	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.801861+08	2019-09-01 18:51:27.801861+08
-1439	0	31	1	0	0	2	0	0	0	0	0	0	0		057 鲁亦斐-假如（一）	e9a85e53a1cf49238a9c8e1eafe9b98d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.866419+08	2019-09-01 18:51:27.866419+08
-1440	0	31	1	0	0	2	0	0	0	0	0	0	0		058鲁亦斐-假如（二）	8a5fac7607054e2faa3c6c1088b32bdb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.933446+08	2019-09-01 18:51:27.933446+08
-1441	0	31	1	0	0	2	0	0	0	0	0	0	0		059鲁亦斐-日记两则（一）	7fa5530a65fb4cd6a3fe42f75719e292	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:27.99627+08	2019-09-01 18:51:27.99627+08
-1442	0	31	1	0	0	2	0	0	0	0	0	0	0		060鲁亦斐-日记两则（二）	1e9cfc29e84c485f90e4f03b79cd6724	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.0294+08	2019-09-01 18:51:28.0294+08
-1443	0	31	1	0	0	2	0	0	0	0	0	0	0		061鲁亦斐-日记两则（三）	b5463a838eca491f8d4f0bac7d8f9270	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.091869+08	2019-09-01 18:51:28.091869+08
-1444	0	31	1	0	0	2	0	0	0	0	0	0	0		062鲁亦斐-古诗两首（一）	8444f64614ab4129a157cf10709e8d30	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.158096+08	2019-09-01 18:51:28.158096+08
-1549	0	32	1	0	0	2	0	0	0	0	0	0	0		016 李艾玲-Unit 3-3 P23-24	6faec794f96641a3b4242c5b0f40b66a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.454597+08	2019-09-01 18:51:34.454597+08
-1445	0	31	1	0	0	2	0	0	0	0	0	0	0		063鲁亦斐-古诗两首（二）	fdfe9a1e1d244470ba2b878dca6f49fa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.213823+08	2019-09-01 18:51:28.213823+08
-1446	0	31	1	0	0	2	0	0	0	0	0	0	0		064鲁亦斐-古诗两首（三）	d006288d48f345f892e7c8c8bec50962	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.27399+08	2019-09-01 18:51:28.27399+08
-1447	0	31	1	0	0	2	0	0	0	0	0	0	0		065鲁亦斐-语文园地六	4299e6b953364a1395f9853df2e7fdf3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.34908+08	2019-09-01 18:51:28.34908+08
-1448	0	31	1	0	0	2	0	0	0	0	0	0	0		066鲁亦斐-识字七	3171e9fb49954ac2a97ebaec866f9b46	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.395417+08	2019-09-01 18:51:28.395417+08
-1449	0	31	1	0	0	2	0	0	0	0	0	0	0		067鲁亦斐-红领巾真好（一）	1b768086507548e089515601a9d21148	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.465002+08	2019-09-01 18:51:28.465002+08
-1450	0	31	1	0	0	2	0	0	0	0	0	0	0		068鲁亦斐-红领巾真好（二）	faec0838d4a9453293cfe3653267e3f2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.510002+08	2019-09-01 18:51:28.510002+08
-1451	0	31	1	0	0	2	0	0	0	0	0	0	0		069鲁亦斐-清澈的湖水（一）	c35f88009b3d4640a05afc34e356f970	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.581237+08	2019-09-01 18:51:28.581237+08
-1452	0	31	1	0	0	2	0	0	0	0	0	0	0		070鲁亦斐-清澈的湖水（二）	d56c6272a23a49bbbdbbe0083cd9ac02	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.63888+08	2019-09-01 18:51:28.63888+08
-1453	0	31	1	0	0	2	0	0	0	0	0	0	0		071鲁亦斐-浅水洼里的小鱼（一）	115c79d23b6646908ffa7779470d5abc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.698012+08	2019-09-01 18:51:28.698012+08
-1454	0	31	1	0	0	2	0	0	0	0	0	0	0		072鲁亦斐-浅水洼里的小鱼（二）	b37c302501c14bfaa79eaaef8c8202b1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.764665+08	2019-09-01 18:51:28.764665+08
-1455	0	31	1	0	0	2	0	0	0	0	0	0	0		073鲁亦斐-父亲和鸟（一）	a2a16c8ffb7d4b24b816f5cb7f44c6f3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.805692+08	2019-09-01 18:51:28.805692+08
-1456	0	31	1	0	0	2	0	0	0	0	0	0	0		074鲁亦斐-父亲和鸟（二）	01d9f58148cb48199a6ab83322ce6778	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.880932+08	2019-09-01 18:51:28.880932+08
-1457	0	31	1	0	0	2	0	0	0	0	0	0	0		075鲁亦斐-语文园地七	9a3c45f94ccd4c109bd09b6628fde018	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:28.934462+08	2019-09-01 18:51:28.934462+08
-1458	0	31	1	0	0	2	0	0	0	0	0	0	0		076鲁亦斐-识字八	361eb17a9ff54f9bba0a4eedc358aafc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.003049+08	2019-09-01 18:51:29.003049+08
-1459	0	31	1	0	0	2	0	0	0	0	0	0	0		077鲁亦斐-我是什么（一）	4f06984fca194858b7b53faacc485cf3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.04916+08	2019-09-01 18:51:29.04916+08
-1460	0	31	1	0	0	2	0	0	0	0	0	0	0		078鲁亦斐-我是什么（二）	315f6f0e449b464c972d9cc12ae9b4fb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.117349+08	2019-09-01 18:51:29.117349+08
-1461	0	31	1	0	0	2	0	0	0	0	0	0	0		079鲁亦斐-回声（一）	b1d304eec07f422db17f95d4cfd086a4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.17959+08	2019-09-01 18:51:29.17959+08
-1462	0	31	1	0	0	2	0	0	0	0	0	0	0		080 鲁亦斐-回声（二）	3ae4588059b347c78ec3b486c0e95e3e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.239929+08	2019-09-01 18:51:29.239929+08
-1463	0	31	1	0	0	2	0	0	0	0	0	0	0		081鲁亦斐-太空生活趣事多（一）	3a9b0676efd54f3d8fda5a3cc27b3f45	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.301855+08	2019-09-01 18:51:29.301855+08
-1464	0	31	1	0	0	2	0	0	0	0	0	0	0		082鲁亦斐-太空生活趣事多（二）	a442ce5c81ad4a488f6e440e98d0aa39	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.3563+08	2019-09-01 18:51:29.3563+08
-1465	0	31	1	0	0	2	0	0	0	0	0	0	0		083鲁亦斐-活化石（一）	cf7a91ca0d394de281b032b2f4e0e37d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.413322+08	2019-09-01 18:51:29.413322+08
-1466	0	31	1	0	0	2	0	0	0	0	0	0	0		084鲁亦斐-活化石（二）	d9b8882e9a78416a86d9947de6e841e4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.473588+08	2019-09-01 18:51:29.473588+08
-1467	0	31	1	0	0	2	0	0	0	0	0	0	0		085鲁亦斐-农业变化真大（一）	6f3b60e217df4ed68f9619a5e69aaf9d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.544084+08	2019-09-01 18:51:29.544084+08
-1468	0	31	1	0	0	2	0	0	0	0	0	0	0		086鲁亦斐-农业变化真大（二）	91197868708e462992919424571aa02a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.592907+08	2019-09-01 18:51:29.592907+08
-1469	0	31	1	0	0	2	0	0	0	0	0	0	0		087鲁亦斐-语文园地八	0a7b3fa170ea434684ad3a9a93804cbf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.659241+08	2019-09-01 18:51:29.659241+08
-1470	0	29	1	0	0	1	0	0	0	0	0	0	0		001江敏-找春天（一）	efa19f24a0a54883bda56f2b3d99c7c1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.721839+08	2019-09-01 18:51:29.721839+08
-1471	0	29	1	0	0	1	0	0	0	0	0	0	0		002江敏-找春天（二）	5b59e695aec24e83bd2c80a786444b40	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.770567+08	2019-09-01 18:51:29.770567+08
-1472	0	29	1	0	0	2	0	0	0	0	0	0	0		003江敏-古诗二首（一）	be7e4bccb25a4ae7a4f35641aec16b0a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.839825+08	2019-09-01 18:51:29.839825+08
-1473	0	29	1	0	0	2	0	0	0	0	0	0	0		004江敏-古诗二首（二）	a5f662361b7947deb7bdde7fd592a957	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.898643+08	2019-09-01 18:51:29.898643+08
-1474	0	29	1	0	0	2	0	0	0	0	0	0	0		005江敏-笋芽儿（一）	cb052b1c653b46abbf0f0600fc5dda07	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:29.952619+08	2019-09-01 18:51:29.952619+08
-1475	0	29	1	0	0	2	0	0	0	0	0	0	0		006江敏-笋芽儿（二）	ca9a50fe567e4434b2c7c71bf63fd8f5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.025175+08	2019-09-01 18:51:30.025175+08
-1476	0	29	1	0	0	2	0	0	0	0	0	0	0		007江敏-小鹿的玫瑰花（一）	fd20fbbe4c594446bb6c71e741c7a7a5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.083061+08	2019-09-01 18:51:30.083061+08
-1477	0	29	1	0	0	2	0	0	0	0	0	0	0		008江敏-小鹿的玫瑰花（二）	25c296aaabed40fc91d89bf2cd9a2ce3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.150097+08	2019-09-01 18:51:30.150097+08
-1478	0	29	1	0	0	2	0	0	0	0	0	0	0		009江敏-泉水（一）	7914ebedb1cb472f9d29daf4f1dd3880	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.251732+08	2019-09-01 18:51:30.251732+08
-1479	0	29	1	0	0	2	0	0	0	0	0	0	0		010江敏-泉水（二）	11003545e0874b9689e54ee221b84263	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.264863+08	2019-09-01 18:51:30.264863+08
-1480	0	29	1	0	0	2	0	0	0	0	0	0	0		011江敏-雷锋叔叔，你在哪里（一）	30c654473eb34dff91a5888e398ad051	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.354051+08	2019-09-01 18:51:30.354051+08
-1481	0	29	1	0	0	2	0	0	0	0	0	0	0		012江敏-雷锋叔叔，你在哪里（二）	1f0afb436048479ba649d0a451e1b524	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.407318+08	2019-09-01 18:51:30.407318+08
-1482	0	29	1	0	0	2	0	0	0	0	0	0	0		013江敏-我不是最弱小的（一）	a505663113364254b2fad495d5fab09e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.482327+08	2019-09-01 18:51:30.482327+08
-1483	0	29	1	0	0	2	0	0	0	0	0	0	0		014江敏-我不是最弱小的（二）	7a24d5c432654f70b4197c0bcd364603	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.546251+08	2019-09-01 18:51:30.546251+08
-1484	0	29	1	0	0	2	0	0	0	0	0	0	0		015江敏-卡罗尔和她的猫	4cb937d2eeec4ff1ba9e1faade1ade02	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.670157+08	2019-09-01 18:51:30.670157+08
-1485	0	29	1	0	0	2	0	0	0	0	0	0	0		016江敏-日月潭（一）	821335d2164d405a937acfce9c994267	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.774606+08	2019-09-01 18:51:30.774606+08
-1486	0	29	1	0	0	2	0	0	0	0	0	0	0		017江敏-日月潭（二 )	4c52cbc43d3946459db3619a94694e97	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:30.85983+08	2019-09-01 18:51:30.85983+08
-1487	0	29	1	0	0	2	0	0	0	0	0	0	0		018江敏-葡萄沟（一）	caa74b9ea6844c16ad2e9670000524d9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.029818+08	2019-09-01 18:51:31.029818+08
-1488	0	29	1	0	0	2	0	0	0	0	0	0	0		019江敏-葡萄沟（二）	9045a2a36b43481ca98460ad13c423c4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.034046+08	2019-09-01 18:51:31.034046+08
-1489	0	29	1	0	0	2	0	0	0	0	0	0	0		021江敏-难忘的泼水节（一）	de7079e85d424e8cb2f84e45d8865a82	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.056675+08	2019-09-01 18:51:31.056675+08
-1490	0	29	1	0	0	2	0	0	0	0	0	0	0		022江敏-难忘的泼水节（二）	07ae9281d3c548b9afc0a3c64eab8cbf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.118498+08	2019-09-01 18:51:31.118498+08
-1491	0	29	1	0	0	2	0	0	0	0	0	0	0		020江敏-葡萄沟（三）	273ea5aa4a444c94b337c7941ebbb052	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.121045+08	2019-09-01 18:51:31.121045+08
-1492	0	29	1	0	0	2	0	0	0	0	0	0	0		023江敏-难忘的泼水节（三）	7de7a697eb3143fdb948a790ef5860ee	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.19842+08	2019-09-01 18:51:31.19842+08
-1493	0	29	1	0	0	2	0	0	0	0	0	0	0		025江敏-北京亮起来了（二）	28d35657886140eaa16ef1bb36419f6d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.411177+08	2019-09-01 18:51:31.411177+08
-1494	0	29	1	0	0	2	0	0	0	0	0	0	0		026江敏-动手做做看（一）	7af746fa625342b4a87e9fcc26aae00e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.413296+08	2019-09-01 18:51:31.413296+08
-1495	0	29	1	0	0	2	0	0	0	0	0	0	0		024江敏-北京亮起来了（一）	1a0dd9b0c89c4196ab3c5f362df7cd75	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.415564+08	2019-09-01 18:51:31.415564+08
-1496	0	29	1	0	0	2	0	0	0	0	0	0	0		028江敏-邮票齿孔的故事（一）	044d1f71f8ea4e5c80cc266cbcce8f7c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.418161+08	2019-09-01 18:51:31.418161+08
-1497	0	29	1	0	0	2	0	0	0	0	0	0	0		027江敏-动手做做看（二）	41017909d23645bba5c276eef8b7be57	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.421815+08	2019-09-01 18:51:31.421815+08
-1498	0	29	1	0	0	2	0	0	0	0	0	0	0		029江敏-邮票齿孔的故事（二）	87749b014fee4bc3b8a2e62c8ae2ef97	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.464896+08	2019-09-01 18:51:31.464896+08
-1499	0	29	1	0	0	2	0	0	0	0	0	0	0		030江敏-邮票齿孔的故事（三）	34135577d81141259b9a825f6b53bc1e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.484184+08	2019-09-01 18:51:31.484184+08
-1500	0	29	1	0	0	2	0	0	0	0	0	0	0		031江敏-画风（一）	783a251868f648dd92d53623ba2bff7e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.521409+08	2019-09-01 18:51:31.521409+08
-1501	0	29	1	0	0	2	0	0	0	0	0	0	0		032江敏-画风（二）	faed33a2c9644b1cb764ef4fadc004ba	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.583589+08	2019-09-01 18:51:31.583589+08
-1502	0	29	1	0	0	2	0	0	0	0	0	0	0		033江敏-充气雨衣	ec1def84da7f4faba520eeb8a244f780	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.650697+08	2019-09-01 18:51:31.650697+08
-1503	0	29	1	0	0	2	0	0	0	0	0	0	0		034江敏-古诗两首（一）	d27bc87cbe0748e28b81efc06b9f2e69	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.775171+08	2019-09-01 18:51:31.775171+08
-1504	0	29	1	0	0	2	0	0	0	0	0	0	0		035江敏-古诗两首（二）	f578dbe74a974691846d4cdbf49e3275	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.787543+08	2019-09-01 18:51:31.787543+08
-1505	0	29	1	0	0	2	0	0	0	0	0	0	0		036江敏-古诗两首（三）	2bcd37c6bbef442e8c0c37ed6258204c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.829357+08	2019-09-01 18:51:31.829357+08
-1506	0	29	1	0	0	2	0	0	0	0	0	0	0		037江敏-雷雨（一）	477e3b9e937e45cc8094a66e1b8649d9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.883376+08	2019-09-01 18:51:31.883376+08
-1507	0	29	1	0	0	2	0	0	0	0	0	0	0		038 江敏-雷雨（二）	179e44bfe9ed4c448bb9a3c0b32c8a9e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:31.949125+08	2019-09-01 18:51:31.949125+08
-1508	0	29	1	0	0	2	0	0	0	0	0	0	0		039江敏-最大的“书”（一）	9e37a53b85fe4d438f80960910a6a392	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.002485+08	2019-09-01 18:51:32.002485+08
-1509	0	29	1	0	0	2	0	0	0	0	0	0	0		040 江敏-最大的“书”（二）	e9a278c766464676b422b35e36456b2d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.047521+08	2019-09-01 18:51:32.047521+08
-1510	0	29	1	0	0	2	0	0	0	0	0	0	0		041江敏-要是你在野外迷了路（一）	c548abc1e6a6489181efab50cc6e858f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.122264+08	2019-09-01 18:51:32.122264+08
-1511	0	29	1	0	0	2	0	0	0	0	0	0	0		042江敏-要是你在野外迷了路（二）	9194f051aff84370ae342f6ee01ef3b9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.183313+08	2019-09-01 18:51:32.183313+08
-1512	0	29	1	0	0	2	0	0	0	0	0	0	0		043江敏-画家和牧童（一）	ad58b92c6413438cb6ae84668b83329b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.232101+08	2019-09-01 18:51:32.232101+08
-1513	0	29	1	0	0	2	0	0	0	0	0	0	0		044江敏-画家和牧童（二）	12ff6639635b421eb32485383bfd82ab	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.290287+08	2019-09-01 18:51:32.290287+08
-1514	0	29	1	0	0	2	0	0	0	0	0	0	0		045江敏-我为你骄傲（一）	8298685dd0b74d049c573cf3aa29a9bf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.354925+08	2019-09-01 18:51:32.354925+08
-1515	0	29	1	0	0	2	0	0	0	0	0	0	0		046江敏-我为你骄傲（二）	866df28cebd844d2b696cd0d45f36ae0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.412402+08	2019-09-01 18:51:32.412402+08
-1516	0	29	1	0	0	2	0	0	0	0	0	0	0		047江敏-三个儿子（一）	4c17b7d1f98146ff9f07e12e17c146d5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.476238+08	2019-09-01 18:51:32.476238+08
-1517	0	29	1	0	0	2	0	0	0	0	0	0	0		048江敏-三个儿子（二）	a86d5dd855cd41468cb2e4e6edc0553b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.527524+08	2019-09-01 18:51:32.527524+08
-1518	0	29	1	0	0	2	0	0	0	0	0	0	0		049江敏-玩具柜前的孩子	6906fd70a5f743c8b083fbc7340380c3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.60019+08	2019-09-01 18:51:32.60019+08
-1519	0	29	1	0	0	2	0	0	0	0	0	0	0		050江敏-玲玲的画（一）	b60966feea0d4f4a80db080856376eef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.661626+08	2019-09-01 18:51:32.661626+08
-1520	0	29	1	0	0	2	0	0	0	0	0	0	0		051江敏-玲玲的画（二）	d29744abc57c4bf78b73ba08c2942b20	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.705293+08	2019-09-01 18:51:32.705293+08
-1521	0	29	1	0	0	2	0	0	0	0	0	0	0		052江敏-蜜蜂引路（一）	f1f2e0ca15754de3bf971f5848633335	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.773755+08	2019-09-01 18:51:32.773755+08
-1522	0	29	1	0	0	2	0	0	0	0	0	0	0		053江敏-蜜蜂引路（二）	4cc1e385724944cc82ad74fd77bc8d04	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.838069+08	2019-09-01 18:51:32.838069+08
-1523	0	29	1	0	0	2	0	0	0	0	0	0	0		054江敏-寓言两则（一）	ebc3730c6ed5429792f4d377ab7df50f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.886787+08	2019-09-01 18:51:32.886787+08
-1524	0	29	1	0	0	2	0	0	0	0	0	0	0		055江敏-寓言两则（二）	cbfe5c66d52e458b8c4eae3f8ae6c7af	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:32.953559+08	2019-09-01 18:51:32.953559+08
-1525	0	29	1	0	0	2	0	0	0	0	0	0	0		056江敏-寓言两则（三）	8036a6ba248e46b789fad94812a12a35	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.012941+08	2019-09-01 18:51:33.012941+08
-1526	0	29	1	0	0	2	0	0	0	0	0	0	0		057江敏-丑小鸭（一）	b5547100145846a89f7a053bda47d124	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.071815+08	2019-09-01 18:51:33.071815+08
-1527	0	29	1	0	0	2	0	0	0	0	0	0	0		058江敏-丑小鸭（二）	9f36413cff7a45289a26dd851dcd3961	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.139033+08	2019-09-01 18:51:33.139033+08
-1528	0	29	1	0	0	2	0	0	0	0	0	0	0		059江敏-数星星的孩子（一）	d410d5aa632b4410b57880324ab986ed	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.187628+08	2019-09-01 18:51:33.187628+08
-1529	0	29	1	0	0	2	0	0	0	0	0	0	0		060江敏-数星星的孩子（二）	dd51fd54fc8c4ac2a3a4b3c333118855	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.264911+08	2019-09-01 18:51:33.264911+08
-1530	0	29	1	0	0	2	0	0	0	0	0	0	0		061江敏-爱迪生的妈妈（一）	5b699a51953f4870bb269c6b898b9393	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.316537+08	2019-09-01 18:51:33.316537+08
-1531	0	29	1	0	0	2	0	0	0	0	0	0	0		062江敏-爱迪生的妈妈（二）	b9f70ebfa78245fbaa04ef3e5a0c5796	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.38323+08	2019-09-01 18:51:33.38323+08
-1532	0	29	1	0	0	2	0	0	0	0	0	0	0		063江敏-恐龙的灭绝（一）	49d260bf23664386baed0fb316cb2665	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.426383+08	2019-09-01 18:51:33.426383+08
-1533	0	29	1	0	0	2	0	0	0	0	0	0	0		064江敏-恐龙的灭绝（二）	c62c89ce8afe43f5acb244350afa67eb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.495595+08	2019-09-01 18:51:33.495595+08
-1534	0	32	1	0	0	1	0	0	0	0	0	0	0		001李艾玲-主要人物介绍	a4d68188a5c8427e8366c82f713bce27	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.550861+08	2019-09-01 18:51:33.550861+08
-1535	0	32	1	0	0	1	0	0	0	0	0	0	0		002李艾玲-Starter P2-3	a36a4f9b49f64d42a58601190d32b04a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.619737+08	2019-09-01 18:51:33.619737+08
-1536	0	32	1	0	0	2	0	0	0	0	0	0	0		003李艾玲-文具 P4-6	611821d78a8e4d49a6860782beafd700	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.677747+08	2019-09-01 18:51:33.677747+08
-1537	0	32	1	0	0	2	0	0	0	0	0	0	0		004李艾玲-Unit 1-1 P4-6	11f044dc17c649379e945cb8e00e78ed	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.739696+08	2019-09-01 18:51:33.739696+08
-1538	0	32	1	0	0	2	0	0	0	0	0	0	0		005 李艾玲-Unit 1-2 P6	7b6583c120bc4255a109c86013f07518	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.806421+08	2019-09-01 18:51:33.806421+08
-1539	0	32	1	0	0	2	0	0	0	0	0	0	0		006 李艾玲-Unit 1-3 P6-8	934a741935f249a099efdecb9abcca49	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.849832+08	2019-09-01 18:51:33.849832+08
-1540	0	32	1	0	0	2	0	0	0	0	0	0	0		007 李艾玲-Review and story time 	a088ef3877c04f80a8b3d5169202edc1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.910891+08	2019-09-01 18:51:33.910891+08
-1541	0	32	1	0	0	2	0	0	0	0	0	0	0		008 李艾玲-五官 P14	3875ad397cf94f3cb2747fda700f4398	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:33.977422+08	2019-09-01 18:51:33.977422+08
-1542	0	32	1	0	0	2	0	0	0	0	0	0	0		009 李艾玲-Unit 2-1 P14	ad3a33a84163496681cf2c5fb4e9c3a4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.035074+08	2019-09-01 18:51:34.035074+08
-1543	0	32	1	0	0	2	0	0	0	0	0	0	0		010 李艾玲-Unit 2-2 P12-15	9988a1eb79e1404ea84a80bff4ba94f2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.098198+08	2019-09-01 18:51:34.098198+08
-1544	0	32	1	0	0	2	0	0	0	0	0	0	0		011 李艾玲-Unit 2-3 P16	a1e3faf9c5cc4dfcbfe44aa29dc86e1f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.152388+08	2019-09-01 18:51:34.152388+08
-1545	0	32	1	0	0	2	0	0	0	0	0	0	0		012 李艾玲-Review and story time 	ca44b3ae881b4881bd4c4ef75f897b84	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.222091+08	2019-09-01 18:51:34.222091+08
-1546	0	32	1	0	0	2	0	0	0	0	0	0	0		013 李艾玲-动物园 P20-22	ef1c4aaa74d44baeb7f8d1ad79316277	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.267863+08	2019-09-01 18:51:34.267863+08
-1547	0	32	1	0	0	2	0	0	0	0	0	0	0		014 李艾玲-Unit 3-1 P22-23	6bd9819f71b14f079e99603c3dad10c1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.335371+08	2019-09-01 18:51:34.335371+08
-1548	0	32	1	0	0	2	0	0	0	0	0	0	0		015 李艾玲-Unit 3-2 P22-23	9896d76c4a2b4184b1192346439ecbab	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.389458+08	2019-09-01 18:51:34.389458+08
-1550	0	32	1	0	0	2	0	0	0	0	0	0	0		017 李艾玲-Review and story time 	48ba1a96ee2e4ebfb0a9a63f5d9db345	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.5163+08	2019-09-01 18:51:34.5163+08
-1551	0	32	1	0	0	2	0	0	0	0	0	0	0		018 李艾玲-Revision 1 P28-29	1e8bdb3bd53648f9bf8d280c86fa302b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.56968+08	2019-09-01 18:51:34.56968+08
-1552	0	32	1	0	0	2	0	0	0	0	0	0	0		019 李艾玲-数字 P32	7ea130598e294d18aef221dae7a5ce46	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.634608+08	2019-09-01 18:51:34.634608+08
-1553	0	32	1	0	0	2	0	0	0	0	0	0	0		020 李艾玲-Unit 4-1 P30-32	d7b84dec98c8447da0f473a2f451d7d3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.699531+08	2019-09-01 18:51:34.699531+08
-1554	0	32	1	0	0	2	0	0	0	0	0	0	0		021 李艾玲-Unit 4-2 P30-32	2d56d104dc034880b54545485036b4e9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.756631+08	2019-09-01 18:51:34.756631+08
-1555	0	32	1	0	0	2	0	0	0	0	0	0	0		022 李艾玲-Unit 4-3 P33-34	2e176ce1b1124979b29dace043c5d500	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.826386+08	2019-09-01 18:51:34.826386+08
-1556	0	32	1	0	0	2	0	0	0	0	0	0	0		023 李艾玲-Review and story time 	dca96eb9a3364e6a93ca1244b2231d52	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.87832+08	2019-09-01 18:51:34.87832+08
-1557	0	32	1	0	0	2	0	0	0	0	0	0	0		024 李艾玲-彩虹 P40	fffa1c9fc4e04920b7dc3696fa50c174	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.936713+08	2019-09-01 18:51:34.936713+08
-1558	0	32	1	0	0	2	0	0	0	0	0	0	0		025 李艾玲-Unit 5-1 P40	6949b3d300e24007b456df2a9bb82ca6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:34.992887+08	2019-09-01 18:51:34.992887+08
-1559	0	32	1	0	0	2	0	0	0	0	0	0	0		026 李艾玲-Unit 5-2 P41	c139cbca279848c1879bd075cea81c68	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.056987+08	2019-09-01 18:51:35.056987+08
-1560	0	32	1	0	0	2	0	0	0	0	0	0	0		027 李艾玲-Unit 5-3 P41-42	6107740994204f08b50ecf63dfd6f306	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.126502+08	2019-09-01 18:51:35.126502+08
-1561	0	32	1	0	0	2	0	0	0	0	0	0	0		028 李艾玲-Unit 5-4 P43-45	b9134a1a7176400e814b2569d1e9f0ea	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.166041+08	2019-09-01 18:51:35.166041+08
-1562	0	32	1	0	0	2	0	0	0	0	0	0	0		029 李艾玲-水果 P48	44a0c5024b164960b5a5d08a74052768	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.233939+08	2019-09-01 18:51:35.233939+08
-1563	0	32	1	0	0	2	0	0	0	0	0	0	0		030 李艾玲-Unit 6-1 P46-48	5027031b02db4a4d98e4d0a4f317a10f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.289385+08	2019-09-01 18:51:35.289385+08
-1564	0	32	1	0	0	2	0	0	0	0	0	0	0		031 李艾玲-Unit 6-2 P46-48	1b97f17a10834ea0a67343498038a6d4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.355361+08	2019-09-01 18:51:35.355361+08
-1565	0	32	1	0	0	2	0	0	0	0	0	0	0		032 李艾玲-Unit 6-3 P49	0f201e00763e445e98b407e5c60bff62	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.412038+08	2019-09-01 18:51:35.412038+08
-1566	0	32	1	0	0	2	0	0	0	0	0	0	0		033 李艾玲-Review and story time 	0bc53eea32134f48ab528099ec739844	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.482872+08	2019-09-01 18:51:35.482872+08
-1567	0	32	1	0	0	2	0	0	0	0	0	0	0		034 李艾玲-Revision 2 P54-55	183a8bac316b4356880c0bce1acd3f65	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.530507+08	2019-09-01 18:51:35.530507+08
-1568	0	33	1	0	0	1	0	0	0	0	0	0	0		001 姚姚-Lesson 1 P2-4	882dfba053e14554883f107466a72acc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.593161+08	2019-09-01 18:51:35.593161+08
-1569	0	33	1	0	0	1	0	0	0	0	0	0	0		002 姚姚-Lesson 2 P4	4cb7f25a45814915880eb15aaf5f3e26	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.659476+08	2019-09-01 18:51:35.659476+08
-1570	0	33	1	0	0	2	0	0	0	0	0	0	0		003 姚姚-Lesson 3 P4-6	ea975f5542a148289f315a7f21e6d8e3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.718191+08	2019-09-01 18:51:35.718191+08
-1571	0	33	1	0	0	2	0	0	0	0	0	0	0		004 姚姚-Lesson 4 P7-9	bdb41659900245cdb38104e9dc8aba87	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.786186+08	2019-09-01 18:51:35.786186+08
-1572	0	33	1	0	0	2	0	0	0	0	0	0	0		005 姚姚-Lesson 1 P10-12	32762965249b4b058c27f3eee88b35ae	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.839315+08	2019-09-01 18:51:35.839315+08
-1573	0	33	1	0	0	2	0	0	0	0	0	0	0		006 姚姚-Lesson 2 P10-12	004e155ca3a642e8866c7bfd5cdb951f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.891046+08	2019-09-01 18:51:35.891046+08
-1574	0	33	1	0	0	2	0	0	0	0	0	0	0		007 姚姚-Lesson 3 P12-14	7fa6f6fc359b40c48cd8f445292ddd77	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:35.966377+08	2019-09-01 18:51:35.966377+08
-1575	0	33	1	0	0	2	0	0	0	0	0	0	0		008 姚姚-Lesson 4 P15-17	102188f95af84bc5958ff26da0e6d05b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.019549+08	2019-09-01 18:51:36.019549+08
-1576	0	33	1	0	0	2	0	0	0	0	0	0	0		009 姚姚-Lesson 1 P18-20、55	3b1d114973484ce8bd2c5f517809c849	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.070308+08	2019-09-01 18:51:36.070308+08
-1577	0	33	1	0	0	2	0	0	0	0	0	0	0		010 姚姚-Lesson 2 P18-21	f1b07594b8a241f680390b46648e86df	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.134436+08	2019-09-01 18:51:36.134436+08
-1578	0	33	1	0	0	2	0	0	0	0	0	0	0		011 姚姚-Lesson 3 P22	ccf3c9aab7b6418b9268cbf022f3b553	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.191178+08	2019-09-01 18:51:36.191178+08
-1579	0	33	1	0	0	2	0	0	0	0	0	0	0		012 姚姚-Lesson 4 P23-25	ea3ae65b0fa6484f8c06c1e7684204a8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.269654+08	2019-09-01 18:51:36.269654+08
-1580	0	33	1	0	0	2	0	0	0	0	0	0	0		013 姚姚-Lesson 1 P26-27	e33d4a2940d64ae585b627bb7d14a4dd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.307668+08	2019-09-01 18:51:36.307668+08
-1581	0	33	1	0	0	2	0	0	0	0	0	0	0		014 姚姚-lesson 2 P26-27	62d6b33f70c14c56b713542de39966a7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.369396+08	2019-09-01 18:51:36.369396+08
-1582	0	33	1	0	0	2	0	0	0	0	0	0	0		015 姚姚-lesson 1 P30、56	9d5c2de6e71c4d438f38502440d09c9c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.43999+08	2019-09-01 18:51:36.43999+08
-1583	0	33	1	0	0	2	0	0	0	0	0	0	0		016 姚姚-lesson 2 P30-31	2ac6b8525b7c48ba91d24da40b53cb4c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.490044+08	2019-09-01 18:51:36.490044+08
-1584	0	33	1	0	0	2	0	0	0	0	0	0	0		017 姚姚-lesson 3 P32	8da56d88512c4015bf9a449eeaee9025	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.56098+08	2019-09-01 18:51:36.56098+08
-1585	0	33	1	0	0	2	0	0	0	0	0	0	0		018 姚姚-lesson 4 P33-35	d36f7ff7bb444c80987f71fb15d5ccfa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.602531+08	2019-09-01 18:51:36.602531+08
-1586	0	33	1	0	0	2	0	0	0	0	0	0	0		019 姚姚-Lesson 1 P36-38、56	4b8200970d3b417489f1ddd92d7489ac	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.670499+08	2019-09-01 18:51:36.670499+08
-1587	0	33	1	0	0	2	0	0	0	0	0	0	0		020 姚姚-Lesson 2 P39	8a3ac7574bec465ab53becf41d4aa533	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.737013+08	2019-09-01 18:51:36.737013+08
-1588	0	33	1	0	0	2	0	0	0	0	0	0	0		021 姚姚-Lesson 3 P40	14ecacf7b12049a4858ed855dc92cdeb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.801034+08	2019-09-01 18:51:36.801034+08
-1589	0	33	1	0	0	2	0	0	0	0	0	0	0		022 姚姚-Lesson 4 P41-43	28f6a6235d52475493e12650b5c21aef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.856846+08	2019-09-01 18:51:36.856846+08
-1590	0	33	1	0	0	2	0	0	0	0	0	0	0		023 姚姚-Lesson 1 P46、57	b567c69fc1bb4401aab2233e111f0b8d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.90704+08	2019-09-01 18:51:36.90704+08
-1591	0	33	1	0	0	2	0	0	0	0	0	0	0		024 姚姚-Lesson 2 P46-47	5254021468534335af1c89629b169f8d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:36.970779+08	2019-09-01 18:51:36.970779+08
-1592	0	33	1	0	0	2	0	0	0	0	0	0	0		025 姚姚-Lesson 3 P48	962b9583357a4f66bdc611fae02e9d76	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.04514+08	2019-09-01 18:51:37.04514+08
-1593	0	33	1	0	0	2	0	0	0	0	0	0	0		026 姚姚-Lesson 4 P49-51	d42eb976899046c0b1d5b166b788f826	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.088623+08	2019-09-01 18:51:37.088623+08
-1594	0	33	1	0	0	2	0	0	0	0	0	0	0		027 姚姚-lesson 1 P52-53	5bfd0d45d4a44257b89185566cd4378b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.148799+08	2019-09-01 18:51:37.148799+08
-1595	0	33	1	0	0	2	0	0	0	0	0	0	0		028 姚姚-lesson 2 P52-53	285d26452f7e4bf28a8f04b50f0bd5ce	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.202779+08	2019-09-01 18:51:37.202779+08
-1596	0	34	1	0	0	1	0	0	0	0	0	0	0		许鲜-数一数 P2-5	583a855b0d13456ba7492bb04fc70191	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.27092+08	2019-09-01 18:51:37.27092+08
-1597	0	34	1	0	0	1	0	0	0	0	0	0	0		许鲜-比多少 P6-8	41bd8d8268c34cba998e612c16d2987a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.332052+08	2019-09-01 18:51:37.332052+08
-1598	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-位置（上下前后） P9	18705ea22eb641b4a1c591a97572b831	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.393151+08	2019-09-01 18:51:37.393151+08
-1599	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-位置（左右） P10-13	4aa602327d8145d39d63c154c7067b92	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.454003+08	2019-09-01 18:51:37.454003+08
-1600	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-1~5的认识 P14-15	bf92f46950454899bc4cfbd4e3ba589b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.507067+08	2019-09-01 18:51:37.507067+08
-1601	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-1~5的书写 P16	a73eaa75253848c2b48dbe2d7aa33195	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.571806+08	2019-09-01 18:51:37.571806+08
-1602	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-比多少 P17-19	bb0cb141c0e646bc82c0ee3f5390ff9d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.636297+08	2019-09-01 18:51:37.636297+08
-1603	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-第几 P20	44f74e49b10947d790ec6bf268f758e1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.684778+08	2019-09-01 18:51:37.684778+08
-1604	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-4.5分与合 P21-23	3e1c01ddaf164f74acf42750095e0a95	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.754091+08	2019-09-01 18:51:37.754091+08
-1605	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-加法 P24-25	efd30b5f837b4507a09fcbc63a34de39	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.819297+08	2019-09-01 18:51:37.819297+08
-1606	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-1到5的减法 P26-27	78be97097b784a35adc90998a95967ae	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.871307+08	2019-09-01 18:51:37.871307+08
-1607	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-0的认识 P30	3a89e1171a0147cd8690050d88da6bd6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.938279+08	2019-09-01 18:51:37.938279+08
-1608	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-认识图形（一） P34-38	e2e84cf999f24d81bc46f30a99fee7f7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:37.984827+08	2019-09-01 18:51:37.984827+08
-1609	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-认识图形（二） P34-38	2d3634e544464d77975487d1a6bf7daf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.053332+08	2019-09-01 18:51:38.053332+08
-1610	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-6和7的认识 P39	0480b334718c4c17b96fb5ab7a3a012d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.112422+08	2019-09-01 18:51:38.112422+08
-1611	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-6和7（序数含义、写数、数的组成） P40-4	30d8a1459b0946cba2d5978b1d85f8ae	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.171972+08	2019-09-01 18:51:38.171972+08
-1612	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-6和7的加减法 P42-49	d42697c5ea1f48918b6d3e5a4ad3b222	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.233134+08	2019-09-01 18:51:38.233134+08
-1613	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-8和9的认识 P50-51	584b54304c3a4800a9724281914264fe	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.290111+08	2019-09-01 18:51:38.290111+08
-1614	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-8和9（序数含义、写数、数的组成） P52	500db71644744db1a4f046ab66881859	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.349377+08	2019-09-01 18:51:38.349377+08
-1615	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-8和9的加减法 P53-58	4f2e2952a34c451c8191fd23efa69814	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.422703+08	2019-09-01 18:51:38.422703+08
-1616	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题 P57	309f68e477c6421d9b85d3e52a776031	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.467273+08	2019-09-01 18:51:38.467273+08
-1617	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题（加法） P46	a5d3e2eb9b4f4b95a0e41452964f94d0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.531966+08	2019-09-01 18:51:38.531966+08
-1618	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题（减法） P47	484a2c03a20b421dbe44d940662d35c2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.588899+08	2019-09-01 18:51:38.588899+08
-1619	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-10 P59-60	651fe017d607411c9836ceee70406fef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.664236+08	2019-09-01 18:51:38.664236+08
-1620	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-10的加减法 P61-64	d243969b5e2c4ac98d97540065501330	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.703011+08	2019-09-01 18:51:38.703011+08
-1621	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-连加连减 P65-66	e0fd74914c9c47fba4397bc41b6e66dc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.77656+08	2019-09-01 18:51:38.77656+08
-1622	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-加减混合 P67-68	38b713398088453080ecfd4ecbec2fc4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.834773+08	2019-09-01 18:51:38.834773+08
-1623	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-11~20各数的认识 P73-74	2858be219235464e80c77a44a86d6c0e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.899324+08	2019-09-01 18:51:38.899324+08
-1624	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-11~20各数的写数 P75-77	a4573c2d909042dfa5a0c38e240fc7db	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.952422+08	2019-09-01 18:51:38.952422+08
-1625	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-10加几十几加几及相应减法 P78-81	aa4c09e540de47d08afb768e0ace782b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:38.999007+08	2019-09-01 18:51:38.999007+08
-1626	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-数数的策略 P79-81	12217433eaa74c84a27245cfd62c440c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.073162+08	2019-09-01 18:51:39.073162+08
-1627	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-认识钟表 P84-87	74942eb4cd654af8b083545f41a6a218	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.133277+08	2019-09-01 18:51:39.133277+08
-1628	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-9加几 P89-90	274ba0ed107d437e9626ad13d01d7170	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.184546+08	2019-09-01 18:51:39.184546+08
-1629	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-8、7、6加几 P91-94	6b04479977654fbaaa31af8ddffa79bf	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.260245+08	2019-09-01 18:51:39.260245+08
-1630	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-8加9 P92	9e5f076a147247319ca34f2d549d52df	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.315606+08	2019-09-01 18:51:39.315606+08
-1631	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-5、4、3、2加几 P95-96	5bfd968299e84301bf8d80ceb24ca32b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.380333+08	2019-09-01 18:51:39.380333+08
-1632	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题（例五） P97	b6fdf5333c634714b1f216b00c01f6e4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.422903+08	2019-09-01 18:51:39.422903+08
-1633	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题（例六） P98	5f6fd704f4cc4d0e9652e1a33cc0cc25	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.485199+08	2019-09-01 18:51:39.485199+08
-1634	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-总复习（加减法） P104-110	04beed9417ce4075a666feab2e8f8d06	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.552295+08	2019-09-01 18:51:39.552295+08
-1635	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-20以内的数和认识钟表 P88-103 P84	caa5882b8efa42bfa02971847be70541	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.618633+08	2019-09-01 18:51:39.618633+08
-1636	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-图形与位置 P9-13 P34-38	4334d48c1edc4bebb37600805495453b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.67372+08	2019-09-01 18:51:39.67372+08
-1637	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题	2d4823d71b1349be913faf2a9d52463f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.735421+08	2019-09-01 18:51:39.735421+08
-1638	0	35	1	0	0	1	0	0	0	0	0	0	0		001谢老师-入学教育 P1-5	3d445d17b2504fc5b2b24f1ad2839ca6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.783642+08	2019-09-01 18:51:39.783642+08
-1639	0	35	1	0	0	1	0	0	0	0	0	0	0		002谢老师-天地人 P6	b919c6fa1e974b7789ffb28b8386a1f5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.851139+08	2019-09-01 18:51:39.851139+08
-1640	0	35	1	0	0	2	0	0	0	0	0	0	0		003谢老师-金木水火土 P7	ef81552aec08437f8d040669f0306417	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.918757+08	2019-09-01 18:51:39.918757+08
-1641	0	35	1	0	0	2	0	0	0	0	0	0	0		004谢老师-口耳目1 P9-10	26412f10ba8143b7b404db32aff2dc52	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:39.973231+08	2019-09-01 18:51:39.973231+08
-1642	0	35	1	0	0	2	0	0	0	0	0	0	0		005谢老师-口耳目2 P9-10	0b920ec5a2b2439aac6edba72a7c1723	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.085109+08	2019-09-01 18:51:40.085109+08
-1643	0	35	1	0	0	2	0	0	0	0	0	0	0		006谢老师-日月水火 1 P11-12	2ba1b2653ab948f082b6132763de8fd6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.153623+08	2019-09-01 18:51:40.153623+08
-1644	0	35	1	0	0	2	0	0	0	0	0	0	0		008谢老师-对韵歌1 P13	1f167e07d901406595f87cf3c542c525	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.265999+08	2019-09-01 18:51:40.265999+08
-1645	0	35	1	0	0	2	0	0	0	0	0	0	0		007 谢老师-日月水火	181a6514bd20447a937f93cf068113f6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.26795+08	2019-09-01 18:51:40.26795+08
-1646	0	35	1	0	0	2	0	0	0	0	0	0	0		009谢老师-对韵歌2 P13	67d21bfc0dca44eea9f036af85b02af5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.284961+08	2019-09-01 18:51:40.284961+08
-1647	0	35	1	0	0	2	0	0	0	0	0	0	0		010谢老师-语文园地一 P15-19	9bbcf9a536384515a42611c8fa3e691d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.333974+08	2019-09-01 18:51:40.333974+08
-1648	0	35	1	0	0	2	0	0	0	0	0	0	0		011谢老师-aoe 1 P20-21	644f29f98fc84aecbe6799ef47ea412c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.388362+08	2019-09-01 18:51:40.388362+08
-1649	0	35	1	0	0	2	0	0	0	0	0	0	0		012谢老师-aoe 2 P20-21	f6c150b28c3f44599eb45e3e5890d909	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.448972+08	2019-09-01 18:51:40.448972+08
-1650	0	35	1	0	0	2	0	0	0	0	0	0	0		013谢老师-iuǖyw 1 P22-23	fe35fda9293f47d3b26d9e27e23db560	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.527116+08	2019-09-01 18:51:40.527116+08
-1651	0	35	1	0	0	2	0	0	0	0	0	0	0		014谢老师-iuǖyw 2 P22-23	78bdd3a3a0c9486fb8a43797c2e656a7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.573986+08	2019-09-01 18:51:40.573986+08
-1652	0	35	1	0	0	2	0	0	0	0	0	0	0		015谢老师-bpmf 1 P24-25	bdbda396cc914b8e849a17c1e30d1246	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.620418+08	2019-09-01 18:51:40.620418+08
-1653	0	35	1	0	0	2	0	0	0	0	0	0	0		016谢老师-bpmf 2 P24-25	4b774bd75160465ead1e04f4f916445d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.684815+08	2019-09-01 18:51:40.684815+08
-1654	0	35	1	0	0	2	0	0	0	0	0	0	0		017谢老师-dtnl 1 P26-27	01389c3a90fd42f2806baae84e770553	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.751023+08	2019-09-01 18:51:40.751023+08
-1655	0	35	1	0	0	2	0	0	0	0	0	0	0		018谢老师-dtnl 2 P26-27	33a598583d3f40148322c34e80a61850	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.809256+08	2019-09-01 18:51:40.809256+08
-1656	0	35	1	0	0	2	0	0	0	0	0	0	0		019谢老师-gkh 1 P28-29	a2ff1b9fb2834b61a0c5c4c14236816f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.8816+08	2019-09-01 18:51:40.8816+08
-1657	0	35	1	0	0	2	0	0	0	0	0	0	0		020谢老师-gkh 2 P28-29	1d0a32e9ffac4ef7823a0d0024135379	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.93482+08	2019-09-01 18:51:40.93482+08
-1658	0	35	1	0	0	2	0	0	0	0	0	0	0		021谢老师-jqx 1 P30-31	94aebef321d4466782c0e8643845ea8e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:40.992968+08	2019-09-01 18:51:40.992968+08
-1659	0	35	1	0	0	2	0	0	0	0	0	0	0		022谢老师-jqx 2 P30-31	db006bf1e9aa4f6c947afffe2f78c226	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.041932+08	2019-09-01 18:51:41.041932+08
-1660	0	35	1	0	0	2	0	0	0	0	0	0	0		023谢老师-zcs 1 P32-33	19deffe32fd04de38f162ac3565d0c20	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.11513+08	2019-09-01 18:51:41.11513+08
-1661	0	35	1	0	0	2	0	0	0	0	0	0	0		024谢老师-zcs 2 P32-33	3ab05b054e5640a1aff71a7be03a608e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.173955+08	2019-09-01 18:51:41.173955+08
-1662	0	35	1	0	0	2	0	0	0	0	0	0	0		025谢老师-zh ch sh r 1 P34-35	d28da79a216a41dab4b303ba0a99a124	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.223747+08	2019-09-01 18:51:41.223747+08
-1663	0	35	1	0	0	2	0	0	0	0	0	0	0		026谢老师-zh ch sh r 2 P34-35	efa7af3f48f14269a0725a035c3da536	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.286031+08	2019-09-01 18:51:41.286031+08
-1664	0	35	1	0	0	2	0	0	0	0	0	0	0		027谢老师-语文园地二 P36-39	6a9fc0c404e84d0789508667c977f5c0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.353961+08	2019-09-01 18:51:41.353961+08
-1665	0	35	1	0	0	2	0	0	0	0	0	0	0		028谢老师-ai ei ui 1 P40-41	5a127210910244559a75ea5623152953	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.415222+08	2019-09-01 18:51:41.415222+08
-1666	0	35	1	0	0	2	0	0	0	0	0	0	0		029谢老师-ai ei ui 2 P40-41	63a8c2b95d63471c9b9f292e6476861f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.467239+08	2019-09-01 18:51:41.467239+08
-1667	0	35	1	0	0	2	0	0	0	0	0	0	0		030谢老师-ao ou iu1 P42-43	f0c81024eb1b452da0ff5474e6d0316d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.521411+08	2019-09-01 18:51:41.521411+08
-1668	0	35	1	0	0	2	0	0	0	0	0	0	0		031谢老师-ao ou iu2 P42-43	5587396719d148958148b9184e4031c0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.584684+08	2019-09-01 18:51:41.584684+08
-1669	0	35	1	0	0	2	0	0	0	0	0	0	0		032谢老师-ie üe er 1 P44-45	69182c20ce1847e0a6ee24684ecba92e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.653558+08	2019-09-01 18:51:41.653558+08
-1670	0	35	1	0	0	2	0	0	0	0	0	0	0		033谢老师-ie üe er 2 P44-45	1b3dd4ea88ea4c469eca962d62e25311	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.708161+08	2019-09-01 18:51:41.708161+08
-1671	0	35	1	0	0	2	0	0	0	0	0	0	0		034谢老师-an en in un ün 1 P46-47	e955f870595d495b9687489b8b9b289b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.773234+08	2019-09-01 18:51:41.773234+08
-1672	0	35	1	0	0	2	0	0	0	0	0	0	0		035谢老师-an en in un ün 2 P46-47	5e357475682c48d28583f5bb9169f93e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.829917+08	2019-09-01 18:51:41.829917+08
-1673	0	35	1	0	0	2	0	0	0	0	0	0	0		036谢老师-ang eng ing ong 1 P49-5	403104866341478f9b31fcb6f63c7221	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.898334+08	2019-09-01 18:51:41.898334+08
-1674	0	35	1	0	0	2	0	0	0	0	0	0	0		037谢老师-ang eng ing ong 2 P49-5	d3d5e41106e047d7bc6a3c7f2850bc80	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:41.95386+08	2019-09-01 18:51:41.95386+08
-1675	0	35	1	0	0	2	0	0	0	0	0	0	0		038谢老师-语文园地三 P51-53	f1c790ad0e334f289bef0daa289d0651	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.016426+08	2019-09-01 18:51:42.016426+08
-1676	0	35	1	0	0	2	0	0	0	0	0	0	0		039谢老师-秋天 P54-55	ae3c8e0c587b4121a4a3a88c81b6f0d3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.077259+08	2019-09-01 18:51:42.077259+08
-1677	0	35	1	0	0	2	0	0	0	0	0	0	0		040谢老师-小小的船 P56-57	bcd6e0cb17ba442f94dfdc3bfdcf0e6f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.131749+08	2019-09-01 18:51:42.131749+08
-1678	0	35	1	0	0	2	0	0	0	0	0	0	0		041谢老师-江南 P58-59	77b4e2e56e8c4d52b2ba03d4151528d7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.201089+08	2019-09-01 18:51:42.201089+08
-1679	0	35	1	0	0	2	0	0	0	0	0	0	0		042谢老师-四季 P60-61	7e1f0ab47e8d4edea23ce6a86fd23536	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.245982+08	2019-09-01 18:51:42.245982+08
-1680	0	35	1	0	0	2	0	0	0	0	0	0	0		043谢老师-语文园地四 P63-66	3e067d48826c40dea6bf4825889585bd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.314925+08	2019-09-01 18:51:42.314925+08
-1681	0	35	1	0	0	2	0	0	0	0	0	0	0		044谢老师-画 P67	aa70955a58e34c02b3e7a2447fe5e3d7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.367869+08	2019-09-01 18:51:42.367869+08
-1682	0	35	1	0	0	2	0	0	0	0	0	0	0		045谢老师-大小多少 P68-69	4a7167f556284462bba4e7c598cde162	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.432298+08	2019-09-01 18:51:42.432298+08
-1683	0	35	1	0	0	2	0	0	0	0	0	0	0		046谢老师-小书包 P70-71	9643138552194ac4b161267d76bbcd10	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.481384+08	2019-09-01 18:51:42.481384+08
-1684	0	35	1	0	0	2	0	0	0	0	0	0	0		047谢老师-日月明 P72-73	bd127284922a413592565ae1421dfba1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.551114+08	2019-09-01 18:51:42.551114+08
-1685	0	35	1	0	0	2	0	0	0	0	0	0	0		048谢老师-升国旗 P74-75	6aec6dd5203646248b11399450e9c69f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.62929+08	2019-09-01 18:51:42.62929+08
-1686	0	35	1	0	0	2	0	0	0	0	0	0	0		049谢老师-语文园地五 P76-79	1dccbcc091f14eb99ee86c2aac0a3814	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.684966+08	2019-09-01 18:51:42.684966+08
-1687	0	35	1	0	0	2	0	0	0	0	0	0	0		050谢老师-影子 P80-81	c45926ece3bf4bc2bc52b350b87d185d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.743655+08	2019-09-01 18:51:42.743655+08
-1688	0	35	1	0	0	2	0	0	0	0	0	0	0		051谢老师-比尾巴 P82-83	2b689b104a1a4644b32f7b821d7b9f86	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.789334+08	2019-09-01 18:51:42.789334+08
-1689	0	35	1	0	0	2	0	0	0	0	0	0	0		052谢老师-青蛙写诗 P84-86	b69ab2cc7bbb4db688dcf4704d68bca9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.847612+08	2019-09-01 18:51:42.847612+08
-1690	0	35	1	0	0	2	0	0	0	0	0	0	0		053谢老师-雨点儿 P87-88	b7424db501a547fb99e52d445b37d218	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.907551+08	2019-09-01 18:51:42.907551+08
-1691	0	35	1	0	0	2	0	0	0	0	0	0	0		054谢老师-语文园地六 P90-92	f961137c7cf74a6b81536452ae73599b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:42.982889+08	2019-09-01 18:51:42.982889+08
-1692	0	35	1	0	0	2	0	0	0	0	0	0	0		055谢老师-明天要远足 P93-95	e0dd39c9693f4a1c9ecb485c501a14c3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.034613+08	2019-09-01 18:51:43.034613+08
-1693	0	35	1	0	0	2	0	0	0	0	0	0	0		056谢老师-大还是小 P96-97	af969f7451914828b2f84b05a2a5064c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.085252+08	2019-09-01 18:51:43.085252+08
-1694	0	35	1	0	0	2	0	0	0	0	0	0	0		057谢老师-项链 P98-99	948f97780f6d4570a614a84939da7102	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.148638+08	2019-09-01 18:51:43.148638+08
-1695	0	35	1	0	0	2	0	0	0	0	0	0	0		058谢老师-语文园地七 P100-103	60bfcb0c05224d5cb04ed712f428d681	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.202323+08	2019-09-01 18:51:43.202323+08
-1696	0	35	1	0	0	2	0	0	0	0	0	0	0		059谢老师-雪地里的小画家 P104-105	e40c429a9422417abdf6e75fe2ec2d05	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.275338+08	2019-09-01 18:51:43.275338+08
-1697	0	35	1	0	0	2	0	0	0	0	0	0	0		060谢老师-乌鸦喝水 P106-107	d51e16a039c24a6a99daa56ae0a85ad8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.333155+08	2019-09-01 18:51:43.333155+08
-1698	0	35	1	0	0	2	0	0	0	0	0	0	0		061谢老师-小蜗牛 P108-110	14eac8bae301475db7f75e83b7d38534	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.384511+08	2019-09-01 18:51:43.384511+08
-1699	0	35	1	0	0	2	0	0	0	0	0	0	0		062谢老师-语文园地八 P112-114	68d2b701eaf241049111f6a57ab1070e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.451306+08	2019-09-01 18:51:43.451306+08
-1700	0	37	1	0	0	1	0	0	0	0	0	0	0		001 大冰老师-数据收集整理 1 P2	ace0a339544b45c18669aa62e6f62992	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.51734+08	2019-09-01 18:51:43.51734+08
-1701	0	37	1	0	0	1	0	0	0	0	0	0	0		002 大冰老师-数据收集整理 2 P3	c9f1a3ee50e446bc9eae1b862e619975	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.564969+08	2019-09-01 18:51:43.564969+08
-1702	0	37	1	0	0	2	0	0	0	0	0	0	0		003 大冰老师-数据收集整理 3 P4-6	c23ec5097ade4a418dd6719368ac666f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.633854+08	2019-09-01 18:51:43.633854+08
-1703	0	37	1	0	0	2	0	0	0	0	0	0	0		004 大冰老师-表内除法（一）1 P8-9	3512c8a3fa554d2aa57ba41893709d28	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.685112+08	2019-09-01 18:51:43.685112+08
-1704	0	37	1	0	0	2	0	0	0	0	0	0	0		005 大冰老师-表内除法（一）2 P10-11	9ba517f3dd7144c4ab5974448baaaa76	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.763643+08	2019-09-01 18:51:43.763643+08
-1705	0	37	1	0	0	2	0	0	0	0	0	0	0		006 大冰老师-表内除法（一）3 P11-12	b2bcc127a7744ae5bd72f0249565c646	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.799768+08	2019-09-01 18:51:43.799768+08
-1706	0	37	1	0	0	2	0	0	0	0	0	0	0		007 大冰老师-表内除法（一）4 P13-14	a6c1ccc3af164784be6032203e241d65	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.868333+08	2019-09-01 18:51:43.868333+08
-1707	0	37	1	0	0	2	0	0	0	0	0	0	0		008 大冰老师-表内除法（一）5 P15-18	4f3b49b6edcc4eb9af9c8aa90a7a9fce	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.936528+08	2019-09-01 18:51:43.936528+08
-1708	0	37	1	0	0	2	0	0	0	0	0	0	0		009 大冰老师-表内除法（一）6 P19	32e7431015a5406fab703d59131e2614	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:43.9877+08	2019-09-01 18:51:43.9877+08
-1709	0	37	1	0	0	2	0	0	0	0	0	0	0		010 大冰老师-表内除法（一）7 P20-23	0d4631eff0d84b43a89a428697f72c5e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.052467+08	2019-09-01 18:51:44.052467+08
-1710	0	37	1	0	0	2	0	0	0	0	0	0	0		011 大冰老师-图形的运动（一）1 P28-29	3d78477bdf1242e9b91d53a58e1703d7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.102239+08	2019-09-01 18:51:44.102239+08
-1711	0	37	1	0	0	2	0	0	0	0	0	0	0		012 大冰老师-图形的运动（一）2 P29	e85a48c4ca034bd79d28b57f69f0a1f3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.168057+08	2019-09-01 18:51:44.168057+08
-1712	0	37	1	0	0	2	0	0	0	0	0	0	0		013 大冰老师-图形的运动（一）3 P30	6eba1be963414ff58b99786059a96377	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.224384+08	2019-09-01 18:51:44.224384+08
-1713	0	37	1	0	0	2	0	0	0	0	0	0	0		014 大冰老师-图形的运动（一）4 P31,P34	e3223c9a3df44ba4b293d2dba3ad5ca1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.297265+08	2019-09-01 18:51:44.297265+08
-1714	0	37	1	0	0	2	0	0	0	0	0	0	0		015 大冰老师-图形的运动（一）5 P33-36	884f4834deb14888ba149021ae509f0f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.345598+08	2019-09-01 18:51:44.345598+08
-1715	0	37	1	0	0	2	0	0	0	0	0	0	0		016 大冰老师-表內除法（二）1 P38	2a6f08afe4784372a4467869e5f53f1c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.40706+08	2019-09-01 18:51:44.40706+08
-1716	0	37	1	0	0	2	0	0	0	0	0	0	0		017 大冰老师-表內除法（二）2 P39-40	5cba97ed8ae244a98c9ad5369803de14	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.474057+08	2019-09-01 18:51:44.474057+08
-1717	0	37	1	0	0	2	0	0	0	0	0	0	0		018 大冰老师-表內除法（二）3 P40-41	d8a812e7d8964fb7a993c8b38fde5d79	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.537909+08	2019-09-01 18:51:44.537909+08
-1718	0	37	1	0	0	2	0	0	0	0	0	0	0		019 大冰老师-表內除法（二）4 P42	4583f535e0f84f59a95a82a6564f7d49	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.591299+08	2019-09-01 18:51:44.591299+08
-1719	0	37	1	0	0	2	0	0	0	0	0	0	0		020 大冰老师-表內除法（二）5 P43-44	251961f5a6a9484dbe35fa68b88b10fc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.651352+08	2019-09-01 18:51:44.651352+08
-1720	0	37	1	0	0	2	0	0	0	0	0	0	0		021 大冰老师-表內除法（二）6 P44-46	9ec01e0476ec424f95e859015af72430	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.713732+08	2019-09-01 18:51:44.713732+08
-1721	0	37	1	0	0	2	0	0	0	0	0	0	0		022 大冰老师-混合运算 1 P47	4b28378a1d9a4ef2a2418ade04b984d2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.776545+08	2019-09-01 18:51:44.776545+08
-1722	0	37	1	0	0	2	0	0	0	0	0	0	0		023 大冰老师-混合运算 2 P48	e35993fdb4504352be1abb5ec7e342d1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.819577+08	2019-09-01 18:51:44.819577+08
-1723	0	37	1	0	0	2	0	0	0	0	0	0	0		024 大冰老师-混合运算 3 P48-49	7c3cfd8c3d264395bf36e486b35164eb	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.895552+08	2019-09-01 18:51:44.895552+08
-1724	0	37	1	0	0	2	0	0	0	0	0	0	0		025 大冰老师-混合运算 4 P53-56	155cbe99cc9140da93cf7c95de27b214	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:44.963809+08	2019-09-01 18:51:44.963809+08
-1725	0	37	1	0	0	2	0	0	0	0	0	0	0		026 大冰老师-混合运算 5 P49-56，P58	2430e9e54b274ee08f41489c65c4e683	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.000657+08	2019-09-01 18:51:45.000657+08
-1726	0	37	1	0	0	2	0	0	0	0	0	0	0		027 大冰老师-有余数的除法1 P59-61	b01a28dae03e42b290a831d35a0e5f43	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.065968+08	2019-09-01 18:51:45.065968+08
-1727	0	37	1	0	0	2	0	0	0	0	0	0	0		028 大冰老师-有余数的除法2 P62-63	874b9be9d979459dbe331e335083abd4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.131928+08	2019-09-01 18:51:45.131928+08
-1728	0	37	1	0	0	2	0	0	0	0	0	0	0		029 大冰老师-有余数的除法3 P65-69	a276bd78c624436f9f7dbbeff8cd58bd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.185962+08	2019-09-01 18:51:45.185962+08
-1729	0	37	1	0	0	2	0	0	0	0	0	0	0		030 大冰老师-有余数的除法4 P68-70	c589e899bbce4658b0211a6365b2b493	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.256716+08	2019-09-01 18:51:45.256716+08
-1730	0	37	1	0	0	2	0	0	0	0	0	0	0		031 大冰老师-有余数的除法5 P64-66，P70	962d81ca301e4bfdb1fa87759c3fe5ac	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.304199+08	2019-09-01 18:51:45.304199+08
-1731	0	37	1	0	0	2	0	0	0	0	0	0	0		032 大冰老师-万以内数的认识1 P75-77	0747a9338e4b464e8e44cdc1252e0756	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.382267+08	2019-09-01 18:51:45.382267+08
-1732	0	37	1	0	0	2	0	0	0	0	0	0	0		033 大冰老师-万以内数的认识2 P77-80	0b0b3ed846a744beb95d2a69e9c76237	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.420004+08	2019-09-01 18:51:45.420004+08
-1733	0	37	1	0	0	2	0	0	0	0	0	0	0		034 大冰老师-万以内数的认识3 P78，P81	2e6704563c5e467d8bc4d6e86c2d9c0c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.486327+08	2019-09-01 18:51:45.486327+08
-1734	0	37	1	0	0	2	0	0	0	0	0	0	0		035 大冰老师-万以内数的认识4 P82-84	f5d1b8c0bb3e4c4ca04f220670e25fe6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.551725+08	2019-09-01 18:51:45.551725+08
-1735	0	37	1	0	0	2	0	0	0	0	0	0	0		036 大冰老师-万以内数的认识5 P85-87	d09f4861ec364c46a635cf63302672ba	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.614703+08	2019-09-01 18:51:45.614703+08
-1736	0	37	1	0	0	2	0	0	0	0	0	0	0		037 大冰老师-万以内数的认识6 P89-93	7996d264ddff47eda1212cc2f5296c02	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.667217+08	2019-09-01 18:51:45.667217+08
-1737	0	37	1	0	0	2	0	0	0	0	0	0	0		038 大冰老师-万以内数的认识7 P95-97	a85330403ee84ed4bd7ea997cad8b6f5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.738091+08	2019-09-01 18:51:45.738091+08
-1738	0	37	1	0	0	2	0	0	0	0	0	0	0		039 大冰老师-万以内数的认识8 P97-99	96a6e46339ec4c05b535575e584ff8d5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.780092+08	2019-09-01 18:51:45.780092+08
-1739	0	37	1	0	0	2	0	0	0	0	0	0	0		040 大冰老师-克和千克1 P100-102，P105	05101ac57b61448b89e14d9e83f99b22	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.846264+08	2019-09-01 18:51:45.846264+08
-1740	0	37	1	0	0	2	0	0	0	0	0	0	0		041 大冰老师-克和千克2 P106，P108	535b2afa20074e69989e6754aba0efd5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.905623+08	2019-09-01 18:51:45.905623+08
-1741	0	37	1	0	0	2	0	0	0	0	0	0	0		042 大冰老师-克和千克3 P104，P106	d3e04b428d644f85b69bc8ecafeb66c2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:45.961857+08	2019-09-01 18:51:45.961857+08
-1742	0	37	1	0	0	2	0	0	0	0	0	0	0		043 大冰老师-数学广角 推理1 P109	48d410476ab642ec8cb1df8ee2ff004b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.031281+08	2019-09-01 18:51:46.031281+08
-1743	0	37	1	0	0	2	0	0	0	0	0	0	0		044 大冰老师-数学广角 推理2 P110-111	4a15be0efcd8407ab843b55b1e8ab445	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.083118+08	2019-09-01 18:51:46.083118+08
-1744	0	37	1	0	0	2	0	0	0	0	0	0	0		045 大冰老师-数学广角 推理3 P110-112	1e1ca3c8698448e684106f88edae97ae	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.157975+08	2019-09-01 18:51:46.157975+08
-1745	0	37	1	0	0	2	0	0	0	0	0	0	0		046 大冰老师-总复习（一）数据收集整理	5279c3f0430041a0b4bebf0675e3c3d3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.20269+08	2019-09-01 18:51:46.20269+08
-1746	0	37	1	0	0	2	0	0	0	0	0	0	0		047 大冰老师-总复习（二）表内除法（一）	e70b9f3f44bc4d8b845c2d7a6b9c04ef	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.274217+08	2019-09-01 18:51:46.274217+08
-1747	0	37	1	0	0	2	0	0	0	0	0	0	0		048 大冰老师-总复习（三）图形的运动（一）	7cb5710aa889489ea147b7dba9d92969	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.332835+08	2019-09-01 18:51:46.332835+08
-1748	0	37	1	0	0	2	0	0	0	0	0	0	0		049 大冰老师-总复习（四）表内除法（二）	b2b48ca826c1405ba652aff412ebea3b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.38519+08	2019-09-01 18:51:46.38519+08
-1749	0	37	1	0	0	2	0	0	0	0	0	0	0		050 大冰老师-总复习（五）混合运算	5ec7ee47d2d24c4fae079b25f6696c7d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.451429+08	2019-09-01 18:51:46.451429+08
-1750	0	37	1	0	0	2	0	0	0	0	0	0	0		051 大冰老师-总复习（六）有余数的除法	531286d3036b4411aad91bac4bf898e1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.500224+08	2019-09-01 18:51:46.500224+08
-1751	0	37	1	0	0	2	0	0	0	0	0	0	0		052 大冰老师-总复习（七）万以内数的认识	ea02aa075f2d43fb804d467ee17a0cf6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.57153+08	2019-09-01 18:51:46.57153+08
-1752	0	37	1	0	0	2	0	0	0	0	0	0	0		053 大冰老师-总复习（八）克和千克	4fb73187dd484a78b36ad686ddfe91c3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.635021+08	2019-09-01 18:51:46.635021+08
-1753	0	37	1	0	0	2	0	0	0	0	0	0	0		054 大冰老师-总复习（九）数学广角 推理	d1d40d0159d342de8a94e5e3e84270de	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.68234+08	2019-09-01 18:51:46.68234+08
-1754	0	36	1	0	0	1	0	0	0	0	0	0	0		001 李麒麟-认识图形（一）P2-3	7b1cddb6254c4850ace52fafd9658899	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.750688+08	2019-09-01 18:51:46.750688+08
-1755	0	36	1	0	0	1	0	0	0	0	0	0	0		002 李麒麟-认识图形（二）P3-4	4662ecde70524d59a614e1be3af2f655	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.814968+08	2019-09-01 18:51:46.814968+08
-1756	0	36	1	0	0	2	0	0	0	0	0	0	0		003 李麒麟-十几减9 P8-10	052ef0634ba84c36af4eb5ba7f23b433	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.882016+08	2019-09-01 18:51:46.882016+08
-1757	0	36	1	0	0	2	0	0	0	0	0	0	0		004 李麒麟-买风车 P13	41890d89f4da4900b69638d29c39b91e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.919603+08	2019-09-01 18:51:46.919603+08
-1758	0	36	1	0	0	2	0	0	0	0	0	0	0		005李麒麟-数金鱼 P14	a6e2b75e09af4513afe86a25cc66656f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:46.984685+08	2019-09-01 18:51:46.984685+08
-1759	0	36	1	0	0	2	0	0	0	0	0	0	0		006 李麒麟-十几减5、4、3、2 P17	c3ad41ad8f534fbfb19bced52d95211b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.044997+08	2019-09-01 18:51:47.044997+08
-1760	0	36	1	0	0	2	0	0	0	0	0	0	0		007 李麒麟-踢足球 P20	6a4d3abd0b5e48fbbb609c1287f78b95	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.117685+08	2019-09-01 18:51:47.117685+08
-1761	0	36	1	0	0	2	0	0	0	0	0	0	0		008 李麒麟-玩套环 P21	27948778f57b4d63a99a9a3e2817a966	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.170268+08	2019-09-01 18:51:47.170268+08
-1762	0	36	1	0	0	2	0	0	0	0	0	0	0		009 李麒麟-整理和复习 P24	017d1deb125a4d35b80473926dc3592a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.225207+08	2019-09-01 18:51:47.225207+08
-1763	0	36	1	0	0	2	0	0	0	0	0	0	0		010 李麒麟-分类与整理 P27-28	9d954736861f4fb697ada62998dc4b7e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.297104+08	2019-09-01 18:51:47.297104+08
-1764	0	36	1	0	0	2	0	0	0	0	0	0	0		011 李麒麟-认识100以内的数 P33-34	249bfd91b648455f90d37f950a647010	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.339063+08	2019-09-01 18:51:47.339063+08
-1765	0	36	1	0	0	2	0	0	0	0	0	0	0		012 李麒麟-数扣子 P36-37	596f3a2da2994fbe98802b536318642e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.40911+08	2019-09-01 18:51:47.40911+08
-1766	0	36	1	0	0	2	0	0	0	0	0	0	0		013 李麒麟-数的顺序 P41	c7146df727da41a8b7ee3a268f8b0263	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.468863+08	2019-09-01 18:51:47.468863+08
-1767	0	36	1	0	0	2	0	0	0	0	0	0	0		014 李麒麟-比较大小 P42-48	8a764d9b0e9a44b18f318a816bd715f4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.5372+08	2019-09-01 18:51:47.5372+08
-1768	0	36	1	0	0	2	0	0	0	0	0	0	0		015 李麒麟-认识人民币 P52-54	14d12a16ca1449d6a469d8028d432e1a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.592349+08	2019-09-01 18:51:47.592349+08
-1769	0	36	1	0	0	2	0	0	0	0	0	0	0		016 李麒麟-人民币的计算 P57-58	5b23e8f9199c49fb9aaa58414bb43c51	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.658487+08	2019-09-01 18:51:47.658487+08
-1770	0	36	1	0	0	2	0	0	0	0	0	0	0		017 李麒麟-整十数加减整十数 P61-62	6b043d6812104432b55d0feca084e2c7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.703439+08	2019-09-01 18:51:47.703439+08
-1771	0	36	1	0	0	2	0	0	0	0	0	0	0		018 李麒麟-两位数加一位数、整十数 P64-65	91710968c0a94ef294df80b3c2f65144	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.780193+08	2019-09-01 18:51:47.780193+08
-1772	0	36	1	0	0	2	0	0	0	0	0	0	0		019 李麒麟-两位数减一位数、整十数（一）P69-70	c59ea4a0c90449c9936a277fdddedbda	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.817152+08	2019-09-01 18:51:47.817152+08
-1773	0	36	1	0	0	2	0	0	0	0	0	0	0		020 李麒麟-两位数减一位数、整十数（二）P77	618dd45798dc4a4eb458009c3eb00b7a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.887331+08	2019-09-01 18:51:47.887331+08
-1774	0	36	1	0	0	2	0	0	0	0	0	0	0		021 李麒麟-两位数减一位数、整十数（三）P78	ddfb1eeaad4e4cdbacc7f5f3c8b1e5d3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:47.949819+08	2019-09-01 18:51:47.949819+08
-1775	0	36	1	0	0	2	0	0	0	0	0	0	0		022 李麒麟-找规律（一）P85-86	a2f5e2b8440a4af6814f66870dce027f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.018193+08	2019-09-01 18:51:48.018193+08
-1776	0	36	1	0	0	2	0	0	0	0	0	0	0		023 李麒麟-找规律（二）P87-88	49078d82879140b8be63c56fcb7db92f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.066619+08	2019-09-01 18:51:48.066619+08
-1777	0	36	1	0	0	2	0	0	0	0	0	0	0		024 李麒麟-总复习 P92-94	876c612c90624cb5b6f63c0e48779ff1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.121207+08	2019-09-01 18:51:48.121207+08
-1778	0	38	1	0	0	1	0	0	0	0	0	0	0		001 Cossia-lesson 1	36423e5b2d234477855b3e4b54ae7a30	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.187216+08	2019-09-01 18:51:48.187216+08
-1779	0	38	1	0	0	1	0	0	0	0	0	0	0		002 Cossia-lesson 2	4e41f5bc64f0425d8d4af3c3ddd80960	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.249219+08	2019-09-01 18:51:48.249219+08
-1780	0	38	1	0	0	2	0	0	0	0	0	0	0		003 Cossia-lesson 3	7f7ad856ca094da4a8bce1b676f7bb34	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.309829+08	2019-09-01 18:51:48.309829+08
-1781	0	38	1	0	0	2	0	0	0	0	0	0	0		004 Cossia-lesson 4	cfc357e4b8e54caaa65820ed18da4fab	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.355084+08	2019-09-01 18:51:48.355084+08
-1782	0	38	1	0	0	2	0	0	0	0	0	0	0		005 Cossia-lesson 5	4e6c4d7978d0464793c5d86cdd6188b5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.429588+08	2019-09-01 18:51:48.429588+08
-1783	0	38	1	0	0	2	0	0	0	0	0	0	0		006 Cossia-lesson 1	a0e8033679b1478b9695cde79ccecf90	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.485442+08	2019-09-01 18:51:48.485442+08
-1784	0	38	1	0	0	2	0	0	0	0	0	0	0		007 Cossia-lesson 2	800d72b26da140f1a86a3ac41d3182b6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.548748+08	2019-09-01 18:51:48.548748+08
-1785	0	38	1	0	0	2	0	0	0	0	0	0	0		008 Cossia-lesson 3	be826d29528044a6b8718b023e0c5474	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.609245+08	2019-09-01 18:51:48.609245+08
-1786	0	38	1	0	0	2	0	0	0	0	0	0	0		009 Cossia-lesson 4	2d4c57baf8624a8494e4f2d346e57571	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.66773+08	2019-09-01 18:51:48.66773+08
-1787	0	38	1	0	0	2	0	0	0	0	0	0	0		010 Cossia-lesson 5	a25fddf0428f463ebaddff10ee252eb2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.731766+08	2019-09-01 18:51:48.731766+08
-1788	0	38	1	0	0	2	0	0	0	0	0	0	0		011 Cossia-lesson 6	dd95cacc38874140897abed0b3ec1443	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.801861+08	2019-09-01 18:51:48.801861+08
-1789	0	38	1	0	0	2	0	0	0	0	0	0	0		012 Cossia-lesson 1	a16e83ef246546e8b953b48ce5227478	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.860436+08	2019-09-01 18:51:48.860436+08
-1790	0	38	1	0	0	2	0	0	0	0	0	0	0		013 Cossia-lesson 2	f6c5aeceeadc4153bc1f59d6cd51bd0e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.952735+08	2019-09-01 18:51:48.952735+08
-1791	0	38	1	0	0	2	0	0	0	0	0	0	0		014 Cossia-lesson 3	74a4639ae02a4b288432e765092d6527	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:48.976517+08	2019-09-01 18:51:48.976517+08
-1792	0	38	1	0	0	2	0	0	0	0	0	0	0		015 Cossia-lesson 4	07e941903586470b9d49df1bc02355b4	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.049521+08	2019-09-01 18:51:49.049521+08
-1793	0	38	1	0	0	2	0	0	0	0	0	0	0		016 Cossia-lesson 5	ced66dfb139e48ea8addaaec0877d3a0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.080449+08	2019-09-01 18:51:49.080449+08
-1794	0	38	1	0	0	2	0	0	0	0	0	0	0		017 Cossia-lesson 1	158016a13dec492b883305e6126de12c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.139271+08	2019-09-01 18:51:49.139271+08
-1795	0	38	1	0	0	2	0	0	0	0	0	0	0		018 Cossia-lesson 2	26cedc3046c2440d9d153ba41b97fd8f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.218257+08	2019-09-01 18:51:49.218257+08
-1796	0	38	1	0	0	2	0	0	0	0	0	0	0		019 Cossia-lesson 1	28e1aa3050304df096dd2929768b8540	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.266013+08	2019-09-01 18:51:49.266013+08
-1797	0	38	1	0	0	2	0	0	0	0	0	0	0		020 Cossia-lesson 2	7fe0d76f9b1d425e890f7f2d4e85e472	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.321525+08	2019-09-01 18:51:49.321525+08
-1798	0	38	1	0	0	2	0	0	0	0	0	0	0		021 Cossia-lesson 3	16aab26cdef74852a9c4bcd797432cab	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.385777+08	2019-09-01 18:51:49.385777+08
-1799	0	38	1	0	0	2	0	0	0	0	0	0	0		022 Cossia-lesson 4	0a6b59996ad2430f95ccdd6f5b3cd96d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.442966+08	2019-09-01 18:51:49.442966+08
-1800	0	38	1	0	0	2	0	0	0	0	0	0	0		023 Cossia-lesson 5	4dafd74e1e6a450fbee61db49d0a0952	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.505684+08	2019-09-01 18:51:49.505684+08
-1801	0	38	1	0	0	2	0	0	0	0	0	0	0		024 Cossia-lesson 6	676530bd042d415a991a8ecd4e769796	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.555723+08	2019-09-01 18:51:49.555723+08
-1802	0	38	1	0	0	2	0	0	0	0	0	0	0		025 Cossia-lesson 1	0eeaa9c920d24aaea4b1ceed9efe549e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.633816+08	2019-09-01 18:51:49.633816+08
-1803	0	38	1	0	0	2	0	0	0	0	0	0	0		026 Cossia-lesson 2	c3ccafdc5ab946488165bf2a5621568d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.689865+08	2019-09-01 18:51:49.689865+08
-1804	0	38	1	0	0	2	0	0	0	0	0	0	0		027 Cossia-lesson 3	95f60f420c7f4dcaa16bcd6a3e7178ca	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.75898+08	2019-09-01 18:51:49.75898+08
-1805	0	38	1	0	0	2	0	0	0	0	0	0	0		028 Cossia-lesson 4	898b0fcf0c8e44c7a3ec57e2ec0488c0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.800484+08	2019-09-01 18:51:49.800484+08
-1806	0	38	1	0	0	2	0	0	0	0	0	0	0		029 Cossia-lesson 5	5a90c12503bb416c8e4d15224a08b3b3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.867598+08	2019-09-01 18:51:49.867598+08
-1807	0	38	1	0	0	2	0	0	0	0	0	0	0		030 Cossia-lesson 1_1	6853abc33f64489897f638fe7d6dfb1a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.921081+08	2019-09-01 18:51:49.921081+08
-1808	0	38	1	0	0	2	0	0	0	0	0	0	0		031 Cossia-lesson 2	0a4050d2610044108a3f694dcdce6ee8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:49.988678+08	2019-09-01 18:51:49.988678+08
-1809	0	38	1	0	0	2	0	0	0	0	0	0	0		032 Cossia-lesson 3	159d428496bd4f9e9b4852b9dc469033	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.050196+08	2019-09-01 18:51:50.050196+08
-1810	0	38	1	0	0	2	0	0	0	0	0	0	0		033 Cossia-lesson 4	2e52f810ffbe40ae98c5e5088ca07b90	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.120251+08	2019-09-01 18:51:50.120251+08
-1811	0	38	1	0	0	2	0	0	0	0	0	0	0		034 Cossia-lesson 5	87222b9dd0024b16b4bbc8a1e664200c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.187853+08	2019-09-01 18:51:50.187853+08
-1812	0	38	1	0	0	2	0	0	0	0	0	0	0		035 Cossia-lesson 1	80dd3b1066644764b72bad908f59c94c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.223346+08	2019-09-01 18:51:50.223346+08
-1813	0	38	1	0	0	2	0	0	0	0	0	0	0		036 Cossia-lesson 2	68defccfbdc8465d89e3e4a2aa753a83	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.288481+08	2019-09-01 18:51:50.288481+08
-1814	0	38	1	0	0	2	0	0	0	0	0	0	0		037 Cossia-lesson 3	619cf3a06f08400fbc1f677ef8b908d5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.351687+08	2019-09-01 18:51:50.351687+08
-1815	0	39	1	0	0	1	0	0	0	0	0	0	0		001 杨老师-春夏秋冬1	c835efc3ff83443f9abdc6f610a785e9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.402088+08	2019-09-01 18:51:50.402088+08
-1816	0	39	1	0	0	1	0	0	0	0	0	0	0		002 杨老师-春夏秋冬2	d6feb407381c411c93223e3cb020ceec	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.471957+08	2019-09-01 18:51:50.471957+08
-1817	0	39	1	0	0	2	0	0	0	0	0	0	0		003 杨老师-姓氏歌1	524f19233381495e8899f7ffc0d931ee	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.522866+08	2019-09-01 18:51:50.522866+08
-1818	0	39	1	0	0	2	0	0	0	0	0	0	0		004 杨老师-姓氏歌2	bcdd285fbaad42888b3b98e576ef2073	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.598606+08	2019-09-01 18:51:50.598606+08
-1819	0	39	1	0	0	2	0	0	0	0	0	0	0		005 杨老师-小青蛙	b5d9d837ceac4ef49bddc607c3987b9a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.638897+08	2019-09-01 18:51:50.638897+08
-1820	0	39	1	0	0	2	0	0	0	0	0	0	0		006 杨老师-猜字谜（一）	ec3dc13e8f4247c2b177acea41a0ee95	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.70655+08	2019-09-01 18:51:50.70655+08
-1821	0	39	1	0	0	2	0	0	0	0	0	0	0		007 杨老师-猜字谜（二）	a9dc5ceaae08403e99cf576bfbe4099f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.769631+08	2019-09-01 18:51:50.769631+08
-1822	0	39	1	0	0	2	0	0	0	0	0	0	0		008 杨老师-园地（一）	c53847047bcf4fdabab025fe1c840593	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.831514+08	2019-09-01 18:51:50.831514+08
-1823	0	39	1	0	0	2	0	0	0	0	0	0	0		009 杨老师-吃水不忘挖井人	73846798925b42a78340226e5418bf17	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:50.967058+08	2019-09-01 18:51:50.967058+08
-1824	0	39	1	0	0	2	0	0	0	0	0	0	0		010 杨老师-我多想去看看	4f8b3d1f5a16419b884ed7a19060257b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.009692+08	2019-09-01 18:51:51.009692+08
-1825	0	39	1	0	0	2	0	0	0	0	0	0	0		011 杨老师-一个接一个（一）	7c56cd47474a403aaf6fb93d3d37af3f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.025048+08	2019-09-01 18:51:51.025048+08
-1826	0	39	1	0	0	2	0	0	0	0	0	0	0		012 杨老师-一个接一个（二）	70ca1148e30a405ba58837c0ea1a5843	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.080843+08	2019-09-01 18:51:51.080843+08
-1827	0	39	1	0	0	2	0	0	0	0	0	0	0		013 杨老师-四个太阳（一）	7f330f22632d4356bb09f7f71e35cbc8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.131572+08	2019-09-01 18:51:51.131572+08
-1828	0	39	1	0	0	2	0	0	0	0	0	0	0		014 杨老师-四个太阳（一）	ba5af0f1e1c64f24a28e7cd8c6f2e8e2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.178445+08	2019-09-01 18:51:51.178445+08
-1829	0	39	1	0	0	2	0	0	0	0	0	0	0		015 杨老师-园地（二）	adeba7f38ce64d1897bbe060fbb514d6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.248233+08	2019-09-01 18:51:51.248233+08
-1830	0	39	1	0	0	2	0	0	0	0	0	0	0		016 杨老师-小公鸡和小鸭子（一）	170cece21672484f9bcdeaa455af65c3	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.311267+08	2019-09-01 18:51:51.311267+08
-1831	0	39	1	0	0	2	0	0	0	0	0	0	0		017 杨老师-小公鸡和小鸭子（一）	3f9f210563754d21ab603645ef9f6e95	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.382884+08	2019-09-01 18:51:51.382884+08
-1832	0	39	1	0	0	2	0	0	0	0	0	0	0		018 杨老师-树和喜鹊（一）	22110afcada1415aa3ad7543216b915f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.433952+08	2019-09-01 18:51:51.433952+08
-1833	0	39	1	0	0	2	0	0	0	0	0	0	0		019 杨老师-树和喜鹊（二）	f175accdc6384d4583d141fadedf4c03	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.495577+08	2019-09-01 18:51:51.495577+08
-1834	0	39	1	0	0	2	0	0	0	0	0	0	0		020 杨老师-怎么都快乐（一）	755e1e0c878a4ef4a3c7c08003cac9a5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.547897+08	2019-09-01 18:51:51.547897+08
-1835	0	39	1	0	0	2	0	0	0	0	0	0	0		021 杨老师-怎么都快乐（二）	4119f8ae8b874994b6c2e747905c8e4a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.604169+08	2019-09-01 18:51:51.604169+08
-1836	0	39	1	0	0	2	0	0	0	0	0	0	0		022 杨老师-园地（三）	45e50b96f3ce46a4b68b382c779f7ae1	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.673009+08	2019-09-01 18:51:51.673009+08
-1837	0	39	1	0	0	2	0	0	0	0	0	0	0		023 杨老师-静夜思（一）	5da825397be3453a995e32f6fd22eed2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.725447+08	2019-09-01 18:51:51.725447+08
-1838	0	39	1	0	0	2	0	0	0	0	0	0	0		024 杨老师-静夜思（二）	d2a0b241512e4dffb45885d8e58d3119	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.787376+08	2019-09-01 18:51:51.787376+08
-1839	0	39	1	0	0	2	0	0	0	0	0	0	0		025 杨老师-夜色（一）	92c29197668c41f99504280eee673d39	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.855432+08	2019-09-01 18:51:51.855432+08
-1840	0	39	1	0	0	2	0	0	0	0	0	0	0		026 杨老师-夜色（二）	dfd4a10427984e2e886290d128841b0d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.910628+08	2019-09-01 18:51:51.910628+08
-1841	0	39	1	0	0	2	0	0	0	0	0	0	0		027 杨老师-端午粽（一）	1a345487c5a74dcab2b9aacea8de1ede	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:51.966833+08	2019-09-01 18:51:51.966833+08
-1842	0	39	1	0	0	2	0	0	0	0	0	0	0		028 杨老师-端午粽（二）	d5b27eb70e6b4b43a474c62f3bee14ed	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.023841+08	2019-09-01 18:51:52.023841+08
-1843	0	39	1	0	0	2	0	0	0	0	0	0	0		029 杨老师-彩虹（一）	09b477e3bbe44f1ebcab6e53bf90e536	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.087427+08	2019-09-01 18:51:52.087427+08
-1844	0	39	1	0	0	2	0	0	0	0	0	0	0		030 杨老师-彩虹（二）	68baaa224cae414598eeb2cf740fba16	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.154122+08	2019-09-01 18:51:52.154122+08
-1845	0	39	1	0	0	2	0	0	0	0	0	0	0		031 杨老师-园地（四）	d83f52bdf1ea40cbb39df0dc12f5052d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.205123+08	2019-09-01 18:51:52.205123+08
-1846	0	39	1	0	0	2	0	0	0	0	0	0	0		032 杨老师-动物儿歌（一）	1a77eca8f9814dcc9c0505499130a026	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.279985+08	2019-09-01 18:51:52.279985+08
-1847	0	39	1	0	0	2	0	0	0	0	0	0	0		033 杨老师-动物儿歌（二）	0b3deaf520374064bcbcd9dde6073c65	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.320532+08	2019-09-01 18:51:52.320532+08
-1848	0	39	1	0	0	2	0	0	0	0	0	0	0		034 杨老师-古对今（一）	41ce993faacc4101b807854c81f1f5f7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.392283+08	2019-09-01 18:51:52.392283+08
-1849	0	39	1	0	0	2	0	0	0	0	0	0	0		035 杨老师-古对今（二）	ad4b06cd890c469a9e01e5d6aff7a72e	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.45437+08	2019-09-01 18:51:52.45437+08
-1850	0	39	1	0	0	2	0	0	0	0	0	0	0		036 杨老师-古对今（三）	ad014a890e3840bb9f851a08e1078c2b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.505793+08	2019-09-01 18:51:52.505793+08
-1851	0	39	1	0	0	2	0	0	0	0	0	0	0		037 杨老师-操场上（一）	d49e968c52214e2abd44a52ffeb171aa	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.571855+08	2019-09-01 18:51:52.571855+08
-1852	0	39	1	0	0	2	0	0	0	0	0	0	0		038 杨老师-操场上（二）	e69fd6556c7a48db836063755b98ee59	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.625546+08	2019-09-01 18:51:52.625546+08
-1853	0	39	1	0	0	2	0	0	0	0	0	0	0		039 杨老师-人之初（一）	37f838717d42494c8e7e85818afad843	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.691124+08	2019-09-01 18:51:52.691124+08
-1854	0	39	1	0	0	2	0	0	0	0	0	0	0		040 杨老师-人之初（二）	6314b789cba44964a48636e566c0c326	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.740011+08	2019-09-01 18:51:52.740011+08
-1855	0	39	1	0	0	2	0	0	0	0	0	0	0		041 杨老师-园地五	298053898afb4d49964334b4568f1ac7	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.808817+08	2019-09-01 18:51:52.808817+08
-1856	0	39	1	0	0	2	0	0	0	0	0	0	0		042 杨老师-古诗二首（一）	814b6e55932a41f0b0fc2e9d758e9cd5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.863854+08	2019-09-01 18:51:52.863854+08
-1857	0	39	1	0	0	2	0	0	0	0	0	0	0		043 杨老师-古诗二首（二）	7fffe660a5e04ee5b9cb2fbe7154b8bc	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.932286+08	2019-09-01 18:51:52.932286+08
-1858	0	39	1	0	0	2	0	0	0	0	0	0	0		044 杨老师-荷叶圆圆（一）	e3a6e1d2907b4bbdb196e0d61f2737d2	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:52.978048+08	2019-09-01 18:51:52.978048+08
-1859	0	39	1	0	0	2	0	0	0	0	0	0	0		045 杨老师-荷叶圆圆（二）	5687e14717294cb49da4c232a01e00e6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.043529+08	2019-09-01 18:51:53.043529+08
-1860	0	39	1	0	0	2	0	0	0	0	0	0	0		046 杨老师-要下雨了（一）	b3913c26a95f42a780541041a83ef4d5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.105522+08	2019-09-01 18:51:53.105522+08
-1861	0	39	1	0	0	2	0	0	0	0	0	0	0		047 杨老师-要下雨了（二）	326329c9ba3e4c08bc466dde904feb0c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.164853+08	2019-09-01 18:51:53.164853+08
-1862	0	39	1	0	0	2	0	0	0	0	0	0	0		048 杨老师-语文园地（六）	95fca8616fe04b01ba7c6ea3d8d78e8c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.23257+08	2019-09-01 18:51:53.23257+08
-1863	0	39	1	0	0	2	0	0	0	0	0	0	0		049 杨老师-文具的家（一）	60a61caa43424ad1b04e649315fd5c68	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.28917+08	2019-09-01 18:51:53.28917+08
-1864	0	39	1	0	0	2	0	0	0	0	0	0	0		050 杨老师-文具的家（二）	f8374d5d36474828a55581cfa438fd78	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.349381+08	2019-09-01 18:51:53.349381+08
-1865	0	39	1	0	0	2	0	0	0	0	0	0	0		051 杨老师-一分钟（一）	91979339ab56438ea5e6f5e356644656	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.406147+08	2019-09-01 18:51:53.406147+08
-1866	0	39	1	0	0	2	0	0	0	0	0	0	0		052 杨老师-一分钟（二）	9caba3e4a4bb43e69f40119913a07178	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.468671+08	2019-09-01 18:51:53.468671+08
-1867	0	39	1	0	0	2	0	0	0	0	0	0	0		053-杨老师-动物王国开大会一	eed50e19c7df403391e292318e2ba615	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.521531+08	2019-09-01 18:51:53.521531+08
-1868	0	39	1	0	0	2	0	0	0	0	0	0	0		054-杨老师-动物王国开大会二	4b7189ee82684c0db68d47b3a74aaa81	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.583363+08	2019-09-01 18:51:53.583363+08
-1869	0	39	1	0	0	2	0	0	0	0	0	0	0		055 杨老师-小猴子下山（一）	aead572d3e46436fbc11a935f1e17108	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.645569+08	2019-09-01 18:51:53.645569+08
-1870	0	39	1	0	0	2	0	0	0	0	0	0	0		056 杨老师-小猴子下山（二）	a6ea609786964b18999f77119c556360	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.714967+08	2019-09-01 18:51:53.714967+08
-1871	0	39	1	0	0	2	0	0	0	0	0	0	0		057 杨老师-语文园地（七）	5338bd1f90c54dc4b54a88e173da7c58	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.760089+08	2019-09-01 18:51:53.760089+08
-1872	0	39	1	0	0	2	0	0	0	0	0	0	0		058 杨老师-棉花姑娘（一）	f8301f90f0b74400b4192b19d9b8ffb6	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.829702+08	2019-09-01 18:51:53.829702+08
-1873	0	39	1	0	0	2	0	0	0	0	0	0	0		059 杨老师-棉花姑娘（二）	8a2aa021bf0b44a78468643f0b8886a0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.88652+08	2019-09-01 18:51:53.88652+08
-1874	0	39	1	0	0	2	0	0	0	0	0	0	0		060 杨老师-咕咚（一）	73941652f0e34afd86a7f0ceb3025524	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:53.944287+08	2019-09-01 18:51:53.944287+08
-1875	0	39	1	0	0	2	0	0	0	0	0	0	0		061 杨老师-咕咚（二）	74a67efefc1148888120b5b881444c8f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.015049+08	2019-09-01 18:51:54.015049+08
-1876	0	39	1	0	0	2	0	0	0	0	0	0	0		062 杨老师-小壁虎借尾巴（一）	61210016de104690aff00da0bc9a4f0b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.055837+08	2019-09-01 18:51:54.055837+08
-1877	0	39	1	0	0	2	0	0	0	0	0	0	0		063 杨老师-小壁虎借尾巴（二）	666c83c3eaae4b7ab2e336e205a9dfba	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.122939+08	2019-09-01 18:51:54.122939+08
-1878	0	39	1	0	0	2	0	0	0	0	0	0	0		064 杨老师-园地八	5c524f269ee645cd9c76c8d6afa6a791	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.182294+08	2019-09-01 18:51:54.182294+08
-1879	0	40	1	0	0	1	0	0	0	0	0	0	0		001 杨老师-认识厘米 P2-4	5b61c3095c664ce59b8045d893ac620a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.241196+08	2019-09-01 18:51:54.241196+08
-1880	0	40	1	0	0	1	0	0	0	0	0	0	0		002 杨老师-认识米 P4	07fe5568ad09407dbfa7909b276f7562	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.30595+08	2019-09-01 18:51:54.30595+08
-1881	0	40	1	0	0	2	0	0	0	0	0	0	0		003 杨老师-认识线段 P5	ef889640675741dd83a44f1d940b3c4d	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.366751+08	2019-09-01 18:51:54.366751+08
-1882	0	40	1	0	0	2	0	0	0	0	0	0	0		004 杨老师-确定长度单位 P5-7	044196b9426545c0951671deb76330c9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.43383+08	2019-09-01 18:51:54.43383+08
-1883	0	40	1	0	0	2	0	0	0	0	0	0	0		005 杨老师-不进位加 P11-13	da415ca534ef48dc917c94aa111e4cbd	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.490335+08	2019-09-01 18:51:54.490335+08
-1884	0	40	1	0	0	2	0	0	0	0	0	0	0		006 杨老师-进位加 P14	006ea042f9fc4c61b4d53105d8eff262	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.550162+08	2019-09-01 18:51:54.550162+08
-1885	0	40	1	0	0	2	0	0	0	0	0	0	0		007 杨老师-不退位减法 P17-18 	834bb23ba86f4800808aa99a90eeca38	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.598934+08	2019-09-01 18:51:54.598934+08
-1886	0	40	1	0	0	2	0	0	0	0	0	0	0		008 杨老师-退位减法 P19	bc2b0883b10d479fbd03e329c370161a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.667256+08	2019-09-01 18:51:54.667256+08
-1887	0	40	1	0	0	2	0	0	0	0	0	0	0		009 杨老师-求比一个数少几的数 P23-26	0557b9aab7454e9091a13e634dc088db	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.715974+08	2019-09-01 18:51:54.715974+08
-1888	0	40	1	0	0	2	0	0	0	0	0	0	0		010 杨老师-连加、连减 P27	d932b9c3bb4446648ca7473c14f932e8	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.783601+08	2019-09-01 18:51:54.783601+08
-1889	0	40	1	0	0	2	0	0	0	0	0	0	0		011 杨老师-加减混合 P28	a3a62c0f909a4d49bf58c3e83363d5a9	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.850511+08	2019-09-01 18:51:54.850511+08
-1890	0	40	1	0	0	2	0	0	0	0	0	0	0		012 杨老师-角的初步认识 P39，P43	492af6872eaf43fb8854e0d0ed954a52	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.906064+08	2019-09-01 18:51:54.906064+08
-1891	0	40	1	0	0	2	0	0	0	0	0	0	0		013 杨老师-直角的认识 P40	57d567ef854040549a99bea390a8db9c	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:54.969519+08	2019-09-01 18:51:54.969519+08
-1892	0	40	1	0	0	2	0	0	0	0	0	0	0		014 杨老师-锐角和钝角 P41	e9ff562c35344f93ac7f1e3d2511ee26	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.019947+08	2019-09-01 18:51:55.019947+08
-1893	0	40	1	0	0	2	0	0	0	0	0	0	0		015 杨老师-角在生活中的应用 P41-42	9898f7b0acb2435e95548593b4c93b36	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.084997+08	2019-09-01 18:51:55.084997+08
-1894	0	40	1	0	0	2	0	0	0	0	0	0	0		016 杨老师-乘法的初步认识 P47-49	2c8a1d5d44ef4a3798a0018b919bf26b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.144268+08	2019-09-01 18:51:55.144268+08
-1895	0	40	1	0	0	2	0	0	0	0	0	0	0		017 杨老师-5的乘法口诀 P52-53	af62e30e15b749f5921bb6f90acbc57b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.201397+08	2019-09-01 18:51:55.201397+08
-1896	0	40	1	0	0	2	0	0	0	0	0	0	0		018 杨老师-2.3.4的乘法口诀 P54	9d9225ca7b1549ffb234efaec461b2fe	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.263825+08	2019-09-01 18:51:55.263825+08
-1897	0	40	1	0	0	2	0	0	0	0	0	0	0		019 杨老师-乘加 乘减 P58-59	9339401405ab4060baad433cea08814b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.33709+08	2019-09-01 18:51:55.33709+08
-1898	0	40	1	0	0	2	0	0	0	0	0	0	0		020 杨老师-6的乘法口诀 P60	7a1bf4d115a34fb3aae10226e51bcf50	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.389884+08	2019-09-01 18:51:55.389884+08
-1899	0	40	1	0	0	2	0	0	0	0	0	0	0		021 杨老师-观察物体（一） P68，P71	c5875cd48aae43618e61d1ea2af9e3c5	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.439281+08	2019-09-01 18:51:55.439281+08
-1900	0	40	1	0	0	2	0	0	0	0	0	0	0		022 杨老师-观察物体（二） P69	622057f91df141cea580191d2ad2620a	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.504809+08	2019-09-01 18:51:55.504809+08
-1901	0	40	1	0	0	2	0	0	0	0	0	0	0		023 杨老师-7的乘法口诀 P72	24ed4999cede44e184586eca798e4e2b	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.559228+08	2019-09-01 18:51:55.559228+08
-1902	0	40	1	0	0	2	0	0	0	0	0	0	0		024 杨老师-8的乘法口诀 P75-76	7f65d79c6a5741238b039322b54cac8f	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.617603+08	2019-09-01 18:51:55.617603+08
-1903	0	40	1	0	0	2	0	0	0	0	0	0	0		025 杨老师-9的乘法口诀 P80	160876f5b26c4e61b556f3ee4da52dbe	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.688306+08	2019-09-01 18:51:55.688306+08
-1904	0	40	1	0	0	2	0	0	0	0	0	0	0		026 杨老师-认识时间 P90-91	4c4a2f732f634f40b0f45b66ab8b28b0	[]				0001-01-01 08:05:43+08:05:43	2019-09-01 18:51:55.744825+08	2019-09-01 18:51:55.744825+08
-1905	0	40	1	0	0	2	0	0	0	0	0	0	0		027 杨老师-数学广角 P97-98	eabcb924ff8249f4bdb34a9aead8c4b8	[]				0001-01-01 08:05:43+08:05:43	2019-09-02 11:30:03.452263+08	2019-09-01 18:51:55.803228+08
+COPY std_lessons (id, channel_id, course_id, type, status, refer_id, free, share, up, down, favor, views, price, uid, "desc", title, track_id, attach, point, action, imgs, expire, updated_at, created_at) FROM stdin;
+1	0	1	1	0	0	1	0	0	0	0	0	0	0		星空漫步	191a7ba01c77422c8421ac4f7560ca7d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.602854+08	2019-09-01 18:50:01.602854+08
+2	0	2	1	0	0	2	0	0	0	0	0	0	0		永远长不大的男孩	496d13cd01a640ec937b2b691c6a4336	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.677147+08	2019-09-01 18:50:01.677147+08
+3	0	2	1	0	0	2	0	0	0	0	0	0	0		飞往永无岛	578ec9b57f1e4e9aaeaca93d4c4f0fb2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.731508+08	2019-09-01 18:50:01.731508+08
+4	0	2	1	0	0	2	0	0	0	0	0	0	0		自由的代价	c590081a7e8a4cf0a45c76cb543d6be1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.792539+08	2019-09-01 18:50:01.792539+08
+5	0	2	1	0	0	2	0	0	0	0	0	0	0		决战虎克船长	5cf69dcbdaf84556a2b1d34d4dfdf025	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.851148+08	2019-09-01 18:50:01.851148+08
+6	0	2	1	0	0	2	0	0	0	0	0	0	0		长大之后的故事	f6def925b1e245d2a39f590b969b2c67	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.925664+08	2019-09-01 18:50:01.925664+08
+7	0	2	1	0	0	1	0	0	0	0	0	0	0		【文化小知识】做买卖的人为什么叫商人？	b7f98dfb76b4453d901f41937c9c4692	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:01.998042+08	2019-09-01 18:50:01.998042+08
+8	0	3	1	0	0	1	0	0	0	0	0	0	0		01前言	e35549dd31624d5dbd7f080ca948988e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.049006+08	2019-09-01 18:50:02.049006+08
+9	0	3	1	0	0	1	0	0	0	0	0	0	0		02单韵母家族	93cb4a3f93544a12899971b0ad118315	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.106492+08	2019-09-01 18:50:02.106492+08
+10	0	3	1	0	0	2	0	0	0	0	0	0	0		03开着汽车去旅行	7d58b085d1fd4392bc37439d40f1b4db	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.167472+08	2019-09-01 18:50:02.167472+08
+11	0	3	1	0	0	2	0	0	0	0	0	0	0		04声母家族大聚会（一）	36b663a6bafe4b75b42ed89228f0e5f1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.225477+08	2019-09-01 18:50:02.225477+08
+12	0	3	1	0	0	2	0	0	0	0	0	0	0		05声母家族大聚会（二）	306bf04a47e14854abdf55845fa10a99	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.287676+08	2019-09-01 18:50:02.287676+08
+13	0	3	1	0	0	2	0	0	0	0	0	0	0		06声母家族大聚会（三）	caf2382aa5144de5be5131d3afc6240d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.324381+08	2019-09-01 18:50:02.324381+08
+14	0	3	1	0	0	2	0	0	0	0	0	0	0		07声母家族大聚会（四）	6e341940f3ef4520994d739e35bc8ad4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.386579+08	2019-09-01 18:50:02.386579+08
+15	0	3	1	0	0	2	0	0	0	0	0	0	0		08声母家族大聚会（五）	8957c5b3d2f142359686ba565927821c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.446002+08	2019-09-01 18:50:02.446002+08
+16	0	3	1	0	0	2	0	0	0	0	0	0	0		09智勇大冲关	32eb9967389848c58615072e52910c4d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.515938+08	2019-09-01 18:50:02.515938+08
+17	0	3	1	0	0	2	0	0	0	0	0	0	0		10复韵母家族（一）	15dcf413a27c4858a82c8123aedb8a66	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.574224+08	2019-09-01 18:50:02.574224+08
+18	0	3	1	0	0	2	0	0	0	0	0	0	0		11复韵母家族（二）	d5510899ced24b6cb1790db9e253ed35	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.630813+08	2019-09-01 18:50:02.630813+08
+19	0	3	1	0	0	2	0	0	0	0	0	0	0		12复韵母家族（三）	64b975c595074a30849de69a16d2d913	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.718442+08	2019-09-01 18:50:02.718442+08
+20	0	3	1	0	0	2	0	0	0	0	0	0	0		13鼻韵母家族（一）	988dff7b59bf491c98e6b8afebd165ee	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.786899+08	2019-09-01 18:50:02.786899+08
+21	0	3	1	0	0	2	0	0	0	0	0	0	0		14鼻韵母家族（二）	78ec413b2ef94a01a24bb94bb260c805	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.816398+08	2019-09-01 18:50:02.816398+08
+22	0	3	1	0	0	2	0	0	0	0	0	0	0		15声母韵母游乐场	f10d0673df2745a4acf7fcf9abb59a31	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.866442+08	2019-09-01 18:50:02.866442+08
+23	0	3	1	0	0	2	0	0	0	0	0	0	0		16字母找朋友 1 声母、单韵母	837de11c52b147dbb8dd04012d1b711d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.929165+08	2019-09-01 18:50:02.929165+08
+24	0	3	1	0	0	2	0	0	0	0	0	0	0		17字母找朋友 2 声母、单韵母	32185b3393cb4690919dfbceb39f9fe4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:02.982136+08	2019-09-01 18:50:02.982136+08
+25	0	3	1	0	0	2	0	0	0	0	0	0	0		18字母找朋友3 声母、复韵母	86883046591a4dc9bafb0a3005f43087	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.053561+08	2019-09-01 18:50:03.053561+08
+26	0	3	1	0	0	2	0	0	0	0	0	0	0		19字母找朋友4 声母、前鼻韵母	f96da83ab02846bbbc9decf9602dcc88	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.104916+08	2019-09-01 18:50:03.104916+08
+27	0	3	1	0	0	2	0	0	0	0	0	0	0		20字母找朋友5 声母、后鼻韵母	1ab2466eac4546c0a701c502d9099741	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.169525+08	2019-09-01 18:50:03.169525+08
+28	0	3	1	0	0	2	0	0	0	0	0	0	0		21字母找朋友6	a75f0c1110f84b1d96b2188edb71d5bc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.225819+08	2019-09-01 18:50:03.225819+08
+29	0	3	1	0	0	2	0	0	0	0	0	0	0		22字母找朋友7	c7b508a5fa164fa7b4cbdab397f3e06e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.295796+08	2019-09-01 18:50:03.295796+08
+30	0	3	1	0	0	2	0	0	0	0	0	0	0		23字母找朋友8	c71a24aa3f184c52af28effe29d4f347	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.344619+08	2019-09-01 18:50:03.344619+08
+31	0	3	1	0	0	2	0	0	0	0	0	0	0		24字母找朋友9	3b07133c03114da09e49f20b8280ac2e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.416351+08	2019-09-01 18:50:03.416351+08
+32	0	3	1	0	0	2	0	0	0	0	0	0	0		25特殊的音节（一）	3073b7d2e31d40c3a11c30b2f1b83c9f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.477599+08	2019-09-01 18:50:03.477599+08
+33	0	3	1	0	0	2	0	0	0	0	0	0	0		26特殊的音节（二）	c46f041333a7485babc5e0fd9ca3ee5e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.542614+08	2019-09-01 18:50:03.542614+08
+34	0	3	1	0	0	2	0	0	0	0	0	0	0		27特殊的音节（三）	58660560e2ad443d86054ece8ddf3aca	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.593196+08	2019-09-01 18:50:03.593196+08
+35	0	3	1	0	0	2	0	0	0	0	0	0	0		28拼音大联欢	f4099d77d2ea46c38d2123b704931fbc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.658717+08	2019-09-01 18:50:03.658717+08
+36	0	4	1	0	0	1	0	0	0	0	0	0	0		001 沙拉-前言	977a55f00ac54a0992f7b4d458237a14	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.700833+08	2019-09-01 18:50:03.700833+08
+37	0	4	1	0	0	1	0	0	0	0	0	0	0		002 沙拉-period（一）	24578ea9e68b41babad65aa0d149445b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.783052+08	2019-09-01 18:50:03.783052+08
+38	0	4	1	0	0	2	0	0	0	0	0	0	0		003 沙拉-period（二）	5ca912f0ee42405f93788b077226437a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.830313+08	2019-09-01 18:50:03.830313+08
+39	0	4	1	0	0	2	0	0	0	0	0	0	0		004 沙拉-period（三）	d8e874472a24418598a1f7dcb9227c80	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.897591+08	2019-09-01 18:50:03.897591+08
+40	0	4	1	0	0	2	0	0	0	0	0	0	0		005 沙拉-period（四）	06a4bf713ae742dc8e8e54241743ef04	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:03.950799+08	2019-09-01 18:50:03.950799+08
+41	0	4	1	0	0	2	0	0	0	0	0	0	0		006 沙拉-period（五）	4a9baa6560fa4704889280c6abfde1a8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.020257+08	2019-09-01 18:50:04.020257+08
+42	0	4	1	0	0	2	0	0	0	0	0	0	0		007 沙拉-period（六）	dc04353cb46445abbfee1e8284a2bf4f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.066547+08	2019-09-01 18:50:04.066547+08
+43	0	4	1	0	0	2	0	0	0	0	0	0	0		008 沙拉-period（一）	c0a9a8dac0a04409b54421ae8a248b50	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.124147+08	2019-09-01 18:50:04.124147+08
+44	0	4	1	0	0	2	0	0	0	0	0	0	0		009 沙拉-period（二）	0166898446df4c85a21e3683b0c0f476	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.183354+08	2019-09-01 18:50:04.183354+08
+45	0	4	1	0	0	2	0	0	0	0	0	0	0		010 沙拉-period（三）	abd340dbf8a843ccac253427216cd67b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.245097+08	2019-09-01 18:50:04.245097+08
+46	0	4	1	0	0	2	0	0	0	0	0	0	0		011 沙拉-period（四）	92753f5615ea4dc88eafcbbe95897d66	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.302142+08	2019-09-01 18:50:04.302142+08
+47	0	4	1	0	0	2	0	0	0	0	0	0	0		012 沙拉-period（五）	ac60e43cebaf409090735be1e4ab34ae	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.37604+08	2019-09-01 18:50:04.37604+08
+48	0	4	1	0	0	2	0	0	0	0	0	0	0		013 沙拉-period（六）	b41b2e625e274b599f6bacd0c41acc1c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.448629+08	2019-09-01 18:50:04.448629+08
+49	0	4	1	0	0	2	0	0	0	0	0	0	0		014 沙拉-period（一）	d8f53754c5b84e109b891b8a52f40902	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.482918+08	2019-09-01 18:50:04.482918+08
+50	0	4	1	0	0	2	0	0	0	0	0	0	0		015 沙拉-period（二）	11f9b4966d0844888ac096c968d43592	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.545051+08	2019-09-01 18:50:04.545051+08
+51	0	4	1	0	0	2	0	0	0	0	0	0	0		016 沙拉-period（三）	af7baaf28f5349e3aa431bdabf53e4a3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.618678+08	2019-09-01 18:50:04.618678+08
+52	0	4	1	0	0	2	0	0	0	0	0	0	0		017 沙拉-period（四）	fac6bf07682f4a1296fcd135a56e4754	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.669503+08	2019-09-01 18:50:04.669503+08
+53	0	4	1	0	0	2	0	0	0	0	0	0	0		018 沙拉-period（五）	3dceb9552a1f49b2b87c25b3eadfceaf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.733216+08	2019-09-01 18:50:04.733216+08
+54	0	4	1	0	0	2	0	0	0	0	0	0	0		019 沙拉-period（六）	5a8a003738714dc19b9449fb5aee78bc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.786792+08	2019-09-01 18:50:04.786792+08
+55	0	4	1	0	0	2	0	0	0	0	0	0	0		020 沙拉-period（一）	e791065ff09d4249aba40b70b2e2ea77	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.854547+08	2019-09-01 18:50:04.854547+08
+56	0	4	1	0	0	2	0	0	0	0	0	0	0		021 沙拉-period（二）	7fdf0ba0263a47f9a10dbd134226fe24	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.910228+08	2019-09-01 18:50:04.910228+08
+57	0	4	1	0	0	2	0	0	0	0	0	0	0		022 沙拉-period（三）	08cb27390f5648fb9d2cc4485489391a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:04.971909+08	2019-09-01 18:50:04.971909+08
+58	0	4	1	0	0	2	0	0	0	0	0	0	0		023 沙拉-period（四）	c535a50ff67746168dc2284075b59bda	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.03382+08	2019-09-01 18:50:05.03382+08
+59	0	4	1	0	0	2	0	0	0	0	0	0	0		024 沙拉-period（五）	700120f33d314289af1f6e7d56e826fb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.094157+08	2019-09-01 18:50:05.094157+08
+60	0	4	1	0	0	2	0	0	0	0	0	0	0		025 沙拉-period（六）	6ea4c7f9c6764821a170cbde916d0b55	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.150478+08	2019-09-01 18:50:05.150478+08
+61	0	4	1	0	0	2	0	0	0	0	0	0	0		026 沙拉-period（一）	e2daed17d9004ddca8081b4ad08e7b3f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.212437+08	2019-09-01 18:50:05.212437+08
+62	0	4	1	0	0	2	0	0	0	0	0	0	0		027 沙拉-period（二）	4afd2f7552c54dd19058ecc659bf355a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.272972+08	2019-09-01 18:50:05.272972+08
+63	0	4	1	0	0	2	0	0	0	0	0	0	0		028 沙拉-period（三）	12b6aa3a83344d1f8d3440a7bbdd28a2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.328628+08	2019-09-01 18:50:05.328628+08
+64	0	4	1	0	0	2	0	0	0	0	0	0	0		029 沙拉-period（四）	35d013aa0fa9415f82d0274372d40d00	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.396832+08	2019-09-01 18:50:05.396832+08
+65	0	4	1	0	0	2	0	0	0	0	0	0	0		030 沙拉-period（五）	c5be3df631b64357884db3b6b6480b1b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.449299+08	2019-09-01 18:50:05.449299+08
+66	0	4	1	0	0	2	0	0	0	0	0	0	0		031 沙拉-period（六）	8cd4b6fd242a4638a648e2928e6add8a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.515957+08	2019-09-01 18:50:05.515957+08
+67	0	4	1	0	0	2	0	0	0	0	0	0	0		032 沙拉-总复习（一）	5d9a90e06e00492a99011784afe4a313	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.582993+08	2019-09-01 18:50:05.582993+08
+68	0	4	1	0	0	2	0	0	0	0	0	0	0		033 沙拉-总复习（二）	c8b69970eb8645cfa415187153db7071	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.61514+08	2019-09-01 18:50:05.61514+08
+69	0	4	1	0	0	2	0	0	0	0	0	0	0		034 沙拉-总复习（三）	f7fd9a2fc1fa47348c12bf3b968e7f78	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.685196+08	2019-09-01 18:50:05.685196+08
+70	0	4	1	0	0	2	0	0	0	0	0	0	0		035 沙拉-short plays（一）	4240e6330dd7472ea2eae3691702a33d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.750741+08	2019-09-01 18:50:05.750741+08
+71	0	4	1	0	0	2	0	0	0	0	0	0	0		036 沙拉-short plays（二）	fd2ce740633943dd8f5c143d95f41894	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.813351+08	2019-09-01 18:50:05.813351+08
+72	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】中国诗歌那多么，为什么唐诗流传最广？	ec8fae2ed2d841c3af7531537c79c795	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.867028+08	2019-09-01 18:50:05.867028+08
+73	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】如果月亮突然消失会怎样？	6a922e890b9e47258048e649461c9a2a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.930898+08	2019-09-01 18:50:05.930898+08
+74	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】清华学霸提高数学成绩的方法	783765b58b534f489425f6cd0f393d58	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:05.986835+08	2019-09-01 18:50:05.986835+08
+75	0	6	1	0	0	1	0	0	0	0	0	0	0		【财商】为什么没有3元的人民币？	d46ff7205d4b4afeaf3808cb444806fd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.047968+08	2019-09-01 18:50:06.047968+08
+76	0	6	1	0	0	1	0	0	0	0	0	0	0		【安全】剥完橙子千万别碰气球	7ec90c6440424bec800beb82da90efb4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.109916+08	2019-09-01 18:50:06.109916+08
+77	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】斑马的黑白条纹，功能让你意想不到	0374740d8286487ea91a2599565ed9c8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.167274+08	2019-09-01 18:50:06.167274+08
+78	0	6	1	0	0	1	0	0	0	0	0	0	0		【心理】人为什么会害羞？	c06d200a380b48b3a83e52b09cacee3b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.231394+08	2019-09-01 18:50:06.231394+08
+79	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】 为什么第一名叫“状元”？	301d92f99865449eacad35374f43a441	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.292633+08	2019-09-01 18:50:06.292633+08
+80	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】细菌可以被彻底消灭吗？	69f03d31bbbe44a58447fcbe455d1dca	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.358677+08	2019-09-01 18:50:06.358677+08
+81	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】每天运动30分钟，学习效率高两倍	59299a1e2efb46b2b2518a310959668c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.404219+08	2019-09-01 18:50:06.404219+08
+82	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】著名的英国巨石阵，其实没那么神秘	0ee45a48f457454bbb20bbbdf62f798c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.466912+08	2019-09-01 18:50:06.466912+08
+83	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】树干为什么是圆柱形？	44ea98fd4ab341f8a7e2b0a3aac1bfc1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.528037+08	2019-09-01 18:50:06.528037+08
+84	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】高尔夫球表面为什么会有许多凹坑	4473411e743d4a0c8059761d7ae62c12	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.59358+08	2019-09-01 18:50:06.59358+08
+85	0	6	1	0	0	1	0	0	0	0	0	0	0		【节日】愚人节开过的那些世纪玩笑	4ad827db5fb141359805d8fe0dc97ac0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.654949+08	2019-09-01 18:50:06.654949+08
+86	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】《最强大脑》孙弈东的学习动力从哪来？（家长必听）	bd8cb01631ce4d70bb51378e8e7c424e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.715278+08	2019-09-01 18:50:06.715278+08
+87	0	6	1	0	0	1	0	0	0	0	0	0	0		【财商】为什么有钱人喜欢把钱存在瑞士银行？	b25dc0352e1f4f8fa5ed63c376b7dac9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.766024+08	2019-09-01 18:50:06.766024+08
+88	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】世界上最毒的植物是什么？	01f91418308e4ebb803704f19507b1ef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.825264+08	2019-09-01 18:50:06.825264+08
+89	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】鸡蛋为什么要竖着放？	3f9114a4912946bbad8bcb597d5602be	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.888005+08	2019-09-01 18:50:06.888005+08
+90	0	6	1	0	0	1	0	0	0	0	0	0	0		【心理】为什么老师改完试卷，分数下面要画两条横线？	058e21529d594dd18f8d41e1b54771b2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:06.94807+08	2019-09-01 18:50:06.94807+08
+91	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】螃蟹煮熟后为什么会变红？	4ae33659a5f44a1495e7de4fcdc09204	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.010493+08	2019-09-01 18:50:07.010493+08
+92	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】不是所有鹦鹉都会说话	fdff242755734e88a6d803b5635b420c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.073643+08	2019-09-01 18:50:07.073643+08
+93	0	6	1	0	0	1	0	0	0	0	0	0	0		【节日】清明节为什么要回乡祭祖？	7477326f3a0b4ff19abc6929ef582dc1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.139232+08	2019-09-01 18:50:07.139232+08
+94	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】不同动物之间会交朋友吗？	c8e2393938d34ebeb9d579e622cbef2a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.190717+08	2019-09-01 18:50:07.190717+08
+95	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】从学渣到哈佛学霸，他用了这3个方法	1a13643ceda84682b16ea6dadf316187	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.252251+08	2019-09-01 18:50:07.252251+08
+96	0	6	1	0	0	1	0	0	0	0	0	0	0		【数学】为什么耳机线总是爱打结？	c8e1287c666947f58fd548ffb1bf1789	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.319288+08	2019-09-01 18:50:07.319288+08
+97	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】机器人也会“生病”	5811e0df19034b1cb6f827ad74a59443	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.388071+08	2019-09-01 18:50:07.388071+08
+98	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】考试后别再说“太粗心了，其实我都会…”	3ef2e184a0e540f19a9dad7c563de90d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.441071+08	2019-09-01 18:50:07.441071+08
+99	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么自己挠痒不会笑？	e96fcb7f40b14a968c31c3cd95273bcc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.493967+08	2019-09-01 18:50:07.493967+08
+100	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】猿和猴有什么区别？	899399419e3545b1b2bc03e9f90a3942	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.547827+08	2019-09-01 18:50:07.547827+08
+101	0	6	1	0	0	1	0	0	0	0	0	0	0		【热点】《老师•好》：老师管你，是因为心里有你！	0c274fb3b12e478fb0fa6faad9fe8380	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.605322+08	2019-09-01 18:50:07.605322+08
+102	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】刷牙为什么会起小泡泡？	249d399d5e7a410980a5fceb9b5f2ac3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.672449+08	2019-09-01 18:50:07.672449+08
+103	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】为什么英国法官和律师上庭时要戴假发？	cea948efa071425fb8813093acbf2106	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.729529+08	2019-09-01 18:50:07.729529+08
+104	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】一天中什么时候空气最新鲜？	ab2ef65acd2b4d31ac178de56ee50140	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.789144+08	2019-09-01 18:50:07.789144+08
+105	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】“北京时间”是北京当地的时间吗？	5c13efd3f98348afae344ec39033e0b4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.853283+08	2019-09-01 18:50:07.853283+08
+106	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】两个轮子的自行车为什么不会倒？	8dd436caf4c24322921bb5f948a78d21	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.910227+08	2019-09-01 18:50:07.910227+08
+107	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】交通灯为什么要用红、绿、黄三种颜色？	4bdf09a6c98540cdb538949ac168fa01	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:07.971667+08	2019-09-01 18:50:07.971667+08
+108	0	6	1	0	0	1	0	0	0	0	0	0	0		【心理】挤电梯时，大家为什么总喜欢向上看？	b27e8d93ca8e4d80b17a0a68bd154789	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.022886+08	2019-09-01 18:50:08.022886+08
+109	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】衡水中学学霸的记忆秘籍	c5abf23edcd54b4bb7912d6dc2813464	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.103679+08	2019-09-01 18:50:08.103679+08
+110	0	6	1	0	0	1	0	0	0	0	0	0	0		【医学】为什么饭后半小时才能吃药？	445f96b2d00b46539433dab9dd3b35e1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.152113+08	2019-09-01 18:50:08.152113+08
+111	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】动物的尾巴有哪些神奇作用？	3af1239010534bcdaaa0de8f382b42df	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.201822+08	2019-09-01 18:50:08.201822+08
+112	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】电池是怎么工作的？	f7cffd50cd4f4020ab675bbd2b357ded	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.275756+08	2019-09-01 18:50:08.275756+08
+113	0	6	1	0	0	1	0	0	0	0	0	0	0		【安全】去春游，这几种常见的植物不能碰！	4c73668403694c289b8d3a2703c08648	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.338456+08	2019-09-01 18:50:08.338456+08
+114	0	6	1	0	0	1	0	0	0	0	0	0	0		【健康】汤泡饭会破坏你的消化系统	6e25e395a1514a07ab3fd3535a757199	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.381664+08	2019-09-01 18:50:08.381664+08
+115	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】没有翅膀的鸟真的存在吗？	8292b9e6b7fd46da8be1be3e8ae3d429	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.444252+08	2019-09-01 18:50:08.444252+08
+116	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】人类首张黑洞照片冲洗了2年	6dbde2ce342a4159b56b830d813d8a86	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.517875+08	2019-09-01 18:50:08.517875+08
+117	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】古代皇子们是怎么上学的？	705b23bf286d4f9280df3517d70a7400	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.561474+08	2019-09-01 18:50:08.561474+08
+118	0	6	1	0	0	1	0	0	0	0	0	0	0		【体育】中国武术里真的有轻功吗？	384a99ad887046a5854e4848d6288ae1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.634344+08	2019-09-01 18:50:08.634344+08
+119	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】高考语文148分是怎样炼成的？	5f3ffb566ae0434d8be1f078457f5e51	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.701224+08	2019-09-01 18:50:08.701224+08
+120	0	6	1	0	0	1	0	0	0	0	0	0	0		【地理】 森林大火为何会引发天上飞火？	8cb89b10a96446398c8a44cbfd8e2855	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.756985+08	2019-09-01 18:50:08.756985+08
+121	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】电报竟然是画家发明的！	37fe81fddd2548bdb3c70a96587ed82e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.800853+08	2019-09-01 18:50:08.800853+08
+122	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】假传“圣旨”？不存在的	f318191cd0ce4154a8ab19a6d4506ec6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.860383+08	2019-09-01 18:50:08.860383+08
+123	0	6	1	0	0	1	0	0	0	0	0	0	0		【气象】为什么春天还没走夏天就到了？	753b5ec4b07f4ab8aa922e6f12691ff9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.926065+08	2019-09-01 18:50:08.926065+08
+124	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】打喷嚏时心脏会停止1%秒	89ae497e30124a6e979fac19194d26bc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:08.98594+08	2019-09-01 18:50:08.98594+08
+125	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】麻省理工大学的SQ3R学习法	8ecf4c909ba243f08ccb895913f9b14c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.057247+08	2019-09-01 18:50:09.057247+08
+126	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】包青天真的是黑脸吗？	94da67eaa9bf40729d35328b3793ab23	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.112801+08	2019-09-01 18:50:09.112801+08
+127	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】“家庭作业”是怎么来的？	94d9316f648749db8ff3379d0946f6c4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.169598+08	2019-09-01 18:50:09.169598+08
+128	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】汉语里让你大跌眼镜的词汇来源	830917dddec7418d996f451eb0843021	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.234652+08	2019-09-01 18:50:09.234652+08
+129	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】鲤鱼为什么喜欢跳水？	de3f5b33a2c74da1bfd80aa26aabf3d1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.289633+08	2019-09-01 18:50:09.289633+08
+130	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】汉语拼音是怎么来的？	c78d070a76184ab688ae9761af1edd77	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.357238+08	2019-09-01 18:50:09.357238+08
+131	0	6	1	0	0	1	0	0	0	0	0	0	0		【热点】巴黎圣母院的大火为何不能及时扑灭？	a239e6701b8b405c8e0d584f5f0bd8de	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.401428+08	2019-09-01 18:50:09.401428+08
+132	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】古印度人会因为相貌丑陋被判刑	ae00449d2c984a8ebba5a6ecabc78518	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.465361+08	2019-09-01 18:50:09.465361+08
+133	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】黑匣子到底有什么用？	f7fe150223b047199e97a17ebe7c14e3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.521622+08	2019-09-01 18:50:09.521622+08
+134	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】语数外考前学习要点	1d819ceec9674a048d352ccf699de509	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.59734+08	2019-09-01 18:50:09.59734+08
+135	0	6	1	0	0	1	0	0	0	0	0	0	0		【科普】黄瓜明明是绿色，为什么叫黄瓜呢？	af1d0c17452e47d3a6f7004a7f8748ae	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.65397+08	2019-09-01 18:50:09.65397+08
+136	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】七尺男儿到底是多高？	d2b3bab384ea4f63ac1b6f9c701bcea7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.762469+08	2019-09-01 18:50:09.762469+08
+137	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】金鱼的记忆有3个月，不是7秒！	ce39b3722f084fa5a11a22043238b8d4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.780439+08	2019-09-01 18:50:09.780439+08
+138	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】星期制度是怎么来的？	3d41b47bfbca4db18e145f5ef4d50c42	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.884413+08	2019-09-01 18:50:09.884413+08
+139	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么血液是红色，血管是绿色？	8d4b6278d43440dea640281f2bc3666e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.893274+08	2019-09-01 18:50:09.893274+08
+140	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】鲁迅，一个被文学耽搁的理科学霸	b46423603573414faf6105596ac44e8b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:09.956094+08	2019-09-01 18:50:09.956094+08
+141	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】鲁迅先生的读书技巧	fab6bc16986a45ec90fd0d287f712fc8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.009874+08	2019-09-01 18:50:10.009874+08
+142	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】鱼肉比畜肉更容易坏	5df83673a5b446b992b0e4b4dcae7e21	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.071744+08	2019-09-01 18:50:10.071744+08
+143	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】动物也会给自己治病	4cbb574c6aa44f10aef67e3c3901e12a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.135663+08	2019-09-01 18:50:10.135663+08
+144	0	6	1	0	0	1	0	0	0	0	0	0	0		【生物】蚊子有22颗牙齿，最长能活100天	fe7ac516e8a04235ae7cca70396a63dc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.195171+08	2019-09-01 18:50:10.195171+08
+145	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】天鹅是世界上飞得最高的鸟类之一	bbfb959d4f4944a79302249ae467eea5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.255984+08	2019-09-01 18:50:10.255984+08
+146	0	6	1	0	0	1	0	0	0	0	0	0	0		【节日】4月30日是“国际不打小孩日”	552f8cdb90ea4c43ae0859f32e2d9208	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.306671+08	2019-09-01 18:50:10.306671+08
+147	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】编程将成为像英语一样的日常技能	7e4266eb6c3c47e296ab6604e0b36a71	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.376629+08	2019-09-01 18:50:10.376629+08
+148	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】钢笔里的毛细原理	3bd7b71948db4caf90f811962d204c50	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.422803+08	2019-09-01 18:50:10.422803+08
+149	0	6	1	0	0	1	0	0	0	0	0	0	0		【动物】蜗牛有25000颗牙齿，是世界之最	011c82978d47460aa5276869b0f9b617	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.492307+08	2019-09-01 18:50:10.492307+08
+150	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】成都七中学霸们的3个学习要点	8100fdf0269e4c15a8b82f34c2a26e8e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.545281+08	2019-09-01 18:50:10.545281+08
+151	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】 “拍马屁“的由来	bed13390706e4080914a5066d9f16a90	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.617739+08	2019-09-01 18:50:10.617739+08
+152	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】大笑能减轻身体痛感	e4034d0b9dd745328952e4f7f7b02413	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.66115+08	2019-09-01 18:50:10.66115+08
+153	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】蚂蚁从高空摔下会死吗？	242361b7a798472cb104c4eed73154cf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.726968+08	2019-09-01 18:50:10.726968+08
+154	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】动物到底有没有思维？	4f8ee2bd2deb428397f94512756980d9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.787793+08	2019-09-01 18:50:10.787793+08
+155	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】是谁砍掉了2月30日这一天？	efcdb789cf774ac69bb49c40d9b32d5f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.84566+08	2019-09-01 18:50:10.84566+08
+156	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】海水结的冰融化后会变成淡水	95bc2042204941449f06f5e8ac35d49e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.911614+08	2019-09-01 18:50:10.911614+08
+157	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】为什么烟花是五颜六色的？	50977ba85db7426da62357c26466536f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:10.96875+08	2019-09-01 18:50:10.96875+08
+158	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】植物也会午睡	84943c4e921e49cbb4c906d25fbbbeda	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.021957+08	2019-09-01 18:50:11.021957+08
+159	0	6	1	0	0	1	0	0	0	0	0	0	0		【生物】猫吃老鼠是为了获取牛磺酸	6d91a2871a0341d299504e928ed23df6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.08721+08	2019-09-01 18:50:11.08721+08
+160	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】吉尼斯世界纪录的“吉尼斯”是什么意思？	e1b7e160de394726b86955533975c4e9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.143832+08	2019-09-01 18:50:11.143832+08
+161	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】电影为什么用绿幕成像，而不是其他颜色？	70952ab306344010b5a76085041f13d9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.218531+08	2019-09-01 18:50:11.218531+08
+162	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】创始人为什么叫“鼻祖”？和鼻子有关系吗？	829abe93c2a74af68488bad383ec9d98	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.25995+08	2019-09-01 18:50:11.25995+08
+163	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】一闪一闪的星星都是恒星	b6b53c8779dd4ffb867a94d9d6ec6bef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.335003+08	2019-09-01 18:50:11.335003+08
+164	0	6	1	0	0	1	0	0	0	0	0	0	0		【地理】什么颜色的土壤最肥沃？	d04a234ac6294814b2bb05e5d13a31b8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.388348+08	2019-09-01 18:50:11.388348+08
+165	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】何猷君：学习要有仪式感	820266ea850f47e6ac9f31577bb1e396	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.456581+08	2019-09-01 18:50:11.456581+08
+166	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】解密海洋里的“移动实验室”	87f11062ef39438886a8508bc7a3f602	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.500163+08	2019-09-01 18:50:11.500163+08
+167	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】“一炷香”的时间到底是多长？	ce9cc88915804ef3937761f844cd7362	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.569145+08	2019-09-01 18:50:11.569145+08
+168	0	6	1	0	0	1	0	0	0	0	0	0	0		【地理】为什么大海有很多不同的颜色？	2c93b07b8cd94668924cb1644185edb9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.636659+08	2019-09-01 18:50:11.636659+08
+169	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】没有牙刷的古代，古人用什么清洁牙齿？	dae395b8858b49d8baaa81442a5fe9cf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.676444+08	2019-09-01 18:50:11.676444+08
+170	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】学语文就是要“死记硬背”	1f8e95c61e1e4642a05fbd57cc033909	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.751142+08	2019-09-01 18:50:11.751142+08
+171	0	6	1	0	0	1	0	0	0	0	0	0	0		【环保】“节能建筑”将成为城市主流	023da9cf6bd84f9e9d6574358c5063c9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.809082+08	2019-09-01 18:50:11.809082+08
+172	0	6	1	0	0	1	0	0	0	0	0	0	0		【心理】小孩子也会得抑郁症	95d247f83e664303b245b9514866ddbc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.87495+08	2019-09-01 18:50:11.87495+08
+173	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】古代消费者如何维权？	2a492edc5bed43f1b71336c2498b2187	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.932654+08	2019-09-01 18:50:11.932654+08
+174	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】额前的头发为什么叫“刘海”？	6a230bd2a77642818cd30fbb0e68b94e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:11.987682+08	2019-09-01 18:50:11.987682+08
+175	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】什么时候开始金额要用大写	ed635bd449fc4aa987576f25f8ffcc65	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.039101+08	2019-09-01 18:50:12.039101+08
+176	0	6	1	0	0	1	0	0	0	0	0	0	0		【节日】母亲节是怎么来的？	35e28d5b50a741e89b19eb7ed75e20b8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.107003+08	2019-09-01 18:50:12.107003+08
+177	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】雨水到底脏不脏？	f827ffd968b7498781b3d02c621ba52d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.166548+08	2019-09-01 18:50:12.166548+08
+178	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】时间为什么是60进制？	626c61858cf048259fd6d005f51d5907	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.228346+08	2019-09-01 18:50:12.228346+08
+179	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】条形码是信息时代的伟大发明	c7275c1b744b4920a281794d2589a852	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.286706+08	2019-09-01 18:50:12.286706+08
+180	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】清华学霸是如何整理错题本的？	8c46816ce29a49248281c4fb4c3cc5e0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.34758+08	2019-09-01 18:50:12.34758+08
+181	0	6	1	0	0	1	0	0	0	0	0	0	0		【天文】人类永远无法到达银河	475053ee97df4349aa8fded8e8786f06	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.410347+08	2019-09-01 18:50:12.410347+08
+182	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】世界上第一部科幻小说是怎么来的？	035c13f866c047729c9220995d145d4a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.465844+08	2019-09-01 18:50:12.465844+08
+183	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】新能源汽车是否真的环保？	0d8bcf00668c47ecabd8ea9ac4ffd386	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.526246+08	2019-09-01 18:50:12.526246+08
+184	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】科学家为什么要研究和推广人工智能？	50ca2fe0dd734603bda2a20a2da2e5bc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.583331+08	2019-09-01 18:50:12.583331+08
+185	0	6	1	0	0	1	0	0	0	0	0	0	0		【动物】猛兽看到电视上的猎物能分辨真假吗？	b0fe06ba85f948c5a457977b2ed01685	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.653884+08	2019-09-01 18:50:12.653884+08
+186	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】古人结婚拜堂为何都在傍晚?	098c155d9f3847ba8c13900fa5df5fa1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.709379+08	2019-09-01 18:50:12.709379+08
+187	0	6	1	0	0	1	0	0	0	0	0	0	0		【生物】为什么罐头里食品不容易变坏?	99a53d416ff24734b3aa8e6041937c35	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.77749+08	2019-09-01 18:50:12.77749+08
+188	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】小学英语“阅读理解”该如何作答？	15fbb6d0ce1c45df9b40547c90e50d80	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.816001+08	2019-09-01 18:50:12.816001+08
+189	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】为什么是“不到黄河心不死”，而不是“不到长江心不死”？	0eb92f0e48634769ba19e3e683ef7c4c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.890854+08	2019-09-01 18:50:12.890854+08
+190	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】为什么黑色的花很少见？	05dd8315ebc04ba99e5c9940c3280495	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:12.951585+08	2019-09-01 18:50:12.951585+08
+191	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】唐宋八大家是怎么评选出来的？	4a8df5322977412fa52d42affd0100ea	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.006593+08	2019-09-01 18:50:13.006593+08
+192	0	6	1	0	0	1	0	0	0	0	0	0	0		【心理】你有双重人格吗？	c4fa28b16c2d4b928c7782c8611a335b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.067472+08	2019-09-01 18:50:13.067472+08
+193	0	6	1	0	0	1	0	0	0	0	0	0	0		【环保】生态系统对我们有多重要？	9eddd7d834c0461287ac496f8ef0f806	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.128664+08	2019-09-01 18:50:13.128664+08
+194	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】庞贝，一个被火山活埋的城市	29ca846d6e4940eeaf145e9093981e10	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.187018+08	2019-09-01 18:50:13.187018+08
+195	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】衡水中学王末默：做学习的主人	7e618fa8a8f44737b42b0a5f592b4085	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.255869+08	2019-09-01 18:50:13.255869+08
+196	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】古代女子是如何化妆的？	c9bea030cf9e46509c30a3c20a90cd31	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.308381+08	2019-09-01 18:50:13.308381+08
+197	0	6	1	0	0	1	0	0	0	0	0	0	0		【军事】为什么导弹接近目标后才会爆炸？	4f1b797851ae4600b8ba0ffd39a8dfc0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.37286+08	2019-09-01 18:50:13.37286+08
+198	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】我国的第一口水井是怎么打出来的？	2ea5ac5b8f244a0cb68a96c2b9f36928	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.421501+08	2019-09-01 18:50:13.421501+08
+199	0	6	1	0	0	1	0	0	0	0	0	0	0		【环保】玻璃幕墙会导致光污染	34dad4fa97c24ae0973f10bb424c2e5f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.491268+08	2019-09-01 18:50:13.491268+08
+200	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】 为什么卫星发射都是在晚上？	cb881b5aab5d4fa9aa9240559e488fde	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.555739+08	2019-09-01 18:50:13.555739+08
+201	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】“肥皂剧”竟然真的和肥皂有关	b2f372e769ea489999d38b2e7bd38860	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.611607+08	2019-09-01 18:50:13.611607+08
+202	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】三十年河东、三十年河西，指的是哪条河？	04ed02e26a134c57bd531b8b30533fd1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.671541+08	2019-09-01 18:50:13.671541+08
+203	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】初中物理应该怎么学？	96c36811987241c291dcc00af0f5be3d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.738114+08	2019-09-01 18:50:13.738114+08
+204	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】汉剑和唐刀，谁是历史的兵器巅峰？	f7e088afde9647febefe1766bba02b4d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.785324+08	2019-09-01 18:50:13.785324+08
+205	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】人的大脑真的只开发了10%吗？	ac1331de9124424aa80d2c6116a8dfb3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.842845+08	2019-09-01 18:50:13.842845+08
+206	0	6	1	0	0	1	0	0	0	0	0	0	0		【医学】网红大胃王的胃究竟多大？	a907898a08d641358ef1eb46db8dcfde	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.903082+08	2019-09-01 18:50:13.903082+08
+207	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】当前方既有食物又有危险时，猫会怎样行动？	f25a60e9446b4552a1bde4c553118dcd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:13.964884+08	2019-09-01 18:50:13.964884+08
+208	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】为什么汽车前雾灯是黄色，后雾灯是红色？	deecf564e232435892848622b9582540	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.023768+08	2019-09-01 18:50:14.023768+08
+209	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】“芯片女皇”何庭波也是个标准的“学霸”	8cc5b1707ea9439ba5fafdef76009a0f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.095198+08	2019-09-01 18:50:14.095198+08
+210	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么打针前要把针筒里的药水挤掉一点？	8714cd8c9181477b86e67f8d0556bf6f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.140879+08	2019-09-01 18:50:14.140879+08
+211	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】中国古代真的有“蒙汗药”吗？	dc224342e5664cbfa654de27f73baf0e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.202468+08	2019-09-01 18:50:14.202468+08
+212	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】美洲虎不是真正的虎	b911a947b77a4052835019dee163349a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.268267+08	2019-09-01 18:50:14.268267+08
+213	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】中国是应用指纹的发源地	6e95981ef3dc45a3bd7a49180cdde5bd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.329271+08	2019-09-01 18:50:14.329271+08
+214	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】 “人造肉”将成为国际食品趋势	5c8c7953226f45b0ba127f6e718d16a5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.402628+08	2019-09-01 18:50:14.402628+08
+215	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】学霸公认的最强学习方法费曼技巧	86948c378d98460cb974b6837677611d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.47377+08	2019-09-01 18:50:14.47377+08
+216	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】为什么古希腊的雕塑都是裸体？	2f2985fb57e245e7a8217af5af0ee1cb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.508469+08	2019-09-01 18:50:14.508469+08
+217	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】 六一儿童节是怎么来的？	a724f4035e1041bbb58d6c7e61ad9c16	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.577655+08	2019-09-01 18:50:14.577655+08
+218	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】什么人最容易被蚊子叮咬？	ec46a11e68d24bbca3f396e39a695ca5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.620867+08	2019-09-01 18:50:14.620867+08
+219	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】“卖关子”这个说法是怎么来的？	6d4c88de91f645f980e22b93a05dcdde	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.691626+08	2019-09-01 18:50:14.691626+08
+220	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么降落伞能落到精准的位置？	2d1339f167664b9aa2b8a45c7f5bf773	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.747582+08	2019-09-01 18:50:14.747582+08
+221	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】人打哈欠时为什么会流泪？	09a949df03ca42e3877e8a771b6db6dd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.801032+08	2019-09-01 18:50:14.801032+08
+222	0	6	1	0	0	1	0	0	0	0	0	0	0		【物理】飞机降落时嚼口香糖可以防止耳膜胀裂	b469234216bc40e29c1b83a7ca49e8d3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.859249+08	2019-09-01 18:50:14.859249+08
+223	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么救生衣多为橙黄色？	6ec600655a6a49d3a9861691acd78f21	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.933637+08	2019-09-01 18:50:14.933637+08
+224	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】清华双胞胎学霸的“学习计划表”，中等生改良后，成绩猛蹿！	0ec7755b9e4749238e61e57abba15d48	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:14.991534+08	2019-09-01 18:50:14.991534+08
+225	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】章鱼的血是蓝色的	d2830f56ae5442dea4d14648552704e8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.054348+08	2019-09-01 18:50:15.054348+08
+226	0	6	1	0	0	1	0	0	0	0	0	0	0		【动物】啄木鸟啄木的速度能达到每小时2092公里	9ae1538d8f05477898933fc01f41f454	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.09617+08	2019-09-01 18:50:15.09617+08
+227	0	6	1	0	0	1	0	0	0	0	0	0	0		【健康】 人字拖比高跟鞋更伤脚	eb679722c314440d954662f9fd6bf1f3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.1687+08	2019-09-01 18:50:15.1687+08
+228	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】人一生为什么会长两副牙？	977ae92ad301496da04043f293365a66	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.227888+08	2019-09-01 18:50:15.227888+08
+229	0	6	1	0	0	1	0	0	0	0	0	0	0		【美食】古代人们是如何烹饪食物的？	0d9d49a5e78f4946a96f003adb1102c9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.298958+08	2019-09-01 18:50:15.298958+08
+230	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】很多动物都冬眠，海参则要夏眠	2e3d5bb103584a5f90d4b899b8cbdcb3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.337868+08	2019-09-01 18:50:15.337868+08
+231	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】学数学前，先明白为什么要学	66cb4749881346dfaf129369c604c14a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.406611+08	2019-09-01 18:50:15.406611+08
+232	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】白头发真的会“拔一根长十根”？	b80ee8f036dc4cea94b3b76c12492e17	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.462295+08	2019-09-01 18:50:15.462295+08
+233	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】古代有星期天吗？	2052d7fab23b4b0085483a6e3d7ad8b5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.534278+08	2019-09-01 18:50:15.534278+08
+234	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】为什么大雁喜欢成“人”或“一”字飞行	e1111a09b199477b96da8ec4dda01526	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.582927+08	2019-09-01 18:50:15.582927+08
+235	0	6	1	0	0	1	0	0	0	0	0	0	0		【健康】指甲上的月牙代表什么？	6fe51ab64d194b92b5f18defab03cc75	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.655194+08	2019-09-01 18:50:15.655194+08
+236	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】防弹玻璃的雏形原来是汉堡包	07770eb829fa4b0e9ee8bfbc274c6274	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.701633+08	2019-09-01 18:50:15.701633+08
+237	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么大拇指只有两节？	59dc2c91aed04749a5775cc29308ca8e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.765798+08	2019-09-01 18:50:15.765798+08
+238	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】为什么新疆的西瓜特别甜？	59edf2aa4358457bb430b2acc6bf98cc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.821154+08	2019-09-01 18:50:15.821154+08
+239	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】高三满分学霸分享的五种高效学习方法	d532805c2c144d20b48ef15933f1430b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.876373+08	2019-09-01 18:50:15.876373+08
+240	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】世界上最短航线只需要一分钟	dde5f5ea71d14014beeb50dd7316fc7c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:15.942337+08	2019-09-01 18:50:15.942337+08
+241	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】电子科学离不开电真空技术	ef7a37eb481645bda5dd0916a45ec989	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.014324+08	2019-09-01 18:50:16.014324+08
+242	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】夏天自行车更易爆胎	7393814354884f239eade6b11dac00e5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.073269+08	2019-09-01 18:50:16.073269+08
+243	0	6	1	0	0	1	0	0	0	0	0	0	0		【娱乐】哪些明星的高考成绩非常高？	3156f39a6e8641d98d8615c4e8e84bad	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.119366+08	2019-09-01 18:50:16.119366+08
+244	0	6	1	0	0	1	0	0	0	0	0	0	0		【动物】为什么老虎喜欢淋浴不爱泡澡？	5670305e1ab641dda2b31a1719c65c9b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.189826+08	2019-09-01 18:50:16.189826+08
+245	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】午餐后我们为何格外困乏？	f9addf1842e842929b95b5d283f7cb4c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.250578+08	2019-09-01 18:50:16.250578+08
+246	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】亚洲其他国家的“高考”怎么样？新加坡最“变态”	46c04ae84e14480ca168a2c04f602ec5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.304941+08	2019-09-01 18:50:16.304941+08
+247	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】 古代多少钱可以买一套房？	874040c1c557466197b316cbeac11e7a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.37033+08	2019-09-01 18:50:16.37033+08
+248	0	6	1	0	0	1	0	0	0	0	0	0	0		【植物】能吸光人血的“吸血树”	39f73d57cb284d62aedc20c754f9f75a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.435631+08	2019-09-01 18:50:16.435631+08
+249	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】西班牙人为什么喜欢斗牛？	4bbbc0e9fc84441c9c5ad39808f7f663	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.486033+08	2019-09-01 18:50:16.486033+08
+250	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】杨幂的“英语教学”能快速提升英语语感	05f49f108264473fa68847dc6b9e2ff9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.554722+08	2019-09-01 18:50:16.554722+08
+251	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】坐飞机可以随心所欲使用手机了吗？	b44aec178da54ca596929a49ab490bf7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.601693+08	2019-09-01 18:50:16.601693+08
+252	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】 “人民币”的缩写竟然不是RMB	1f87c53b701f49518de887fea47c1d74	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.665321+08	2019-09-01 18:50:16.665321+08
+253	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】为什么上完课要休息“10分钟”？	b637f07981454211857bdee2d7903fd9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.723743+08	2019-09-01 18:50:16.723743+08
+254	0	6	1	0	0	1	0	0	0	0	0	0	0		【地理】我国唯一一个“不夜城”——漠河	2d5a83f03fac42c2b434f2b51264ca15	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.786165+08	2019-09-01 18:50:16.786165+08
+255	0	6	1	0	0	1	0	0	0	0	0	0	0		【学霸说】高考状元说：复习要从高二暑假开始才有优势	c804d6a678bc411cb6376c47cb39abe7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.840455+08	2019-09-01 18:50:16.840455+08
+256	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】飞机飞行时怕闪电吗？	7043df8f2cc2427a96c2a9acba651114	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.920541+08	2019-09-01 18:50:16.920541+08
+257	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】在民国考大学，你需要多少分才能够被录取？	1124254c5d50405c9273a2ed6556774b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:16.960789+08	2019-09-01 18:50:16.960789+08
+258	0	6	1	0	0	1	0	0	0	0	0	0	0		【社会】大学最易被误会的专业，你选了吗？	a392b94682d04438868cd904d9071110	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.032604+08	2019-09-01 18:50:17.032604+08
+259	0	6	1	0	0	1	0	0	0	0	0	0	0		【自然】彗星为什么被称作“扫帚星”	daf304bed1294e18837c271e1704d732	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.094456+08	2019-09-01 18:50:17.094456+08
+260	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】双黄蛋能孵出两只小鸡吗？	d373ffa8bd5d4ed3b27ae9139a8e9783	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.143613+08	2019-09-01 18:50:17.143613+08
+364	0	9	1	0	0	2	0	0	0	0	0	0	0		016 Ellie-Lesson 3	7e4e42a7eae440ad80cd5fab8d20a2a7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.382296+08	2019-09-01 18:50:23.382296+08
+261	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】为什么学生又称“桃李”？	6a7edfffb0be422890ac6f9c6472979c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.201592+08	2019-09-01 18:50:17.201592+08
+262	0	6	1	0	0	1	0	0	0	0	0	0	0		【历史】圣人孔子也是有武艺的	0b2da112273b4a3a85012185b125e9b6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.269213+08	2019-09-01 18:50:17.269213+08
+263	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】一个人最多能拎得起多少钱	668a7fd9417b4fc9991106f58391dbc5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.325603+08	2019-09-01 18:50:17.325603+08
+264	0	6	1	0	0	1	0	0	0	0	0	0	0		【学习方法论】上课听懂了，下课会做了，考试为什么还出错？	04cb0fc4f0fa4f0590f5e5d1788e97e9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.397753+08	2019-09-01 18:50:17.397753+08
+265	0	6	1	0	0	1	0	0	0	0	0	0	0		【科技】有哪些损坏手机电池的坏习惯？	5de1cecee3f64d4fa8f88494024aa0cb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.443041+08	2019-09-01 18:50:17.443041+08
+266	0	6	1	0	0	1	0	0	0	0	0	0	0		【节气】夏至为什么叫夏至？	fefba1521a294669bbd9c79f0aa83fae	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.512852+08	2019-09-01 18:50:17.512852+08
+267	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】蜘蛛吐丝的奥秘	1c16be2cd63f4d7fb711345055531f80	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.558739+08	2019-09-01 18:50:17.558739+08
+268	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】“闭门羹”是一种什么“羹”	8bd70062730a4b518fec59cce2d9f133	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.627074+08	2019-09-01 18:50:17.627074+08
+269	0	6	1	0	0	1	0	0	0	0	0	0	0		【生活】牛奶香蕉真的不能空腹吃吗？	dc0107f90bdd4f0184ad0f29c4faf786	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.701776+08	2019-09-01 18:50:17.701776+08
+270	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】右耳接电话会损伤大脑吗？	44883e8d048c47aa98f59e8ed4b52ac3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.743193+08	2019-09-01 18:50:17.743193+08
+271	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】一天中人体的身高数据都是不同的	ee0ba08a54e847ceb665fc02118ff087	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.796988+08	2019-09-01 18:50:17.796988+08
+272	0	6	1	0	0	1	0	0	0	0	0	0	0		【文化】扑克牌中4个K上面印的人物都大有来头	abbb1e46bdc5476eb60e4754cc83f987	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.86772+08	2019-09-01 18:50:17.86772+08
+273	0	6	1	0	0	1	0	0	0	0	0	0	0		【医学】为什么有些中学生会长白头发？	11bdd8e7365043fc80e793386a30deb7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.923348+08	2019-09-01 18:50:17.923348+08
+274	0	6	1	0	0	1	0	0	0	0	0	0	0		【科学】不笑的脸比笑脸看起来年轻2岁	850daba957b1453386c7e5df72ddccd9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:17.976453+08	2019-09-01 18:50:17.976453+08
+275	0	5	1	0	0	1	0	0	0	0	0	0	0		001 分数乘整数	4c519a44f5af406baa52d1fcf030fc1a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.040109+08	2019-09-01 18:50:18.040109+08
+276	0	5	1	0	0	1	0	0	0	0	0	0	0		002 胡青清-分数乘分数、分数的简便运算	8ee66a074578403ea9229df42c85a4ff	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.117361+08	2019-09-01 18:50:18.117361+08
+277	0	5	1	0	0	2	0	0	0	0	0	0	0		003 胡青清-分数乘小数	92ce1b6ec2854146a70301f68bd81310	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.161923+08	2019-09-01 18:50:18.161923+08
+278	0	5	1	0	0	2	0	0	0	0	0	0	0		004 胡青清-分数乘法混合运算	338c929370bc403ab57f74851e14df5e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.223513+08	2019-09-01 18:50:18.223513+08
+279	0	5	1	0	0	2	0	0	0	0	0	0	0		005 胡青清-分数应用题	d1f71cb99afd4815bb6240482949fcd8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.294587+08	2019-09-01 18:50:18.294587+08
+280	0	5	1	0	0	2	0	0	0	0	0	0	0		006 胡青清-方向与位置（一）	811ac5b546cd4ebeb857efcf8da84b9f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.335467+08	2019-09-01 18:50:18.335467+08
+281	0	5	1	0	0	2	0	0	0	0	0	0	0		007 胡青清-方向与位置（二）	e9feaadfbc844b02984b6e5e8993d5c5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.410328+08	2019-09-01 18:50:18.410328+08
+282	0	5	1	0	0	2	0	0	0	0	0	0	0		008 胡青清-位置与方向	fb44dc7b681b4b31b6f03fa1a16bba48	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.471209+08	2019-09-01 18:50:18.471209+08
+283	0	5	1	0	0	2	0	0	0	0	0	0	0		009 胡青清-倒数的认识	4dfda287955e4f5aad9e78e4708c10e7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.533099+08	2019-09-01 18:50:18.533099+08
+284	0	5	1	0	0	2	0	0	0	0	0	0	0		010 胡青清-分数除整数	bd9a83aeabb847bb8cd1bd5af2e87fa2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.588558+08	2019-09-01 18:50:18.588558+08
+285	0	5	1	0	0	2	0	0	0	0	0	0	0		011 胡青清-除法的混合运算	74f0918b891d44b8a08319e95052d96d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.648186+08	2019-09-01 18:50:18.648186+08
+286	0	5	1	0	0	2	0	0	0	0	0	0	0		012 胡青清-已知一个数的几分之几求另一个数	9c0722420b574a3daea73ac0f985b00b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.707022+08	2019-09-01 18:50:18.707022+08
+287	0	5	1	0	0	2	0	0	0	0	0	0	0		013 胡青清-已知比一个数多（少）求另一个数	d9b48456c65d49e1bcb982f5e3bd8148	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.767254+08	2019-09-01 18:50:18.767254+08
+288	0	5	1	0	0	2	0	0	0	0	0	0	0		014 胡青清-两个未知数的和倍问题	52db9d92309d484a9f13d98206b0b875	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.83505+08	2019-09-01 18:50:18.83505+08
+289	0	5	1	0	0	2	0	0	0	0	0	0	0		015 胡青清-分数除法	7aec726be43c4a228799a8b98d650b2b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.92149+08	2019-09-01 18:50:18.92149+08
+290	0	5	1	0	0	2	0	0	0	0	0	0	0		016 胡青清-分数乘法总复习	61fecdcff9b74b7c9d729b6b8ea4f850	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:18.958983+08	2019-09-01 18:50:18.958983+08
+291	0	5	1	0	0	2	0	0	0	0	0	0	0		017 胡青清-方向与位置总复习	5206599c274b4cdab4a9e7961803627a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.000143+08	2019-09-01 18:50:19.000143+08
+292	0	5	1	0	0	2	0	0	0	0	0	0	0		018 胡青清-分数乘法的总复习	052b939a1ec44bb6a0cbb762ae9f605b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.072268+08	2019-09-01 18:50:19.072268+08
+293	0	5	1	0	0	2	0	0	0	0	0	0	0		019 胡青清-比的意义	597dd526dfe147119dec25c665734595	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.131854+08	2019-09-01 18:50:19.131854+08
+294	0	5	1	0	0	2	0	0	0	0	0	0	0		020 胡青清-比的基本性质	d25a0464e3464197b34899e946a15729	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.196722+08	2019-09-01 18:50:19.196722+08
+295	0	5	1	0	0	2	0	0	0	0	0	0	0		021 胡青清-比例的分配	3b5b7a250533452180041a6dfddbf389	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.240834+08	2019-09-01 18:50:19.240834+08
+296	0	5	1	0	0	2	0	0	0	0	0	0	0		022 胡青清-圆的认识	6d5b967a91224c73b7d6966e8ac3437b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.305395+08	2019-09-01 18:50:19.305395+08
+297	0	5	1	0	0	2	0	0	0	0	0	0	0		023 胡青清-圆的周长	86b17804c229475485201bb6aee9e2da	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.356232+08	2019-09-01 18:50:19.356232+08
+298	0	5	1	0	0	2	0	0	0	0	0	0	0		024 胡青清-圆的面积（一）	d3762664f65c41aa949382a657a5b1a4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.424216+08	2019-09-01 18:50:19.424216+08
+299	0	5	1	0	0	2	0	0	0	0	0	0	0		025 胡青清-圆的面积（二）	33f52f6ffe7e4554930748d5be81ea5e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.48455+08	2019-09-01 18:50:19.48455+08
+300	0	5	1	0	0	2	0	0	0	0	0	0	0		026 胡青清-扇形	c17dbec7c02a49299de3e38c707e8151	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.550484+08	2019-09-01 18:50:19.550484+08
+301	0	5	1	0	0	2	0	0	0	0	0	0	0		027 胡青清-百分数的认识	908c10d0353c4771a22968d3735e61ab	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.601945+08	2019-09-01 18:50:19.601945+08
+302	0	5	1	0	0	2	0	0	0	0	0	0	0		028 胡青清-百分数的换算	70cc5336deb84c75b77684f1a43c2886	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.663016+08	2019-09-01 18:50:19.663016+08
+303	0	5	1	0	0	2	0	0	0	0	0	0	0		029 胡青清-百分数和分数的互化	b8548410622741f5834251fa41b30992	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.727986+08	2019-09-01 18:50:19.727986+08
+304	0	5	1	0	0	2	0	0	0	0	0	0	0		030 胡青清-百分数的应用 求一个数比另一个数	02d7416ff42f4fa68ed25c1afd0d5f3c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.794416+08	2019-09-01 18:50:19.794416+08
+305	0	5	1	0	0	2	0	0	0	0	0	0	0		031 胡青清-百分数 解决问题	763139c9f6ff4eafb4d11bfed506929b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.833441+08	2019-09-01 18:50:19.833441+08
+306	0	5	1	0	0	2	0	0	0	0	0	0	0		032 胡青清-比的认识总复习	e4f542ca0bff446abf64ec9ce30873af	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.90565+08	2019-09-01 18:50:19.90565+08
+307	0	5	1	0	0	2	0	0	0	0	0	0	0		033 胡青清-圆的总复习	ab573cd3cc07424da9287b465b4214a6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:19.966763+08	2019-09-01 18:50:19.966763+08
+308	0	5	1	0	0	2	0	0	0	0	0	0	0		034 胡青清-百分数的整理与复习	eb3fc65219304f14a96244d9d9ad5c8b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.025073+08	2019-09-01 18:50:20.025073+08
+309	0	5	1	0	0	2	0	0	0	0	0	0	0		035 胡青清-扇形图	8427ba614faf4e978481be8137a82ac4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.089699+08	2019-09-01 18:50:20.089699+08
+310	0	5	1	0	0	2	0	0	0	0	0	0	0		036 胡青清-扇形统计图（选择）	937112c9d9ff434ab71a7f83b292f149	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.147907+08	2019-09-01 18:50:20.147907+08
+311	0	5	1	0	0	2	0	0	0	0	0	0	0		037 胡青清-数学广角	f7d04f1725d34be18853ce14ec2a8ff1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.208028+08	2019-09-01 18:50:20.208028+08
+312	0	5	1	0	0	2	0	0	0	0	0	0	0		038 胡青清-期末总结	9f1bde3914a64982b9a94030e4bf41be	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.26688+08	2019-09-01 18:50:20.26688+08
+313	0	7	1	0	0	1	0	0	0	0	0	0	0		001 谢薇-学弈	3420bb58430b408ebc8ad502a4e9ea8c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.324814+08	2019-09-01 18:50:20.324814+08
+314	0	7	1	0	0	1	0	0	0	0	0	0	0		002 谢薇-两小儿辩日	6af962703e8b48a890e5dad8f59c034a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.388103+08	2019-09-01 18:50:20.388103+08
+315	0	7	1	0	0	2	0	0	0	0	0	0	0		003 谢薇-匆匆（一）	6e96607ec7154a42a4a5fcd15d93bc42	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.438139+08	2019-09-01 18:50:20.438139+08
+316	0	7	1	0	0	2	0	0	0	0	0	0	0		004 谢薇-匆匆（二）	b5461a4da0f4488bbfccd153e82623a4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.509798+08	2019-09-01 18:50:20.509798+08
+317	0	7	1	0	0	2	0	0	0	0	0	0	0		005 谢薇-桃花心木（一）	f9f23a02ab634a68a2d20cba56573f24	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.57901+08	2019-09-01 18:50:20.57901+08
+318	0	7	1	0	0	2	0	0	0	0	0	0	0		006 谢薇-桃花心木（二）	9c01f642d02244fca8314aeb2b1f601a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.642003+08	2019-09-01 18:50:20.642003+08
+319	0	7	1	0	0	2	0	0	0	0	0	0	0		007 谢薇-顶碗少年	4bc6900791dd4a95b1eb90161c652d56	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.901541+08	2019-09-01 18:50:20.901541+08
+320	0	7	1	0	0	2	0	0	0	0	0	0	0		008 谢薇-手指	206e3f6b34634b91976c673ce360c45a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.92672+08	2019-09-01 18:50:20.92672+08
+321	0	7	1	0	0	2	0	0	0	0	0	0	0		009 谢薇-语文园地一	bdc19cf74718480abcc765c5a229659d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.932336+08	2019-09-01 18:50:20.932336+08
+322	0	7	1	0	0	2	0	0	0	0	0	0	0		010 谢薇-北京的春节（一）	ec2a2f440ade407fba97cc482af814f0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.980326+08	2019-09-01 18:50:20.980326+08
+323	0	7	1	0	0	2	0	0	0	0	0	0	0		011 谢薇-北京的春节（二）	682ab97ec01f424b99c5cb9f948b00a4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:20.989997+08	2019-09-01 18:50:20.989997+08
+324	0	7	1	0	0	2	0	0	0	0	0	0	0		013 谢薇-各具特色的民居	b9d150de46da423b928d05546231dafe	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.075098+08	2019-09-01 18:50:21.075098+08
+325	0	7	1	0	0	2	0	0	0	0	0	0	0		012 谢薇-藏戏	1c90f238656c45f994c34757432bf06b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.090582+08	2019-09-01 18:50:21.090582+08
+326	0	7	1	0	0	2	0	0	0	0	0	0	0		014 谢薇-和田的维吾尔人	c3e0f5aa28aa479b84dd6e1d130c5ca1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.107148+08	2019-09-01 18:50:21.107148+08
+327	0	7	1	0	0	2	0	0	0	0	0	0	0		015 谢薇-语文园地二	2545bf942183414fb99e8818c3f2da8f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.163403+08	2019-09-01 18:50:21.163403+08
+328	0	7	1	0	0	2	0	0	0	0	0	0	0		016 谢薇-十六年前的回忆（一）	a07e796c984c427286c29392c06df513	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.222172+08	2019-09-01 18:50:21.222172+08
+329	0	7	1	0	0	2	0	0	0	0	0	0	0		017 谢薇-十六年前的回忆（二）	2dbb5b458ea643b28885d217b24628b1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.293108+08	2019-09-01 18:50:21.293108+08
+330	0	7	1	0	0	2	0	0	0	0	0	0	0		018 谢薇-灯光	aad5433519ac4ba89d43b01f75878a74	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.335445+08	2019-09-01 18:50:21.335445+08
+331	0	7	1	0	0	2	0	0	0	0	0	0	0		019 谢薇-为人民服务（一）	eb30a4b7b7764cc09ef215ea282e14d4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.401728+08	2019-09-01 18:50:21.401728+08
+332	0	7	1	0	0	2	0	0	0	0	0	0	0		020 谢薇-为人民服务（二）	9b561a9ef2374a8b9b93d15a622d16f2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.466345+08	2019-09-01 18:50:21.466345+08
+333	0	7	1	0	0	2	0	0	0	0	0	0	0		021 谢薇-一夜的工作	58677b7aeef84501ac8dc32f83fde390	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.524423+08	2019-09-01 18:50:21.524423+08
+334	0	7	1	0	0	2	0	0	0	0	0	0	0		022 谢薇-语文园地三	85abaf50e0e34406943919e1dd8a2049	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.596783+08	2019-09-01 18:50:21.596783+08
+335	0	7	1	0	0	2	0	0	0	0	0	0	0		023 谢薇-卖火柴的小女孩（一）	7e327b5c0ef34e89a0fdd8eb36753d84	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.638512+08	2019-09-01 18:50:21.638512+08
+336	0	7	1	0	0	2	0	0	0	0	0	0	0		024 谢薇-卖火柴的小女孩（二）	ee0a5f518add494aaf81bfbf6dfa1617	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.701143+08	2019-09-01 18:50:21.701143+08
+337	0	7	1	0	0	2	0	0	0	0	0	0	0		025 谢薇-凡卡（一）	6122618360b146eaa254b106b474eddc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.764713+08	2019-09-01 18:50:21.764713+08
+338	0	7	1	0	0	2	0	0	0	0	0	0	0		026 谢薇-凡卡（二）	c8710a012c9d4ef185e9c5d60a8f9123	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.818349+08	2019-09-01 18:50:21.818349+08
+339	0	7	1	0	0	2	0	0	0	0	0	0	0		027 谢薇-鲁滨孙漂流记	b448eb713dcb4c7d8e68ef5d1bc570ed	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.885146+08	2019-09-01 18:50:21.885146+08
+340	0	7	1	0	0	2	0	0	0	0	0	0	0		028 谢薇-汤姆索亚历险记	725d670de51e417fad4653b67daf4aea	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:21.952892+08	2019-09-01 18:50:21.952892+08
+341	0	7	1	0	0	2	0	0	0	0	0	0	0		029 谢薇-语文园地四	25dcdf3005504f97bb66fdd27389b865	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.013451+08	2019-09-01 18:50:22.013451+08
+342	0	7	1	0	0	2	0	0	0	0	0	0	0		030 谢薇-跨越百年的美丽（一）	aa2bd4f69ca14d739178fad26ca9c8c4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.073718+08	2019-09-01 18:50:22.073718+08
+343	0	7	1	0	0	2	0	0	0	0	0	0	0		031 谢薇-跨越百年的美丽（二）	7a46ed0ebf614a19ad2d7da5b7b8f6a1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.12454+08	2019-09-01 18:50:22.12454+08
+344	0	7	1	0	0	2	0	0	0	0	0	0	0		032 谢薇-千年梦圆在今朝	01fb924c5fcf432b954d8ad0d1da20e0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.182988+08	2019-09-01 18:50:22.182988+08
+345	0	7	1	0	0	2	0	0	0	0	0	0	0		033 谢薇-真理诞生于一百个问号之后（一）	62b7302a6ef0410e91b2745e94ebfcb4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.243636+08	2019-09-01 18:50:22.243636+08
+346	0	7	1	0	0	2	0	0	0	0	0	0	0		034 谢薇-真理诞生于一百个问号之后（二）	8a682bdba5c94a79986973502cd53377	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.307361+08	2019-09-01 18:50:22.307361+08
+347	0	7	1	0	0	2	0	0	0	0	0	0	0		035 谢薇-我最好的老师	027e1525390148aaa172df4a1b42969c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.372299+08	2019-09-01 18:50:22.372299+08
+348	0	7	1	0	0	2	0	0	0	0	0	0	0		036 谢薇-语文园地五	4713cb044cc64cf8a7ad1bc43e4ecdb5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.414721+08	2019-09-01 18:50:22.414721+08
+349	0	9	1	0	0	1	0	0	0	0	0	0	0		001 Ellie-课程介绍	776f4b53d0044100a41a2037ca3631ea	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.48579+08	2019-09-01 18:50:22.48579+08
+350	0	9	1	0	0	1	0	0	0	0	0	0	0		002 Ellie-Lesson 1	ac2991fb5fcc4ed19ead375f5c65687a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.543413+08	2019-09-01 18:50:22.543413+08
+351	0	9	1	0	0	2	0	0	0	0	0	0	0		003 Ellie-Lesson 2	6957e019b7314d2fadb060b774a7edd9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.604002+08	2019-09-01 18:50:22.604002+08
+352	0	9	1	0	0	2	0	0	0	0	0	0	0		004 Ellie-Lesson 3	4f1b0c0f382f463a92e1c0be614be79d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.670104+08	2019-09-01 18:50:22.670104+08
+353	0	9	1	0	0	2	0	0	0	0	0	0	0		005 Ellie-Lesson 4	70fad6cd2d1e475ea8eeb01a84fc2ac6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.73315+08	2019-09-01 18:50:22.73315+08
+354	0	9	1	0	0	2	0	0	0	0	0	0	0		006 Ellie-Lesson 5	8f682d5ef70442d5a2dd35c2d9b4e037	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.796308+08	2019-09-01 18:50:22.796308+08
+355	0	9	1	0	0	2	0	0	0	0	0	0	0		007 Ellie-Lesson 6	c925f4557eff4c4f94e7acda31b27d30	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.834693+08	2019-09-01 18:50:22.834693+08
+356	0	9	1	0	0	2	0	0	0	0	0	0	0		008 Ellie-Lesson 1	0b8e9dec0a2144afa0118832da90f95b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.899246+08	2019-09-01 18:50:22.899246+08
+357	0	9	1	0	0	2	0	0	0	0	0	0	0		009 Ellie-Lesson 2	64a80d9c94d9477cba39f1fa9edcb476	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:22.968356+08	2019-09-01 18:50:22.968356+08
+358	0	9	1	0	0	2	0	0	0	0	0	0	0		010 Ellie-Lesson 3	15f21a76afa244fd82fc893e7c3fcbbe	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.023002+08	2019-09-01 18:50:23.023002+08
+359	0	9	1	0	0	2	0	0	0	0	0	0	0		011 Ellie-Lesson 4	202152fc876a419e860f0f6780019f4d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.085488+08	2019-09-01 18:50:23.085488+08
+360	0	9	1	0	0	2	0	0	0	0	0	0	0		012 Ellie-Lesson 5	e754fa11b66548a48012ea8410bea792	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.14093+08	2019-09-01 18:50:23.14093+08
+361	0	9	1	0	0	2	0	0	0	0	0	0	0		013 Ellie-Lesson 6	84d1387e7574489096696d1bfbd943ac	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.211173+08	2019-09-01 18:50:23.211173+08
+362	0	9	1	0	0	2	0	0	0	0	0	0	0		014 Ellie-Lesson 1	fb4e8d4721dd41daa9a0ea18b40f7034	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.266908+08	2019-09-01 18:50:23.266908+08
+363	0	9	1	0	0	2	0	0	0	0	0	0	0		015 Ellie-Lesson 2	54763c12662b47af8f7d7b20e0699612	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.319819+08	2019-09-01 18:50:23.319819+08
+365	0	9	1	0	0	2	0	0	0	0	0	0	0		017 Ellie-Lesson 4	a93f55c5c9a8488b93f272c389bdf99d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.451168+08	2019-09-01 18:50:23.451168+08
+366	0	9	1	0	0	2	0	0	0	0	0	0	0		018 Ellie-Lesson 5	aca3f680125046bb894e8ade77c6ae53	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.498024+08	2019-09-01 18:50:23.498024+08
+367	0	9	1	0	0	2	0	0	0	0	0	0	0		019 Ellie-Lesson 6	7cafa2d24015437f8537c1e75b877800	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.564979+08	2019-09-01 18:50:23.564979+08
+368	0	9	1	0	0	2	0	0	0	0	0	0	0		020 Ellie-Lesson 1	ceb1ed1171a344a0be4896d4a55da1fe	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.619681+08	2019-09-01 18:50:23.619681+08
+369	0	9	1	0	0	2	0	0	0	0	0	0	0		021 Ellie-Lesson 2	29e63b62394e46a28584a5193a973268	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.687929+08	2019-09-01 18:50:23.687929+08
+370	0	9	1	0	0	2	0	0	0	0	0	0	0		022 Ellie-Lesson 3	6394eb86fc44433085210bef910a1f3b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.740648+08	2019-09-01 18:50:23.740648+08
+371	0	9	1	0	0	2	0	0	0	0	0	0	0		023 Ellie-Lesson 1	a5856ace248b43a4b08064f871c8e21b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.810881+08	2019-09-01 18:50:23.810881+08
+372	0	9	1	0	0	2	0	0	0	0	0	0	0		024 Ellie-Lesson 2	37212702686748aeb8026919ea92da36	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.85283+08	2019-09-01 18:50:23.85283+08
+373	0	9	1	0	0	2	0	0	0	0	0	0	0		025 Ellie-Lesson 3	1b5b2a82d5b54d8bab8fcfc41bc87db7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.926117+08	2019-09-01 18:50:23.926117+08
+374	0	9	1	0	0	2	0	0	0	0	0	0	0		026 Ellie-Lesson 4	025188ef46e04ecfbb236f071aeb0105	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:23.985218+08	2019-09-01 18:50:23.985218+08
+375	0	9	1	0	0	2	0	0	0	0	0	0	0		027 Ellie-Lesson 5	9acafee84bd1404bb1ae20f5ac2d461a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.035689+08	2019-09-01 18:50:24.035689+08
+376	0	9	1	0	0	2	0	0	0	0	0	0	0		028 Ellie-Lesson 6	5c623ab3023743a1820986bbe6e31386	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.105713+08	2019-09-01 18:50:24.105713+08
+377	0	9	1	0	0	2	0	0	0	0	0	0	0		029 Ellie-Lesson 1	78191d32c97345f6a7691d3f850abc88	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.169658+08	2019-09-01 18:50:24.169658+08
+378	0	9	1	0	0	2	0	0	0	0	0	0	0		030 Ellie-Lesson 2	5e9d3b9a328245c19a4c83a3549aaa7b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.21938+08	2019-09-01 18:50:24.21938+08
+379	0	9	1	0	0	2	0	0	0	0	0	0	0		031 Ellie-Lesson 3	0f5251e5d2c14796af26ea52d17155b4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.287087+08	2019-09-01 18:50:24.287087+08
+380	0	9	1	0	0	2	0	0	0	0	0	0	0		032 Ellie-Lesson 4	4ef4f9301c3a4cf2875cac7edb1e1c6f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.342323+08	2019-09-01 18:50:24.342323+08
+381	0	9	1	0	0	2	0	0	0	0	0	0	0		033 Ellie-Lesson 5	6c8f857f67f341a09d7b074cac08b9a7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.407662+08	2019-09-01 18:50:24.407662+08
+382	0	9	1	0	0	2	0	0	0	0	0	0	0		034 Ellie-Lesson 6	422b106c939c4a9a87e8da9769baa286	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.451315+08	2019-09-01 18:50:24.451315+08
+383	0	9	1	0	0	2	0	0	0	0	0	0	0		035 Ellie-Lesson 1	0e6c3e21a557447ca2eb1ee978fd8b7d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.593069+08	2019-09-01 18:50:24.593069+08
+384	0	9	1	0	0	2	0	0	0	0	0	0	0		036 Ellie-Lesson 2	59e5cb6c076e442190047b9a348b1538	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.629105+08	2019-09-01 18:50:24.629105+08
+385	0	9	1	0	0	2	0	0	0	0	0	0	0		037 Ellie-Lesson 3	35923b80620e4ec8b51ca8ea6514e5f3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.651047+08	2019-09-01 18:50:24.651047+08
+386	0	9	1	0	0	2	0	0	0	0	0	0	0		038 Ellie-Lesson 4	1aa54506b0824db598c5c5bc9d56e164	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.701428+08	2019-09-01 18:50:24.701428+08
+387	0	9	1	0	0	2	0	0	0	0	0	0	0		039 Ellie-Lesson 5	9a9aa6c291a540bca923f06310a4abde	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.757459+08	2019-09-01 18:50:24.757459+08
+388	0	9	1	0	0	2	0	0	0	0	0	0	0		040 Ellie-Lesson 6	45dc7b3d4cf147d4924d3295c83121d5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.832142+08	2019-09-01 18:50:24.832142+08
+389	0	9	1	0	0	2	0	0	0	0	0	0	0		041 Ellie-lesson 1	26417b86efb846dab2d8e4814d570737	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.884906+08	2019-09-01 18:50:24.884906+08
+390	0	9	1	0	0	2	0	0	0	0	0	0	0		042 Ellie-lesson 2	264983fbc6024312b398ecc5cf4f467f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:24.941077+08	2019-09-01 18:50:24.941077+08
+391	0	9	1	0	0	2	0	0	0	0	0	0	0		043 Ellie-lesson 3	831c4fd816a7476caaf2008efa8a89f1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.010509+08	2019-09-01 18:50:25.010509+08
+392	0	8	1	0	0	1	0	0	0	0	0	0	0		001 程宇-草原（一）	7cb7954b078348aa90d8d082b2ed0d8b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.070049+08	2019-09-01 18:50:25.070049+08
+393	0	8	1	0	0	1	0	0	0	0	0	0	0		002 程宇-草原（二）	be3c28f5fe1b4223ae39a64f4f93ee38	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.116291+08	2019-09-01 18:50:25.116291+08
+394	0	8	1	0	0	2	0	0	0	0	0	0	0		003 程宇-丝绸之路	e7c64e9a3fd043638e914dceab04c1c2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.185444+08	2019-09-01 18:50:25.185444+08
+395	0	8	1	0	0	2	0	0	0	0	0	0	0		004 程宇-白杨	6d4fe325471147a2a6995bcd09c9daac	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.234555+08	2019-09-01 18:50:25.234555+08
+396	0	8	1	0	0	2	0	0	0	0	0	0	0		005 程程宇-把铁路修到拉萨去	9e24e0c0f36e423aa5b0c6e626185a3e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.302368+08	2019-09-01 18:50:25.302368+08
+397	0	8	1	0	0	2	0	0	0	0	0	0	0		006 程宇-回顾拓展	b3ca0bfe40d9480cbbae47beb2f98e28	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.364871+08	2019-09-01 18:50:25.364871+08
+398	0	8	1	0	0	2	0	0	0	0	0	0	0		007 程宇-习作	f86c177405ae4e1f96c5dddae84f941e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.430273+08	2019-09-01 18:50:25.430273+08
+399	0	8	1	0	0	2	0	0	0	0	0	0	0		008 程宇-牧童	a0af540d6ddd43cba9ffeb47f7be9f2d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.476697+08	2019-09-01 18:50:25.476697+08
+400	0	8	1	0	0	2	0	0	0	0	0	0	0		009 程宇-舟过安仁	4bd59eff497f4d91b06b310c13f9e023	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.548895+08	2019-09-01 18:50:25.548895+08
+401	0	8	1	0	0	2	0	0	0	0	0	0	0		010 程宇-清平乐·村居	ec5c975795e74643b0b6ee55a5fa7143	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.607272+08	2019-09-01 18:50:25.607272+08
+402	0	8	1	0	0	2	0	0	0	0	0	0	0		011 程宇-冬阳 童年 骆驼队	5f6ac182a39e4f17af90e60c6c8b6f08	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.660813+08	2019-09-01 18:50:25.660813+08
+403	0	8	1	0	0	2	0	0	0	0	0	0	0		012 程宇-祖父的园	73d1a2a8a02c4c2eb0007ceeed3ae997	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.724577+08	2019-09-01 18:50:25.724577+08
+404	0	8	1	0	0	2	0	0	0	0	0	0	0		013 程宇-童年的发现	4a7ffb85c87d4a4981d5e9619fcb82f8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.786733+08	2019-09-01 18:50:25.786733+08
+405	0	8	1	0	0	2	0	0	0	0	0	0	0		014 程宇-我想	0951d5ade84244a3ac968f1a30da5f5c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.835734+08	2019-09-01 18:50:25.835734+08
+406	0	8	1	0	0	2	0	0	0	0	0	0	0		015 程宇-童年的水墨画	15e3d3d430a7448aac404563ccc9c4d5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.904523+08	2019-09-01 18:50:25.904523+08
+407	0	8	1	0	0	2	0	0	0	0	0	0	0		016 程宇-回顾扩展 二	4d337877163042a1afbcce21c4d51689	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:25.953104+08	2019-09-01 18:50:25.953104+08
+408	0	8	1	0	0	2	0	0	0	0	0	0	0		017 程宇-习作 二	9fe3f7d6bba94e1ca871014a04a5fcc2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.020933+08	2019-09-01 18:50:26.020933+08
+409	0	8	1	0	0	2	0	0	0	0	0	0	0		018 程宇-杨氏之子	00dd579ebd564ac39d53f89b3a2634ff	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.093232+08	2019-09-01 18:50:26.093232+08
+410	0	8	1	0	0	2	0	0	0	0	0	0	0		019 程宇-晏子使楚	212dbed8c9954769ab629e4679ade048	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.138181+08	2019-09-01 18:50:26.138181+08
+411	0	8	1	0	0	2	0	0	0	0	0	0	0		020 程宇-半截蜡烛	74697cf6d23f42d8bfc7294408c2201d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.191318+08	2019-09-01 18:50:26.191318+08
+412	0	8	1	0	0	2	0	0	0	0	0	0	0		021 程宇-打电话	553a19bf24c2453ca340eec06135387f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.259224+08	2019-09-01 18:50:26.259224+08
+413	0	8	1	0	0	2	0	0	0	0	0	0	0		022 程宇-回顾扩展 三	94fda6998bad4718847412fc7846eee5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.317303+08	2019-09-01 18:50:26.317303+08
+414	0	8	1	0	0	2	0	0	0	0	0	0	0		023 程宇-习作 三	dfcce4df25e8469aa91fd66377ea6daa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.386479+08	2019-09-01 18:50:26.386479+08
+415	0	8	1	0	0	2	0	0	0	0	0	0	0		024 程宇-再见了亲人（一）	16fd792bcab048a58ab5608655010c36	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.440552+08	2019-09-01 18:50:26.440552+08
+416	0	8	1	0	0	2	0	0	0	0	0	0	0		025 程宇-再见了亲人（二）	c9a15fc6474e4545ae57a9cad0414f03	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.508727+08	2019-09-01 18:50:26.508727+08
+417	0	8	1	0	0	2	0	0	0	0	0	0	0		026 程宇-金色的鱼钩	e63505302fe2485c8e4928b709629df5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.567985+08	2019-09-01 18:50:26.567985+08
+418	0	8	1	0	0	2	0	0	0	0	0	0	0		027 程宇-桥	031bffc3664548ae8381e755b7b4b8bd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.632887+08	2019-09-01 18:50:26.632887+08
+419	0	8	1	0	0	2	0	0	0	0	0	0	0		028 程宇-梦想的力量	67c58813a5284749ad6f8ba2fe2b246e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.682567+08	2019-09-01 18:50:26.682567+08
+420	0	8	1	0	0	2	0	0	0	0	0	0	0		029 程宇-回顾拓展 四	e87e64221d0c4c88aad5dd596996c99f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.729484+08	2019-09-01 18:50:26.729484+08
+421	0	8	1	0	0	2	0	0	0	0	0	0	0		030 程宇-习作 四	dce82f6a983b497f8d963643e1509cb1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.803136+08	2019-09-01 18:50:26.803136+08
+422	0	8	1	0	0	2	0	0	0	0	0	0	0		031 程宇-将相和（一）	39874dd4d7e145f99402038367ea72ff	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.86774+08	2019-09-01 18:50:26.86774+08
+423	0	8	1	0	0	2	0	0	0	0	0	0	0		032 程宇-将相和（二）	f82c76c8839d431881c6d5041fff5bdc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.926577+08	2019-09-01 18:50:26.926577+08
+424	0	8	1	0	0	2	0	0	0	0	0	0	0		033 程宇-草船借箭（一）	b54694e222ea4626ae08652fc2c88b7b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:26.983675+08	2019-09-01 18:50:26.983675+08
+425	0	8	1	0	0	2	0	0	0	0	0	0	0		034 程宇-草船借箭（二）	e659ca23e6cd4a0eb5f9bc32f308a047	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.050397+08	2019-09-01 18:50:27.050397+08
+426	0	8	1	0	0	2	0	0	0	0	0	0	0		035 程宇-景阳冈	77bf77e977c948f588b057ebbe69c8ac	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.102235+08	2019-09-01 18:50:27.102235+08
+427	0	8	1	0	0	2	0	0	0	0	0	0	0		036 程宇-猴王出世	2c8965f7059c4321960b46f32abb6232	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.172378+08	2019-09-01 18:50:27.172378+08
+428	0	8	1	0	0	2	0	0	0	0	0	0	0		037 程宇-回顾拓展 五	a2a570494d684def907bcb22359600cd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.210926+08	2019-09-01 18:50:27.210926+08
+429	0	8	1	0	0	2	0	0	0	0	0	0	0		038 程宇-习作 五	63700d396cd7442887a53dd40c5ac7b7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.284736+08	2019-09-01 18:50:27.284736+08
+430	0	8	1	0	0	2	0	0	0	0	0	0	0		039 程宇-信息传递改变着我们的生活（一）	df2ccdb116c64230876a421ee41adab4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.340703+08	2019-09-01 18:50:27.340703+08
+431	0	8	1	0	0	2	0	0	0	0	0	0	0		040 程宇-信息传递改变着我们的生活（二）	76afe4f2b8144ac4af540bc39e7a97fc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.407159+08	2019-09-01 18:50:27.407159+08
+432	0	8	1	0	0	2	0	0	0	0	0	0	0		041 程宇-利用信息写简单的研究报告	e3065c2ac1a24204b962cf564421414d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.459205+08	2019-09-01 18:50:27.459205+08
+433	0	8	1	0	0	2	0	0	0	0	0	0	0		042 程宇-人物描写一组（一）	96b3b812b285411ca6ee74b9666c634e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.522874+08	2019-09-01 18:50:27.522874+08
+434	0	8	1	0	0	2	0	0	0	0	0	0	0		043 程宇-人物描写一组（二）	fcdc388a3a7043a8a2b5c65107d9c803	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.58482+08	2019-09-01 18:50:27.58482+08
+435	0	8	1	0	0	2	0	0	0	0	0	0	0		044 程宇-人物描写一组（三）	2ad299ce06b645aa85b252960de4af06	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.636959+08	2019-09-01 18:50:27.636959+08
+436	0	8	1	0	0	2	0	0	0	0	0	0	0		045 程宇-刷子李	61b3be93a0174fc990835ccfafb1eeaa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.708425+08	2019-09-01 18:50:27.708425+08
+437	0	8	1	0	0	2	0	0	0	0	0	0	0		046 程宇-金钱的魔力	2c22e3dc42034052928b1904b4c2d798	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.767127+08	2019-09-01 18:50:27.767127+08
+438	0	8	1	0	0	2	0	0	0	0	0	0	0		047 程宇-回顾拓展 七	f6f9c100659a47f6989076aecf933f46	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.819006+08	2019-09-01 18:50:27.819006+08
+439	0	8	1	0	0	2	0	0	0	0	0	0	0		048 程宇-习作 七	e5867661c69e46c98bebe6b1704ae925	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.882182+08	2019-09-01 18:50:27.882182+08
+440	0	8	1	0	0	2	0	0	0	0	0	0	0		049 程宇-自己的花是让别人看的	de1e3d05291b4d16b1141f78dcd23295	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:27.935921+08	2019-09-01 18:50:27.935921+08
+441	0	8	1	0	0	2	0	0	0	0	0	0	0		050 程宇-威尼斯的小艇	ea7119940e7c4178a1238ed9732b62a4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.001409+08	2019-09-01 18:50:28.001409+08
+442	0	8	1	0	0	2	0	0	0	0	0	0	0		051 程宇-与象共舞	e3c89d46c302439c87273f5be98ae8cc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.060771+08	2019-09-01 18:50:28.060771+08
+443	0	8	1	0	0	2	0	0	0	0	0	0	0		052 程宇-彩色的非洲	530b111f85bb4bd9a5496760101c4119	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.11614+08	2019-09-01 18:50:28.11614+08
+444	0	8	1	0	0	2	0	0	0	0	0	0	0		053 程宇-回顾拓展 八	add03442582946a59d6bfd4aeeadbdfb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.184341+08	2019-09-01 18:50:28.184341+08
+445	0	8	1	0	0	2	0	0	0	0	0	0	0		054 程宇-习作 八（一）	6e97fd558d4541d6a2dbcf0fa8be6830	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.244745+08	2019-09-01 18:50:28.244745+08
+446	0	8	1	0	0	2	0	0	0	0	0	0	0		055 程宇-习作 八（二）	593afde85fe84347a20198c21089123f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.302763+08	2019-09-01 18:50:28.302763+08
+447	0	8	1	0	0	2	0	0	0	0	0	0	0		056 程宇-选读单元（一）	e1341b02c6b24933862cf9b0ec5307f8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.37087+08	2019-09-01 18:50:28.37087+08
+448	0	8	1	0	0	2	0	0	0	0	0	0	0		057 程宇-选读单元（二）	c1040a0934f0404aaa3fb0a246d7e0e0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.417204+08	2019-09-01 18:50:28.417204+08
+449	0	8	1	0	0	2	0	0	0	0	0	0	0		058 程宇-选读单元（三）	175164922fe849fdafeb0832bd537a73	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.48237+08	2019-09-01 18:50:28.48237+08
+450	0	8	1	0	0	2	0	0	0	0	0	0	0		059 程宇-总复习（一）	e86ae203d2b04be1b238ec993f9991f5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.542596+08	2019-09-01 18:50:28.542596+08
+451	0	8	1	0	0	2	0	0	0	0	0	0	0		060 程宇-总复习（二）	90747acf91764b19b8019bfce96ac681	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.604795+08	2019-09-01 18:50:28.604795+08
+452	0	8	1	0	0	2	0	0	0	0	0	0	0		061 程宇-选读单元（一）	ecfd86514c5b482792f88b3930f1f47f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.671929+08	2019-09-01 18:50:28.671929+08
+453	0	8	1	0	0	2	0	0	0	0	0	0	0		062 程宇-选读单元（二）	5ca9b41ebbfe4dac8d452818e90aeb89	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.719214+08	2019-09-01 18:50:28.719214+08
+454	0	8	1	0	0	2	0	0	0	0	0	0	0		063 程宇-选读单元（三）	4f3bfb734ed4433cadba441609939ccf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.788458+08	2019-09-01 18:50:28.788458+08
+455	0	11	1	0	0	1	0	0	0	0	0	0	0		001 王玲-前言	960a894d185744d3a927bf6010248902	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.837581+08	2019-09-01 18:50:28.837581+08
+456	0	11	1	0	0	1	0	0	0	0	0	0	0		002 王玲-山中访友（一）	4839dc90c6bc4bca858fbb5847778b27	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.900203+08	2019-09-01 18:50:28.900203+08
+457	0	11	1	0	0	2	0	0	0	0	0	0	0		003王玲-山中访友（二） 	e7d16a810c3a43deac29722748c49e20	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:28.957867+08	2019-09-01 18:50:28.957867+08
+458	0	11	1	0	0	2	0	0	0	0	0	0	0		004 王玲-山雨	f025c2888e9944eea3beaafa8cfc406f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.036724+08	2019-09-01 18:50:29.036724+08
+459	0	11	1	0	0	2	0	0	0	0	0	0	0		005 王玲-草虫的村落（一）	b8a08351c21740fd82ef774b569dd32d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.07881+08	2019-09-01 18:50:29.07881+08
+460	0	11	1	0	0	2	0	0	0	0	0	0	0		006 王玲-草虫的村落（二）	fa65442360d9422aa4fe447d4beb14a2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.134661+08	2019-09-01 18:50:29.134661+08
+461	0	11	1	0	0	2	0	0	0	0	0	0	0		007 王玲-索溪峪的”野“	9e57415ac18a412f809a2aa23ecbc69f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.204934+08	2019-09-01 18:50:29.204934+08
+462	0	11	1	0	0	2	0	0	0	0	0	0	0		008 王玲-口语交际 习作一	48c4a6e4ce5b445d824ea17f31110d4e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.271731+08	2019-09-01 18:50:29.271731+08
+463	0	11	1	0	0	2	0	0	0	0	0	0	0		009 王玲-回顾拓展一	2fae11ebf9244bb2bff254b438ac31ba	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.317587+08	2019-09-01 18:50:29.317587+08
+464	0	11	1	0	0	2	0	0	0	0	0	0	0		010 王玲-詹天佑（一）	cb560248d6e7452995aed0a1ec3030fe	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.39278+08	2019-09-01 18:50:29.39278+08
+465	0	11	1	0	0	2	0	0	0	0	0	0	0		011 王玲-詹天佑（二）	24649267fd434018a44e7dafaa1a723b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.434201+08	2019-09-01 18:50:29.434201+08
+466	0	11	1	0	0	2	0	0	0	0	0	0	0		012 王玲-怀念母亲（一）	522ab806648b4a61802a3041f9e546fa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.501523+08	2019-09-01 18:50:29.501523+08
+467	0	11	1	0	0	2	0	0	0	0	0	0	0		013 王玲-怀念母亲（二）	2bb93c5c339445be9de2c9227b3851b0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.564108+08	2019-09-01 18:50:29.564108+08
+468	0	11	1	0	0	2	0	0	0	0	0	0	0		014 王玲-彩色的翅膀	c6707fdad91345c08109b575d1163e92	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.61901+08	2019-09-01 18:50:29.61901+08
+469	0	11	1	0	0	2	0	0	0	0	0	0	0		015 王玲-中华少年	e9536e6c87cb4e09b7b6769104e6e56b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.678831+08	2019-09-01 18:50:29.678831+08
+470	0	11	1	0	0	2	0	0	0	0	0	0	0		016 王玲-口语交际 习作二	437abf5fd5b5464699868983c2728dce	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.745109+08	2019-09-01 18:50:29.745109+08
+471	0	11	1	0	0	2	0	0	0	0	0	0	0		017 王玲-回顾拓展二	fca8bfedc92b42b9b689ebe4d4192994	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.808538+08	2019-09-01 18:50:29.808538+08
+472	0	11	1	0	0	2	0	0	0	0	0	0	0		018 王玲-穷人（一）	74c1bae62070403a8fcb68ab62e1b24c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.873447+08	2019-09-01 18:50:29.873447+08
+473	0	11	1	0	0	2	0	0	0	0	0	0	0		019 王玲-穷人（二）	1269b381ba504f6c80a28f2207aced30	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.929607+08	2019-09-01 18:50:29.929607+08
+474	0	11	1	0	0	2	0	0	0	0	0	0	0		020 王玲-别饿坏了那匹马	439ca379594e40bf9272144ba48b42dc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:29.977187+08	2019-09-01 18:50:29.977187+08
+475	0	11	1	0	0	2	0	0	0	0	0	0	0		021 王玲-唯一的听众（一）	1b8ad497b1e54e4ca287a1aaeb4d8505	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.03343+08	2019-09-01 18:50:30.03343+08
+476	0	11	1	0	0	2	0	0	0	0	0	0	0		022 王玲-唯一的听众（二）	767e816e4b3d4664b0fda16b58a1b11f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.098915+08	2019-09-01 18:50:30.098915+08
+477	0	11	1	0	0	2	0	0	0	0	0	0	0		023 王玲-用心灵去倾听	ffb58cf985564c8a9a5e0b55b43b59ec	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.16949+08	2019-09-01 18:50:30.16949+08
+478	0	11	1	0	0	2	0	0	0	0	0	0	0		024 王玲-口语交际 习作三	09c59a00c227471e932a31f84b3768d4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.219232+08	2019-09-01 18:50:30.219232+08
+479	0	11	1	0	0	2	0	0	0	0	0	0	0		025 王玲-回顾拓展三	43a8344324ea4dbd9b98d6a1c3c55394	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.286717+08	2019-09-01 18:50:30.286717+08
+480	0	11	1	0	0	2	0	0	0	0	0	0	0		026 王玲-只有一个地球（一）	83bcfc8fa99f446aa5dfadfa23493db3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.348022+08	2019-09-01 18:50:30.348022+08
+481	0	11	1	0	0	2	0	0	0	0	0	0	0		027 王玲-只有一个地球（二）	9263e940d4614b4cac4de2741fd01c33	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.390841+08	2019-09-01 18:50:30.390841+08
+482	0	11	1	0	0	2	0	0	0	0	0	0	0		028 王玲-狼和鹿的故事	a6fefd9140b741d39ef7a0de040181f2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.469233+08	2019-09-01 18:50:30.469233+08
+483	0	11	1	0	0	2	0	0	0	0	0	0	0		029 王玲-这片土地是神圣的（一）	d63fa660c098441eb0af22063f9f21bf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.509653+08	2019-09-01 18:50:30.509653+08
+484	0	11	1	0	0	2	0	0	0	0	0	0	0		030 王玲-这片土地是神圣的（二）	80e8cdbefa464c0095472dc5f7aad217	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.581373+08	2019-09-01 18:50:30.581373+08
+485	0	11	1	0	0	2	0	0	0	0	0	0	0		031 王玲-青山不老	32c31409d5cb43b3a4d8539aa2601b1f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.641858+08	2019-09-01 18:50:30.641858+08
+486	0	11	1	0	0	2	0	0	0	0	0	0	0		032 王玲-口语交际 习作四	922040bd8ea0452b9def397eeee21e01	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.689212+08	2019-09-01 18:50:30.689212+08
+487	0	11	1	0	0	2	0	0	0	0	0	0	0		033 王玲-回顾拓展四	75d2122cfc434f0ba7cbdfd3c9ac9c2c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.761432+08	2019-09-01 18:50:30.761432+08
+488	0	11	1	0	0	2	0	0	0	0	0	0	0		034 王玲-少年闰土（一）	ceaf33d037464596a636439fdee10a85	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.820477+08	2019-09-01 18:50:30.820477+08
+489	0	11	1	0	0	2	0	0	0	0	0	0	0		035 王玲-少年闰土（二）	f4bb1e5f76db4fd79ff7e3819653c01c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.890182+08	2019-09-01 18:50:30.890182+08
+490	0	11	1	0	0	2	0	0	0	0	0	0	0		036 王玲-我的伯父鲁迅先生（一）	6efe90975b414d58ae131aa7d27df048	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:30.937948+08	2019-09-01 18:50:30.937948+08
+491	0	11	1	0	0	2	0	0	0	0	0	0	0		037 王玲-我的伯父鲁迅先生（二）	df07b16a2e534ee0a956e7d997d7e5a8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.00234+08	2019-09-01 18:50:31.00234+08
+492	0	11	1	0	0	2	0	0	0	0	0	0	0		038 王玲-一面	0dba5cf8c35e4d82a668d0885f5dcd93	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.05747+08	2019-09-01 18:50:31.05747+08
+493	0	11	1	0	0	2	0	0	0	0	0	0	0		039 王玲-有的人	1a9c1f2e6d254628acb2be73111be5e8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.120767+08	2019-09-01 18:50:31.120767+08
+494	0	11	1	0	0	2	0	0	0	0	0	0	0		040 王玲-口语交际 习作五	5aca72dfe8cf4136af523a59eb7d52a5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.184664+08	2019-09-01 18:50:31.184664+08
+495	0	11	1	0	0	2	0	0	0	0	0	0	0		041 王玲-回顾拓展五	fb92171bf365425eb885dfaa5ac1e567	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.252839+08	2019-09-01 18:50:31.252839+08
+496	0	11	1	0	0	2	0	0	0	0	0	0	0		042 王玲-采薇	bc7c88ea8c9745178cf5166bf0315bc7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.300101+08	2019-09-01 18:50:31.300101+08
+497	0	11	1	0	0	2	0	0	0	0	0	0	0		043 王玲-春夜喜雨	45f0884a8010441e8f4c0ad10ed7e593	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.367514+08	2019-09-01 18:50:31.367514+08
+498	0	11	1	0	0	2	0	0	0	0	0	0	0		044 王玲-西江月·夜行黄沙道中	514b06eb01eb4d18b9767d7ce14f7744	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.423936+08	2019-09-01 18:50:31.423936+08
+499	0	11	1	0	0	2	0	0	0	0	0	0	0		045 王玲-天净沙·秋	f5a144c82bee4aa4ba2ba4ac2df94fe2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.476031+08	2019-09-01 18:50:31.476031+08
+500	0	11	1	0	0	2	0	0	0	0	0	0	0		046 王玲-太阳的话	492e3126872d497ea1a144796d95c8ad	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.54061+08	2019-09-01 18:50:31.54061+08
+501	0	11	1	0	0	2	0	0	0	0	0	0	0		047 王玲-白桦	8a5fd6801c53486e931e6ae6c5915743	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.601161+08	2019-09-01 18:50:31.601161+08
+502	0	11	1	0	0	2	0	0	0	0	0	0	0		048 王玲-我们去看海	16a0610f7ade4b8fab5bcba306a1cdbb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.662947+08	2019-09-01 18:50:31.662947+08
+503	0	11	1	0	0	2	0	0	0	0	0	0	0		049 王玲-致老鼠	2a8073ef328d4deaa511c77cd20e63a1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.719027+08	2019-09-01 18:50:31.719027+08
+504	0	11	1	0	0	2	0	0	0	0	0	0	0		050 王玲-给诗加“腰”	d299818ea03142b98c8cc1cdc456d666	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.782173+08	2019-09-01 18:50:31.782173+08
+505	0	11	1	0	0	2	0	0	0	0	0	0	0		051 王玲-诗中的“秋”	3fd4b365b5af4a15a82b9190b90ac48a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.837438+08	2019-09-01 18:50:31.837438+08
+506	0	11	1	0	0	2	0	0	0	0	0	0	0		052 王玲-老人与海鸥（一）	64d9bdb8e650491fb79004f84d3ac424	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.900359+08	2019-09-01 18:50:31.900359+08
+507	0	11	1	0	0	2	0	0	0	0	0	0	0		053 王玲-老人与海鸥（二）	30785dfae1164d89ae561a2fcd594478	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:31.968265+08	2019-09-01 18:50:31.968265+08
+508	0	11	1	0	0	2	0	0	0	0	0	0	0		054 王玲-跑进家来的松鼠	3f2afb82fb0343aba1eae717e8c4818f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.027451+08	2019-09-01 18:50:32.027451+08
+509	0	11	1	0	0	2	0	0	0	0	0	0	0		055 王玲-最后一头战象（一）	9852401034ee4bd39bdb913f8452ce55	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.073996+08	2019-09-01 18:50:32.073996+08
+510	0	11	1	0	0	2	0	0	0	0	0	0	0		057 王玲-金色的脚印	338d23f032ec44bfa8374b7662cbb3a4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.134905+08	2019-09-01 18:50:32.134905+08
+511	0	11	1	0	0	2	0	0	0	0	0	0	0		058 王玲-口语交际 习作七	1bee94d231a9425f894d43ff8b5d1157	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.205976+08	2019-09-01 18:50:32.205976+08
+512	0	11	1	0	0	2	0	0	0	0	0	0	0		061 王玲-月光曲（一）	ff10f5bf941943d4b669ac9dc5cff815	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.260644+08	2019-09-01 18:50:32.260644+08
+513	0	11	1	0	0	2	0	0	0	0	0	0	0		062 王玲-月光曲（二）	5b49e79a268e4ae7ba9f89a09751b5bd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.317693+08	2019-09-01 18:50:32.317693+08
+514	0	11	1	0	0	2	0	0	0	0	0	0	0		063 王玲-蒙娜丽莎之约	1fe7080364a14a4ca84dbce7bdac76ef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.38675+08	2019-09-01 18:50:32.38675+08
+515	0	11	1	0	0	2	0	0	0	0	0	0	0		064 王玲-我的舞台	b35385dd371d488b8e729ef1996f88cb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.438111+08	2019-09-01 18:50:32.438111+08
+516	0	11	1	0	0	2	0	0	0	0	0	0	0		065 王玲-口语交际 习作八	535bd2420fb947a69d8757cec804b063	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.491763+08	2019-09-01 18:50:32.491763+08
+517	0	11	1	0	0	2	0	0	0	0	0	0	0		066 王玲-回顾 拓展八	aac8f5af55d74af487235b3a083ff52e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.556114+08	2019-09-01 18:50:32.556114+08
+518	0	10	1	0	0	1	0	0	0	0	0	0	0		001 Jane-Unit 1~1	c5e540e46fc64c72931713c8cd1b3e22	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.620751+08	2019-09-01 18:50:32.620751+08
+519	0	10	1	0	0	1	0	0	0	0	0	0	0		002 Jane-Unit 1~2	293b1d0e2524409a8ef6f9e86d6e1f7f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.680669+08	2019-09-01 18:50:32.680669+08
+520	0	10	1	0	0	2	0	0	0	0	0	0	0		003 Jane-Unit 1~3_1	b5717b0bd897492a8f46341718947135	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.740147+08	2019-09-01 18:50:32.740147+08
+521	0	10	1	0	0	2	0	0	0	0	0	0	0		004 Jane-Unit 1~4	5c602799d289465985f4fceb03de50db	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.795336+08	2019-09-01 18:50:32.795336+08
+522	0	10	1	0	0	2	0	0	0	0	0	0	0		005 Jane-Unit 1~5_1	d689333ff2644d809403b110c6f64963	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.8548+08	2019-09-01 18:50:32.8548+08
+523	0	10	1	0	0	2	0	0	0	0	0	0	0		006 Jane-Unit 1~6	6aaeafffceb747a388d2a4ac1fda3715	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.924695+08	2019-09-01 18:50:32.924695+08
+524	0	10	1	0	0	2	0	0	0	0	0	0	0		007 Jane-Unit 1~7	db83c3a26a7247cb91e38aa1e8afda1b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:32.972917+08	2019-09-01 18:50:32.972917+08
+525	0	10	1	0	0	2	0	0	0	0	0	0	0		008 Jane-Unit2~1	fa9924fe61a4447a9693dbff5de46ec7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.03614+08	2019-09-01 18:50:33.03614+08
+526	0	10	1	0	0	2	0	0	0	0	0	0	0		009 Jane-Unit2~2	f9031e4420bc4f44a0c216f55f9a4240	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.098929+08	2019-09-01 18:50:33.098929+08
+527	0	10	1	0	0	2	0	0	0	0	0	0	0		010 Jane-Unit2~3	80ec5bcb274e4f53922bbd28e0d403ae	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.15697+08	2019-09-01 18:50:33.15697+08
+528	0	10	1	0	0	2	0	0	0	0	0	0	0		011 Jane-Unit2~4	1387f3de7c2f48c1a39807df912149f4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.221788+08	2019-09-01 18:50:33.221788+08
+529	0	10	1	0	0	2	0	0	0	0	0	0	0		012 Jane-Unit2~5	3230a831d5ea46f1b49545083c39cb3d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.281698+08	2019-09-01 18:50:33.281698+08
+530	0	10	1	0	0	2	0	0	0	0	0	0	0		013 Jane-Unit2~6	2e4595ee7f9b4a358ae143dfa7ac41dd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.334994+08	2019-09-01 18:50:33.334994+08
+531	0	10	1	0	0	2	0	0	0	0	0	0	0		014 Jane-Unit3~1	793f8dd189f04b8faa2cf219749e24ce	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.404169+08	2019-09-01 18:50:33.404169+08
+532	0	10	1	0	0	2	0	0	0	0	0	0	0		015 Jane-Unit3~2	7bfb66bc43604f2ea3f006c1193c0778	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.457729+08	2019-09-01 18:50:33.457729+08
+533	0	10	1	0	0	2	0	0	0	0	0	0	0		016 Jane-Unit3~3	1140e59caa8d4213a520c495e056af87	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.523531+08	2019-09-01 18:50:33.523531+08
+534	0	10	1	0	0	2	0	0	0	0	0	0	0		017 Jane-Unit3~4	bac2049988604001b6b1425b35d2784f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.577508+08	2019-09-01 18:50:33.577508+08
+535	0	10	1	0	0	2	0	0	0	0	0	0	0		018 Jane-Unit3~5	8f037d1cd495459898953dcb0f44238c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.631989+08	2019-09-01 18:50:33.631989+08
+536	0	10	1	0	0	2	0	0	0	0	0	0	0		019 Jane-Unit3~6	70dbdb5f0fba4c6fb8e68e99e8047d1b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.695976+08	2019-09-01 18:50:33.695976+08
+537	0	10	1	0	0	2	0	0	0	0	0	0	0		020 Jane-Recycle1~1	fb4d5dc362104a83b05b0e086da791ee	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.758623+08	2019-09-01 18:50:33.758623+08
+538	0	10	1	0	0	2	0	0	0	0	0	0	0		021 Jane-Recycle1~2	e3c80a9dcab043cda9a857352827ca18	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.810725+08	2019-09-01 18:50:33.810725+08
+539	0	10	1	0	0	2	0	0	0	0	0	0	0		022 Jane-Unit4~1	002aeeb441d14e68b8a4e823fa2b68b1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.87475+08	2019-09-01 18:50:33.87475+08
+540	0	10	1	0	0	2	0	0	0	0	0	0	0		023 Jane-Unit4~2	36a5ac3abff74476955200deeea5e484	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:33.941788+08	2019-09-01 18:50:33.941788+08
+541	0	10	1	0	0	2	0	0	0	0	0	0	0		024 Jane-Unit4~3	f0350a3000f6483ea9a957c921a6fa55	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.001831+08	2019-09-01 18:50:34.001831+08
+542	0	10	1	0	0	2	0	0	0	0	0	0	0		025 Jane-Unit4~4	43277710db414add9dc85f05cc511b51	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.056518+08	2019-09-01 18:50:34.056518+08
+543	0	10	1	0	0	2	0	0	0	0	0	0	0		026 Jane-Unit4~5	bc39a4a259dd4abb9852cd1f7bf5de90	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.126274+08	2019-09-01 18:50:34.126274+08
+544	0	10	1	0	0	2	0	0	0	0	0	0	0		027 Jane-Unit4~6	063cbf6dee20490a96bab6516efa733c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.171652+08	2019-09-01 18:50:34.171652+08
+545	0	10	1	0	0	2	0	0	0	0	0	0	0		028 Jane-Unit5~1	4a87f257d8d54e85871a0e3fbb25ab2d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.252612+08	2019-09-01 18:50:34.252612+08
+546	0	10	1	0	0	2	0	0	0	0	0	0	0		029 Jane-Unit5~2	9554d9b282a244d7b77bd108d844a199	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.337613+08	2019-09-01 18:50:34.337613+08
+547	0	10	1	0	0	2	0	0	0	0	0	0	0		030 Jane-Unit5~3	4688c1362a8a4968bd8982c46caa1cd8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.358834+08	2019-09-01 18:50:34.358834+08
+548	0	10	1	0	0	2	0	0	0	0	0	0	0		031 Jane-Unit5~4	0301a2d2d93b44549512e33f7e2a79b4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.418277+08	2019-09-01 18:50:34.418277+08
+549	0	10	1	0	0	2	0	0	0	0	0	0	0		032 Jane-Unit5~5	16436407869f48bc95f459cb071df791	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.47857+08	2019-09-01 18:50:34.47857+08
+550	0	10	1	0	0	2	0	0	0	0	0	0	0		033 Jane-Unit5~6	a198a7c8baf64173a41d1fe56383c8ca	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.533473+08	2019-09-01 18:50:34.533473+08
+551	0	10	1	0	0	2	0	0	0	0	0	0	0		034 Jane-Unit6~1	75f8a28d762542b9a0afd7d125c85503	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.607934+08	2019-09-01 18:50:34.607934+08
+552	0	10	1	0	0	2	0	0	0	0	0	0	0		035 Jane-Unit6~2	19c9ed58717e4c6fac0eb62058e27a61	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.657527+08	2019-09-01 18:50:34.657527+08
+553	0	10	1	0	0	2	0	0	0	0	0	0	0		036 Jane-Unit6~3	42d11f0341e94b138427c8c9948d66ed	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.718976+08	2019-09-01 18:50:34.718976+08
+554	0	10	1	0	0	2	0	0	0	0	0	0	0		037 Jane-Unit6~4	daabe53d69e944f682e64f7621bb0c6b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.785232+08	2019-09-01 18:50:34.785232+08
+555	0	10	1	0	0	2	0	0	0	0	0	0	0		038 Jane-Unit6~5	b256fd0b3e664409ae0bbf6502ab24b2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.838601+08	2019-09-01 18:50:34.838601+08
+556	0	10	1	0	0	2	0	0	0	0	0	0	0		039 Jane-Unit6-6	d6da732c2cc548d7a892e7c6034ebc0c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.891027+08	2019-09-01 18:50:34.891027+08
+557	0	10	1	0	0	2	0	0	0	0	0	0	0		040 Jane-Recycle2-1	c17243c222e54caea932a592134f4897	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:34.951999+08	2019-09-01 18:50:34.951999+08
+558	0	10	1	0	0	2	0	0	0	0	0	0	0		041 Jane-Recycle2-2	7e131f12321b4d8bbe081bac10d02eed	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.025167+08	2019-09-01 18:50:35.025167+08
+559	0	13	1	0	0	1	0	0	0	0	0	0	0		001 程宇-窃读记	5e2f9e32c6bd4694925a1ede77d9ae3c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.084913+08	2019-09-01 18:50:35.084913+08
+560	0	13	1	0	0	1	0	0	0	0	0	0	0		002 程宇-小苗与大树的对话	2745bb85694648748d81d06bb85bb8c6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.153565+08	2019-09-01 18:50:35.153565+08
+561	0	13	1	0	0	2	0	0	0	0	0	0	0		003 程宇-走遍天下书为侣（一）	be083740306545f6ae6b16bbd75f280c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.203815+08	2019-09-01 18:50:35.203815+08
+562	0	13	1	0	0	2	0	0	0	0	0	0	0		004 程宇-走遍天下书为侣（二）	06f1561738144cfe8c05299f368d66dc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.264988+08	2019-09-01 18:50:35.264988+08
+563	0	13	1	0	0	2	0	0	0	0	0	0	0		005 程宇-我的长生果	b4c62f60c7e84a5e953e709f042ce723	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.31097+08	2019-09-01 18:50:35.31097+08
+564	0	13	1	0	0	2	0	0	0	0	0	0	0		006 程宇-第一单元回顾拓展	c81a1c3f56b24c208d80c0dca87edfdc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.378056+08	2019-09-01 18:50:35.378056+08
+565	0	13	1	0	0	2	0	0	0	0	0	0	0		007 程宇-古诗三首-泊船瓜洲	09834721b7904c47aa526a808180ecb5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.435633+08	2019-09-01 18:50:35.435633+08
+566	0	13	1	0	0	2	0	0	0	0	0	0	0		008 程宇-古诗三首-秋思	6d5b7ce528d74b6fa8ee20a1ce78990a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.50145+08	2019-09-01 18:50:35.50145+08
+567	0	13	1	0	0	2	0	0	0	0	0	0	0		009 程宇-古诗三首-长相思	cd5de979553442ad8065b1c069c48465	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.55608+08	2019-09-01 18:50:35.55608+08
+568	0	13	1	0	0	2	0	0	0	0	0	0	0		010 程宇-古诗三首-总结	319ba39407784c3381522f26f18290c3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.61857+08	2019-09-01 18:50:35.61857+08
+569	0	13	1	0	0	2	0	0	0	0	0	0	0		011 程宇-梅花魂（一）	abca27fa7e2e4299bb5974ce6af950f0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.676507+08	2019-09-01 18:50:35.676507+08
+570	0	13	1	0	0	2	0	0	0	0	0	0	0		012 程宇-梅花魂（二）	abca27fa7e2e4299bb5974ce6af950f0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.753441+08	2019-09-01 18:50:35.753441+08
+571	0	13	1	0	0	2	0	0	0	0	0	0	0		013 程宇-桂花雨	5c27da0a35d44e5a980df5400a9eae8d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.787569+08	2019-09-01 18:50:35.787569+08
+572	0	13	1	0	0	2	0	0	0	0	0	0	0		014 程宇-小桥流水人家（一）	af89017d242542ff928d16ab3449fd33	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.850471+08	2019-09-01 18:50:35.850471+08
+573	0	13	1	0	0	2	0	0	0	0	0	0	0		015 程宇-小桥流水人家（二）	7e45243278ee4c5aae2360bc9cc1d319	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.917848+08	2019-09-01 18:50:35.917848+08
+574	0	13	1	0	0	2	0	0	0	0	0	0	0		016 程宇-第二单元回顾拓展	70075245f836423b8c5819ffdc05fc08	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:35.973801+08	2019-09-01 18:50:35.973801+08
+575	0	13	1	0	0	2	0	0	0	0	0	0	0		017 程宇-单元习作	75a8e731f15b4082a5880e090df18430	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.042083+08	2019-09-01 18:50:36.042083+08
+576	0	13	1	0	0	2	0	0	0	0	0	0	0		018 程宇-鲸（一）	f93a9519bc1043f3813b845772c72bb5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.100256+08	2019-09-01 18:50:36.100256+08
+577	0	13	1	0	0	2	0	0	0	0	0	0	0		019 程宇-鲸（二）	093b477a6f1542d2901782efafee83f7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.171128+08	2019-09-01 18:50:36.171128+08
+578	0	13	1	0	0	2	0	0	0	0	0	0	0		020 程宇-鲸（三）	dd965f2fc4c34f5db2619a8cd998eaf6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.219648+08	2019-09-01 18:50:36.219648+08
+579	0	13	1	0	0	2	0	0	0	0	0	0	0		021 程宇-松鼠（一）	9b35c5331d27471190aab7376eadd2b1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.285698+08	2019-09-01 18:50:36.285698+08
+580	0	13	1	0	0	2	0	0	0	0	0	0	0		022 程宇-松鼠（二）	3e660dd56fd143279c8ed42f469c715d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.326185+08	2019-09-01 18:50:36.326185+08
+581	0	13	1	0	0	2	0	0	0	0	0	0	0		023 程宇-新型玻璃	0939018ffc814305be38fea78de89590	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.402458+08	2019-09-01 18:50:36.402458+08
+582	0	13	1	0	0	2	0	0	0	0	0	0	0		024 程宇-假如没有灰尘	9eb8b2113a6246d78306883dab37b208	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.451012+08	2019-09-01 18:50:36.451012+08
+583	0	13	1	0	0	2	0	0	0	0	0	0	0		025 程宇-第三单元回顾与拓展	d067e67c9b6648678ec5b34f985cab30	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.505775+08	2019-09-01 18:50:36.505775+08
+584	0	13	1	0	0	2	0	0	0	0	0	0	0		026 程宇-介绍一种物品	26042eddb75449a894b075fd40f15ecf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.583204+08	2019-09-01 18:50:36.583204+08
+585	0	13	1	0	0	2	0	0	0	0	0	0	0		027 程宇-钓鱼的启示	3b3c0e9f39744e79bdf9a3a0a3163691	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.639727+08	2019-09-01 18:50:36.639727+08
+586	0	13	1	0	0	2	0	0	0	0	0	0	0		028 程宇-通往广场的路不止一条	e213ab7873bc4633b73a64a31bf6cbe2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.6863+08	2019-09-01 18:50:36.6863+08
+587	0	13	1	0	0	2	0	0	0	0	0	0	0		029 程宇-落花生	8a7431d3cba344e5aa3ad7ae2bf40953	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.759249+08	2019-09-01 18:50:36.759249+08
+588	0	13	1	0	0	2	0	0	0	0	0	0	0		030 程宇-珍珠鸟	4448e44f489d45e3a5da2d37480cc2b1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.819353+08	2019-09-01 18:50:36.819353+08
+589	0	13	1	0	0	2	0	0	0	0	0	0	0		031 程宇-拓展与回顾	a30869df2c64485c9c1121b758fbdd87	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.880366+08	2019-09-01 18:50:36.880366+08
+590	0	13	1	0	0	2	0	0	0	0	0	0	0		032 程宇-漫画作文	8f6f281266c248e58680533d2dd32567	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.935504+08	2019-09-01 18:50:36.935504+08
+591	0	13	1	0	0	2	0	0	0	0	0	0	0		033 程宇-遨游汉字王国（一）	0ddb039c46e943269c1b86cb5320d117	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:36.991835+08	2019-09-01 18:50:36.991835+08
+592	0	13	1	0	0	2	0	0	0	0	0	0	0		034 程宇-遨游汉字王国（二）	0e2a1a77b93e4438961aa5c2f57abfac	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.054598+08	2019-09-01 18:50:37.054598+08
+593	0	13	1	0	0	2	0	0	0	0	0	0	0		035 程宇-遨游汉字王国（三）	1e3f9b416f624b2c9fa0d06c4427df04	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.11866+08	2019-09-01 18:50:37.11866+08
+594	0	13	1	0	0	2	0	0	0	0	0	0	0		036 程宇-地震中的父与子	bbdc0e9b922e4b7a91612b2f8a93366d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.171774+08	2019-09-01 18:50:37.171774+08
+595	0	13	1	0	0	2	0	0	0	0	0	0	0		037 程宇-慈母情深	3733973364ec4f5aa5ff8b51944f64c0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.22488+08	2019-09-01 18:50:37.22488+08
+596	0	13	1	0	0	2	0	0	0	0	0	0	0		038 程宇-精彩极了和糟糕透了	d95b9a2895814e9b895bb20317cefd1d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.291554+08	2019-09-01 18:50:37.291554+08
+597	0	13	1	0	0	2	0	0	0	0	0	0	0		039 程宇-学会看病	8209344847db47cc8d33561961c58fd0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.353897+08	2019-09-01 18:50:37.353897+08
+598	0	13	1	0	0	2	0	0	0	0	0	0	0		040 程宇-第六单元 回顾拓展	f2a91f4b20394d7490175a1dca71e4c0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.420333+08	2019-09-01 18:50:37.420333+08
+599	0	13	1	0	0	2	0	0	0	0	0	0	0		041 程宇-第六单元 习作_1	43e6da170b8b4807b7e3a829735d5dd8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.475881+08	2019-09-01 18:50:37.475881+08
+600	0	13	1	0	0	2	0	0	0	0	0	0	0		042 程宇-圆明园的毁灭（一）	0c6bd96aecab4c2cb3bb29a0e0d5995d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.549184+08	2019-09-01 18:50:37.549184+08
+601	0	13	1	0	0	2	0	0	0	0	0	0	0		043 程宇-圆明园的毁灭（二）	921ce0cd82e442d19c1755aa36d36e44	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.591875+08	2019-09-01 18:50:37.591875+08
+602	0	13	1	0	0	2	0	0	0	0	0	0	0		044 程宇-圆明园的毁灭（三）	52f742f0968148e8a769f37fb6619f20	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.657171+08	2019-09-01 18:50:37.657171+08
+603	0	13	1	0	0	2	0	0	0	0	0	0	0		045 程宇-难忘的一课	56af8c9396ff4a1aac49e7ed16180b3c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.711466+08	2019-09-01 18:50:37.711466+08
+604	0	13	1	0	0	2	0	0	0	0	0	0	0		046 程宇-最后一分钟	5015c4d8c98c44828ce1ebc8df09d3ff	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.785227+08	2019-09-01 18:50:37.785227+08
+605	0	13	1	0	0	2	0	0	0	0	0	0	0		047 程宇-第七单元回顾与拓展	7cb9425c65184306858b845f83de7803	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.840884+08	2019-09-01 18:50:37.840884+08
+606	0	13	1	0	0	2	0	0	0	0	0	0	0		048 程宇-第七单元习作读后感	fe3ed0b5f8db4a1ca8b233072d61876e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.907779+08	2019-09-01 18:50:37.907779+08
+607	0	13	1	0	0	2	0	0	0	0	0	0	0		049 程宇-七律 长征（一）	2000f7c9d22f42728385ce443eac63d3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:37.962152+08	2019-09-01 18:50:37.962152+08
+608	0	13	1	0	0	2	0	0	0	0	0	0	0		050 程宇-七律 长征（二）	aff3d4fd8c5c4bcab01c27557853ff44	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.010479+08	2019-09-01 18:50:38.010479+08
+609	0	13	1	0	0	2	0	0	0	0	0	0	0		051 程宇-七律 长征（三）	7388f46d655747ddb62524d13021d355	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.082433+08	2019-09-01 18:50:38.082433+08
+610	0	13	1	0	0	2	0	0	0	0	0	0	0		052 程宇-开国大典（一）	6ab907e035de4818ac2a8a33dafc64c5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.141405+08	2019-09-01 18:50:38.141405+08
+611	0	13	1	0	0	2	0	0	0	0	0	0	0		053 程宇-开国大典（二）	7c38419c78f34b3fb62beafe0cc1a948	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.192419+08	2019-09-01 18:50:38.192419+08
+612	0	13	1	0	0	2	0	0	0	0	0	0	0		054 程宇-青山处处埋忠骨	68606ffe756a4d2c8e1d61cc24603b90	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.259027+08	2019-09-01 18:50:38.259027+08
+613	0	13	1	0	0	2	0	0	0	0	0	0	0		055 程宇-毛主席在花山	3876381fac964ce7a3125052ce18b1a5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.31722+08	2019-09-01 18:50:38.31722+08
+614	0	13	1	0	0	2	0	0	0	0	0	0	0		056 程宇-第八单元回顾与拓展	5c0d56569b4f4e1898d266cf3d5646ca	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.387569+08	2019-09-01 18:50:38.387569+08
+615	0	13	1	0	0	2	0	0	0	0	0	0	0		057 程宇-习作八（一）	eed4473d4d4245c2832899e6ff256bfa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.428563+08	2019-09-01 18:50:38.428563+08
+616	0	13	1	0	0	2	0	0	0	0	0	0	0		058 程宇-习作八（二）	a6d666cdb3a04c2b92847f25eef7d180	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.496565+08	2019-09-01 18:50:38.496565+08
+617	0	13	1	0	0	2	0	0	0	0	0	0	0		059 程宇-选读单元（一）	c7e61a0afd7946a4b0f8cde87465f908	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.555618+08	2019-09-01 18:50:38.555618+08
+618	0	13	1	0	0	2	0	0	0	0	0	0	0		060 程宇-选读单元（二）	a0eead8055b84e4bba3f4ed7d60467da	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.613473+08	2019-09-01 18:50:38.613473+08
+619	0	13	1	0	0	2	0	0	0	0	0	0	0		061 程宇-阅读理解（一）	bc520fc0dba04564b21616e90350d94e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.673044+08	2019-09-01 18:50:38.673044+08
+620	0	13	1	0	0	2	0	0	0	0	0	0	0		062 程宇-阅读理解（二）	2cb5586ed365493b8e0fa875262969ea	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.747284+08	2019-09-01 18:50:38.747284+08
+621	0	13	1	0	0	2	0	0	0	0	0	0	0		063 程宇-阅读理解（三）	b178de54a2054efaaf5e21699182310c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.798257+08	2019-09-01 18:50:38.798257+08
+622	0	13	1	0	0	2	0	0	0	0	0	0	0		064 程宇-期末作文（一）	ce6ca64ef2404c1e865b71c71097af25	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.854297+08	2019-09-01 18:50:38.854297+08
+623	0	13	1	0	0	2	0	0	0	0	0	0	0		065 程宇-期末作文（二）	34aa4e575fe84d33aa2f309defccad1b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.916488+08	2019-09-01 18:50:38.916488+08
+624	0	12	1	0	0	1	0	0	0	0	0	0	0		001 涂熹恺-旅行中的发现	95fda9009a994456b639b983f8ee5679	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:38.9827+08	2019-09-01 18:50:38.9827+08
+625	0	12	1	0	0	1	0	0	0	0	0	0	0		002 涂熹恺-精明的主妇.百分数	7be40cd9ea9d4a60882e888dcdc4f53e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.035485+08	2019-09-01 18:50:39.035485+08
+626	0	12	1	0	0	2	0	0	0	0	0	0	0		003 涂熹恺-精明的主妇.百分数强化训练	f07d3c22ec214848983c7e61f7ea898f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.107557+08	2019-09-01 18:50:39.107557+08
+627	0	12	1	0	0	2	0	0	0	0	0	0	0		004 涂熹恺-特色的建筑.圆柱的认识	2ced0a6c5b6542dcb35893dc71e014bb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.154189+08	2019-09-01 18:50:39.154189+08
+628	0	12	1	0	0	2	0	0	0	0	0	0	0		005 涂熹恺-特色的建筑.圆柱的表面积和体积	00ec0495c2914e1b8e24b94e9d967824	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.217662+08	2019-09-01 18:50:39.217662+08
+629	0	12	1	0	0	2	0	0	0	0	0	0	0		006 涂熹恺-特色的建筑.圆锥	1929ee3c668b4c139dfd0b175d442639	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.269484+08	2019-09-01 18:50:39.269484+08
+630	0	12	1	0	0	2	0	0	0	0	0	0	0		007 涂熹恺-特色的建筑.圆柱、圆锥强化训练	50c39553ddb043199b47caa0b9f169aa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.334373+08	2019-09-01 18:50:39.334373+08
+631	0	12	1	0	0	2	0	0	0	0	0	0	0		008 涂熹恺-我和爸比谁棒？ 比例的意义和基本性质	9ac60dc08f534c2eaed0da75430d733c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.389486+08	2019-09-01 18:50:39.389486+08
+632	0	12	1	0	0	2	0	0	0	0	0	0	0		009 涂熹恺-我和爸比谁棒？ 正比例和反比例	0b7b735fa7c644739c2977c6fac615b0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.463833+08	2019-09-01 18:50:39.463833+08
+633	0	12	1	0	0	2	0	0	0	0	0	0	0		010 涂熹恺-我和爸比谁棒？ 比例尺	edceecaa7d084d9a85f7b6b9c6d87ad5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.518342+08	2019-09-01 18:50:39.518342+08
+634	0	12	1	0	0	2	0	0	0	0	0	0	0		011 涂熹恺-用比例解决实际问题	be73ad8a7211495aa7f97990905b5be6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.576616+08	2019-09-01 18:50:39.576616+08
+635	0	12	1	0	0	2	0	0	0	0	0	0	0		012 涂熹恺-鸽巢问题	36b93169a94c45b2b7b5ccccd8910f4d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.633895+08	2019-09-01 18:50:39.633895+08
+636	0	12	1	0	0	2	0	0	0	0	0	0	0		013 涂熹恺-数的认识（一）	7ba3173530e4473f8f2194df934ead38	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.702767+08	2019-09-01 18:50:39.702767+08
+637	0	12	1	0	0	2	0	0	0	0	0	0	0		014 涂熹恺-数的认识（二）	4fd48e78a7ab4aa1bb9d290bb6782bf5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.763103+08	2019-09-01 18:50:39.763103+08
+638	0	12	1	0	0	2	0	0	0	0	0	0	0		015 涂熹恺-数的运算（一）	004a206b5061461c957358a8559fb302	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.825274+08	2019-09-01 18:50:39.825274+08
+639	0	12	1	0	0	2	0	0	0	0	0	0	0		016 涂熹恺-数的运算（二）	93a44c533288459090916297c17444dc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.887304+08	2019-09-01 18:50:39.887304+08
+640	0	12	1	0	0	2	0	0	0	0	0	0	0		017 涂熹恺-式与方程	1347661037e7438498de6fcf66e54f53	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.946574+08	2019-09-01 18:50:39.946574+08
+641	0	12	1	0	0	2	0	0	0	0	0	0	0		018 涂熹恺-图形专题	d87ad0f3e7a04f4fb2326c22b1a54168	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:39.985181+08	2019-09-01 18:50:39.985181+08
+642	0	12	1	0	0	2	0	0	0	0	0	0	0		019 涂熹恺-统计	ba5cce3352ce42099d528f10eafbaf7e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.053634+08	2019-09-01 18:50:40.053634+08
+643	0	12	1	0	0	2	0	0	0	0	0	0	0		020 涂熹恺-概率	0e4dd1cd2f804a1b8216c0f41f855306	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.110952+08	2019-09-01 18:50:40.110952+08
+644	0	12	1	0	0	2	0	0	0	0	0	0	0		021 涂熹恺-数学思考	c4ab3482ea9d408d91556f3bbe4c6aa8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.183375+08	2019-09-01 18:50:40.183375+08
+645	0	12	1	0	0	2	0	0	0	0	0	0	0		022 涂熹恺-综合与实践（一）	68dfd7c0eb5f48b8a8b873c5232df4dc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.241838+08	2019-09-01 18:50:40.241838+08
+646	0	12	1	0	0	2	0	0	0	0	0	0	0		023 涂熹恺-综合与实践（二）	595a558f4d824cb19187a1a91843493d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.284557+08	2019-09-01 18:50:40.284557+08
+647	0	12	1	0	0	2	0	0	0	0	0	0	0		024 涂熹恺-综合练习（一）	06c86c677016459da9565a45016c5d39	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.357379+08	2019-09-01 18:50:40.357379+08
+648	0	12	1	0	0	2	0	0	0	0	0	0	0		025 涂熹恺-综合练习（二）	b300dc59acc6456d8016b05453860e76	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.418525+08	2019-09-01 18:50:40.418525+08
+649	0	15	1	0	0	1	0	0	0	0	0	0	0		001 Sunny-lesson 1	5c2513b0927a4c70b90056b501f2907b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.479889+08	2019-09-01 18:50:40.479889+08
+650	0	15	1	0	0	1	0	0	0	0	0	0	0		002 Sunny-lesson 2	474be94ce73840a88e13803fe7dd4304	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.535585+08	2019-09-01 18:50:40.535585+08
+651	0	15	1	0	0	2	0	0	0	0	0	0	0		003 Sunny-lesson 3	11a966e9cbd84fc49fb825559d7320ff	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.602584+08	2019-09-01 18:50:40.602584+08
+652	0	15	1	0	0	2	0	0	0	0	0	0	0		004 Sunny-lesson 4	bdbe89bfa3444bd28710e2de553617ed	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.657228+08	2019-09-01 18:50:40.657228+08
+653	0	15	1	0	0	2	0	0	0	0	0	0	0		005 Sunny-lesson 5	0efc6a21937f4109ae12520348c64f54	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.725289+08	2019-09-01 18:50:40.725289+08
+654	0	15	1	0	0	2	0	0	0	0	0	0	0		006 Sunny-lesson 6	f5f5458195784a04bf57459a2da0de75	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.787684+08	2019-09-01 18:50:40.787684+08
+655	0	15	1	0	0	2	0	0	0	0	0	0	0		007 Sunny-lesson 1	f1391c21f9184e029b163f3e7073ff0a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.835461+08	2019-09-01 18:50:40.835461+08
+656	0	15	1	0	0	2	0	0	0	0	0	0	0		008 Sunny-lesson 2	aacc60e2aeb940dcae50cf31ff3e0d52	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.895673+08	2019-09-01 18:50:40.895673+08
+657	0	15	1	0	0	2	0	0	0	0	0	0	0		009 Sunny-lesson 3	2892dc02164e47619d136317de3061b0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:40.95721+08	2019-09-01 18:50:40.95721+08
+658	0	15	1	0	0	2	0	0	0	0	0	0	0		010 Sunny-lesson 4	8d104156a138479a8271d71571b5d73d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.018679+08	2019-09-01 18:50:41.018679+08
+659	0	15	1	0	0	2	0	0	0	0	0	0	0		011 Sunny-lesson 5	2ce8d654c7194be18bf763d0fd5741f5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.086109+08	2019-09-01 18:50:41.086109+08
+660	0	15	1	0	0	2	0	0	0	0	0	0	0		012 Sunny-lesson 6	63c7528fab6f43d097060b610c6c39af	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.152393+08	2019-09-01 18:50:41.152393+08
+661	0	15	1	0	0	2	0	0	0	0	0	0	0		013 Sunny-lesson 1	8815eea9a6c94e36ae9f82ac80fc5901	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.210102+08	2019-09-01 18:50:41.210102+08
+662	0	15	1	0	0	2	0	0	0	0	0	0	0		014 Sunny-lesson 2	2c98e5c173074bbe9e74c46a56c2c9a9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.251305+08	2019-09-01 18:50:41.251305+08
+663	0	15	1	0	0	2	0	0	0	0	0	0	0		015 Sunny-lesson 3	a3c67422a54c4a52afe61388e216e53b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.307932+08	2019-09-01 18:50:41.307932+08
+664	0	15	1	0	0	2	0	0	0	0	0	0	0		016 Sunny-lesson 4	fce68030b0a84d50a275cb8bd45ec9cc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.375838+08	2019-09-01 18:50:41.375838+08
+665	0	15	1	0	0	2	0	0	0	0	0	0	0		017 Sunny-lesson 5	d13c911705a044c189807fbd783932f3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.432688+08	2019-09-01 18:50:41.432688+08
+666	0	15	1	0	0	2	0	0	0	0	0	0	0		018 Sunny-lesson 6	d688fa4e0b18433a8b79aac73f816fb3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.501257+08	2019-09-01 18:50:41.501257+08
+667	0	15	1	0	0	2	0	0	0	0	0	0	0		019 Sunny-recycle1（一）	a31cd7eb466a4e498fd0c50eeb833440	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.558877+08	2019-09-01 18:50:41.558877+08
+668	0	15	1	0	0	2	0	0	0	0	0	0	0		020 Sunny-recycle2（二）	1fe282d45e0e45b18a61a2b44c2d83e5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.665891+08	2019-09-01 18:50:41.665891+08
+669	0	15	1	0	0	2	0	0	0	0	0	0	0		021 Sunny-recycle3（三）	133166306eeb4ea7bc2eea874b0e751d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.675837+08	2019-09-01 18:50:41.675837+08
+670	0	15	1	0	0	2	0	0	0	0	0	0	0		022 Sunny-lesson 1	e9e6e21e97954b9594ca3bea533242a1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.731758+08	2019-09-01 18:50:41.731758+08
+671	0	15	1	0	0	2	0	0	0	0	0	0	0		023 Sunny-lesson 2	0f894c0180bc48a28abb6a6705f01265	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.787626+08	2019-09-01 18:50:41.787626+08
+672	0	15	1	0	0	2	0	0	0	0	0	0	0		024 Sunny-lesson 3	22fca1c8ef634337bbd7a90d158e8124	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.858755+08	2019-09-01 18:50:41.858755+08
+673	0	15	1	0	0	2	0	0	0	0	0	0	0		025 Sunny-lesson 4	5a696cd01c6a4d8d8602f660a5c1020d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.916967+08	2019-09-01 18:50:41.916967+08
+674	0	15	1	0	0	2	0	0	0	0	0	0	0		026 Sunny-lesson 5	9db053dae77c4b458eb03d1c566d7407	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:41.985546+08	2019-09-01 18:50:41.985546+08
+675	0	15	1	0	0	2	0	0	0	0	0	0	0		027 Sunny-lesson 6	854b75c416f94fde9af2dbaa6545d82e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.039856+08	2019-09-01 18:50:42.039856+08
+676	0	15	1	0	0	2	0	0	0	0	0	0	0		028 Sunny-lesson 1	426681e9573b43eaa6e7738e431e957b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.086997+08	2019-09-01 18:50:42.086997+08
+677	0	15	1	0	0	2	0	0	0	0	0	0	0		029 Sunny-lesson 2	d1d917c59f4d4f849214913a04a98202	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.158297+08	2019-09-01 18:50:42.158297+08
+678	0	15	1	0	0	2	0	0	0	0	0	0	0		030 Sunny-lesson 3	fa032e2258ee453eb87d7c3e2ea404c8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.209157+08	2019-09-01 18:50:42.209157+08
+679	0	15	1	0	0	2	0	0	0	0	0	0	0		031 Sunny-lesson 4	9a5bf9803fc049f88d54cafbc76132b1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.280361+08	2019-09-01 18:50:42.280361+08
+680	0	15	1	0	0	2	0	0	0	0	0	0	0		032 Sunny-lesson 5	b84df881cece409abf5f0bc7e4fa8200	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.337581+08	2019-09-01 18:50:42.337581+08
+681	0	15	1	0	0	2	0	0	0	0	0	0	0		033 Sunny-lesson 6	63c1e9fadf66408b8103ef8d7b29ad0c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.405524+08	2019-09-01 18:50:42.405524+08
+682	0	15	1	0	0	2	0	0	0	0	0	0	0		034 Sunny-lesson 1	8a10fa5c40e644fdaf6ec27f60182b18	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.469323+08	2019-09-01 18:50:42.469323+08
+683	0	15	1	0	0	2	0	0	0	0	0	0	0		035 Sunny-lesson 2	5cb783b426bd4b98b8469e52e72defdc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.519903+08	2019-09-01 18:50:42.519903+08
+684	0	15	1	0	0	2	0	0	0	0	0	0	0		036 Sunny-lesson 3	9c08908a6d0b4dce95a8fe734aa985c7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.572481+08	2019-09-01 18:50:42.572481+08
+685	0	15	1	0	0	2	0	0	0	0	0	0	0		037 Sunny-lesson 4	9e1a2ade22d244b4951b667e9b035c67	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.644595+08	2019-09-01 18:50:42.644595+08
+686	0	15	1	0	0	2	0	0	0	0	0	0	0		038 Sunny-lesson 5	608f3a50d7624ee08deebc7f6a7e70f9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.683289+08	2019-09-01 18:50:42.683289+08
+687	0	15	1	0	0	2	0	0	0	0	0	0	0		039 Sunny-lesson 1	f284ecea6f774b64b0e94e120294cf98	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.755087+08	2019-09-01 18:50:42.755087+08
+688	0	15	1	0	0	2	0	0	0	0	0	0	0		040 Sunny-lesson 2	15f8636f41c5488cb35f844a5cbd9148	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.808535+08	2019-09-01 18:50:42.808535+08
+689	0	16	1	0	0	1	0	0	0	0	0	0	0		001 五年级数学上册 前言	be8ab5af83db41c09c1137e98e0c1674	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.883685+08	2019-09-01 18:50:42.883685+08
+690	0	16	1	0	0	1	0	0	0	0	0	0	0		002 卜卜-小数乘整数	3fe3ebd4505b4a76b53249e77bb8612c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:42.925451+08	2019-09-01 18:50:42.925451+08
+691	0	16	1	0	0	2	0	0	0	0	0	0	0		003 卜卜-小数乘小数	e6cc3d5f9f914817a0740fc1ad2c77fa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.000903+08	2019-09-01 18:50:43.000903+08
+692	0	16	1	0	0	2	0	0	0	0	0	0	0		004 卜卜-小数乘法应用	ed88139273c644f9abdf51650defd36f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.055811+08	2019-09-01 18:50:43.055811+08
+693	0	16	1	0	0	2	0	0	0	0	0	0	0		005 卜卜-积的近似数	7ec174d4829240da9820651c7df35e89	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.121662+08	2019-09-01 18:50:43.121662+08
+694	0	16	1	0	0	2	0	0	0	0	0	0	0		006 卜卜-整数乘法运算定律	a77698190cc849129310137a62588ecb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.18268+08	2019-09-01 18:50:43.18268+08
+695	0	16	1	0	0	2	0	0	0	0	0	0	0		007 卜卜-小数乘法的应用（一）	7cae7341ae124fd4a8fe5da04325bd39	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.229675+08	2019-09-01 18:50:43.229675+08
+696	0	16	1	0	0	2	0	0	0	0	0	0	0		008 卜卜-小数乘法的应用（二）	fdc48c450711495fae6a0db8d3905496	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.300994+08	2019-09-01 18:50:43.300994+08
+697	0	16	1	0	0	2	0	0	0	0	0	0	0		009 卜卜-位置（一）	e19164976e7b4733bc03f45186de7274	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.367853+08	2019-09-01 18:50:43.367853+08
+698	0	16	1	0	0	2	0	0	0	0	0	0	0		010 卜卜-位置（二）	79cce7e89267498e9fa2f21fa9eb3774	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.405303+08	2019-09-01 18:50:43.405303+08
+699	0	16	1	0	0	2	0	0	0	0	0	0	0		011 卜卜-除数是整数的小数除法	58dd370a1c1546c094f294f6361e4c97	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.473032+08	2019-09-01 18:50:43.473032+08
+700	0	16	1	0	0	2	0	0	0	0	0	0	0		012 卜卜-一个数除以小数	8c3191deae8b452a873b91c6ce4382c9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.525714+08	2019-09-01 18:50:43.525714+08
+701	0	16	1	0	0	2	0	0	0	0	0	0	0		013 卜卜-商的近似数	9246147a4ab74343a5ec366409de5607	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.60252+08	2019-09-01 18:50:43.60252+08
+702	0	16	1	0	0	2	0	0	0	0	0	0	0		014 卜卜-循环小数	588264d1d31349edba0fc6e8d1b7a646	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.659109+08	2019-09-01 18:50:43.659109+08
+703	0	16	1	0	0	2	0	0	0	0	0	0	0		015 卜卜-用计算器探索规律	f0f24299627540afbe447e99d58a1570	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.714509+08	2019-09-01 18:50:43.714509+08
+704	0	16	1	0	0	2	0	0	0	0	0	0	0		016 卜卜-小数除法的应用	ccf633c0f9e542f6b7ce3b35a6f630a4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.775758+08	2019-09-01 18:50:43.775758+08
+705	0	16	1	0	0	2	0	0	0	0	0	0	0		017 卜卜-整理与复习	523c86a8f1a54791a05755383036fa4d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.832874+08	2019-09-01 18:50:43.832874+08
+706	0	16	1	0	0	2	0	0	0	0	0	0	0		018 卜卜-可能性（一）	29604ce327ab43cfb6fc81f43571bc89	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.901302+08	2019-09-01 18:50:43.901302+08
+707	0	16	1	0	0	2	0	0	0	0	0	0	0		019 卜卜-可能性（二）	e1768522cc0446a1b5df5c9d2173199a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:43.946726+08	2019-09-01 18:50:43.946726+08
+708	0	16	1	0	0	2	0	0	0	0	0	0	0		020 卜卜-简易方程（一）	0710fb408dd04a529b945bece22ae631	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.016779+08	2019-09-01 18:50:44.016779+08
+709	0	16	1	0	0	2	0	0	0	0	0	0	0		021 卜卜-简易方程（二）	07d5a9d19bb24eea8eafed0b24faf259	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.074971+08	2019-09-01 18:50:44.074971+08
+710	0	16	1	0	0	2	0	0	0	0	0	0	0		022 卜卜-简易方程（三）	907d98e63d8c467889b753db3b7210d6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.145017+08	2019-09-01 18:50:44.145017+08
+711	0	16	1	0	0	2	0	0	0	0	0	0	0		023 卜卜-简易方程（四）	454ce39a6ba4454a821fcc245619f68c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.195464+08	2019-09-01 18:50:44.195464+08
+712	0	16	1	0	0	2	0	0	0	0	0	0	0		024 卜卜-简易方程（五）	3cdc7c7f40c4431f9e5c9b5486c37117	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.265147+08	2019-09-01 18:50:44.265147+08
+713	0	16	1	0	0	2	0	0	0	0	0	0	0		025 卜卜-简易方程（六）	0f4a8e390df94e788e8c0f453c3aaaa8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.314771+08	2019-09-01 18:50:44.314771+08
+714	0	16	1	0	0	2	0	0	0	0	0	0	0		026 卜卜-简易方程（七）	fcc4322fe84944809196941eba347eb4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.383696+08	2019-09-01 18:50:44.383696+08
+715	0	16	1	0	0	2	0	0	0	0	0	0	0		027 卜卜-简易方程（八）	5012867535a14a8e83d1956b1110e9ff	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.441604+08	2019-09-01 18:50:44.441604+08
+716	0	16	1	0	0	2	0	0	0	0	0	0	0		028 卜卜-简易方程（九）	aca6c2c93ce14d53bcdf9e6cb16017e1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.485995+08	2019-09-01 18:50:44.485995+08
+717	0	16	1	0	0	2	0	0	0	0	0	0	0		029 卜卜-简易方程（十）	41776453c6ec4173bb88286000cad3a7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.553112+08	2019-09-01 18:50:44.553112+08
+718	0	16	1	0	0	2	0	0	0	0	0	0	0		030 卜卜-简易方程（十一）	ab76271900154719a261014a12eca96c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.609258+08	2019-09-01 18:50:44.609258+08
+719	0	16	1	0	0	2	0	0	0	0	0	0	0		031 卜卜-简易方程（十二）	2dfb2130b6a94824b0dc6f11eb5e286c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.678506+08	2019-09-01 18:50:44.678506+08
+720	0	16	1	0	0	2	0	0	0	0	0	0	0		032 卜卜-简易方程（十三）	38f868934cc445eaa661ff96537605c7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.738192+08	2019-09-01 18:50:44.738192+08
+721	0	16	1	0	0	2	0	0	0	0	0	0	0		033 卜卜-多边形的面积（一）	34344cb7e899488b864d4e0a73c5e719	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.798118+08	2019-09-01 18:50:44.798118+08
+722	0	16	1	0	0	2	0	0	0	0	0	0	0		034 卜卜-多边形的面积（二）	16392b4e839849119c2926cc0a345df0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.87041+08	2019-09-01 18:50:44.87041+08
+723	0	16	1	0	0	2	0	0	0	0	0	0	0		035 卜卜-多边形的面积（三）	7eed7b009488400cb06fd21f4aced3ea	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.915723+08	2019-09-01 18:50:44.915723+08
+724	0	16	1	0	0	2	0	0	0	0	0	0	0		036 卜卜-多边形的面积（四）	7dffaf791f1745368716aafc410396d9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:44.986459+08	2019-09-01 18:50:44.986459+08
+725	0	16	1	0	0	2	0	0	0	0	0	0	0		037 卜卜-多边形的面积（五）	f7774e6a973e4201934a9d9c65f1f30a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.026105+08	2019-09-01 18:50:45.026105+08
+726	0	16	1	0	0	2	0	0	0	0	0	0	0		038 卜卜-多边形的面积（六）	fbd96543d4ac4bceaf5da523e308db98	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.099931+08	2019-09-01 18:50:45.099931+08
+727	0	16	1	0	0	2	0	0	0	0	0	0	0		039 卜卜-植树问题（一）	1a5f8a74146a4f8ca380c829efb92bd3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.153911+08	2019-09-01 18:50:45.153911+08
+728	0	16	1	0	0	2	0	0	0	0	0	0	0		040 卜卜-植树问题（二）	91e8cfebc0d743eab6e930f3f55590d4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.220985+08	2019-09-01 18:50:45.220985+08
+729	0	16	1	0	0	2	0	0	0	0	0	0	0		041 卜卜-植树问题（三）	d8360d4c2ea748c98db4560a93b2b228	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.279778+08	2019-09-01 18:50:45.279778+08
+730	0	16	1	0	0	2	0	0	0	0	0	0	0		042 卜卜-总复习（一）	408d9f4f56144422a06137f2b3b0f4e3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.324591+08	2019-09-01 18:50:45.324591+08
+731	0	14	1	0	0	1	0	0	0	0	0	0	0		001 涂熹恺-观察图形（三）	2c15f600f6404b8cbe32a97f92d31ab2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.387657+08	2019-09-01 18:50:45.387657+08
+732	0	14	1	0	0	1	0	0	0	0	0	0	0		002 涂熹恺-因数和倍数（一）	996f133ea7b6453a95d33556d96b9524	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.453198+08	2019-09-01 18:50:45.453198+08
+733	0	14	1	0	0	2	0	0	0	0	0	0	0		003 涂熹恺-因数和倍数（二）	d345ae9fb44f42e9bc20c573ff52f5ba	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.507446+08	2019-09-01 18:50:45.507446+08
+734	0	14	1	0	0	2	0	0	0	0	0	0	0		004 涂熹恺-2、5的倍数特征	4620e16a9bd048adbe83849b9fa9103d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.583439+08	2019-09-01 18:50:45.583439+08
+735	0	14	1	0	0	2	0	0	0	0	0	0	0		005 涂熹恺-3的倍数	22cb2b4d81934a28af2523aaade507b2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.630377+08	2019-09-01 18:50:45.630377+08
+736	0	14	1	0	0	2	0	0	0	0	0	0	0		006 涂熹恺-质数和合数（一）	1a4f77c197074a7e8280877280ef5d87	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.701424+08	2019-09-01 18:50:45.701424+08
+737	0	14	1	0	0	2	0	0	0	0	0	0	0		007 涂熹恺-质数和合数（二）	515cd875b9914ec7a5ccc9739bf63d34	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.749708+08	2019-09-01 18:50:45.749708+08
+738	0	14	1	0	0	2	0	0	0	0	0	0	0		008 涂熹恺-综合训练	7e75e4a5c75246d9bd472b5d85aead81	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.807357+08	2019-09-01 18:50:45.807357+08
+739	0	14	1	0	0	2	0	0	0	0	0	0	0		009 涂熹恺-长方体	164849b39d2345dca9a2836b55e41a00	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.873886+08	2019-09-01 18:50:45.873886+08
+740	0	14	1	0	0	2	0	0	0	0	0	0	0		010 涂熹恺-正方体	dedf58a68f064a8f966240cfc9ea47e7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.933819+08	2019-09-01 18:50:45.933819+08
+741	0	14	1	0	0	2	0	0	0	0	0	0	0		011 涂熹恺-长方体和正方体的表面积	544fb2c8af0a49daa961adcbd1405320	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:45.993927+08	2019-09-01 18:50:45.993927+08
+742	0	14	1	0	0	2	0	0	0	0	0	0	0		012 涂熹恺-体积和体积单位	8253861591744015bb052072ba0ce0a9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.051527+08	2019-09-01 18:50:46.051527+08
+743	0	14	1	0	0	2	0	0	0	0	0	0	0		013 涂熹恺-长方体和正方体的体积	34087d2f28934aa3ba17910eb3d55844	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.11368+08	2019-09-01 18:50:46.11368+08
+744	0	14	1	0	0	2	0	0	0	0	0	0	0		014 涂熹恺-体积单位的进率	a0fe8cdfbbbc494d9a342881106022f9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.188693+08	2019-09-01 18:50:46.188693+08
+745	0	14	1	0	0	2	0	0	0	0	0	0	0		015 涂熹恺-容积和容积单位	cad85cd832274e0d9bead68aac3b1d09	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.235177+08	2019-09-01 18:50:46.235177+08
+746	0	14	1	0	0	2	0	0	0	0	0	0	0		016 涂熹恺-长方体和正方体总复习	8806013d8dda444db0c4b5e7f5fb1523	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.283355+08	2019-09-01 18:50:46.283355+08
+747	0	14	1	0	0	2	0	0	0	0	0	0	0		017 涂熹恺-图形的探索	732044f1afdb43c9b42925336d8e9ce5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.36505+08	2019-09-01 18:50:46.36505+08
+748	0	14	1	0	0	2	0	0	0	0	0	0	0		018 涂熹恺-分数的意义、与除法的关系	687854b3160a46378365add0834610bd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.407293+08	2019-09-01 18:50:46.407293+08
+749	0	14	1	0	0	2	0	0	0	0	0	0	0		019 涂熹恺-分数的分类	e9511f7cfd3b4c8eb606d30964722b20	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.473329+08	2019-09-01 18:50:46.473329+08
+750	0	14	1	0	0	2	0	0	0	0	0	0	0		020 涂熹恺-分数的基本性质	de51b3e867a94d0d99c35da7d3452997	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.530909+08	2019-09-01 18:50:46.530909+08
+751	0	14	1	0	0	2	0	0	0	0	0	0	0		021 涂熹恺-最大公因数、约分	09cfb866c9e64d95a88fc2f7addea36d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.592342+08	2019-09-01 18:50:46.592342+08
+752	0	14	1	0	0	2	0	0	0	0	0	0	0		022 涂熹恺-最小公倍数、通分	8543397ac3d04c729a551a4bf1e218fc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.655882+08	2019-09-01 18:50:46.655882+08
+753	0	14	1	0	0	2	0	0	0	0	0	0	0		023 涂熹恺-分数和小数互化	72eeb22e84c2441c8a8c228c1152f128	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.729107+08	2019-09-01 18:50:46.729107+08
+754	0	14	1	0	0	2	0	0	0	0	0	0	0		024 涂熹恺-分数总复习	66f8d479b8834a5e843884beff44a10b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.759051+08	2019-09-01 18:50:46.759051+08
+755	0	14	1	0	0	2	0	0	0	0	0	0	0		025 涂熹恺-图形的运动（三）	bc8966b8bac9407c9e6bb2f1905d1e71	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.829875+08	2019-09-01 18:50:46.829875+08
+756	0	14	1	0	0	2	0	0	0	0	0	0	0		026 涂熹恺-同分母加减法	29cc812721c74edb9175d429aae68a9f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.891773+08	2019-09-01 18:50:46.891773+08
+757	0	14	1	0	0	2	0	0	0	0	0	0	0		027 涂熹恺-异分母加减法	e1497047cfe3413f9d06e87131233147	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:46.953682+08	2019-09-01 18:50:46.953682+08
+758	0	14	1	0	0	2	0	0	0	0	0	0	0		028 涂熹恺-分数混合运算	90d93c7e566a4002b35ab5a05439507c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.005923+08	2019-09-01 18:50:47.005923+08
+759	0	14	1	0	0	2	0	0	0	0	0	0	0		029 涂熹恺-分数计算加强训练	27f8303eb6db4e7481683153ea171587	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.06858+08	2019-09-01 18:50:47.06858+08
+760	0	14	1	0	0	2	0	0	0	0	0	0	0		030 涂熹恺-打电话	58e06426851f47d1bc451e2708cb756b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.131657+08	2019-09-01 18:50:47.131657+08
+761	0	14	1	0	0	2	0	0	0	0	0	0	0		031 涂熹恺-统计图	e1f14ee85cf64a4ab99fab5d1edabc50	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.19124+08	2019-09-01 18:50:47.19124+08
+762	0	14	1	0	0	2	0	0	0	0	0	0	0		032 涂熹恺-找次品	ab612c0fdb5844569766b4327412f852	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.248748+08	2019-09-01 18:50:47.248748+08
+763	0	14	1	0	0	2	0	0	0	0	0	0	0		033 涂熹恺-总复习（一）	a0b42c99c05241b7a83489ee8a92f54a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.317884+08	2019-09-01 18:50:47.317884+08
+764	0	14	1	0	0	2	0	0	0	0	0	0	0		034 涂熹恺-总复习（二）	eeaf61a1fd934edd95fd310d5a4f880e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.369532+08	2019-09-01 18:50:47.369532+08
+765	0	17	1	0	0	1	0	0	0	0	0	0	0		001 徐蕊-前言	7848f1bf5b8947eea162c681896da857	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.441342+08	2019-09-01 18:50:47.441342+08
+766	0	17	1	0	0	2	0	0	0	0	0	0	0		002 徐蕊-Lesson 1	3e5b30e8f3494c95ba58516e53680d12	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.488701+08	2019-09-01 18:50:47.488701+08
+767	0	17	1	0	0	2	0	0	0	0	0	0	0		003 徐蕊-Lesson 2	b213a90d195e4ab7a5b9477ac120fe06	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.558938+08	2019-09-01 18:50:47.558938+08
+768	0	17	1	0	0	2	0	0	0	0	0	0	0		004 徐蕊-Lesson 3	46521655bf9f43f3b85ffef97f855cbb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.61544+08	2019-09-01 18:50:47.61544+08
+769	0	17	1	0	0	2	0	0	0	0	0	0	0		005 徐蕊-Lesson 4	f1a72e7544b7491d9a4d4832d2f0542c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.671726+08	2019-09-01 18:50:47.671726+08
+770	0	17	1	0	0	2	0	0	0	0	0	0	0		006 徐蕊-Lesson 5	bf6c74b45fda4a30b9694acb6c5568ca	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.739339+08	2019-09-01 18:50:47.739339+08
+771	0	17	1	0	0	2	0	0	0	0	0	0	0		007 徐蕊-Lesson 6	81d6ef3d9bf443ebaf883bd60b5431d0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.790583+08	2019-09-01 18:50:47.790583+08
+772	0	17	1	0	0	2	0	0	0	0	0	0	0		008 徐蕊-Lesson 1	f29a8bcf16cb4daaaa4536a90554fe07	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.850942+08	2019-09-01 18:50:47.850942+08
+773	0	17	1	0	0	2	0	0	0	0	0	0	0		009 徐蕊-Lesson 2	55449d4550bb47329b6090e8b81d3c89	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.916596+08	2019-09-01 18:50:47.916596+08
+774	0	17	1	0	0	2	0	0	0	0	0	0	0		010 徐蕊-Lesson 3	1245ed367d7f498b81ee8417a6eaa1e6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:47.982718+08	2019-09-01 18:50:47.982718+08
+775	0	17	1	0	0	2	0	0	0	0	0	0	0		011 徐蕊-Lesson 4	2e36e9d3b2c04efaa08d5278786e7223	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.02628+08	2019-09-01 18:50:48.02628+08
+776	0	17	1	0	0	2	0	0	0	0	0	0	0		012 徐蕊-Lesson 5	70a820e08b3e425a84014309d84bc9fb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.099776+08	2019-09-01 18:50:48.099776+08
+777	0	17	1	0	0	2	0	0	0	0	0	0	0		013 徐蕊-Lesson 6	160d1a916ab7438e83820518cfce0856	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.146058+08	2019-09-01 18:50:48.146058+08
+778	0	17	1	0	0	2	0	0	0	0	0	0	0		014 徐蕊-Lesson 1	dd4d5dc700f247208220d004cfb31944	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.216566+08	2019-09-01 18:50:48.216566+08
+779	0	17	1	0	0	2	0	0	0	0	0	0	0		015 徐蕊-Lesson 2	ecbfb49f4ca1464db09e36aef6ab9d1e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.274263+08	2019-09-01 18:50:48.274263+08
+780	0	17	1	0	0	2	0	0	0	0	0	0	0		016 徐蕊-Lesson 3	b3e14b16bafa4cfa99c1733062b5a161	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.341271+08	2019-09-01 18:50:48.341271+08
+781	0	17	1	0	0	2	0	0	0	0	0	0	0		017 徐蕊-Lesson 4	ae75ceaff5ad42bda63a3721da4a30b2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.396392+08	2019-09-01 18:50:48.396392+08
+782	0	17	1	0	0	2	0	0	0	0	0	0	0		018 徐蕊-Lesson 5	e78e6bd20e884ef59e55cbe9ebbf87c6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.455223+08	2019-09-01 18:50:48.455223+08
+783	0	17	1	0	0	2	0	0	0	0	0	0	0		019 徐蕊-Lesson 6	d69662d73dda4942a210c3bd7f804c79	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.515734+08	2019-09-01 18:50:48.515734+08
+784	0	17	1	0	0	2	0	0	0	0	0	0	0		020 徐蕊-Recycle 1	64388a2214bb4b2ead137b5862af599a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.56735+08	2019-09-01 18:50:48.56735+08
+785	0	17	1	0	0	2	0	0	0	0	0	0	0		021 徐蕊-Recycle 2	e579d98165614d8384e7ffbb5313dab1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.635857+08	2019-09-01 18:50:48.635857+08
+786	0	17	1	0	0	2	0	0	0	0	0	0	0		022 徐蕊-Recycle 3	a4d9457293d5428facb4ff3a6f7b327c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.69897+08	2019-09-01 18:50:48.69897+08
+787	0	17	1	0	0	2	0	0	0	0	0	0	0		023 徐蕊-Lesson 1	b537951571244e49b3bfe2da334bd871	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.743113+08	2019-09-01 18:50:48.743113+08
+788	0	17	1	0	0	2	0	0	0	0	0	0	0		024 徐蕊-Lesson 2	4ccb83f5379b47a4a0c9ac0e63ef2a1e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.814667+08	2019-09-01 18:50:48.814667+08
+789	0	17	1	0	0	2	0	0	0	0	0	0	0		025 徐蕊-Lesson 3	9070796782374490aa7dbf4c289a3554	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.876362+08	2019-09-01 18:50:48.876362+08
+790	0	17	1	0	0	2	0	0	0	0	0	0	0		026 徐蕊-Lesson 4	910670d6c78b4f16a2fe69f7d4e70d0a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:48.938029+08	2019-09-01 18:50:48.938029+08
+791	0	17	1	0	0	2	0	0	0	0	0	0	0		027 徐蕊-Lesson 5	5225a5a7522947478e7060b30c9c2a09	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.002899+08	2019-09-01 18:50:49.002899+08
+792	0	17	1	0	0	2	0	0	0	0	0	0	0		028 徐蕊-Lesson 6	2dfa91cef40b482b8c59db52d10b37b2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.055748+08	2019-09-01 18:50:49.055748+08
+793	0	17	1	0	0	2	0	0	0	0	0	0	0		029 徐蕊-Lesson 1	91e58b47656c4bafa5614a64df8eba7f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.107189+08	2019-09-01 18:50:49.107189+08
+794	0	17	1	0	0	2	0	0	0	0	0	0	0		030 徐蕊-Lesson 2	c9c80cd05e9d4e3999944e95deb361c2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.177167+08	2019-09-01 18:50:49.177167+08
+795	0	17	1	0	0	2	0	0	0	0	0	0	0		031 徐蕊-Lesson 3	ffacb26920734c439ada17d2aebb6806	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.23525+08	2019-09-01 18:50:49.23525+08
+796	0	17	1	0	0	2	0	0	0	0	0	0	0		032 徐蕊-Lesson 4	42a968202bde4cdf9a3f321ac5fa37d3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.293917+08	2019-09-01 18:50:49.293917+08
+797	0	17	1	0	0	2	0	0	0	0	0	0	0		033 徐蕊-Lesson 5	22e85095dc0548ea85b67ee8ea0a139a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.360192+08	2019-09-01 18:50:49.360192+08
+798	0	17	1	0	0	2	0	0	0	0	0	0	0		034 徐蕊-Lesson 6	8173744c78994470a241441734eddf5a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.475824+08	2019-09-01 18:50:49.475824+08
+799	0	17	1	0	0	2	0	0	0	0	0	0	0		035 徐蕊-Lesson 1	73955e252fbe4bbc831a2b242cec74f8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.497099+08	2019-09-01 18:50:49.497099+08
+800	0	17	1	0	0	2	0	0	0	0	0	0	0		036 徐蕊-Lesson 2	ba9c20066aed45be8d8139cb964f58b2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.539244+08	2019-09-01 18:50:49.539244+08
+801	0	17	1	0	0	2	0	0	0	0	0	0	0		037 徐蕊-Lesson 3	f36fbc5ec9c245cababd2a3fecf4ed9e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.593614+08	2019-09-01 18:50:49.593614+08
+802	0	17	1	0	0	2	0	0	0	0	0	0	0		038 徐蕊-Lesson 4	9d2595183bf2463e8b1e26e3593ddf58	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.65235+08	2019-09-01 18:50:49.65235+08
+803	0	17	1	0	0	2	0	0	0	0	0	0	0		039 徐蕊-Lesson 5	fe9fe9b038a24dc6b03aab77d9f97a96	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.706418+08	2019-09-01 18:50:49.706418+08
+804	0	17	1	0	0	2	0	0	0	0	0	0	0		040 徐蕊-Lesson 6	0319a4787904427f9afd6bda0efa84c4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.773696+08	2019-09-01 18:50:49.773696+08
+805	0	17	1	0	0	2	0	0	0	0	0	0	0		041 徐蕊-recycle 1	71eed48c6d7540fdb1e4ef1976edb98f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.833736+08	2019-09-01 18:50:49.833736+08
+806	0	17	1	0	0	2	0	0	0	0	0	0	0		042 徐蕊-recycle 2	0d47b3217ccc4fce84814923df40d8df	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.884957+08	2019-09-01 18:50:49.884957+08
+807	0	17	1	0	0	2	0	0	0	0	0	0	0		043 徐蕊-recycle 3	d037f112e4824b4095d0c399317528c0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:49.952465+08	2019-09-01 18:50:49.952465+08
+808	0	18	1	0	0	1	0	0	0	0	0	0	0		001张爽-古诗三首-独坐敬亭山	4620a7d7021243d79652c7e72a2781b5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.018703+08	2019-09-01 18:50:50.018703+08
+809	0	18	1	0	0	1	0	0	0	0	0	0	0		002张爽-古诗三首-望洞庭湖	12b765186e214a13b35dedf01e48fd52	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.065846+08	2019-09-01 18:50:50.065846+08
+810	0	18	1	0	0	2	0	0	0	0	0	0	0		003张爽-古诗三首-忆江南	d6284faebf7c45049401e2df48779fb2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.131329+08	2019-09-01 18:50:50.131329+08
+811	0	18	1	0	0	2	0	0	0	0	0	0	0		004张爽-桂林山水（一）	80350a71425f465ca864f8526f1056df	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.200017+08	2019-09-01 18:50:50.200017+08
+812	0	18	1	0	0	2	0	0	0	0	0	0	0		005张爽-桂林山水（二）	6c8862c689844a889fa93e1cda55e2b4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.240794+08	2019-09-01 18:50:50.240794+08
+813	0	18	1	0	0	2	0	0	0	0	0	0	0		006张爽-桂林山水（三）	d72dcf38a3eb4714b167273d36f3e5c3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.314175+08	2019-09-01 18:50:50.314175+08
+814	0	18	1	0	0	2	0	0	0	0	0	0	0		007张爽-记金华的双龙洞（一）	9409776d87e24592b47b0f011adcd59f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.374955+08	2019-09-01 18:50:50.374955+08
+815	0	18	1	0	0	2	0	0	0	0	0	0	0		008张爽-记金华的双龙洞（二）	53cebe9462a84f9fb211ccef59b95fd0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.430627+08	2019-09-01 18:50:50.430627+08
+816	0	18	1	0	0	2	0	0	0	0	0	0	0		009张爽-记金华的双龙洞（三）	197f231062534c959f50ebc1d4732231	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.494623+08	2019-09-01 18:50:50.494623+08
+817	0	18	1	0	0	2	0	0	0	0	0	0	0		010张爽-七月的天山（一）	f9f45e567095481dbf163d2c3a31e546	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.548019+08	2019-09-01 18:50:50.548019+08
+818	0	18	1	0	0	2	0	0	0	0	0	0	0		011张爽-七月的天山（二）	db536f1d105345339585d1194c7d2eb6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.614162+08	2019-09-01 18:50:50.614162+08
+819	0	18	1	0	0	2	0	0	0	0	0	0	0		012张爽-中彩那天（一）	b026fa166d8d45d6bfd963a74ebdaf83	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.667569+08	2019-09-01 18:50:50.667569+08
+820	0	18	1	0	0	2	0	0	0	0	0	0	0		013张爽-中彩那天（二）	4b69777a9db941459d73493a66206063	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.736537+08	2019-09-01 18:50:50.736537+08
+821	0	18	1	0	0	2	0	0	0	0	0	0	0		014张爽-中彩那天（三）	9b176975d01340a9a3fb05e15f10d913	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.78872+08	2019-09-01 18:50:50.78872+08
+822	0	18	1	0	0	2	0	0	0	0	0	0	0		015张爽-万年牢（一）	8a4964b3d2e64fa5bc782f73a6762c13	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:50.877997+08	2019-09-01 18:50:50.877997+08
+823	0	18	1	0	0	2	0	0	0	0	0	0	0		016张爽-万年牢（二）	18d7432e35834e619bfc80576eef2ab6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.003194+08	2019-09-01 18:50:51.003194+08
+824	0	18	1	0	0	2	0	0	0	0	0	0	0		017张爽-尊严（一）	b2a16bb3ebfe4ba6860fdfb64edd6ece	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.039362+08	2019-09-01 18:50:51.039362+08
+825	0	18	1	0	0	2	0	0	0	0	0	0	0		018张爽-尊严（二）	c8c663a8e3554e5d932d294dc10ee0f6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.053724+08	2019-09-01 18:50:51.053724+08
+826	0	18	1	0	0	2	0	0	0	0	0	0	0		019张爽-尊严（三）	4c48c5da419d4037a64744bef268548e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.157777+08	2019-09-01 18:50:51.157777+08
+827	0	18	1	0	0	2	0	0	0	0	0	0	0		020张爽-将心比心	586c89ab27884c42bb095f63a4bc1329	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.174107+08	2019-09-01 18:50:51.174107+08
+828	0	18	1	0	0	2	0	0	0	0	0	0	0		021张爽-语文园地	48a96e5d8f2e4e08a9e07154c456babb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.233693+08	2019-09-01 18:50:51.233693+08
+829	0	18	1	0	0	2	0	0	0	0	0	0	0		022张爽-自然之道（一）	69cf37aeda7d4fe2aa9ec04cd9890dfb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.460422+08	2019-09-01 18:50:51.460422+08
+830	0	18	1	0	0	2	0	0	0	0	0	0	0		025张爽-黄河是怎样变化的（一）	bf753faddfa44d47b5633b9cb1bbdaec	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.520829+08	2019-09-01 18:50:51.520829+08
+831	0	18	1	0	0	2	0	0	0	0	0	0	0		023张爽-自然之道（二）	d8ba6605302a4a45b277826c7bc39b0b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.536222+08	2019-09-01 18:50:51.536222+08
+832	0	18	1	0	0	2	0	0	0	0	0	0	0		024张爽-自然之道（三）	fe6fb4b5487e461db3ff27dbb91ac5d3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.52769+08	2019-09-01 18:50:51.52769+08
+833	0	18	1	0	0	2	0	0	0	0	0	0	0		026张爽-黄河是怎样变化的（二）	060ef47f7667428cb65e775445cc1bee	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.574531+08	2019-09-01 18:50:51.574531+08
+834	0	18	1	0	0	2	0	0	0	0	0	0	0		027张爽-蝙蝠和雷达（一）	e3068e459654407ea5979a489ea176d9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.682349+08	2019-09-01 18:50:51.682349+08
+835	0	18	1	0	0	2	0	0	0	0	0	0	0		028张爽-蝙蝠和雷达（二）	84ed73eb525b4e79b4f685cc616eef04	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.745632+08	2019-09-01 18:50:51.745632+08
+836	0	18	1	0	0	2	0	0	0	0	0	0	0		030张爽-大自然的启示（一）	74953209f64744d1bab6805782fa206e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.833893+08	2019-09-01 18:50:51.833893+08
+837	0	18	1	0	0	2	0	0	0	0	0	0	0		029张爽-蝙蝠和雷达（三）	0de9db8e32cf4893b0e451092cbf2873	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.861862+08	2019-09-01 18:50:51.861862+08
+838	0	18	1	0	0	2	0	0	0	0	0	0	0		031张爽-大自然的启示（二）	17f8d852b8d441ba88a59e0440660f56	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.889603+08	2019-09-01 18:50:51.889603+08
+839	0	18	1	0	0	2	0	0	0	0	0	0	0		032张爽-夜莺的歌声（一）	1cc4901833c44bdf8b4d2c051b05bc61	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:51.936403+08	2019-09-01 18:50:51.936403+08
+840	0	18	1	0	0	2	0	0	0	0	0	0	0		033张爽-夜莺的歌声（二）	322b9580cf034bf586989508ea3a3223	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:52.111515+08	2019-09-01 18:50:52.111515+08
+841	0	18	1	0	0	2	0	0	0	0	0	0	0		034张爽-夜莺的歌声（三）	084f835d039c471bbba696e99fc6b631	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:52.205998+08	2019-09-01 18:50:52.205998+08
+842	0	18	1	0	0	2	0	0	0	0	0	0	0		035张爽-小英雄雨来（一）	4f2db15a4f094a4e8dfe022508f11afb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:52.237596+08	2019-09-01 18:50:52.237596+08
+843	0	18	1	0	0	2	0	0	0	0	0	0	0		041张爽-和我们一样享受春天（二）	59b0457d62024b4c93b44d410c2322db	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.247892+08	2019-09-01 18:50:53.247892+08
+844	0	18	1	0	0	2	0	0	0	0	0	0	0		038张爽-一个中国孩子的呼声（二）	22b4bdb60e9049099e6a704f17adf2ac	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.251037+08	2019-09-01 18:50:53.251037+08
+845	0	18	1	0	0	2	0	0	0	0	0	0	0		037张爽-一个中国孩子的呼声（一）	1252d9a326af4e65aab3612831e2afa3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.253576+08	2019-09-01 18:50:53.253576+08
+846	0	18	1	0	0	2	0	0	0	0	0	0	0		039张爽-一个中国孩子的呼声（三）	dcf213eb4fec4dcab1dcc489b814386f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.255444+08	2019-09-01 18:50:53.255444+08
+847	0	18	1	0	0	2	0	0	0	0	0	0	0		036张爽-小英雄雨来（二）	ce3545593a7a4181b01ad12b557f5daa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.257115+08	2019-09-01 18:50:53.257115+08
+848	0	18	1	0	0	2	0	0	0	0	0	0	0		040张爽-和我们一样享受春天（一）	0c25d854fab342fcbfbd5e432232c247	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.336261+08	2019-09-01 18:50:53.336261+08
+849	0	18	1	0	0	2	0	0	0	0	0	0	0		042张爽-触摸春天（一）	773b69284d9f422584fca887b5260bef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.489415+08	2019-09-01 18:50:53.489415+08
+850	0	18	1	0	0	2	0	0	0	0	0	0	0		043张爽-触摸春天（二）	e379e5d1f6684ff590caf69d39f705dd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.513468+08	2019-09-01 18:50:53.513468+08
+851	0	18	1	0	0	2	0	0	0	0	0	0	0		045张爽-触摸春天（四）	11610267ea4c4def81cff23c6f29d2f0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.526612+08	2019-09-01 18:50:53.526612+08
+852	0	18	1	0	0	2	0	0	0	0	0	0	0		044张爽-触摸春天（三）	e379e5d1f6684ff590caf69d39f705dd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.529965+08	2019-09-01 18:50:53.529965+08
+853	0	18	1	0	0	2	0	0	0	0	0	0	0		046张爽-永生的眼睛（一）	051a0e91a3e64f7c83903e664fa60b09	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.572371+08	2019-09-01 18:50:53.572371+08
+854	0	18	1	0	0	2	0	0	0	0	0	0	0		047张爽-永生的眼睛（二）	1adf319def604cb69229d0bdc51011cd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.635572+08	2019-09-01 18:50:53.635572+08
+855	0	18	1	0	0	2	0	0	0	0	0	0	0		048张爽-永生的眼睛（三）	7f7de69cdfdb4098b93cf8a6758891ba	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.691075+08	2019-09-01 18:50:53.691075+08
+856	0	18	1	0	0	2	0	0	0	0	0	0	0		052张爽-花的勇气（一）	d89ba7daa2334da08e4647eeea046b80	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.702646+08	2019-09-01 18:50:53.702646+08
+857	0	18	1	0	0	2	0	0	0	0	0	0	0		050张爽-生命 生命（二）	81e35540fe9a41e4a4ebceb3158fc12b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.705386+08	2019-09-01 18:50:53.705386+08
+858	0	18	1	0	0	2	0	0	0	0	0	0	0		051张爽-生命 生命（三）	28bb3f1fd7d741e992ef89c91b63fcea	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.706033+08	2019-09-01 18:50:53.706033+08
+859	0	18	1	0	0	2	0	0	0	0	0	0	0		049张爽-生命 生命（一）	3e2f8bf5550e4ab8a9a051d92696c83d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:53.738512+08	2019-09-01 18:50:53.738512+08
+860	0	18	1	0	0	2	0	0	0	0	0	0	0		056张爽-乡下人家（二）	a9f5b8ea3f3b49ae9c70dbfb08d5f7f6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.242311+08	2019-09-01 18:50:54.242311+08
+861	0	18	1	0	0	2	0	0	0	0	0	0	0		058张爽-牧场之国（二）	381b18fb076643d0916ca8261038a542	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.249098+08	2019-09-01 18:50:54.249098+08
+862	0	18	1	0	0	2	0	0	0	0	0	0	0		053张爽-花的勇气（二）	1697e162ba374e9fbb5b7391ee523790	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.250886+08	2019-09-01 18:50:54.250886+08
+863	0	18	1	0	0	2	0	0	0	0	0	0	0		054张爽-日积月累	4f7320efd6984aeca8063fe86235ab1b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.257323+08	2019-09-01 18:50:54.257323+08
+864	0	18	1	0	0	2	0	0	0	0	0	0	0		055张爽-乡下人家（一）	2ac9f1a7115f44c2afbe9c77c13e16e7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.268595+08	2019-09-01 18:50:54.268595+08
+865	0	18	1	0	0	2	0	0	0	0	0	0	0		057张爽-牧场之国（一）	ac7e08339d1143b48021c5ce60a4fe5e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.301691+08	2019-09-01 18:50:54.301691+08
+866	0	18	1	0	0	2	0	0	0	0	0	0	0		061张爽-古诗词三首（三）	03e69d7f70f74175bdc467b2d7543c3d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.451857+08	2019-09-01 18:50:54.451857+08
+867	0	18	1	0	0	2	0	0	0	0	0	0	0		060张爽-古诗词三首（二）	90853716bafe40e195045412c0c6e05c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.453067+08	2019-09-01 18:50:54.453067+08
+868	0	18	1	0	0	2	0	0	0	0	0	0	0		062张爽-麦哨（一）	ddf2350c12344cb0822b71069a1b9f53	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.459073+08	2019-09-01 18:50:54.459073+08
+869	0	18	1	0	0	2	0	0	0	0	0	0	0		064张爽-两个铁球同时落地（一）	d642ca4b073f44938fc6cdd34d77325b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.459829+08	2019-09-01 18:50:54.459829+08
+870	0	18	1	0	0	2	0	0	0	0	0	0	0		059张爽-古诗词三首（一）	5095d148e35e436582083327901f815a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.463196+08	2019-09-01 18:50:54.463196+08
+871	0	18	1	0	0	2	0	0	0	0	0	0	0		063张爽-麦哨（二）	21b76fdb66b84faea48a596388d92bea	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.513711+08	2019-09-01 18:50:54.513711+08
+872	0	18	1	0	0	2	0	0	0	0	0	0	0		066张爽-全神贯注（一）	b10303cad6ea4beeabf537cf2ec1e03c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.579376+08	2019-09-01 18:50:54.579376+08
+873	0	18	1	0	0	2	0	0	0	0	0	0	0		067张爽-全神贯注（二）	80d5a5fe81434503a48707bfc1c4c718	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.595488+08	2019-09-01 18:50:54.595488+08
+874	0	18	1	0	0	2	0	0	0	0	0	0	0		068张爽-鱼游到纸上（一）	cd6bc99a6aa94ead86162ad41ca8a284	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.6+08	2019-09-01 18:50:54.6+08
+875	0	18	1	0	0	2	0	0	0	0	0	0	0		065张爽-两个铁球同时落地（二）	ab56072570cc465eb72a13dff44d4c37	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:54.609602+08	2019-09-01 18:50:54.609602+08
+876	0	18	1	0	0	2	0	0	0	0	0	0	0		070张爽-父亲的菜园（一）	01c62f8a1f4e4743a3e0b732ba36fdc0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.213346+08	2019-09-01 18:50:55.213346+08
+877	0	18	1	0	0	2	0	0	0	0	0	0	0		069张爽-鱼游到了纸上（二）	24cfc1d94fd4460482025f4628fea271	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.216102+08	2019-09-01 18:50:55.216102+08
+878	0	18	1	0	0	2	0	0	0	0	0	0	0		072张爽-寓言两则（一）	762b0c0d4eb14350ba0ae8acbb954bf8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.221575+08	2019-09-01 18:50:55.221575+08
+879	0	18	1	0	0	2	0	0	0	0	0	0	0		071张爽-父亲的菜园（二）	8d970e33df7044cd855700294a189936	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.242069+08	2019-09-01 18:50:55.242069+08
+880	0	18	1	0	0	2	0	0	0	0	0	0	0		074张爽-文成公主进藏（一）	9f5d6307c4b048cc9b99b67d11b63c7c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.245215+08	2019-09-01 18:50:55.245215+08
+881	0	18	1	0	0	2	0	0	0	0	0	0	0		073张爽-寓言两则（二）	84faffd8019e44e59dfa5437aeb0e6cf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.262039+08	2019-09-01 18:50:55.262039+08
+882	0	18	1	0	0	2	0	0	0	0	0	0	0		075张爽-文成公主进藏（二）	153eaf60ffe742218b357bf7177384ce	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.381642+08	2019-09-01 18:50:55.381642+08
+883	0	18	1	0	0	2	0	0	0	0	0	0	0		076张爽-普罗米修斯（一）	d50c91b9ecd2442f9778a88fccb6afcf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.383828+08	2019-09-01 18:50:55.383828+08
+884	0	18	1	0	0	2	0	0	0	0	0	0	0		077张爽-普罗米修斯（二）	800f04df04c94c2492ded6b434c414a0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.420868+08	2019-09-01 18:50:55.420868+08
+885	0	19	1	0	0	1	0	0	0	0	0	0	0		001 陈雨莹-观潮（一）	94ffbb42ce5544a28f9dbb5339ec99a5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.426374+08	2019-09-01 18:50:55.426374+08
+886	0	18	1	0	0	2	0	0	0	0	0	0	0		078张爽-渔夫的故事（一）	dea6d79040b44c54aa97b30f3333fb6e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.529643+08	2019-09-01 18:50:55.529643+08
+887	0	19	1	0	0	1	0	0	0	0	0	0	0		002 陈雨莹-观潮（二）	ff39f1045c8e49caaf22895da85e604d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.57166+08	2019-09-01 18:50:55.57166+08
+888	0	18	1	0	0	2	0	0	0	0	0	0	0		079张爽-渔夫的故事（二）	26eb1d96627b45f29440d621acaa7760	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.634582+08	2019-09-01 18:50:55.634582+08
+889	0	19	1	0	0	2	0	0	0	0	0	0	0		003 陈雨莹-观潮（三）	00b12f3b75fd4c94a0150a3bd2bb562e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.774774+08	2019-09-01 18:50:55.774774+08
+890	0	19	1	0	0	2	0	0	0	0	0	0	0		005 陈雨莹-雅鲁藏布大峡谷（二）	4daa9cb54a3d4f50950ff0cb46a194c9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.779132+08	2019-09-01 18:50:55.779132+08
+891	0	19	1	0	0	2	0	0	0	0	0	0	0		006 陈雨莹-鸟的天堂（一）	08aea2406e1541e0a1e3abf3861dee9c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.79992+08	2019-09-01 18:50:55.79992+08
+892	0	19	1	0	0	2	0	0	0	0	0	0	0		004 陈雨莹-雅鲁藏布大峡谷（一）	7c8a4936f5cd4d0e9e9f271c7705b0fa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:55.812209+08	2019-09-01 18:50:55.812209+08
+893	0	19	1	0	0	2	0	0	0	0	0	0	0		007 陈雨莹-鸟的天堂（二）	bd2e42ea58744b91b947b021324d71ef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.241252+08	2019-09-01 18:50:56.241252+08
+894	0	19	1	0	0	2	0	0	0	0	0	0	0		012 陈雨莹-古诗两首（二）	b066be1ffda54e12acbf50c1cee0fb79	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.285759+08	2019-09-01 18:50:56.285759+08
+895	0	19	1	0	0	2	0	0	0	0	0	0	0		011 陈雨莹-古诗两首（一）	078211d5d84548c790ea8ba79f57452c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.307376+08	2019-09-01 18:50:56.307376+08
+896	0	19	1	0	0	2	0	0	0	0	0	0	0		009 陈雨莹-火烧云（一）	da43329e349d465682968aa2c98a106c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.318498+08	2019-09-01 18:50:56.318498+08
+897	0	19	1	0	0	2	0	0	0	0	0	0	0		008 陈雨莹-鸟的天堂（三）	ad519333829f49368c881f8b7333aade	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.405051+08	2019-09-01 18:50:56.405051+08
+898	0	19	1	0	0	2	0	0	0	0	0	0	0		010 陈雨莹-火烧云（二）	51dc745958cd4417a6bd4bbd6c950d90	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.407911+08	2019-09-01 18:50:56.407911+08
+899	0	19	1	0	0	2	0	0	0	0	0	0	0		013 陈雨莹-爬山虎的脚（一）	a53e90ab3a094ebb9b4ca1934cdd4a95	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.472648+08	2019-09-01 18:50:56.472648+08
+900	0	19	1	0	0	2	0	0	0	0	0	0	0		014 陈雨莹-爬山虎的脚（二）	a0f19e4c01014307ad23ac185466a322	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.54481+08	2019-09-01 18:50:56.54481+08
+901	0	19	1	0	0	2	0	0	0	0	0	0	0		016 陈雨莹-蟋蟀的住宅（一）	8463b0300442428ba8c96de22de73dc2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.58801+08	2019-09-01 18:50:56.58801+08
+902	0	19	1	0	0	2	0	0	0	0	0	0	0		015 陈雨莹-爬山虎的脚（三）	a60b594ec21d4011951a782588fc65fb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.634718+08	2019-09-01 18:50:56.634718+08
+903	0	19	1	0	0	2	0	0	0	0	0	0	0		019 陈雨莹-世界地图引出的发现（一）	19e3b4fee37046c8b5e4392f9c22007d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.690566+08	2019-09-01 18:50:56.690566+08
+904	0	19	1	0	0	2	0	0	0	0	0	0	0		017 陈雨莹-蟋蟀的住宅（二）	7099fcff21f347b587b26e8144ee4f1d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.625986+08	2019-09-01 18:50:56.625986+08
+905	0	19	1	0	0	2	0	0	0	0	0	0	0		020 陈雨莹-世界地图引出的发现（二）	1b3addd664be40459d3efce98dfbc17b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.977123+08	2019-09-01 18:50:56.977123+08
+906	0	19	1	0	0	2	0	0	0	0	0	0	0		018 陈雨莹-蟋蟀的住宅（三）	e099b74d63ca46278d7651b2fab624f3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:56.980557+08	2019-09-01 18:50:56.980557+08
+907	0	19	1	0	0	2	0	0	0	0	0	0	0		021 陈雨莹-巨人的花园（一）	b2b2a12da97548189306b2738b347c2e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.089503+08	2019-09-01 18:50:57.089503+08
+908	0	19	1	0	0	2	0	0	0	0	0	0	0		023 陈雨莹-巨人的花园（三）	2f7e1fd2849d4e7db6cae4e590dbaf6a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.152469+08	2019-09-01 18:50:57.152469+08
+909	0	19	1	0	0	2	0	0	0	0	0	0	0		022 陈雨莹-巨人的花园（二）	ce5a1e2f183f47e59e787518555ca770	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.173263+08	2019-09-01 18:50:57.173263+08
+910	0	19	1	0	0	2	0	0	0	0	0	0	0		024 陈雨莹-幸福是什么（一）	19a661cce1664305b50bb29606ed3398	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.219665+08	2019-09-01 18:50:57.219665+08
+911	0	19	1	0	0	2	0	0	0	0	0	0	0		026 陈雨莹-去年的树（一）	a638d7685a50497c922c3bdcbd7bd3cb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.27061+08	2019-09-01 18:50:57.27061+08
+912	0	19	1	0	0	2	0	0	0	0	0	0	0		025 陈雨莹 - 幸福是什么（二）	6167eeb39c434ee78ac63f0e1b035ff3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.351703+08	2019-09-01 18:50:57.351703+08
+913	0	19	1	0	0	2	0	0	0	0	0	0	0		027 陈雨莹-去年的树（二）	ab08e035b00a4650ac74fb43058ce44d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.300623+08	2019-09-01 18:50:57.300623+08
+914	0	19	1	0	0	2	0	0	0	0	0	0	0		031 陈雨莹-白鹅（一）	420065390e0448149d97bda0d701bd21	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.580098+08	2019-09-01 18:50:57.580098+08
+915	0	19	1	0	0	2	0	0	0	0	0	0	0		028 陈雨莹-去年的树（三）	7af8b80054d04905824af49831c8949a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.597714+08	2019-09-01 18:50:57.597714+08
+916	0	19	1	0	0	2	0	0	0	0	0	0	0		033 陈雨莹-白鹅（三）	eeee0b055e454c86a99e63f3f87fc0e7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.673099+08	2019-09-01 18:50:57.673099+08
+917	0	19	1	0	0	2	0	0	0	0	0	0	0		032 陈雨莹-白鹅（二）	8bdf302276df4ed6b1b101f55818a52f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.685062+08	2019-09-01 18:50:57.685062+08
+918	0	19	1	0	0	2	0	0	0	0	0	0	0		029 陈雨莹-小木偶的故事（一）	582214e51c1b401098d4a6a1d95e8649	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.675747+08	2019-09-01 18:50:57.675747+08
+919	0	19	1	0	0	2	0	0	0	0	0	0	0		030 陈雨莹-小木偶的故事（二）	af9906bde06541cb8676fb31e1bd7829	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.65647+08	2019-09-01 18:50:57.65647+08
+920	0	19	1	0	0	2	0	0	0	0	0	0	0		035 陈雨莹-白公鹅（二）	87eb9360654e42549ff38bdd459984bb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.97458+08	2019-09-01 18:50:57.97458+08
+921	0	19	1	0	0	2	0	0	0	0	0	0	0		037 陈雨莹-猫（二）	87eb6d056ba54dad8b834be35549beab	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.976929+08	2019-09-01 18:50:57.976929+08
+922	0	19	1	0	0	2	0	0	0	0	0	0	0		036 陈雨莹-猫（一）	a8d9cb6aedcc497e9aea43a59aa4fcde	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.981837+08	2019-09-01 18:50:57.981837+08
+923	0	19	1	0	0	2	0	0	0	0	0	0	0		038 陈雨莹-猫（三）	12281c9f2a864f4d9bdc1f1c38255610	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.986876+08	2019-09-01 18:50:57.986876+08
+924	0	19	1	0	0	2	0	0	0	0	0	0	0		039 陈雨莹-母鸡（一）	e70c61732cde493f8f6af7d9699f0f9f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:57.988029+08	2019-09-01 18:50:57.988029+08
+925	0	19	1	0	0	2	0	0	0	0	0	0	0		034 陈雨莹-白公鹅（一）	518d7c6b7a2f4dd4bc8c8951f253829d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.110797+08	2019-09-01 18:50:58.110797+08
+926	0	19	1	0	0	2	0	0	0	0	0	0	0		043 陈雨莹-长城（三）	b7272c9bbadf4038895656599b0145d8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.117263+08	2019-09-01 18:50:58.117263+08
+927	0	19	1	0	0	2	0	0	0	0	0	0	0		040 陈雨莹-母鸡（二）	fe8541d03e3a41d2ac6f9d136e5df0f7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.120815+08	2019-09-01 18:50:58.120815+08
+928	0	19	1	0	0	2	0	0	0	0	0	0	0		041 陈雨莹-长城（一）	26f992eceb0c4f41afb156b557e4a179	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.185351+08	2019-09-01 18:50:58.185351+08
+929	0	19	1	0	0	2	0	0	0	0	0	0	0		042 陈雨莹-长城（二）	feb4504b04ec44f4b8de22c63d2cfebe	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.23968+08	2019-09-01 18:50:58.23968+08
+930	0	19	1	0	0	2	0	0	0	0	0	0	0		044 陈雨莹-颐和园（一）	515fdf149ada4021be14d1b146c123d1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.283296+08	2019-09-01 18:50:58.283296+08
+931	0	19	1	0	0	2	0	0	0	0	0	0	0		047 陈雨莹-秦兵马俑（一）	f5cc84a657284dcfb4b38a9b7e01d36c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.346199+08	2019-09-01 18:50:58.346199+08
+932	0	19	1	0	0	2	0	0	0	0	0	0	0		046 陈雨莹-颐和园（三）	e3087af873fc4b209231a4edeecad152	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.377976+08	2019-09-01 18:50:58.377976+08
+933	0	19	1	0	0	2	0	0	0	0	0	0	0		045 陈雨莹-颐和园（二）	7106cd99b16e44dcb8389f7398fde0ef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.428098+08	2019-09-01 18:50:58.428098+08
+934	0	19	1	0	0	2	0	0	0	0	0	0	0		048 陈雨莹-秦兵马俑（二）	01b496a15c3847cb82b3c1b39b28e1ad	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.434538+08	2019-09-01 18:50:58.434538+08
+935	0	19	1	0	0	2	0	0	0	0	0	0	0		049 陈雨莹-古诗两首（一）	1523102b664d402b86a15dbc93247ab1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.45211+08	2019-09-01 18:50:58.45211+08
+936	0	19	1	0	0	2	0	0	0	0	0	0	0		051 陈雨莹-古诗两首（三）	651e87a8c00d4c1e91b84cea6a6e12af	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.473536+08	2019-09-01 18:50:58.473536+08
+937	0	19	1	0	0	2	0	0	0	0	0	0	0		050 陈雨莹-古诗两首（二）	0ac818dec6e14b6a8d0b82fbcc4a81c6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.545146+08	2019-09-01 18:50:58.545146+08
+938	0	19	1	0	0	2	0	0	0	0	0	0	0		053 陈雨莹-搭石（二）	b3a30660b7b04cf9bc22a10a85dfaa6b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.599172+08	2019-09-01 18:50:58.599172+08
+939	0	19	1	0	0	2	0	0	0	0	0	0	0		052 陈雨莹-搭石（一）	651e87a8c00d4c1e91b84cea6a6e12af	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.60325+08	2019-09-01 18:50:58.60325+08
+940	0	19	1	0	0	2	0	0	0	0	0	0	0		054 陈雨莹-搭石（三）	f760e108af4548a381afe9f51621c809	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.606218+08	2019-09-01 18:50:58.606218+08
+941	0	19	1	0	0	2	0	0	0	0	0	0	0		056 陈雨莹-跨越海峡的生命桥（二）	fe9ee280c6bb41599cdb4cc2358097db	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.668629+08	2019-09-01 18:50:58.668629+08
+942	0	19	1	0	0	2	0	0	0	0	0	0	0		055 陈雨莹-跨越海峡的生命桥（一）	c8fe6d83fa7b4286adb3b3b6d9679ea5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.706108+08	2019-09-01 18:50:58.706108+08
+943	0	19	1	0	0	2	0	0	0	0	0	0	0		058 陈雨莹-卡罗纳（一）	2f072fa470934dc6afa049537a94cb06	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.83436+08	2019-09-01 18:50:58.83436+08
+944	0	19	1	0	0	2	0	0	0	0	0	0	0		057 陈雨莹-跨越海峡的生命桥（三）	cb237ecd07eb425396863462ce72d600	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.838785+08	2019-09-01 18:50:58.838785+08
+945	0	19	1	0	0	2	0	0	0	0	0	0	0		060 陈雨莹-给予是快乐的（一）	70f8aa1ecffd4d0ea78208029b36ea8e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.881905+08	2019-09-01 18:50:58.881905+08
+946	0	19	1	0	0	2	0	0	0	0	0	0	0		059 陈雨莹-卡罗纳（二）	0ab8bd68076045f4957977cf2c713ab4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.937344+08	2019-09-01 18:50:58.937344+08
+947	0	19	1	0	0	2	0	0	0	0	0	0	0		061 陈雨莹-给予是快乐的（二）	0aab6a6fb2d8487d947f80903af77d55	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.939931+08	2019-09-01 18:50:58.939931+08
+948	0	19	1	0	0	2	0	0	0	0	0	0	0		062 陈雨莹-为中华之崛起而读书（一）	d65082f33e9d438f9852f9600979d309	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:58.94445+08	2019-09-01 18:50:58.94445+08
+949	0	19	1	0	0	2	0	0	0	0	0	0	0		063 陈雨莹-为中华之崛起而读书（二）	810147f51ef0484387c280e3f4bd72f2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.052836+08	2019-09-01 18:50:59.052836+08
+950	0	19	1	0	0	2	0	0	0	0	0	0	0		065 陈雨莹-那片绿绿的爬山虎（一）	21f89315afee4f8bafa844a3841f224e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.122051+08	2019-09-01 18:50:59.122051+08
+951	0	19	1	0	0	2	0	0	0	0	0	0	0		064 陈雨莹-为中华之崛起而读书（三）	21f89315afee4f8bafa844a3841f224e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.19586+08	2019-09-01 18:50:59.19586+08
+952	0	19	1	0	0	2	0	0	0	0	0	0	0		070 陈雨莹-尺有所短寸有所长（一）	fc2f19aa13724db888e9e22564bf17e2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.254533+08	2019-09-01 18:50:59.254533+08
+953	0	19	1	0	0	2	0	0	0	0	0	0	0		069 陈雨莹-乌塔（二）	648e56d8faf4481db0ad8012874e9700	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.258268+08	2019-09-01 18:50:59.258268+08
+954	0	19	1	0	0	2	0	0	0	0	0	0	0		067 陈雨莹-那片绿绿的爬山虎（三）	7fd645e830c942f09c81822b15e01c27	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.260336+08	2019-09-01 18:50:59.260336+08
+955	0	19	1	0	0	2	0	0	0	0	0	0	0		066 陈雨莹-那片绿绿的爬山虎（二）	e3dd6581872d43c2b63c5c3f977b8aad	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.233189+08	2019-09-01 18:50:59.233189+08
+956	0	19	1	0	0	2	0	0	0	0	0	0	0		068 陈雨莹-乌塔（一）	2934af20d6894bef86f070637350085f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.269383+08	2019-09-01 18:50:59.269383+08
+957	0	19	1	0	0	2	0	0	0	0	0	0	0		071 陈雨莹-尺有所短寸有所长（二）	39373bc6604c46259ea30e8f7efa964a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.416849+08	2019-09-01 18:50:59.416849+08
+958	0	19	1	0	0	2	0	0	0	0	0	0	0		072 陈雨莹-呼风唤雨的世纪（一）	bb71529bf2da4cf3a0848abdfb6d857c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.42259+08	2019-09-01 18:50:59.42259+08
+959	0	19	1	0	0	2	0	0	0	0	0	0	0		073 陈雨莹-呼风唤雨的世纪（二）	d21b823bb9bb4bad8bf58e32d84ada6b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.478869+08	2019-09-01 18:50:59.478869+08
+960	0	19	1	0	0	2	0	0	0	0	0	0	0		074 陈雨莹-呼风唤雨的世纪（三）	7a18a848f7ac418cb2d35fe83c5f7fd7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.472354+08	2019-09-01 18:50:59.472354+08
+961	0	19	1	0	0	2	0	0	0	0	0	0	0		075 陈雨莹-电脑住宅（一）	a4b3b89b1d0047e888344d3d6b3faf09	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.510419+08	2019-09-01 18:50:59.510419+08
+962	0	19	1	0	0	2	0	0	0	0	0	0	0		076 陈雨莹-电脑住宅（二）	18a29d33b7374e639b96cbd0d77d01cd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.554014+08	2019-09-01 18:50:59.554014+08
+963	0	19	1	0	0	2	0	0	0	0	0	0	0		076 陈雨莹-电脑住宅（二）	https://outin-0c5f7c2f0dd511e9a80a00163e1a3b4a.oss-cn-shanghai.aliyuncs.com/sv/29054068-168186d5f2b/29054068-168186d5f2b.mp4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.645419+08	2019-09-01 18:50:59.645419+08
+964	0	19	1	0	0	2	0	0	0	0	0	0	0		078 陈雨莹-飞向蓝天的恐龙（二）	efa8f354c63f44fe97b0c30cc46ed5c5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.676727+08	2019-09-01 18:50:59.676727+08
+965	0	19	1	0	0	2	0	0	0	0	0	0	0		077 陈雨莹-飞向蓝天的恐龙（一）	4ffa80e556e541f9a1916c308c8a1eb6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.679845+08	2019-09-01 18:50:59.679845+08
+966	0	19	1	0	0	2	0	0	0	0	0	0	0		077 陈雨莹-飞向蓝天的恐龙（一）	https://outin-0c5f7c2f0dd511e9a80a00163e1a3b4a.oss-cn-shanghai.aliyuncs.com/sv/1075f6fd-168186e0bbc/1075f6fd-168186e0bbc.mp4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.787261+08	2019-09-01 18:50:59.787261+08
+967	0	19	1	0	0	2	0	0	0	0	0	0	0		079 陈雨莹-飞向蓝天的恐龙（三）	a411dc28518248edb127f017e70b91d1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.828449+08	2019-09-01 18:50:59.828449+08
+968	0	19	1	0	0	2	0	0	0	0	0	0	0		081 陈雨莹-飞船上的特殊乘客（二）	93437a3af1574be7af0bcab0357cf6a9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.83306+08	2019-09-01 18:50:59.83306+08
+969	0	19	1	0	0	2	0	0	0	0	0	0	0		080 陈雨莹-飞船上的特殊乘客（一）	f7fb58b30fe841f4ae9d46e7ff5b9669	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.858859+08	2019-09-01 18:50:59.858859+08
+970	0	20	1	0	0	1	0	0	0	0	0	0	0		002 小毛豆-亿以内数的认识（一）	c9fade0ee2b94427a157f5767ed63130	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.905319+08	2019-09-01 18:50:59.905319+08
+971	0	20	1	0	0	1	0	0	0	0	0	0	0		001 小毛豆-前言	a005c2fae26a4888a71b66885f492695	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.923876+08	2019-09-01 18:50:59.923876+08
+972	0	20	1	0	0	2	0	0	0	0	0	0	0		003 小毛豆-亿以内数的认识（二）	92fc4961443446cf8a5a213c4b931947	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.97328+08	2019-09-01 18:50:59.97328+08
+973	0	20	1	0	0	2	0	0	0	0	0	0	0		004 小毛豆-数的产生和十进制计数法	7690d9b69cff4d1db64f081dbc1473da	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:50:59.996688+08	2019-09-01 18:50:59.996688+08
+974	0	20	1	0	0	2	0	0	0	0	0	0	0		005 小毛豆-亿以上数的认识	06f9bbc5e84343d8b83d9236895c72b4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.033062+08	2019-09-01 18:51:00.033062+08
+975	0	20	1	0	0	2	0	0	0	0	0	0	0		006 小毛豆-计算机工具的认识	33a94a7345164f1d96ee11474683727b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.093845+08	2019-09-01 18:51:00.093845+08
+976	0	20	1	0	0	2	0	0	0	0	0	0	0		007 小毛豆-一亿有多大	33c46c01306743f7a287312e1c749cdd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.138768+08	2019-09-01 18:51:00.138768+08
+977	0	20	1	0	0	2	0	0	0	0	0	0	0		008 小毛豆-公顷和平方千米	45ac715a60334af3adf277001fd28eac	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.159094+08	2019-09-01 18:51:00.159094+08
+978	0	20	1	0	0	2	0	0	0	0	0	0	0		009 小毛豆-直线、射线、线段	62d12d44a3d647738aa1639cecf74a9a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.202867+08	2019-09-01 18:51:00.202867+08
+979	0	20	1	0	0	2	0	0	0	0	0	0	0		010 小毛豆-角的度量	2760f9fe2c70456cb60037c476943325	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.267655+08	2019-09-01 18:51:00.267655+08
+980	0	20	1	0	0	2	0	0	0	0	0	0	0		011 小毛豆-角的分类	afc9836af97146058d0dccb9325f7876	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.33565+08	2019-09-01 18:51:00.33565+08
+981	0	20	1	0	0	2	0	0	0	0	0	0	0		012 小毛豆-角	ca691dafd63648c7818da8729561facc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.386212+08	2019-09-01 18:51:00.386212+08
+982	0	20	1	0	0	2	0	0	0	0	0	0	0		013 小毛豆-笔算乘法	db2832df543a41f7b084ce4bf0e3694a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.459386+08	2019-09-01 18:51:00.459386+08
+983	0	20	1	0	0	2	0	0	0	0	0	0	0		014 小毛豆-中间或末尾有0的乘法	58d2504ca1b249d78ccf5a5648598ac3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.50036+08	2019-09-01 18:51:00.50036+08
+984	0	20	1	0	0	2	0	0	0	0	0	0	0		015 小毛豆-积的变化规律和估算	85ed5fd9b8f849529977662f7e7b24d1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.564694+08	2019-09-01 18:51:00.564694+08
+985	0	20	1	0	0	2	0	0	0	0	0	0	0		016 小毛豆-单价公式和路程公式	0991bdb2eae449428744f7602d787e0d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.632404+08	2019-09-01 18:51:00.632404+08
+986	0	20	1	0	0	2	0	0	0	0	0	0	0		017 小毛豆-平行与垂直（一）	3ad1773cbccc48dd92da1e7c0ca51459	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.688478+08	2019-09-01 18:51:00.688478+08
+987	0	20	1	0	0	2	0	0	0	0	0	0	0		018 小毛豆-平行与垂直（二）	f1ebbd90de1c4b048b479ee607816bbb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.752189+08	2019-09-01 18:51:00.752189+08
+988	0	20	1	0	0	2	0	0	0	0	0	0	0		019 小毛豆-平行四边形和梯形	902648910de8434e8b664c503a536cbc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.80727+08	2019-09-01 18:51:00.80727+08
+989	0	20	1	0	0	2	0	0	0	0	0	0	0		020 小毛豆-口算除法	59ba30c6bb87428384ff6a018cb99cdb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.872095+08	2019-09-01 18:51:00.872095+08
+990	0	20	1	0	0	2	0	0	0	0	0	0	0		021 小毛豆-除数接近整十的除法	978803cb88ae43b48becaca970dc4249	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.938507+08	2019-09-01 18:51:00.938507+08
+991	0	20	1	0	0	2	0	0	0	0	0	0	0		022 小毛豆-除数为两位数的除法	ddacfc7dcb884d55b8f7fdca107f0339	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:00.984824+08	2019-09-01 18:51:00.984824+08
+992	0	20	1	0	0	2	0	0	0	0	0	0	0		023 小毛豆-商的变化规律	1fcd1ec30e7d4adf9901cdffc40cfd42	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.051005+08	2019-09-01 18:51:01.051005+08
+993	0	20	1	0	0	2	0	0	0	0	0	0	0		024 小毛豆-条形统计图	1f8241b143a64481a39b7aac1befdc68	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.108801+08	2019-09-01 18:51:01.108801+08
+994	0	20	1	0	0	2	0	0	0	0	0	0	0		025 小毛豆-数学广角（一）	4bc085f5daf94812bef1121f497f285c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.17233+08	2019-09-01 18:51:01.17233+08
+995	0	20	1	0	0	2	0	0	0	0	0	0	0		026 小毛豆-数学广角（二）	92352b74cf874dad8766f7991c96814f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.222318+08	2019-09-01 18:51:01.222318+08
+996	0	20	1	0	0	2	0	0	0	0	0	0	0		027 小毛豆-总复习（一）	c474b9b171014b09bcee8d47076a1bd4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.288413+08	2019-09-01 18:51:01.288413+08
+997	0	20	1	0	0	2	0	0	0	0	0	0	0		028 小毛豆-总复习（二）	c48f875e276c4578a6e10004e225820f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.349881+08	2019-09-01 18:51:01.349881+08
+998	0	20	1	0	0	2	0	0	0	0	0	0	0		029 小毛豆-总复习（三）	a4dba6677f814a2ba96e0a63429d8608	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.407474+08	2019-09-01 18:51:01.407474+08
+999	0	21	1	0	0	1	0	0	0	0	0	0	0		001 腾溶-前言	f268fa167fff4820959d1bfae2bd9cd3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.465193+08	2019-09-01 18:51:01.465193+08
+1000	0	21	1	0	0	1	0	0	0	0	0	0	0		002 腾溶-加减法的意义和各部分间的关系	6d684296b06d4074b53d7fd6a473a15d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.535231+08	2019-09-01 18:51:01.535231+08
+1001	0	21	1	0	0	2	0	0	0	0	0	0	0		003 腾溶-乘除法的意义和各部分间的关系	997731ddeb5240a1a941ac83ee34e804	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.583625+08	2019-09-01 18:51:01.583625+08
+1002	0	21	1	0	0	2	0	0	0	0	0	0	0		004 腾溶-括号	d0a417b6d16444d5808e877e952b9ae8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.64919+08	2019-09-01 18:51:01.64919+08
+1003	0	21	1	0	0	2	0	0	0	0	0	0	0		005 腾溶-第一单元总结	af3166028cf2443391b770ce6ad39171	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.70997+08	2019-09-01 18:51:01.70997+08
+1004	0	21	1	0	0	2	0	0	0	0	0	0	0		006 腾溶-观察物体	577a17c9458b4046b208c63d8efe5cf4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.770018+08	2019-09-01 18:51:01.770018+08
+1005	0	21	1	0	0	2	0	0	0	0	0	0	0		007 腾溶-加法的运算定律	a54a18c2b1854832aa599d820d696906	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.821178+08	2019-09-01 18:51:01.821178+08
+1006	0	21	1	0	0	2	0	0	0	0	0	0	0		008 腾溶-简便运算	3647174b20184aa483430373153a3f6a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.88765+08	2019-09-01 18:51:01.88765+08
+1007	0	21	1	0	0	2	0	0	0	0	0	0	0		009 腾溶-乘法的运算定律	7029fcfd162c4949a109bbefb80182bf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:01.948192+08	2019-09-01 18:51:01.948192+08
+1008	0	21	1	0	0	2	0	0	0	0	0	0	0		010 腾溶-简便运算	58449dca9d67405a8ca260a8829e2e94	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.006078+08	2019-09-01 18:51:02.006078+08
+1009	0	21	1	0	0	2	0	0	0	0	0	0	0		011 腾溶-第三单元总结	f9f0841ea0074232aaa4bfcbf9d923cd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.07337+08	2019-09-01 18:51:02.07337+08
+1010	0	21	1	0	0	2	0	0	0	0	0	0	0		012 腾溶-小数的含义	9adf5358dd6e4a0a85788dbf00bfb2e6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.124234+08	2019-09-01 18:51:02.124234+08
+1011	0	21	1	0	0	2	0	0	0	0	0	0	0		013 腾溶-小数的读法和写法	519e0ba089d745589d9375fab7b13c1d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.182074+08	2019-09-01 18:51:02.182074+08
+1012	0	21	1	0	0	2	0	0	0	0	0	0	0		014 腾溶-小数的性质和大小的比较	96e88223a9204f5e9a17a6a1e725e9b0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.242102+08	2019-09-01 18:51:02.242102+08
+1013	0	21	1	0	0	2	0	0	0	0	0	0	0		015 腾溶-小数点移动引起小数大小的变化	11e67ce20bc64e0189cf95999d779340	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.315988+08	2019-09-01 18:51:02.315988+08
+1014	0	21	1	0	0	2	0	0	0	0	0	0	0		016 腾溶-小数与单位换算	8b10356e4c3c4b9088c94694432d65d9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.369972+08	2019-09-01 18:51:02.369972+08
+1015	0	21	1	0	0	2	0	0	0	0	0	0	0		017 腾溶-小数的近似数	d6f3f68ff53742f1b9a55a2575cfcd41	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.413921+08	2019-09-01 18:51:02.413921+08
+1016	0	21	1	0	0	2	0	0	0	0	0	0	0		018 腾溶-第四单元总结	429bd1e2c6b745d5b97243bd7d71d7c1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.484508+08	2019-09-01 18:51:02.484508+08
+1017	0	21	1	0	0	2	0	0	0	0	0	0	0		019 腾溶-三角形的特性	1f454d628347496e8c2cda9c6c363190	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.567611+08	2019-09-01 18:51:02.567611+08
+1018	0	21	1	0	0	2	0	0	0	0	0	0	0		020 腾溶-三角形的分类	cc5116a0162f4afa8f5461300a2d939a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.600717+08	2019-09-01 18:51:02.600717+08
+1019	0	21	1	0	0	2	0	0	0	0	0	0	0		021 腾溶-三角形的内角和	81ec53952e7b4220826ec13313e30257	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.66035+08	2019-09-01 18:51:02.66035+08
+1020	0	21	1	0	0	2	0	0	0	0	0	0	0		022 腾溶-第五单元总结	d571aff2fda34728bde79caca2a9fd55	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.735941+08	2019-09-01 18:51:02.735941+08
+1021	0	21	1	0	0	2	0	0	0	0	0	0	0		023 腾溶-小数加减法	a03ac266080f49bd8c56dc6f8a0ab90d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.810943+08	2019-09-01 18:51:02.810943+08
+1022	0	21	1	0	0	2	0	0	0	0	0	0	0		024 腾溶-小数加减混合运算	6ece9295b91c4970b0e83f6fc58a47de	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.860284+08	2019-09-01 18:51:02.860284+08
+1023	0	21	1	0	0	2	0	0	0	0	0	0	0		025 腾溶-整数加减运算定律推广到小数	5e34dda647bc46eeab01429bd898c0b0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.919547+08	2019-09-01 18:51:02.919547+08
+1024	0	21	1	0	0	2	0	0	0	0	0	0	0		026 腾溶-第六单元总结	679ddd6ef72d47be9fb23da0d493cdb5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:02.984868+08	2019-09-01 18:51:02.984868+08
+1025	0	21	1	0	0	2	0	0	0	0	0	0	0		027 腾溶-轴对称	8075d0f3be194d5e901bb36e66bfd319	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.022116+08	2019-09-01 18:51:03.022116+08
+1026	0	21	1	0	0	2	0	0	0	0	0	0	0		028 腾溶-平移	c018db297e5c4a308acaeabe49ab4288	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.088015+08	2019-09-01 18:51:03.088015+08
+1027	0	21	1	0	0	2	0	0	0	0	0	0	0		029 腾溶-第七单元总结	21ed7027e3d448209247850cf582da4a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.158086+08	2019-09-01 18:51:03.158086+08
+1028	0	21	1	0	0	2	0	0	0	0	0	0	0		030 腾溶-平均数	6457a57b962246519fd75077099f3bcf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.202752+08	2019-09-01 18:51:03.202752+08
+1029	0	21	1	0	0	2	0	0	0	0	0	0	0		031 腾溶-复式条形统计图	efb5c08589fb40169bb9d58a73417788	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.268319+08	2019-09-01 18:51:03.268319+08
+1030	0	21	1	0	0	2	0	0	0	0	0	0	0		032 腾溶-第八单元及营养午餐	1292e8d6fd394bd28b0e54677db2f54e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.328441+08	2019-09-01 18:51:03.328441+08
+1031	0	21	1	0	0	2	0	0	0	0	0	0	0		033 腾溶-数学广角一鸡兔同笼	91df21b08a8b4facb18a62184d77c777	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.39014+08	2019-09-01 18:51:03.39014+08
+1032	0	21	1	0	0	2	0	0	0	0	0	0	0		034 腾溶-数与代数（一）	2d94cbf8963e4f939ef9aff6e3f1339f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.449388+08	2019-09-01 18:51:03.449388+08
+1033	0	21	1	0	0	2	0	0	0	0	0	0	0		035 腾溶-数与代数（二）	c6cc385c8af74712954901236882814e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.506297+08	2019-09-01 18:51:03.506297+08
+1034	0	21	1	0	0	2	0	0	0	0	0	0	0		036 腾溶-图形与几何	347e4faf71384a909cb7f1bc510db854	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.568832+08	2019-09-01 18:51:03.568832+08
+1035	0	21	1	0	0	2	0	0	0	0	0	0	0		037 腾溶-统计与概率	2a01d018655c434390a057733163c081	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.627495+08	2019-09-01 18:51:03.627495+08
+1036	0	22	1	0	0	1	0	0	0	0	0	0	0		001 宋晨-Unit 1-1	0ce4f963adc047fc815bf120996613c6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.685822+08	2019-09-01 18:51:03.685822+08
+1037	0	22	1	0	0	1	0	0	0	0	0	0	0		002 宋晨-Unit 1-2	99653c818890438e9a9d91c8d3d7c96f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.739739+08	2019-09-01 18:51:03.739739+08
+1038	0	22	1	0	0	2	0	0	0	0	0	0	0		003 宋晨-Unit 1-3	8b54a9f32d604ecd9a378bb6df4296ae	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.81854+08	2019-09-01 18:51:03.81854+08
+1039	0	22	1	0	0	2	0	0	0	0	0	0	0		004 宋晨-Unit 1-4	4b82192668bc4098a5fb3a7298bc6a25	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.857373+08	2019-09-01 18:51:03.857373+08
+1040	0	22	1	0	0	2	0	0	0	0	0	0	0		005 宋晨-Unit 1-5	9a71b9167a754693a188c3b150a34187	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.918561+08	2019-09-01 18:51:03.918561+08
+1041	0	22	1	0	0	2	0	0	0	0	0	0	0		006 宋晨-Unit 1-6	6329cb0b914640dbbd91c7e9488811cd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:03.989576+08	2019-09-01 18:51:03.989576+08
+1042	0	22	1	0	0	2	0	0	0	0	0	0	0		007 宋晨-Unit 2-1	d0fbb5ba1698474f85b56705398664da	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.051078+08	2019-09-01 18:51:04.051078+08
+1043	0	22	1	0	0	2	0	0	0	0	0	0	0		008 宋晨-Unit 2-2	68553a17bcc844d486abd34164b80de0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.098352+08	2019-09-01 18:51:04.098352+08
+1044	0	22	1	0	0	2	0	0	0	0	0	0	0		009 宋晨-Unit 2-3	c0d138b6dd53456bbb81363f50aaba00	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.165016+08	2019-09-01 18:51:04.165016+08
+1045	0	22	1	0	0	2	0	0	0	0	0	0	0		010 宋晨-Unit 2-4	ada07632da034c4a94cbaf6c60fe0d30	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.22066+08	2019-09-01 18:51:04.22066+08
+1046	0	22	1	0	0	2	0	0	0	0	0	0	0		011 宋晨-Unit 2-5	24c10532aa0640a0b8dcdd677e871653	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.295798+08	2019-09-01 18:51:04.295798+08
+1047	0	22	1	0	0	2	0	0	0	0	0	0	0		012 宋晨-Unit 2-6	0c7bc315675444b1adee8db1a7b4dac0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.336163+08	2019-09-01 18:51:04.336163+08
+1048	0	22	1	0	0	2	0	0	0	0	0	0	0		013 宋晨-Unit 3-1	4088b16367b5436a90b22f228c51b719	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.416532+08	2019-09-01 18:51:04.416532+08
+1049	0	22	1	0	0	2	0	0	0	0	0	0	0		014 宋晨-Unit 3-2	82b160c6ee424a61ba744ad5f22f9a98	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.468804+08	2019-09-01 18:51:04.468804+08
+1050	0	22	1	0	0	2	0	0	0	0	0	0	0		015 宋晨-Unit 3-3	ff7ec45faace4d22a98fa55ae967a5dd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.512342+08	2019-09-01 18:51:04.512342+08
+1051	0	22	1	0	0	2	0	0	0	0	0	0	0		016 宋晨-Unit 3-4	71d64a2369b94ce3b1c505751b3b9221	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.583649+08	2019-09-01 18:51:04.583649+08
+1052	0	22	1	0	0	2	0	0	0	0	0	0	0		017 宋晨-Unit 3-5	70c754015da740998df0f7717eeb3d3a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.654282+08	2019-09-01 18:51:04.654282+08
+1053	0	22	1	0	0	2	0	0	0	0	0	0	0		018 宋晨-Unit 3-6	8428c2fda35a47e3878725df242f940f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.707667+08	2019-09-01 18:51:04.707667+08
+1054	0	22	1	0	0	2	0	0	0	0	0	0	0		019 宋晨-Recycle 1-1	66f96bc3a6ed43a0ae31f7a77bee843b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.755931+08	2019-09-01 18:51:04.755931+08
+1055	0	22	1	0	0	2	0	0	0	0	0	0	0		020 宋晨-Recycle 1-2	205adf28b27442f395c7fa761068322e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.824541+08	2019-09-01 18:51:04.824541+08
+1056	0	22	1	0	0	2	0	0	0	0	0	0	0		021 宋晨-Recycle 1-3	f92ab35cfa3b40489705ce75d7e23f9a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.89197+08	2019-09-01 18:51:04.89197+08
+1057	0	22	1	0	0	2	0	0	0	0	0	0	0		022 宋晨-Unit 4-1	b6f1484bcd994feda374cf71eff5d5a5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:04.941684+08	2019-09-01 18:51:04.941684+08
+1058	0	22	1	0	0	2	0	0	0	0	0	0	0		023 宋晨-Unit 4-2	23485e5618724e3cb7621b779ced44b1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.017927+08	2019-09-01 18:51:05.017927+08
+1059	0	22	1	0	0	2	0	0	0	0	0	0	0		024 宋晨-Unit 4-3	c578ca1eae6947aa95457c84f99dddac	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.056027+08	2019-09-01 18:51:05.056027+08
+1060	0	22	1	0	0	2	0	0	0	0	0	0	0		025 宋晨-Unit 4-4	b6775f282f254cbf9b18cc3654ca7fc7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.131949+08	2019-09-01 18:51:05.131949+08
+1061	0	22	1	0	0	2	0	0	0	0	0	0	0		026 宋晨-Unit 4-5	f60a5d9632d14b2ca82c671ab162dbde	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.189501+08	2019-09-01 18:51:05.189501+08
+1062	0	22	1	0	0	2	0	0	0	0	0	0	0		027 宋晨-Unit 4-6	d7663364d9334a1492d628b79d852c7c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.242163+08	2019-09-01 18:51:05.242163+08
+1063	0	22	1	0	0	2	0	0	0	0	0	0	0		028 宋晨-Unit 5-1	32e128947c1d477b98f5a871fd0d5f68	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.302892+08	2019-09-01 18:51:05.302892+08
+1064	0	22	1	0	0	2	0	0	0	0	0	0	0		029 宋晨-Unit 5-2	6b9174e121e346c593faa2802fe012f9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.449908+08	2019-09-01 18:51:05.449908+08
+1065	0	22	1	0	0	2	0	0	0	0	0	0	0		030 宋晨-Unit 5-3	a8f61cfd57f4490894dd2368d3bfb208	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.463944+08	2019-09-01 18:51:05.463944+08
+1066	0	22	1	0	0	2	0	0	0	0	0	0	0		031 宋晨-Unit 5-4	652e304ddf204a9493d020405b18d0db	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.505773+08	2019-09-01 18:51:05.505773+08
+1067	0	22	1	0	0	2	0	0	0	0	0	0	0		032 宋晨-Unit 5-5	0a366b2c55d949828b21150dc9d56031	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.540321+08	2019-09-01 18:51:05.540321+08
+1068	0	22	1	0	0	2	0	0	0	0	0	0	0		033 宋晨-Unit 5-6	de04c453e60344d8acf6611b97002c42	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.604246+08	2019-09-01 18:51:05.604246+08
+1069	0	22	1	0	0	2	0	0	0	0	0	0	0		034 宋晨-Unit 6-1	4b946202091645c38a13483f0a33aee6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.665886+08	2019-09-01 18:51:05.665886+08
+1070	0	22	1	0	0	2	0	0	0	0	0	0	0		035 宋晨-Unit 6-2	ce41c40397eb4417a2f17412d73e1f77	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.736078+08	2019-09-01 18:51:05.736078+08
+1071	0	22	1	0	0	2	0	0	0	0	0	0	0		036 宋晨-Unit 6-3	bc145358c4aa4c7894718eed0317aaf5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.784075+08	2019-09-01 18:51:05.784075+08
+1072	0	22	1	0	0	2	0	0	0	0	0	0	0		037 宋晨-Unit 6-4	a6f3200cdf4f40c0b064c120ab2e196b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.844619+08	2019-09-01 18:51:05.844619+08
+1073	0	22	1	0	0	2	0	0	0	0	0	0	0		038 宋晨-Unit 6-5	f5e38af153cb4173a3e467c848a41892	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.901138+08	2019-09-01 18:51:05.901138+08
+1074	0	22	1	0	0	2	0	0	0	0	0	0	0		039 宋晨-Unit 6-6	43e2b633452142669b8d7fd5972cd39a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:05.972688+08	2019-09-01 18:51:05.972688+08
+1075	0	22	1	0	0	2	0	0	0	0	0	0	0		040 宋晨-Recycle 2-1	57f4b4b8b58d4bb0a3d390a81c4362c3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.035022+08	2019-09-01 18:51:06.035022+08
+1076	0	22	1	0	0	2	0	0	0	0	0	0	0		041 宋晨-Recycle 2-2	2d10dfb857b344db8a099407ddc82b17	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.081467+08	2019-09-01 18:51:06.081467+08
+1077	0	22	1	0	0	2	0	0	0	0	0	0	0		042 宋晨-Recycle 2-3	bad3dd025bdb44eb8fc181725868864c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.142664+08	2019-09-01 18:51:06.142664+08
+1078	0	23	1	0	0	1	0	0	0	0	0	0	0		001 谢珑茜-Unit 1-1 P2-5	640a3d5b6b7245018cd46ebdbb068b88	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.219588+08	2019-09-01 18:51:06.219588+08
+1079	0	23	1	0	0	1	0	0	0	0	0	0	0		002 谢珑茜-Unit 1-2 P4	8346c86991784424be1ead9233d11334	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.266124+08	2019-09-01 18:51:06.266124+08
+1080	0	23	1	0	0	2	0	0	0	0	0	0	0		003 谢珑茜-Unit 1-3 P2-5、P6	1d1e0c2eb96249daa93631a2a6543c24	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.313587+08	2019-09-01 18:51:06.313587+08
+1081	0	23	1	0	0	2	0	0	0	0	0	0	0		004 谢珑茜-Unit 1-4 P7	0cbfb83437f746c68aaaa7df687b5c8c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.386294+08	2019-09-01 18:51:06.386294+08
+1082	0	23	1	0	0	2	0	0	0	0	0	0	0		005 谢珑茜-Unit 1-5 P8	2e539a38c9ec44ad9a77e5c0ba7c7b7b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.449335+08	2019-09-01 18:51:06.449335+08
+1083	0	23	1	0	0	2	0	0	0	0	0	0	0		006 谢珑茜-Unit 1-6 P9-10	caafece37e234f1788462c5fe4785333	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.493992+08	2019-09-01 18:51:06.493992+08
+1084	0	23	1	0	0	2	0	0	0	0	0	0	0		007 谢珑茜-Unit 1-7 P11	83535f8986844117a9c9eb3aac481427	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.5679+08	2019-09-01 18:51:06.5679+08
+1085	0	23	1	0	0	2	0	0	0	0	0	0	0		008 谢珑茜-Unit 2-1 P12-13	ffd089c8f6b4496e87a28f2779b086b8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.624601+08	2019-09-01 18:51:06.624601+08
+1086	0	23	1	0	0	2	0	0	0	0	0	0	0		009 谢珑茜-Unit 2-2 P14	a0fd10a65b254545822d2c38531ebffd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.686576+08	2019-09-01 18:51:06.686576+08
+1087	0	23	1	0	0	2	0	0	0	0	0	0	0		010 谢珑茜-Unit 2-3 P15-16	65bd5bd432b34473ac421d4717f140d5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.755599+08	2019-09-01 18:51:06.755599+08
+1088	0	23	1	0	0	2	0	0	0	0	0	0	0		011 谢珑茜-Unit 2-4 P17	1d55f74078864491a5ab9cd87e254d0c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.797907+08	2019-09-01 18:51:06.797907+08
+1089	0	23	1	0	0	2	0	0	0	0	0	0	0		012 谢珑茜-Unit 2-5 P18	3db44deed91443a4a160c60ef973d35f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.865707+08	2019-09-01 18:51:06.865707+08
+1090	0	23	1	0	0	2	0	0	0	0	0	0	0		013 谢珑茜-Unit 2-6 P19-20	5e7ea0d592df429aba384386dae779a8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.920105+08	2019-09-01 18:51:06.920105+08
+1091	0	23	1	0	0	2	0	0	0	0	0	0	0		014 谢珑茜-Unit 2-7 P21	4ad52f59f9de47f8bdc62520e3bde4a4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:06.977072+08	2019-09-01 18:51:06.977072+08
+1092	0	23	1	0	0	2	0	0	0	0	0	0	0		015 谢珑茜-Unit 3-1 P22-23	482a9391a32143f68808c5ed1bdafa9f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.040655+08	2019-09-01 18:51:07.040655+08
+1093	0	23	1	0	0	2	0	0	0	0	0	0	0		016 谢珑茜-Unit 3-2 P24	81bee27c35f54793b2dcd1f2f092e588	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.102847+08	2019-09-01 18:51:07.102847+08
+1094	0	23	1	0	0	2	0	0	0	0	0	0	0		017 谢珑茜-Unit 3-3 P25-26	8af1121f93ff4bd5a8813f5329281a3c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.173297+08	2019-09-01 18:51:07.173297+08
+1095	0	23	1	0	0	2	0	0	0	0	0	0	0		018 谢珑茜-Unit 3-4 P27	a016a5c8f2254e9894ef100a5a7ebe96	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.218231+08	2019-09-01 18:51:07.218231+08
+1096	0	23	1	0	0	2	0	0	0	0	0	0	0		019 谢珑茜-Unit 3-5 P28	dd75e0564baa4a439a110771c2a08b26	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.286201+08	2019-09-01 18:51:07.286201+08
+1097	0	23	1	0	0	2	0	0	0	0	0	0	0		020 谢珑茜-Unit 3-6 P29-30	b9b6e418b87f4aa585a0d47f7d9bad2d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.348283+08	2019-09-01 18:51:07.348283+08
+1098	0	23	1	0	0	2	0	0	0	0	0	0	0		021 谢珑茜-Unit 3-7 P31	f63752c48c4c4f49a9b2dcb89db2c72f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.403226+08	2019-09-01 18:51:07.403226+08
+1099	0	23	1	0	0	2	0	0	0	0	0	0	0		022 谢珑茜-Recycle 1 P32-35	430b5f9146cc4d8bae672d2b5f54caef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.460673+08	2019-09-01 18:51:07.460673+08
+1100	0	23	1	0	0	2	0	0	0	0	0	0	0		023 谢珑茜-Unit 4-1 P36-37	d7ee865d112a4f739f11aa08eb623484	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.54282+08	2019-09-01 18:51:07.54282+08
+1101	0	23	1	0	0	2	0	0	0	0	0	0	0		024 谢珑茜-Unit 4-2 P38	f20e8f522bf3497185dfa2f5ff2584be	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.571221+08	2019-09-01 18:51:07.571221+08
+1102	0	23	1	0	0	2	0	0	0	0	0	0	0		025 谢珑茜-Unit 4-3 P39-40	da809b9167aa422fb7dba9b08abd0414	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.634311+08	2019-09-01 18:51:07.634311+08
+1103	0	23	1	0	0	2	0	0	0	0	0	0	0		026 谢珑茜-Unit 4-4 P41	9b9d2150b8544808b6acd2deea9eeb6e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.709273+08	2019-09-01 18:51:07.709273+08
+1104	0	23	1	0	0	2	0	0	0	0	0	0	0		027 谢珑茜-Unit 4-5 P42	43d1c28be56d48968a9dcea322293fd5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.773612+08	2019-09-01 18:51:07.773612+08
+1105	0	23	1	0	0	2	0	0	0	0	0	0	0		028 谢珑茜-Unit 4-6 P43-44	b66837bb7f3840f3a8207465b384428c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.826048+08	2019-09-01 18:51:07.826048+08
+1106	0	23	1	0	0	2	0	0	0	0	0	0	0		029 谢珑茜-Unit 4-7 P45	1be1c7996f3e4525a2922b6d663cd806	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.898565+08	2019-09-01 18:51:07.898565+08
+1107	0	23	1	0	0	2	0	0	0	0	0	0	0		030 谢珑茜-Unit 5-1 P46-47	7973f44e699641a7adff370e9f4087b4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:07.933036+08	2019-09-01 18:51:07.933036+08
+1108	0	23	1	0	0	2	0	0	0	0	0	0	0		031 谢珑茜-Unit 5-2 P48	355d42c53aa74473b755034f4c5f81c7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.007264+08	2019-09-01 18:51:08.007264+08
+1109	0	23	1	0	0	2	0	0	0	0	0	0	0		032 谢珑茜-Unit 5-3 P49-50	3529a098ae5f444cabbc54aa74648595	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.068012+08	2019-09-01 18:51:08.068012+08
+1110	0	23	1	0	0	2	0	0	0	0	0	0	0		033 谢珑茜-Unit 5-4 P51	8787a038b5454c4cb896e4ba39ee985b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.13472+08	2019-09-01 18:51:08.13472+08
+1111	0	23	1	0	0	2	0	0	0	0	0	0	0		034 谢珑茜-Unit 5-5 P52	39903af199964667b4c855dcdc877205	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.199365+08	2019-09-01 18:51:08.199365+08
+1112	0	23	1	0	0	2	0	0	0	0	0	0	0		035 谢珑茜-Unit 5-6 P53-54	0fb9957914824b9eab4e0f271a9a451a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.236533+08	2019-09-01 18:51:08.236533+08
+1113	0	23	1	0	0	2	0	0	0	0	0	0	0		036 谢珑茜-Unit 5-7 P55	5339bf86f0aa4d9ba35bcdd2f6d5968a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.305756+08	2019-09-01 18:51:08.305756+08
+1114	0	23	1	0	0	2	0	0	0	0	0	0	0		037 谢珑茜-Unit 6-1 P56-57	853fcd058bf54ce78d4b78fe09aa8d74	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.365078+08	2019-09-01 18:51:08.365078+08
+1115	0	23	1	0	0	2	0	0	0	0	0	0	0		038 谢珑茜-Unit 6-2 P58	3d5e027ce9a745aeb4319da28250e252	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.429051+08	2019-09-01 18:51:08.429051+08
+1116	0	23	1	0	0	2	0	0	0	0	0	0	0		039 谢珑茜-Unit 6-3 P59-60	bcd5f7af16504a4cb42bda068fd1f3a1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.478164+08	2019-09-01 18:51:08.478164+08
+1117	0	23	1	0	0	2	0	0	0	0	0	0	0		040 谢珑茜-Unit 6-4 P61	813180b1c0524b918a5406cd0ebdf8a7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.540797+08	2019-09-01 18:51:08.540797+08
+1118	0	23	1	0	0	2	0	0	0	0	0	0	0		041 谢珑茜-Unit 6-5 P62	0742fd19adf24cbc9beca2b72d05911f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.604574+08	2019-09-01 18:51:08.604574+08
+1119	0	23	1	0	0	2	0	0	0	0	0	0	0		042 谢珑茜-Unit 6-6 P63-64	1349210803874e5ea80e0593253f438b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.657294+08	2019-09-01 18:51:08.657294+08
+1120	0	23	1	0	0	2	0	0	0	0	0	0	0		043 谢珑茜-Unit 6-7 P65	3999e11aaf6546c5804d6fde03f60672	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.735361+08	2019-09-01 18:51:08.735361+08
+1121	0	23	1	0	0	2	0	0	0	0	0	0	0		044 谢珑茜-Recycle 2 P66-69	047b733b8a6c4dcbaa3c8c9e699c4deb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.77305+08	2019-09-01 18:51:08.77305+08
+1122	0	24	1	0	0	1	0	0	0	0	0	0	0		001 胡青清-方向与位置（一） P2-6	c3d46d9e26cf4dc9a346fbae5f4deb27	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.842524+08	2019-09-01 18:51:08.842524+08
+1123	0	24	1	0	0	1	0	0	0	0	0	0	0		002 胡青清-方向与位置（二） P7-10	937dd19a079a4bf7aaaa22b0d2c4c479	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.908901+08	2019-09-01 18:51:08.908901+08
+1124	0	24	1	0	0	2	0	0	0	0	0	0	0		003 胡青清-口算除法 P11-12	3229e3a1dd654a92a522dbec008b28b0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:08.968227+08	2019-09-01 18:51:08.968227+08
+1125	0	24	1	0	0	2	0	0	0	0	0	0	0		004 胡青清-口算练习 P13-14	b914c2f299354e9cbb6d7d443387449f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.018614+08	2019-09-01 18:51:09.018614+08
+1126	0	24	1	0	0	2	0	0	0	0	0	0	0		005 胡青清-笔算除法 P15	eac9dea7c66343f4a7d8bfa326f22a48	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.088676+08	2019-09-01 18:51:09.088676+08
+1127	0	24	1	0	0	2	0	0	0	0	0	0	0		006 胡青清-笔算除法练习题 P19	cffe74e37ee84ee6b6656ee26e45aaba	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.143248+08	2019-09-01 18:51:09.143248+08
+1128	0	24	1	0	0	2	0	0	0	0	0	0	0		007 胡青清-三位数除以一位数商是三位数 P17	e6d07e27ce974eff985a5dc82d5c8dec	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.211839+08	2019-09-01 18:51:09.211839+08
+1129	0	24	1	0	0	2	0	0	0	0	0	0	0		008 胡青清-三位数除以一位数，商是两位数 P18	f1cc67b006624c09ba0831d597611ee9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.266385+08	2019-09-01 18:51:09.266385+08
+1130	0	24	1	0	0	2	0	0	0	0	0	0	0		009 胡青清-除数是一位数的除法练习课 P21-22	7ad6543027e34d47b16e48602eecb815	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.33522+08	2019-09-01 18:51:09.33522+08
+1131	0	24	1	0	0	2	0	0	0	0	0	0	0		010 胡青清-0的除法和商的中间有0的除法 P23-24	04fe251071814319b3a7bbf76335621d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.381684+08	2019-09-01 18:51:09.381684+08
+1132	0	24	1	0	0	2	0	0	0	0	0	0	0		011 胡青清-商末尾有0的除法计算 P25	cc059de448a84af3b2cfe4ed33f42079	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.443386+08	2019-09-01 18:51:09.443386+08
+1133	0	24	1	0	0	2	0	0	0	0	0	0	0		012 胡青清-解决问题 P29-30	43c4de1f035f4cbfbb91e72974e2ba90	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.508106+08	2019-09-01 18:51:09.508106+08
+1134	0	24	1	0	0	2	0	0	0	0	0	0	0		013 胡青清-复式统计法 P36-40	33da7588f1c14f3ebe3b0c45938a57ff	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.561421+08	2019-09-01 18:51:09.561421+08
+1135	0	24	1	0	0	2	0	0	0	0	0	0	0		014 胡青清-口算乘法 P41-42	0f2bf96f6eec42e891ff1bf500ceef17	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.636119+08	2019-09-01 18:51:09.636119+08
+1136	0	24	1	0	0	2	0	0	0	0	0	0	0		015 胡青清-两位数乘两位数（不进位） P46-48	cdcaa3f98dc544f0bdc2f95289dac952	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.678952+08	2019-09-01 18:51:09.678952+08
+1137	0	24	1	0	0	2	0	0	0	0	0	0	0		016 胡青清-两位数乘两位数（进位） P49-51	75160060885f4e23b1c9671d5f1d9c73	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.749745+08	2019-09-01 18:51:09.749745+08
+1138	0	24	1	0	0	2	0	0	0	0	0	0	0		017 胡青清-解决问题 P53-57	20b19a9e6ef6412ab06f592cfab22f55	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.816148+08	2019-09-01 18:51:09.816148+08
+1139	0	24	1	0	0	2	0	0	0	0	0	0	0		018 胡青清-面积和面积单位 P60-65	90168f9e07f6478aa0bbf42f864ea58c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.865283+08	2019-09-01 18:51:09.865283+08
+1140	0	24	1	0	0	2	0	0	0	0	0	0	0		019 胡青清-正方形面积的计算 P66-69	988b9662a9ee41e6bc3298e35b89428c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.928617+08	2019-09-01 18:51:09.928617+08
+1141	0	24	1	0	0	2	0	0	0	0	0	0	0		020 胡青清-面积单位间的进率（一） P70-71	001e43a7c67d4ce688dda9e0cc35db6e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:09.977697+08	2019-09-01 18:51:09.977697+08
+1142	0	24	1	0	0	2	0	0	0	0	0	0	0		021 胡青清-面积单位间的进率（二） P72-75	742cec0e65394f2390cc5ff9d00c0f81	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.055379+08	2019-09-01 18:51:10.055379+08
+1143	0	24	1	0	0	2	0	0	0	0	0	0	0		022 胡青清-年.月.日 P76-78	87f4f398f30b482bb1fd666c1d64d75f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.092782+08	2019-09-01 18:51:10.092782+08
+1144	0	24	1	0	0	2	0	0	0	0	0	0	0		023 胡青清-平年和闰年 P79-81	0cc9f903f8bc4227bc6dbe288b89ff57	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.171017+08	2019-09-01 18:51:10.171017+08
+1145	0	24	1	0	0	2	0	0	0	0	0	0	0		024 胡青清-24时计时法 P82-90	3b316f301d7b4b84b0d7d8093dbd0e94	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.237223+08	2019-09-01 18:51:10.237223+08
+1146	0	24	1	0	0	2	0	0	0	0	0	0	0		025 胡青清-认识小数 P91-92	443ec49eeb2a42c9b5404d5dd02414dd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.275879+08	2019-09-01 18:51:10.275879+08
+1147	0	24	1	0	0	2	0	0	0	0	0	0	0		026 胡青清-小数的大小比较 P93	8face3abb9f14299a8053e3cfeede683	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.347338+08	2019-09-01 18:51:10.347338+08
+1148	0	24	1	0	0	2	0	0	0	0	0	0	0		027 胡青清-简单的小数加减法 P96	a42f8aa6c7cb48ad9b3420ce72172d6d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.404964+08	2019-09-01 18:51:10.404964+08
+1149	0	24	1	0	0	2	0	0	0	0	0	0	0		028 胡青清-数学广角（一） P101 P105	356a1dca8d874e25bff36c4cf3275d12	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.468359+08	2019-09-01 18:51:10.468359+08
+1150	0	24	1	0	0	2	0	0	0	0	0	0	0		029 胡青清-数学广角（二） P102	c6fc8ed7c9044c66919968671753ea16	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.532585+08	2019-09-01 18:51:10.532585+08
+1151	0	24	1	0	0	2	0	0	0	0	0	0	0		030 胡青清-数学广角（三） P103	c3b4fced69dc4009b83b40be7cd00afa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.584199+08	2019-09-01 18:51:10.584199+08
+1152	0	24	1	0	0	2	0	0	0	0	0	0	0		031 胡青清-数与代数（一） P108-114 P11-3	a51d3de835434b628edef611b5ef4dd2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.641693+08	2019-09-01 18:51:10.641693+08
+1153	0	24	1	0	0	2	0	0	0	0	0	0	0		032 胡青清-数与代数（二） P108-114 P11-3	220ffd70c0184d40afc956c634abef86	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.703874+08	2019-09-01 18:51:10.703874+08
+1154	0	24	1	0	0	2	0	0	0	0	0	0	0		033 胡青清-图形与几何 P108-114 P36-40 	31d268849971469aa7bef4491e5c0aef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.766097+08	2019-09-01 18:51:10.766097+08
+1155	0	24	1	0	0	2	0	0	0	0	0	0	0		034 胡青清-统计与概率 P108-114 P36-40 	7676aab696b24f999764175ba46f916e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.823995+08	2019-09-01 18:51:10.823995+08
+1156	0	25	1	0	0	1	0	0	0	0	0	0	0		001 涂熹恺-时分秒-认识 P2-3	818327fa2ac74140a184b52bcd441baa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.897767+08	2019-09-01 18:51:10.897767+08
+1157	0	25	1	0	0	1	0	0	0	0	0	0	0		002 涂熹恺-时分秒-计算 P4-5	ad06c4c1f12a4ff8a47c52ccbd8b6a6d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:10.940281+08	2019-09-01 18:51:10.940281+08
+1158	0	25	1	0	0	2	0	0	0	0	0	0	0		003 涂熹恺-时分秒-强化 P6-8	0dcaa0d6f48d4595995c27131d048e41	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.010346+08	2019-09-01 18:51:11.010346+08
+1159	0	25	1	0	0	2	0	0	0	0	0	0	0		004 涂熹恺-万以内的加减法（一）-两位数的加减法 P10-13	23533b8ea8284aae83a37ed16b4b16b0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.067826+08	2019-09-01 18:51:11.067826+08
+1160	0	25	1	0	0	2	0	0	0	0	0	0	0		005 涂熹恺-万以内的加减法（一）-整百数的加减法 P14-19	7ce89998f78145dfbd40a700f80bd3ba	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.121785+08	2019-09-01 18:51:11.121785+08
+1161	0	25	1	0	0	2	0	0	0	0	0	0	0		006 涂熹恺-万以内的加减法（一）-估算 P20	d50e76c0b6e44ebfb8cbf03d4b628cb7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.183125+08	2019-09-01 18:51:11.183125+08
+1162	0	25	1	0	0	2	0	0	0	0	0	0	0		007 涂熹恺-测量-毫米、分米的认识 P21-26	74561286a81843acb23d1d22735165fc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.249141+08	2019-09-01 18:51:11.249141+08
+1163	0	25	1	0	0	2	0	0	0	0	0	0	0		008 涂熹恺-测量-千的认识 P26-30	aea25dfc02aa4304ab5773a76d07dacd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.298088+08	2019-09-01 18:51:11.298088+08
+1164	0	25	1	0	0	2	0	0	0	0	0	0	0		009 涂熹恺-测量-吨的认识 P31-35	7c411007b0e746f5a39a8c0ffc6c4ca2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.365407+08	2019-09-01 18:51:11.365407+08
+1165	0	25	1	0	0	2	0	0	0	0	0	0	0		010 涂熹恺-万以内加减法（二）-竖式计算加法 P36-39	cee4f0a065624cd3b0dbba2df3c4dd2d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.424865+08	2019-09-01 18:51:11.424865+08
+1166	0	25	1	0	0	2	0	0	0	0	0	0	0		011 涂熹恺-万以内加减法（二）-竖式计算减法 P40-46	78579c8f16e346debdf1f4e2d9bcc4c2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.474835+08	2019-09-01 18:51:11.474835+08
+1200	0	26	1	0	0	2	0	0	0	0	0	0	0		015蔡林芝-Unit 3-5 P31	203146c7d05643c3a396ec1b2b36852e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.527283+08	2019-09-01 18:51:13.527283+08
+1167	0	25	1	0	0	2	0	0	0	0	0	0	0		012 涂熹恺-万以内加减法（二）-强化训练 P46-49	63c1f482fe9d491f995dd76fab0ae06b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.546543+08	2019-09-01 18:51:11.546543+08
+1168	0	25	1	0	0	2	0	0	0	0	0	0	0		013 涂熹恺-倍数-简单认识 P50-51	08f94d0e8ca44bf8b0f6822d30a00ec0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.601203+08	2019-09-01 18:51:11.601203+08
+1169	0	25	1	0	0	2	0	0	0	0	0	0	0		014 涂熹恺-倍数-简单应用 P52-55	626d4f6bd42f4479ba5546ef9b115ffa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.663565+08	2019-09-01 18:51:11.663565+08
+1170	0	25	1	0	0	2	0	0	0	0	0	0	0		015 涂熹恺-多位数乘以一位数-口算乘法 P56-59	fb174020d4994b98b8afdf76a760f02d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.723218+08	2019-09-01 18:51:11.723218+08
+1171	0	25	1	0	0	2	0	0	0	0	0	0	0		016 涂熹恺-多位数乘以一位数-笔算乘法 P60-65	14a30442ae5a4be891be48c1451c9a68	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.793764+08	2019-09-01 18:51:11.793764+08
+1172	0	25	1	0	0	2	0	0	0	0	0	0	0		017 涂熹恺-多位数乘以一位数-含0的计算 P66-67	3e39d3db39674e7c886c4909af93e402	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.838299+08	2019-09-01 18:51:11.838299+08
+1173	0	25	1	0	0	2	0	0	0	0	0	0	0		018 涂熹恺-多位数乘以一位数-估算及强化训练 P68-76	6ef7d831527c4769b5215eb69e795c20	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.90566+08	2019-09-01 18:51:11.90566+08
+1174	0	25	1	0	0	2	0	0	0	0	0	0	0		019 涂熹恺-数字编码 P77	3a57511bbdc34d5e94b972d94a7af723	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:11.9623+08	2019-09-01 18:51:11.9623+08
+1175	0	25	1	0	0	2	0	0	0	0	0	0	0		020 涂熹恺-长方形和正方形-认识 P79-82	bfec7c1f587544f5b8f1887c74818672	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.031497+08	2019-09-01 18:51:12.031497+08
+1176	0	25	1	0	0	2	0	0	0	0	0	0	0		021 涂熹恺-长方形和正方形-周长计算 P83-84	914511b7b33d415f87d6f21c8a334a39	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.084774+08	2019-09-01 18:51:12.084774+08
+1177	0	25	1	0	0	2	0	0	0	0	0	0	0		022 涂熹恺-长方形和正方形-强化训练 P85-88	229c176fd4514442b283dddfc5c9d3e9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.153518+08	2019-09-01 18:51:12.153518+08
+1178	0	25	1	0	0	2	0	0	0	0	0	0	0		023 涂熹恺-分数的初步认识-简单的认识 P90-95	f322f37586a24c079702bfb98fe76ee7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.199465+08	2019-09-01 18:51:12.199465+08
+1179	0	25	1	0	0	2	0	0	0	0	0	0	0		024 涂熹恺-分数的初步认识-简单的计算 P96-99	203b60db6d894b078a29a1055a33d655	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.265896+08	2019-09-01 18:51:12.265896+08
+1180	0	25	1	0	0	2	0	0	0	0	0	0	0		025 涂熹恺-分数的初步认识-简单的应用 P100-103	dab7a3606fb34c239e5b8da433ab11b8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.31301+08	2019-09-01 18:51:12.31301+08
+1181	0	25	1	0	0	2	0	0	0	0	0	0	0		026 涂熹恺-集合 P104-107	c05b8875f4ad4c4e889dbf84785c0ac2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.388783+08	2019-09-01 18:51:12.388783+08
+1182	0	25	1	0	0	2	0	0	0	0	0	0	0		027 涂熹恺-总复习（一）万以内的加减法 P111-112、P114	62cea533f7a440e486ebfd4c6087db7f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.442494+08	2019-09-01 18:51:12.442494+08
+1183	0	25	1	0	0	2	0	0	0	0	0	0	0		028 涂熹恺-总复习（二）多位数乘以一位数 P112	6210560297a048ed9218342f7a6d2a0f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.500882+08	2019-09-01 18:51:12.500882+08
+1184	0	25	1	0	0	2	0	0	0	0	0	0	0		029 涂熹恺-总复习（三）测量、长方形和正方形 P113	55c4171cbe924698b7a589238bf3fb3e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.561107+08	2019-09-01 18:51:12.561107+08
+1185	0	25	1	0	0	2	0	0	0	0	0	0	0		030 涂熹恺-总复习（四）时分秒、分数、集合 P108-114	146ba075f6c04ee0b4200d99807f0c68	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.621247+08	2019-09-01 18:51:12.621247+08
+1186	0	26	1	0	0	1	0	0	0	0	0	0	0		001蔡林芝-Unit 1-1 P2-4	9170f43f13e548d2a95650d74124a4a5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.683918+08	2019-09-01 18:51:12.683918+08
+1187	0	26	1	0	0	1	0	0	0	0	0	0	0		002蔡林芝-Unit 1-2 P5-6	9bc429110453483fb8dc9488e0131ae2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.736286+08	2019-09-01 18:51:12.736286+08
+1188	0	26	1	0	0	2	0	0	0	0	0	0	0		003蔡林芝-Unit 1-3 P5,P7-8	13456f78c7e64a8ca2ef0e7380ccd2bf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.802325+08	2019-09-01 18:51:12.802325+08
+1189	0	26	1	0	0	2	0	0	0	0	0	0	0		004蔡林芝-Unit 1-4 P9-10	eb979a36e8f94ee9b06ad3a6b0789d1d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.869931+08	2019-09-01 18:51:12.869931+08
+1190	0	26	1	0	0	2	0	0	0	0	0	0	0		005蔡林芝-Unit 1-5 P11	3c91d99fdc18481c8f63850da73dbad4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.918979+08	2019-09-01 18:51:12.918979+08
+1191	0	26	1	0	0	2	0	0	0	0	0	0	0		006蔡林芝-Unit 2-1 P12-14	d833c83c86c44ec2bec240ef2f2b8bb0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:12.987698+08	2019-09-01 18:51:12.987698+08
+1192	0	26	1	0	0	2	0	0	0	0	0	0	0		007蔡林芝-Unit 2-2 P15-16	f5b925b3eaa647d4a93fa62a8954a520	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.041857+08	2019-09-01 18:51:13.041857+08
+1193	0	26	1	0	0	2	0	0	0	0	0	0	0		008蔡林芝-Unit 2-3 P17-18	5e8039baaaae48c58b73bbe1d4448c84	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.116496+08	2019-09-01 18:51:13.116496+08
+1194	0	26	1	0	0	2	0	0	0	0	0	0	0		009蔡林芝-Unit 2-4 P19-20	59a77d7f47a24ef7ab06a7869f5f78cc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.156261+08	2019-09-01 18:51:13.156261+08
+1195	0	26	1	0	0	2	0	0	0	0	0	0	0		010蔡林芝-Unit 2-5 P21	d4f98533823840b5878850ea80573374	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.223882+08	2019-09-01 18:51:13.223882+08
+1196	0	26	1	0	0	2	0	0	0	0	0	0	0		011蔡林芝-Unit 3-1 P22-24	517fd02e52ea4b568e96cb5cca12955a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.285484+08	2019-09-01 18:51:13.285484+08
+1197	0	26	1	0	0	2	0	0	0	0	0	0	0		012蔡林芝-Unit 3-2 P25-26	9ba31244c71a48678658c8016d761811	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.351489+08	2019-09-01 18:51:13.351489+08
+1198	0	26	1	0	0	2	0	0	0	0	0	0	0		013蔡林芝-Unit 3-3 P27-28	c4b83cbf38b248cca40399267de46ebf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.419557+08	2019-09-01 18:51:13.419557+08
+1199	0	26	1	0	0	2	0	0	0	0	0	0	0		014蔡林芝-Unit 3-4 P29-30	e2e1d1ec68434601bb4f278727536895	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.459341+08	2019-09-01 18:51:13.459341+08
+1201	0	26	1	0	0	2	0	0	0	0	0	0	0		016蔡林芝-Recycle 1-1 P32-33	a24cf1ab74bc4aeaa0756b8c02bc4912	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.572743+08	2019-09-01 18:51:13.572743+08
+1202	0	26	1	0	0	2	0	0	0	0	0	0	0		017蔡林芝-Recycle 1-2 P34-35	2e977fedba71423299ae9f73961a3ca4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.649142+08	2019-09-01 18:51:13.649142+08
+1203	0	26	1	0	0	2	0	0	0	0	0	0	0		018蔡林芝-Unit 4-1 P36-38	c4b8b622314346918a0f3ac7dd2c832a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.700289+08	2019-09-01 18:51:13.700289+08
+1204	0	26	1	0	0	2	0	0	0	0	0	0	0		019蔡林芝-Unit 4-2 P39-40	638ba3204efd40a08f95b6724ce2f979	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.766487+08	2019-09-01 18:51:13.766487+08
+1205	0	26	1	0	0	2	0	0	0	0	0	0	0		020蔡林芝-Unit 4-3 P41-42	2ce53c7767df4757a242bb7682c68f53	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.814181+08	2019-09-01 18:51:13.814181+08
+1206	0	26	1	0	0	2	0	0	0	0	0	0	0		021蔡林芝-Unit 4-4 P43-44	4ec51f48a5684e8699faad83eb5c4e16	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.890209+08	2019-09-01 18:51:13.890209+08
+1207	0	26	1	0	0	2	0	0	0	0	0	0	0		022蔡林芝-Unit 4-5 P45	452ee7f91bab466391cb09d11c4590c8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:13.95093+08	2019-09-01 18:51:13.95093+08
+1208	0	26	1	0	0	2	0	0	0	0	0	0	0		023蔡林芝-Unit 5-1 P46-48	09301d8748454301b2659038dc0da4f2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.121733+08	2019-09-01 18:51:14.121733+08
+1209	0	26	1	0	0	2	0	0	0	0	0	0	0		024蔡林芝-Unit 5-2 P49-50	3d41a883ff7e48c29aa402ac0a56b858	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.146037+08	2019-09-01 18:51:14.146037+08
+1210	0	26	1	0	0	2	0	0	0	0	0	0	0		025蔡林芝-Unit 5-3 P51-52	2273420d7bd74eea8988c8e8e7c9cb5d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.181461+08	2019-09-01 18:51:14.181461+08
+1211	0	26	1	0	0	2	0	0	0	0	0	0	0		026蔡林芝-Unit 5-4 P53-54	3e763fda9daa4255aee5f330e27e3101	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.206402+08	2019-09-01 18:51:14.206402+08
+1212	0	26	1	0	0	2	0	0	0	0	0	0	0		027蔡林芝-Unit 5-5 P55	d8cb008de0c04904b8e334bf2e0728c0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.257411+08	2019-09-01 18:51:14.257411+08
+1213	0	26	1	0	0	2	0	0	0	0	0	0	0		028蔡林芝-Unit 6-1 P56-58	597f4c19376d437d8e7f2c54a5579b29	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.307281+08	2019-09-01 18:51:14.307281+08
+1214	0	26	1	0	0	2	0	0	0	0	0	0	0		029蔡林芝-Unit 6-2 P59-60	385647b7c43545b58565631f9bc5398d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.351586+08	2019-09-01 18:51:14.351586+08
+1215	0	26	1	0	0	2	0	0	0	0	0	0	0		030蔡林芝-Unit 6-3 P61-62	74973ce7caa043de813a847a4bbde6c9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.420726+08	2019-09-01 18:51:14.420726+08
+1216	0	26	1	0	0	2	0	0	0	0	0	0	0		031蔡林芝-Unit 6-4 P63-64	b236481668324be0ae5b01a577bbe021	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.488597+08	2019-09-01 18:51:14.488597+08
+1217	0	26	1	0	0	2	0	0	0	0	0	0	0		032蔡林芝-Unit 6-5 P65	7d7b391423db47978d0c231c7a13c690	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.536226+08	2019-09-01 18:51:14.536226+08
+1218	0	26	1	0	0	2	0	0	0	0	0	0	0		033蔡林芝-Recycle 2-1 P66-67	3b2957ee307b4d66a5e7209391b9a4e1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.600828+08	2019-09-01 18:51:14.600828+08
+1219	0	26	1	0	0	2	0	0	0	0	0	0	0		034蔡林芝-Recycle 2-2 P67-69	c36d2f766b5d4749be8fe2c744aa0755	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.655152+08	2019-09-01 18:51:14.655152+08
+1220	0	27	1	0	0	1	0	0	0	0	0	0	0		001 刘婷-燕子（一）	137799ba396546ed8056decdb1d13194	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.722391+08	2019-09-01 18:51:14.722391+08
+1221	0	27	1	0	0	1	0	0	0	0	0	0	0		002 刘婷-燕子（二）	3ca580ac80784c28b9151ca6dee2b643	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.782831+08	2019-09-01 18:51:14.782831+08
+1222	0	27	1	0	0	2	0	0	0	0	0	0	0		003 刘婷-古诗两首-咏柳	57dd7397a40c4c41b7553729b8372575	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.850105+08	2019-09-01 18:51:14.850105+08
+1223	0	27	1	0	0	2	0	0	0	0	0	0	0		004 刘婷-古诗两首-春日	3fd10e7461f7497c86313588651ec02d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.893058+08	2019-09-01 18:51:14.893058+08
+1224	0	27	1	0	0	2	0	0	0	0	0	0	0		005 刘婷-荷花（一）	b8b5b9e2539c4138b151f8648efe65e7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:14.960386+08	2019-09-01 18:51:14.960386+08
+1225	0	27	1	0	0	2	0	0	0	0	0	0	0		006 刘婷-荷花（二）	5d230a8a8571464e81e68433f0d067c3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.024774+08	2019-09-01 18:51:15.024774+08
+1226	0	27	1	0	0	2	0	0	0	0	0	0	0		007 刘婷-珍珠泉	35f2a8bda1544803ad969aa18f1915a5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.0865+08	2019-09-01 18:51:15.0865+08
+1227	0	27	1	0	0	2	0	0	0	0	0	0	0		008 刘婷-翠鸟（一）	ca41cfc8a2cd40d7b791be2a850fcfd5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.149944+08	2019-09-01 18:51:15.149944+08
+1228	0	27	1	0	0	2	0	0	0	0	0	0	0		009 刘婷-翠鸟（二）	f2bea3613ddb4f4c9c5f18e36b75b59a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.201388+08	2019-09-01 18:51:15.201388+08
+1229	0	27	1	0	0	2	0	0	0	0	0	0	0		010 刘婷-燕子专列（一）	fe06ca0f1f804565b8e2541cf857d4df	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.263095+08	2019-09-01 18:51:15.263095+08
+1230	0	27	1	0	0	2	0	0	0	0	0	0	0		011 刘婷-燕子专列（二）	80cf9caae9f8473e9f624b4279bd0689	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.318408+08	2019-09-01 18:51:15.318408+08
+1231	0	27	1	0	0	2	0	0	0	0	0	0	0		012 刘婷-一个小村庄的故事（一）	674cd4104fc1461faeed61517a5be6f0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.38476+08	2019-09-01 18:51:15.38476+08
+1232	0	27	1	0	0	2	0	0	0	0	0	0	0		013 刘婷-一个小村庄的故事（二）	4d4b4af798024f068c8662e44ba268c2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.445505+08	2019-09-01 18:51:15.445505+08
+1233	0	27	1	0	0	2	0	0	0	0	0	0	0		014 刘婷-路旁的橡树	cb406c83fafc47fbbb72e8ce74a06520	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.503547+08	2019-09-01 18:51:15.503547+08
+1234	0	27	1	0	0	2	0	0	0	0	0	0	0		015 刘婷-寓言两则-亡羊补牢	bd9b97c650094079a0558da66c9d4b91	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.568386+08	2019-09-01 18:51:15.568386+08
+1235	0	27	1	0	0	2	0	0	0	0	0	0	0		016 刘婷-寓言两则-南辕北辙	40d88453ce524c1d912efdedb3982604	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.612727+08	2019-09-01 18:51:15.612727+08
+1236	0	27	1	0	0	2	0	0	0	0	0	0	0		017 刘婷-惊弓之鸟（一）	810a94033631401dade717fd9d724b00	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.674253+08	2019-09-01 18:51:15.674253+08
+1237	0	27	1	0	0	2	0	0	0	0	0	0	0		018 刘婷-惊弓之鸟（二）	8191b1fb36bc4bc99931fe0d688a30a7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.743902+08	2019-09-01 18:51:15.743902+08
+1238	0	27	1	0	0	2	0	0	0	0	0	0	0		019 刘婷-画杨桃（一）	605e5c6003f34d2e8b1d77caa2a4016e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.805337+08	2019-09-01 18:51:15.805337+08
+1239	0	27	1	0	0	2	0	0	0	0	0	0	0		020 刘婷-画杨桃（二）	6060fa756fd54df1b8f3e619d832f720	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.858359+08	2019-09-01 18:51:15.858359+08
+1240	0	27	1	0	0	2	0	0	0	0	0	0	0		021 刘婷-想别人没想到的	8e2fce9931a0418f90e52fe8d9d5f7e7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.918662+08	2019-09-01 18:51:15.918662+08
+1241	0	27	1	0	0	2	0	0	0	0	0	0	0		022 刘婷-和时间赛跑（一）	e1ae356659c54f06b588122d84a0e075	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:15.987302+08	2019-09-01 18:51:15.987302+08
+1242	0	27	1	0	0	2	0	0	0	0	0	0	0		023 刘婷-和时间赛跑（二）	a5a19a7fd8ea4f5e86000065949142e4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.050966+08	2019-09-01 18:51:16.050966+08
+1243	0	27	1	0	0	2	0	0	0	0	0	0	0		024 刘婷-检阅（一）	46de236b48534fb2a0ac422d25c947fb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.102565+08	2019-09-01 18:51:16.102565+08
+1244	0	27	1	0	0	2	0	0	0	0	0	0	0		025 刘婷-检阅（二）	3619787a78d244c2bcfac9f42dd2272e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.168457+08	2019-09-01 18:51:16.168457+08
+1245	0	27	1	0	0	2	0	0	0	0	0	0	0		026 刘婷-争吵（一）	cb89f37fcd664abcb7f1ed3a3c02ddc0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.224977+08	2019-09-01 18:51:16.224977+08
+1246	0	27	1	0	0	2	0	0	0	0	0	0	0		027 刘婷-争吵（二）	2152a22c98534019a9db8560c2242c3a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.281734+08	2019-09-01 18:51:16.281734+08
+1247	0	27	1	0	0	2	0	0	0	0	0	0	0		028 刘婷-绝招	ea3b8182feee41d7bf73c7d8d10e2737	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.349623+08	2019-09-01 18:51:16.349623+08
+1248	0	27	1	0	0	2	0	0	0	0	0	0	0		029 刘婷-可贵的沉默（一）	6ae0c645776d43ef950c74bcd6069d31	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.39164+08	2019-09-01 18:51:16.39164+08
+1249	0	27	1	0	0	2	0	0	0	0	0	0	0		030 刘婷-可贵的沉默（二）	7e8f012e113b4ee09f5c0ed72f9dbd78	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.464704+08	2019-09-01 18:51:16.464704+08
+1250	0	27	1	0	0	2	0	0	0	0	0	0	0		031 刘婷-她是我的朋友（一）	2b5c1ddfe52243179002f4efdee91740	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.521928+08	2019-09-01 18:51:16.521928+08
+1251	0	27	1	0	0	2	0	0	0	0	0	0	0		032 刘婷-她是我的朋友（二）	841e9e6213044a86ace9ae73d29d6c4b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.589939+08	2019-09-01 18:51:16.589939+08
+1252	0	27	1	0	0	2	0	0	0	0	0	0	0		033 刘婷-七颗钻石（一）	8377160bcd134346919bc716c71a8d3d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.641639+08	2019-09-01 18:51:16.641639+08
+1253	0	27	1	0	0	2	0	0	0	0	0	0	0		034 刘婷-七颗钻石（二）	b1acbd60cb3b44309e9b4d407d142442	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.698839+08	2019-09-01 18:51:16.698839+08
+1254	0	27	1	0	0	2	0	0	0	0	0	0	0		035 刘婷-妈妈的账单	70e6ae1d7b6b4bd887e4d7692bbcf058	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.76053+08	2019-09-01 18:51:16.76053+08
+1255	0	27	1	0	0	2	0	0	0	0	0	0	0		036 刘婷-太阳（一）	790a53e47ca9462698ac63d8ea9746d4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.827097+08	2019-09-01 18:51:16.827097+08
+1256	0	27	1	0	0	2	0	0	0	0	0	0	0		037 刘婷-太阳（二）	f3395c9da7204ae8ae5604834701ad33	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.885753+08	2019-09-01 18:51:16.885753+08
+1257	0	27	1	0	0	2	0	0	0	0	0	0	0		038 刘婷-月球之谜（一）	cc9e5905e445401c91c2b85a37171b7e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:16.942426+08	2019-09-01 18:51:16.942426+08
+1258	0	27	1	0	0	2	0	0	0	0	0	0	0		039 刘婷-月球之谜（二）	bf3b26291b2f4dd690fe3e6efda17722	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.006346+08	2019-09-01 18:51:17.006346+08
+1259	0	27	1	0	0	2	0	0	0	0	0	0	0		040 刘婷-我家跨上了“信息高速路”	a1de417c04a948d1be3bf0eb8b274cd3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.067993+08	2019-09-01 18:51:17.067993+08
+1260	0	27	1	0	0	2	0	0	0	0	0	0	0		041 刘婷-果园机器人	de704bf604b648349cc520f50a895893	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.11749+08	2019-09-01 18:51:17.11749+08
+1261	0	27	1	0	0	2	0	0	0	0	0	0	0		042 刘婷-太阳是大家的	dd5fe0f1850c4174bb64df4ded8316e0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.186126+08	2019-09-01 18:51:17.186126+08
+1262	0	27	1	0	0	2	0	0	0	0	0	0	0		043 刘婷-一面五星红旗（一）	d2c78930a85f4e1b9066179512167ebf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.237676+08	2019-09-01 18:51:17.237676+08
+1263	0	27	1	0	0	2	0	0	0	0	0	0	0		044 刘婷-一面五星红旗（二）	c261b3db9f0e4670b04c765baa30542e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.307273+08	2019-09-01 18:51:17.307273+08
+1264	0	27	1	0	0	2	0	0	0	0	0	0	0		045 刘婷-卖木雕的少年（一）	461c430518814de7a8c1b6dfe4dd2a8f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.356429+08	2019-09-01 18:51:17.356429+08
+1265	0	27	1	0	0	2	0	0	0	0	0	0	0		046 刘婷-卖木雕的少年（二）	26a85b1d7ff94b5a9acea0adb5128393	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.42211+08	2019-09-01 18:51:17.42211+08
+1266	0	27	1	0	0	2	0	0	0	0	0	0	0		047 刘婷-中国国际救援队，真棒！	285d5542876a46cca517d31159e83668	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.482857+08	2019-09-01 18:51:17.482857+08
+1267	0	27	1	0	0	2	0	0	0	0	0	0	0		048 刘婷-乞巧	40d8fba3e98b4438a624e1a59dfa1382	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.539829+08	2019-09-01 18:51:17.539829+08
+1268	0	27	1	0	0	2	0	0	0	0	0	0	0		049 刘婷-嫦娥	10328440d6b643dd8c3431ed9bf8cefc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.603631+08	2019-09-01 18:51:17.603631+08
+1269	0	27	1	0	0	2	0	0	0	0	0	0	0		050 刘婷-西门豹（一）	a7af721f63cc435fa3a2ad410044a69b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.675399+08	2019-09-01 18:51:17.675399+08
+1270	0	27	1	0	0	2	0	0	0	0	0	0	0		051 刘婷-西门豹（二）	e70221f9b5134290b63d73c3c36842a7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.719076+08	2019-09-01 18:51:17.719076+08
+1271	0	27	1	0	0	2	0	0	0	0	0	0	0		052 刘婷-女娲补天	0b303676d35e42f9a1107af1153f2558	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.787948+08	2019-09-01 18:51:17.787948+08
+1272	0	27	1	0	0	2	0	0	0	0	0	0	0		053 刘婷-夸父追日	8173facb8eb849d1a6b753e7298425ff	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.841229+08	2019-09-01 18:51:17.841229+08
+1273	0	28	1	0	0	1	0	0	0	0	0	0	0		001 谢薇-我们的民族小学（一）	c132d760e742435fbc1fdfbfddfb4a50	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.915179+08	2019-09-01 18:51:17.915179+08
+1274	0	28	1	0	0	1	0	0	0	0	0	0	0		002 谢薇-我们的民族小学（二）	2aaa7b67ee5241dfb8d610556ab2b094	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:17.944973+08	2019-09-01 18:51:17.944973+08
+1275	0	28	1	0	0	2	0	0	0	0	0	0	0		003 谢薇-金色的草地（一）	8824bdf99f2f4ca88ef6de5e69184f49	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.026471+08	2019-09-01 18:51:18.026471+08
+1276	0	28	1	0	0	2	0	0	0	0	0	0	0		004 谢薇-金色的草地（二）	4b03d22f1e7c443f8e9c22fd7f2e67e9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.080688+08	2019-09-01 18:51:18.080688+08
+1277	0	28	1	0	0	2	0	0	0	0	0	0	0		005 谢薇-爬天都峰（一）	519f9ba26f2e48c49bd43e848cd6abf9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.151629+08	2019-09-01 18:51:18.151629+08
+1278	0	28	1	0	0	2	0	0	0	0	0	0	0		006 谢薇-爬天都峰（二）	0447884596f54b2eab77f06c3a2397cd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.191356+08	2019-09-01 18:51:18.191356+08
+1279	0	28	1	0	0	2	0	0	0	0	0	0	0		007 谢薇-槐乡的孩子	a5657b05685643f58f0658ba859a3083	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.255771+08	2019-09-01 18:51:18.255771+08
+1280	0	28	1	0	0	2	0	0	0	0	0	0	0		008 谢薇-灰雀（一）	82dedbf25a1642f18b0fe2c6be85dba3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.321137+08	2019-09-01 18:51:18.321137+08
+1281	0	28	1	0	0	2	0	0	0	0	0	0	0		009 谢薇-灰雀（二）	e0c022b9cc2548aebfd5a6e33f605176	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.376647+08	2019-09-01 18:51:18.376647+08
+1282	0	28	1	0	0	2	0	0	0	0	0	0	0		010 谢薇-小摄影师（一）	f3b00612a9ca4619ac5821b68c45faac	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.448708+08	2019-09-01 18:51:18.448708+08
+1283	0	28	1	0	0	2	0	0	0	0	0	0	0		011 谢薇-小摄影师（二）	dc4003188b3e474a8b0ad2ee7dad8cad	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.51263+08	2019-09-01 18:51:18.51263+08
+1284	0	28	1	0	0	2	0	0	0	0	0	0	0		012 谢薇-奇怪的大石头（一）	63619be46f904ee0b4b1bf2b2cd3fb78	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.550003+08	2019-09-01 18:51:18.550003+08
+1285	0	28	1	0	0	2	0	0	0	0	0	0	0		013 谢薇-奇怪的大石头（二）	fbd5845bd1054c77a69d849310c921be	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.623826+08	2019-09-01 18:51:18.623826+08
+1286	0	28	1	0	0	2	0	0	0	0	0	0	0		014 谢薇-我不能失信_batch	2292f509990645d0a783c4cc06c0d372	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.676189+08	2019-09-01 18:51:18.676189+08
+1287	0	28	1	0	0	2	0	0	0	0	0	0	0		015 谢薇-古诗两首（一)	1b93ad778a3d472fb322905775e97d42	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.739067+08	2019-09-01 18:51:18.739067+08
+1288	0	28	1	0	0	2	0	0	0	0	0	0	0		016 谢薇-古诗两首（二）_batch	31a48c1056be4838b6daa6314d3b3166	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.798901+08	2019-09-01 18:51:18.798901+08
+1289	0	28	1	0	0	2	0	0	0	0	0	0	0		017 谢薇-风筝（一）	768c5d14e24f45008c7406421caded1e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.854296+08	2019-09-01 18:51:18.854296+08
+1290	0	28	1	0	0	2	0	0	0	0	0	0	0		018 谢薇-风筝（二）	f399cbd459f1407583e201fbc71ec55b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.926785+08	2019-09-01 18:51:18.926785+08
+1291	0	28	1	0	0	2	0	0	0	0	0	0	0		019 谢薇-秋天的雨（一）	c45dee7b5899418280d9fd2249038884	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:18.97497+08	2019-09-01 18:51:18.97497+08
+1292	0	28	1	0	0	2	0	0	0	0	0	0	0		020 谢薇-秋天的雨（二）	ea6f975ea7ec4f55ace6142d21e68e8e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.050949+08	2019-09-01 18:51:19.050949+08
+1293	0	28	1	0	0	2	0	0	0	0	0	0	0		021 谢薇-听听秋天的声音	960f3a48f7144d6787283cc0437e79c2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.091699+08	2019-09-01 18:51:19.091699+08
+1294	0	28	1	0	0	2	0	0	0	0	0	0	0		022 谢薇-花钟（一）	77a02d7fe5cc40c4b0991ee68b981057	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.157749+08	2019-09-01 18:51:19.157749+08
+1295	0	28	1	0	0	2	0	0	0	0	0	0	0		023 谢薇-花钟（二）	0d07b01cd94140e8bb4f4048946a7266	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.220901+08	2019-09-01 18:51:19.220901+08
+1296	0	28	1	0	0	2	0	0	0	0	0	0	0		024 谢薇-蜜蜂（一）	777628af88704a7f845448ff0c18441a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.283543+08	2019-09-01 18:51:19.283543+08
+1297	0	28	1	0	0	2	0	0	0	0	0	0	0		025 谢薇-蜜蜂（二）	159a859b0b4b4daeb4b38193b9adf507	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.352136+08	2019-09-01 18:51:19.352136+08
+1298	0	28	1	0	0	2	0	0	0	0	0	0	0		026 谢薇-玩出名堂（一）	3e8ac3c5eca744209dda6c672485089c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.390454+08	2019-09-01 18:51:19.390454+08
+1299	0	28	1	0	0	2	0	0	0	0	0	0	0		027 谢薇-玩出名堂（二）	89ff7ce98e5d44719e853a07c2fa828e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.455797+08	2019-09-01 18:51:19.455797+08
+1300	0	28	1	0	0	2	0	0	0	0	0	0	0		028 谢薇-找骆驼	66d67e10e5b94bc8888c5883edf2f8e2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.520783+08	2019-09-01 18:51:19.520783+08
+1301	0	28	1	0	0	2	0	0	0	0	0	0	0		029 谢薇-孔子拜师（一）	779cba316a81476c87c9af570412b1a5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.58596+08	2019-09-01 18:51:19.58596+08
+1302	0	28	1	0	0	2	0	0	0	0	0	0	0		030 谢薇-孔子拜师（二）	87e544ae859b4b6a9dc1945d4a4d2ba5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.638857+08	2019-09-01 18:51:19.638857+08
+1303	0	28	1	0	0	2	0	0	0	0	0	0	0		031 谢薇-盘古开天地（一）	a011f4b299934aabbe68239081b4a737	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.698667+08	2019-09-01 18:51:19.698667+08
+1304	0	28	1	0	0	2	0	0	0	0	0	0	0		032 谢薇-盘古开天地（二）	a3c4bcb5b6564c2eb10ae24dc4f7cf0b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.756927+08	2019-09-01 18:51:19.756927+08
+1305	0	28	1	0	0	2	0	0	0	0	0	0	0		033 谢薇-赵州桥（一）	8a0e2aba7592467bbc6f346faa369c80	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.823983+08	2019-09-01 18:51:19.823983+08
+1306	0	28	1	0	0	2	0	0	0	0	0	0	0		034 谢薇-赵州桥（二）	4e4791034c6e4e49be0403b418f5d1fc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.878934+08	2019-09-01 18:51:19.878934+08
+1307	0	28	1	0	0	2	0	0	0	0	0	0	0		035 谢薇-名扬中外的画	1df1c5a3602b40c19fe89916c22f769d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.948877+08	2019-09-01 18:51:19.948877+08
+1308	0	28	1	0	0	2	0	0	0	0	0	0	0		036 谢薇-古诗两首（一）	c54be4fbb4544365b85d13154b324326	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:19.992476+08	2019-09-01 18:51:19.992476+08
+1309	0	28	1	0	0	2	0	0	0	0	0	0	0		037 谢薇-古诗两首（二）	b5bc0d0c3c1545fa9f0b525efb97c990	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.055967+08	2019-09-01 18:51:20.055967+08
+1310	0	28	1	0	0	2	0	0	0	0	0	0	0		038 谢薇-富饶的西沙群岛（一）	9fa4d3f48d3148beb8ce0bd5c9de92cd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.122953+08	2019-09-01 18:51:20.122953+08
+1311	0	28	1	0	0	2	0	0	0	0	0	0	0		039 谢薇-富饶的西沙群岛（二）	f6048b97257e4467b2af775cd0e462c2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.183387+08	2019-09-01 18:51:20.183387+08
+1312	0	28	1	0	0	2	0	0	0	0	0	0	0		040 谢薇-美丽的小兴安岭（一）	eb276f9415d24a1596adde1b2e31f0d2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.230835+08	2019-09-01 18:51:20.230835+08
+1313	0	28	1	0	0	2	0	0	0	0	0	0	0		041 谢薇-美丽的小兴安岭（二）	77819fccbc5a44a0a65e96a97b57f871	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.29439+08	2019-09-01 18:51:20.29439+08
+1314	0	28	1	0	0	2	0	0	0	0	0	0	0		042 谢薇-香港璀璨的明珠	bf893a51701a49839b2dea4454745206	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.357564+08	2019-09-01 18:51:20.357564+08
+1315	0	28	1	0	0	2	0	0	0	0	0	0	0		043 谢薇-矛与盾的集合（一）	6dcc7caedadb4dc38624b42064f531c0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.410152+08	2019-09-01 18:51:20.410152+08
+1316	0	28	1	0	0	2	0	0	0	0	0	0	0		044 谢薇-矛与盾的集合（二）	30ac2d9916b243938b8334b3ecde7ab0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.477995+08	2019-09-01 18:51:20.477995+08
+1317	0	28	1	0	0	2	0	0	0	0	0	0	0		045 谢薇-科里亚的木匣（一）	b688cbf361674ec6b13f3d0d1e3e9a39	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.53539+08	2019-09-01 18:51:20.53539+08
+1318	0	28	1	0	0	2	0	0	0	0	0	0	0		046 谢薇-科里亚的木匣（二）	7e96cf0c24934d448dad5410fa6e3c76	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.604305+08	2019-09-01 18:51:20.604305+08
+1319	0	28	1	0	0	2	0	0	0	0	0	0	0		047 谢薇-陶罐和铁罐（一）	5cae8d3ba25b4d4db7741d9d253254f1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.652792+08	2019-09-01 18:51:20.652792+08
+1320	0	28	1	0	0	2	0	0	0	0	0	0	0		048 谢薇-陶罐和铁罐（二）	f09d6ca9bd304239a4b90ef50e6a3df9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.718912+08	2019-09-01 18:51:20.718912+08
+1321	0	28	1	0	0	2	0	0	0	0	0	0	0		049 谢薇-狮子和鹿	d6614b18f3ff47478c20a0fd916ede13	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.773536+08	2019-09-01 18:51:20.773536+08
+1322	0	28	1	0	0	2	0	0	0	0	0	0	0		050 谢薇-掌声（一）	1ffa3ad65ca64641a4a61bb184c5e67b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.897094+08	2019-09-01 18:51:20.897094+08
+1323	0	28	1	0	0	2	0	0	0	0	0	0	0		051 谢薇-掌声（二）	cbaa7e9d44a042d9a261589c2d6ec76c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:20.960302+08	2019-09-01 18:51:20.960302+08
+1324	0	28	1	0	0	2	0	0	0	0	0	0	0		052 谢薇-一次成功的实验（一）	b578571fa26747f7b482fc392b6bd77b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.009663+08	2019-09-01 18:51:21.009663+08
+1325	0	28	1	0	0	2	0	0	0	0	0	0	0		053 谢薇-一次成功的实验（二）	d0dec1090eb345d78ee9d92d8de92e46	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.023151+08	2019-09-01 18:51:21.023151+08
+1326	0	28	1	0	0	2	0	0	0	0	0	0	0		054 谢薇-给予树（一）	f59783fe7a924f2ba1aed320df280614	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.08238+08	2019-09-01 18:51:21.08238+08
+1327	0	28	1	0	0	2	0	0	0	0	0	0	0		055 谢薇-给予树（二）	5bda6204c3d64efc87619f9295b646dd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.147339+08	2019-09-01 18:51:21.147339+08
+1328	0	28	1	0	0	2	0	0	0	0	0	0	0		056 谢薇-好汉查理	24e34b360c2c403f9ef43cbe56980448	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.192878+08	2019-09-01 18:51:21.192878+08
+1329	0	30	1	0	0	1	0	0	0	0	0	0	0		001 贺凤姣-lesson 1 P6	8644e9754e3f42d0b9eb1eebbe07b685	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.259418+08	2019-09-01 18:51:21.259418+08
+1330	0	30	1	0	0	1	0	0	0	0	0	0	0		002 贺凤姣-lesson 2 P4	00919a35432a4459a766f842e4b7701f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.322776+08	2019-09-01 18:51:21.322776+08
+1331	0	30	1	0	0	2	0	0	0	0	0	0	0		003 贺凤姣-lesson 3 P5	689661e0b5ba4de9af4f02100d2c48d9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.393169+08	2019-09-01 18:51:21.393169+08
+1332	0	30	1	0	0	2	0	0	0	0	0	0	0		004 贺凤姣-lesson 4 P2,P5,P8-9	d9b1d4ef67d14fbea4f49ffd323bc412	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.452906+08	2019-09-01 18:51:21.452906+08
+1333	0	30	1	0	0	2	0	0	0	0	0	0	0		005 贺凤姣-lesson 1 P14,P12	bc2517530d6a4911ac947d5f499b58bc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.487764+08	2019-09-01 18:51:21.487764+08
+1334	0	30	1	0	0	2	0	0	0	0	0	0	0		006 贺凤姣-lesson 2 P11,P13-14	adfcd60f49224a668f73a31344fa21ed	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.55217+08	2019-09-01 18:51:21.55217+08
+1335	0	30	1	0	0	2	0	0	0	0	0	0	0		007 贺凤姣-lesson 3	5ead90ab730f41af9be823d427286c2a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.631145+08	2019-09-01 18:51:21.631145+08
+1336	0	30	1	0	0	2	0	0	0	0	0	0	0		008 贺凤姣-lesson 4 P16-17	730a095b55d04f388d784770803c522b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.677063+08	2019-09-01 18:51:21.677063+08
+1337	0	30	1	0	0	2	0	0	0	0	0	0	0		009 贺凤姣-lesson 1 P22	4f717f0646f140d1969a988561bfad8c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.749264+08	2019-09-01 18:51:21.749264+08
+1338	0	30	1	0	0	2	0	0	0	0	0	0	0		010 贺凤姣-lesson 2 P20	f718e80f66b741f7b9555834b41202de	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.794326+08	2019-09-01 18:51:21.794326+08
+1339	0	30	1	0	0	2	0	0	0	0	0	0	0		011 贺凤姣-lesson 3 P18-19，P21	af01e3f0db934af2ae552b3ce05560e4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.867147+08	2019-09-01 18:51:21.867147+08
+1340	0	30	1	0	0	2	0	0	0	0	0	0	0		012 贺凤姣-lesson 4	493f77d105aa451ca54f8e0a4e906032	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.926571+08	2019-09-01 18:51:21.926571+08
+1341	0	30	1	0	0	2	0	0	0	0	0	0	0		013 贺凤姣-lesson 5 P22，P24-25	7607c888fa93441e92b79f3222f67bc8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:21.974923+08	2019-09-01 18:51:21.974923+08
+1342	0	30	1	0	0	2	0	0	0	0	0	0	0		014 贺凤姣-Revision 1 P26-27	f031294f63c94d5dad4fd8be1f860674	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.043745+08	2019-09-01 18:51:22.043745+08
+1343	0	30	1	0	0	2	0	0	0	0	0	0	0		015 贺凤姣-lesson 1 P32，P30-31	b13ef549266d428e9bc7a06043041fe6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.102909+08	2019-09-01 18:51:22.102909+08
+1344	0	30	1	0	0	2	0	0	0	0	0	0	0		016 贺凤姣-lesson 2	7dd4352faf084d0495c5398d80619449	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.172944+08	2019-09-01 18:51:22.172944+08
+1345	0	30	1	0	0	2	0	0	0	0	0	0	0		017 贺凤姣-lesson 3 P28-32	676e347cb1cb4099b51ef85281698392	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.20811+08	2019-09-01 18:51:22.20811+08
+1346	0	30	1	0	0	2	0	0	0	0	0	0	0		018 贺凤姣-lesson 4 P34-35	2a089dbe694f43dc8c506c8dbfb9c045	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.272541+08	2019-09-01 18:51:22.272541+08
+1347	0	30	1	0	0	2	0	0	0	0	0	0	0		019 贺凤姣-lesson 1 P40,P38	9e33952b668e4166ab459111eea28662	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.34693+08	2019-09-01 18:51:22.34693+08
+1348	0	30	1	0	0	2	0	0	0	0	0	0	0		020 贺凤姣-lesson 2 P39,P36-37	9674906e205b4f2d85edf1c3b833945e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.392757+08	2019-09-01 18:51:22.392757+08
+1349	0	30	1	0	0	2	0	0	0	0	0	0	0		021 贺凤姣-lesson 3 P40	e8f3755340934d839b58f6f596acc522	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.466255+08	2019-09-01 18:51:22.466255+08
+1350	0	30	1	0	0	2	0	0	0	0	0	0	0		022 贺凤姣-lesson 4 P42-43	c09a74e8890647898a2335dca0df853b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.509159+08	2019-09-01 18:51:22.509159+08
+1351	0	30	1	0	0	2	0	0	0	0	0	0	0		023 贺凤姣-lesson 1 P48	6ac9fb1a5b5949109bacc56176bca6e7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.576354+08	2019-09-01 18:51:22.576354+08
+1352	0	30	1	0	0	2	0	0	0	0	0	0	0		024 贺凤姣-lesson 2 P46-47	8a7e142f60e2468980fc13e54087302b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.637897+08	2019-09-01 18:51:22.637897+08
+1353	0	30	1	0	0	2	0	0	0	0	0	0	0		025 贺凤姣-lesson 3 P44-45，P47-48	18901b0e4ae7466d93a7de664880f51a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.696729+08	2019-09-01 18:51:22.696729+08
+1354	0	30	1	0	0	2	0	0	0	0	0	0	0		026 贺凤姣-lesson 4 P50-51	7a56cba982b2410c8a6af7c46d1ba58e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.760888+08	2019-09-01 18:51:22.760888+08
+1355	0	30	1	0	0	2	0	0	0	0	0	0	0		027 贺凤姣-Revision 2 P52-53	02fd8ff2f0bf468ebeb4a3f6422a26a2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.823441+08	2019-09-01 18:51:22.823441+08
+1356	0	30	1	0	0	2	0	0	0	0	0	0	0		028 贺凤姣-lesson 1 P6	826f42b0a20949ce9de1ef868a9bb26b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.887473+08	2019-09-01 18:51:22.887473+08
+1357	0	30	1	0	0	2	0	0	0	0	0	0	0		029 贺凤姣-lesson 2 P4	adeb7da0ad8244b2b84e21e21541c749	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:22.967709+08	2019-09-01 18:51:22.967709+08
+1358	0	30	1	0	0	2	0	0	0	0	0	0	0		031 贺凤姣-lesson 4 P2,P5,P8-9	d6ea5fb672034295a16c6fc2f01392ad	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.110817+08	2019-09-01 18:51:23.110817+08
+1359	0	30	1	0	0	2	0	0	0	0	0	0	0		030 贺凤姣-lesson 3 P5	ef260fbb913644e281e702e0ebe79351	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.118773+08	2019-09-01 18:51:23.118773+08
+1360	0	30	1	0	0	2	0	0	0	0	0	0	0		032 贺凤姣-lesson 1 P14,P12	ca916300745147589a616018658083f8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.136101+08	2019-09-01 18:51:23.136101+08
+1361	0	30	1	0	0	2	0	0	0	0	0	0	0		033 贺凤姣-lesson 2 P11,P13-14	d63037173c9349ebb97fb32f8817e7b1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.182317+08	2019-09-01 18:51:23.182317+08
+1362	0	30	1	0	0	2	0	0	0	0	0	0	0		034 贺凤姣-lesson 3	25f915ce04d84c3997cc5aa4cfe45eb8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.237268+08	2019-09-01 18:51:23.237268+08
+1363	0	30	1	0	0	2	0	0	0	0	0	0	0		035 贺凤姣-lesson 4 P16-17	1c78d395c1934765af64c35128fc57e7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.293732+08	2019-09-01 18:51:23.293732+08
+1364	0	30	1	0	0	2	0	0	0	0	0	0	0		036 贺凤姣-lesson 1 P22	9e3db2c0bef94a208f75118e5cc5e7de	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.363485+08	2019-09-01 18:51:23.363485+08
+1365	0	30	1	0	0	2	0	0	0	0	0	0	0		037 贺凤姣-lesson 2 P20	b17a1b995e904871b39f6533915835c9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.417677+08	2019-09-01 18:51:23.417677+08
+1366	0	30	1	0	0	2	0	0	0	0	0	0	0		038 贺凤姣-lesson 3 P18-19，P21	38e08f1167c548c78af4ecce68fe3d89	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.470993+08	2019-09-01 18:51:23.470993+08
+1367	0	30	1	0	0	2	0	0	0	0	0	0	0		039 贺凤姣-lesson 4	4315616a6163494a84405ea5604d9a13	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.536392+08	2019-09-01 18:51:23.536392+08
+1368	0	30	1	0	0	2	0	0	0	0	0	0	0		040 贺凤姣-lesson 5 P22，P24-25	50c0e64cb5ee43daae248d2030ebf58f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.59073+08	2019-09-01 18:51:23.59073+08
+1369	0	30	1	0	0	2	0	0	0	0	0	0	0		041 贺凤姣-Revision 1 P26-27	8e38df4c71f14b6788940403ac05a409	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.663272+08	2019-09-01 18:51:23.663272+08
+1370	0	30	1	0	0	2	0	0	0	0	0	0	0		042 贺凤姣-lesson 1 P32，P30-31	17396d7c6051458cb5a899022e6f35bc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.710704+08	2019-09-01 18:51:23.710704+08
+1371	0	30	1	0	0	2	0	0	0	0	0	0	0		043 贺凤姣-lesson 2	4e8183982c1841c2a4643f53a57c4a31	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.787427+08	2019-09-01 18:51:23.787427+08
+1372	0	30	1	0	0	2	0	0	0	0	0	0	0		044 贺凤姣-lesson 3 P28-32	e4fb8fc09c2e42e5a96ceb3b2d445f07	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.8395+08	2019-09-01 18:51:23.8395+08
+1373	0	30	1	0	0	2	0	0	0	0	0	0	0		045 贺凤姣-lesson 4 P34-35	0003dfcc754c45eb9c2cfec070e8c96f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.890298+08	2019-09-01 18:51:23.890298+08
+1374	0	30	1	0	0	2	0	0	0	0	0	0	0		046 贺凤姣-lesson 1 P40,P38	715c03ef979a4626865e16647842e9ab	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:23.957199+08	2019-09-01 18:51:23.957199+08
+1375	0	30	1	0	0	2	0	0	0	0	0	0	0		047 贺凤姣-lesson 2 P39,P36-37	da48de445734465db4fe13a2d0df66a9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.015809+08	2019-09-01 18:51:24.015809+08
+1376	0	30	1	0	0	2	0	0	0	0	0	0	0		048 贺凤姣-lesson 3 P40	de5d33a906f0460d9f6cb319462c9e9e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.085978+08	2019-09-01 18:51:24.085978+08
+1377	0	30	1	0	0	2	0	0	0	0	0	0	0		049 贺凤姣-lesson 4 P42-43	1ee381a7ff1c41fabb954bf0f2f882f6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.149993+08	2019-09-01 18:51:24.149993+08
+1378	0	30	1	0	0	2	0	0	0	0	0	0	0		050 贺凤姣-lesson 1 P48	6f0b50de58354c839726dc18e5d359ae	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.195245+08	2019-09-01 18:51:24.195245+08
+1379	0	30	1	0	0	2	0	0	0	0	0	0	0		051 贺凤姣-lesson 2 P46-47	e49d106b6be84764adba2db664d84728	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.256077+08	2019-09-01 18:51:24.256077+08
+1380	0	30	1	0	0	2	0	0	0	0	0	0	0		052 贺凤姣-lesson 3 P44-45，P47-48	be2c20624198449dacf3205c90ace1fe	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.326055+08	2019-09-01 18:51:24.326055+08
+1381	0	30	1	0	0	2	0	0	0	0	0	0	0		053 贺凤姣-lesson 4 P50-51	2c18fe4296d043ec9c0d3d35925d1710	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.388774+08	2019-09-01 18:51:24.388774+08
+1382	0	30	1	0	0	2	0	0	0	0	0	0	0		054 贺凤姣-Revision 2 P52-53	4e879a07ad514ffdb64d7b27e1294d76	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.453862+08	2019-09-01 18:51:24.453862+08
+1383	0	31	1	0	0	1	0	0	0	0	0	0	0		001 鲁亦斐-识字（一）	dcb9e1b10e6542408ff51af6c696ffe1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.491182+08	2019-09-01 18:51:24.491182+08
+1384	0	31	1	0	0	1	0	0	0	0	0	0	0		002 鲁亦斐-识字（二）	ec206b72564245b297a77c070b138930	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.567835+08	2019-09-01 18:51:24.567835+08
+1385	0	31	1	0	0	2	0	0	0	0	0	0	0		003 鲁亦斐-秋天的图画（一）	455d5233fa6743e08bf90c71695c8776	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.618238+08	2019-09-01 18:51:24.618238+08
+1386	0	31	1	0	0	2	0	0	0	0	0	0	0		004 鲁亦斐-秋天的图画（二)	bfb6bea8b01f414dbe1b510e31937aa5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.674193+08	2019-09-01 18:51:24.674193+08
+1387	0	31	1	0	0	2	0	0	0	0	0	0	0		005 鲁亦斐-黄山奇石（一)	dafa5d9475fd4486a2955086a5068f4d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.748688+08	2019-09-01 18:51:24.748688+08
+1388	0	31	1	0	0	2	0	0	0	0	0	0	0		006 鲁亦斐-黄山奇石（二）	bf487c71061640a3aa881d5b17d1c258	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.789769+08	2019-09-01 18:51:24.789769+08
+1389	0	31	1	0	0	2	0	0	0	0	0	0	0		007 鲁亦斐-植物妈妈有办法（一）	dc4ebdcd7f624e5fb583a94a526ef18a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.859005+08	2019-09-01 18:51:24.859005+08
+1390	0	31	1	0	0	2	0	0	0	0	0	0	0		008 鲁亦斐-植物妈妈有办法（二）	caaf52331d81430aa3aee09274afafb2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.922684+08	2019-09-01 18:51:24.922684+08
+1391	0	31	1	0	0	2	0	0	0	0	0	0	0		009 鲁亦斐-古诗两首（一）	9371d0bcba634943a602e285ceac9656	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:24.989301+08	2019-09-01 18:51:24.989301+08
+1392	0	31	1	0	0	2	0	0	0	0	0	0	0		010 鲁亦斐-古诗两首（二）	72bf44c322dd443db7b33038c1b58ae8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.039405+08	2019-09-01 18:51:25.039405+08
+1393	0	31	1	0	0	2	0	0	0	0	0	0	0		011 鲁亦斐-语文园地一	2667cd0f3b894628b580b07780837def	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.099783+08	2019-09-01 18:51:25.099783+08
+1394	0	31	1	0	0	2	0	0	0	0	0	0	0		012 鲁亦斐-识字二	12bc213a7582442bbfcf47b8ed0f4655	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.149091+08	2019-09-01 18:51:25.149091+08
+1395	0	31	1	0	0	2	0	0	0	0	0	0	0		013 鲁亦斐-一株紫丁香（一）	53238f9fea954a71939e93fe8f0ee8f4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.219866+08	2019-09-01 18:51:25.219866+08
+1396	0	31	1	0	0	2	0	0	0	0	0	0	0		014 鲁亦斐-一株紫丁香（二）	406b395000ea461fa3df2631f35129dc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.280026+08	2019-09-01 18:51:25.280026+08
+1397	0	31	1	0	0	2	0	0	0	0	0	0	0		015 鲁亦斐-我选我（一）	8566332dfb2141898902f837c5e008ea	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.349374+08	2019-09-01 18:51:25.349374+08
+1398	0	31	1	0	0	2	0	0	0	0	0	0	0		016 鲁亦斐-我选我（二）	cbc212d4f05f470385da77a883a78601	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.391779+08	2019-09-01 18:51:25.391779+08
+1399	0	31	1	0	0	2	0	0	0	0	0	0	0		017 鲁亦斐-一分钟（一）	3a8b1d93aa22415cb5554c9f605532e2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.458162+08	2019-09-01 18:51:25.458162+08
+1400	0	31	1	0	0	2	0	0	0	0	0	0	0		018 鲁亦斐-一分钟（二）	c1ec5720f5e24783b963dc4a048562f1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.51601+08	2019-09-01 18:51:25.51601+08
+1401	0	31	1	0	0	2	0	0	0	0	0	0	0		019 鲁亦斐-难忘的一天（一）	e9de452a1c71463ab7fa88ff650dcb31	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.574384+08	2019-09-01 18:51:25.574384+08
+1402	0	31	1	0	0	2	0	0	0	0	0	0	0		020 鲁亦斐-难忘的一天（二）	a80070e8fe85420a9cf92c33f05a05eb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.635512+08	2019-09-01 18:51:25.635512+08
+1403	0	31	1	0	0	2	0	0	0	0	0	0	0		021 鲁亦斐-语文天地二	f84dbaa2c8554a3898d5633409f33f87	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.701083+08	2019-09-01 18:51:25.701083+08
+1404	0	31	1	0	0	2	0	0	0	0	0	0	0		022 鲁亦斐-识字三	509f9be0d7d04c87ba1370fe035f3e9a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.756755+08	2019-09-01 18:51:25.756755+08
+1405	0	31	1	0	0	2	0	0	0	0	0	0	0		023 鲁亦斐-欢庆（一）	5e5e43772a2a45ca92ab6bc35f4bb980	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.822567+08	2019-09-01 18:51:25.822567+08
+1406	0	31	1	0	0	2	0	0	0	0	0	0	0		024 鲁亦斐-欢庆（二）	08eef7e2ccc7486eb5e7cc273fe8637a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.895461+08	2019-09-01 18:51:25.895461+08
+1407	0	31	1	0	0	2	0	0	0	0	0	0	0		025 鲁亦斐-北京（一）	c2fb31931f13482f9b5ab684526c0d96	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.924656+08	2019-09-01 18:51:25.924656+08
+1408	0	31	1	0	0	2	0	0	0	0	0	0	0		026 鲁亦斐-北京（二）	14181668a4d749ccabde9c4834d57bf6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:25.99191+08	2019-09-01 18:51:25.99191+08
+1409	0	31	1	0	0	2	0	0	0	0	0	0	0		027 鲁亦斐-我们成功了（一）	23457bff26234efe9a7394ad0ff17261	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.05628+08	2019-09-01 18:51:26.05628+08
+1410	0	31	1	0	0	2	0	0	0	0	0	0	0		028 鲁亦斐-我们成功了（二）	33dff121aad74d13825ac6e5fabfaab9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.122506+08	2019-09-01 18:51:26.122506+08
+1411	0	31	1	0	0	2	0	0	0	0	0	0	0		029 鲁亦斐-看雪（一）	f4f7a123d01f49238a2bfac0c9d2ed35	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.170672+08	2019-09-01 18:51:26.170672+08
+1412	0	31	1	0	0	2	0	0	0	0	0	0	0		030 鲁亦斐-看雪（二）	f074078cf25a4b67b70097c2b7bde7b7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.239336+08	2019-09-01 18:51:26.239336+08
+1413	0	31	1	0	0	2	0	0	0	0	0	0	0		031 鲁亦斐-语文园地三	b5db5ef0fd1444d0a83122d481b8dc4e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.303283+08	2019-09-01 18:51:26.303283+08
+1414	0	31	1	0	0	2	0	0	0	0	0	0	0		032 鲁亦斐-识字四	3edd58fef15c4e76b5daa409aeb32833	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.354263+08	2019-09-01 18:51:26.354263+08
+1415	0	31	1	0	0	2	0	0	0	0	0	0	0		033 鲁亦斐-坐井观天（一）	78d9b08888494c5aa2b5a9743c002d6b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.427524+08	2019-09-01 18:51:26.427524+08
+1416	0	31	1	0	0	2	0	0	0	0	0	0	0		034 鲁亦斐-坐井观天（二）	e7461472528a478e9177a73e6351cb82	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.465956+08	2019-09-01 18:51:26.465956+08
+1417	0	31	1	0	0	2	0	0	0	0	0	0	0		035 鲁亦斐-我要的是葫芦（一）	40055db946ac4daf9c68a57841ebf42c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.537116+08	2019-09-01 18:51:26.537116+08
+1418	0	31	1	0	0	2	0	0	0	0	0	0	0		036 鲁亦斐-我要的是葫芦（二）	d1246a189c8643edaca2bbd5a0367a30	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.599746+08	2019-09-01 18:51:26.599746+08
+1419	0	31	1	0	0	2	0	0	0	0	0	0	0		037 鲁亦斐-小柳树和小枣树（一）	2b3e5b1671744f64a1c0e9cf4de49dca	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.666681+08	2019-09-01 18:51:26.666681+08
+1420	0	31	1	0	0	2	0	0	0	0	0	0	0		038 鲁亦斐-小柳树和小枣树（二）	a9d6f634051f4f178746c525a8fd23b9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.708622+08	2019-09-01 18:51:26.708622+08
+1421	0	31	1	0	0	2	0	0	0	0	0	0	0		039 鲁亦斐-风娃娃（一）	6fb69c93fdcc4cc693ee17ae1c2f85ff	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.779095+08	2019-09-01 18:51:26.779095+08
+1422	0	31	1	0	0	2	0	0	0	0	0	0	0		040 鲁亦斐-风娃娃（二）	6cf329f6a0e44b98abec6f8e7a183046	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.834055+08	2019-09-01 18:51:26.834055+08
+1423	0	31	1	0	0	2	0	0	0	0	0	0	0		041 鲁亦斐-酸的和甜的（一）	8df77c5df70c4d088caaf23a6039ca83	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.90566+08	2019-09-01 18:51:26.90566+08
+1424	0	31	1	0	0	2	0	0	0	0	0	0	0		042 鲁亦斐-酸的和甜的（二）	04edb6937f2f4b28a1e06ec084fe7554	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:26.96227+08	2019-09-01 18:51:26.96227+08
+1425	0	31	1	0	0	2	0	0	0	0	0	0	0		043 鲁亦斐-语文园地四	578510aefc93422eb01d3f2d90bea026	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.021633+08	2019-09-01 18:51:27.021633+08
+1426	0	31	1	0	0	2	0	0	0	0	0	0	0		044 鲁亦斐-识字五	d4297d50e07e4816acb468fc7a038bfe	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.068262+08	2019-09-01 18:51:27.068262+08
+1427	0	31	1	0	0	2	0	0	0	0	0	0	0		045 鲁亦斐-称赞（一）	859e0660116f4d65ba6ef81743f69a59	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.137603+08	2019-09-01 18:51:27.137603+08
+1428	0	31	1	0	0	2	0	0	0	0	0	0	0		046 鲁亦斐-称赞（二 )	7291b6e298dd4c57b29bd569626e6562	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.196075+08	2019-09-01 18:51:27.196075+08
+1429	0	31	1	0	0	2	0	0	0	0	0	0	0		047 鲁亦斐-蓝色的树叶（一）	bcb48b7a2649496e98a516e55d9adf47	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.267763+08	2019-09-01 18:51:27.267763+08
+1430	0	31	1	0	0	2	0	0	0	0	0	0	0		048 鲁亦斐-蓝色的树叶（二）	2f2abc9833b64493a28c23b75ca5dba7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.308087+08	2019-09-01 18:51:27.308087+08
+1431	0	31	1	0	0	2	0	0	0	0	0	0	0		049 鲁亦斐-纸船和风筝（一）	de92a07b35094e78955d477927301a65	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.381682+08	2019-09-01 18:51:27.381682+08
+1432	0	31	1	0	0	2	0	0	0	0	0	0	0		050 鲁亦斐-纸船和风筝（二）	0cf412105e9144d3983cd96b9c86cb22	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.437883+08	2019-09-01 18:51:27.437883+08
+1433	0	31	1	0	0	2	0	0	0	0	0	0	0		051 鲁亦斐-从现在开始（一）	d3df521569b4424e814ed2525424ea06	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.490748+08	2019-09-01 18:51:27.490748+08
+1434	0	31	1	0	0	2	0	0	0	0	0	0	0		052 鲁亦斐-从现在开始（二）	e2fe74116f334166966e207fafe56472	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.555439+08	2019-09-01 18:51:27.555439+08
+1435	0	31	1	0	0	2	0	0	0	0	0	0	0		053鲁亦斐-语文园地五	dd398c65c45941a7b9731745ebbeda23	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.62441+08	2019-09-01 18:51:27.62441+08
+1436	0	31	1	0	0	2	0	0	0	0	0	0	0		054鲁亦斐-识字六	29e335e0b2d84e4f8270a1698d727f1e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.668576+08	2019-09-01 18:51:27.668576+08
+1437	0	31	1	0	0	2	0	0	0	0	0	0	0		055鲁亦斐-窗前的气球（一）	1ab58bd6ecb54a8e9e1a6a06a9169791	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.740009+08	2019-09-01 18:51:27.740009+08
+1438	0	31	1	0	0	2	0	0	0	0	0	0	0		056鲁亦斐-窗前的气球（二）	cb3ef1e5ae77498baf2f2fb4120113db	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.801861+08	2019-09-01 18:51:27.801861+08
+1439	0	31	1	0	0	2	0	0	0	0	0	0	0		057 鲁亦斐-假如（一）	e9a85e53a1cf49238a9c8e1eafe9b98d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.866419+08	2019-09-01 18:51:27.866419+08
+1440	0	31	1	0	0	2	0	0	0	0	0	0	0		058鲁亦斐-假如（二）	8a5fac7607054e2faa3c6c1088b32bdb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.933446+08	2019-09-01 18:51:27.933446+08
+1441	0	31	1	0	0	2	0	0	0	0	0	0	0		059鲁亦斐-日记两则（一）	7fa5530a65fb4cd6a3fe42f75719e292	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:27.99627+08	2019-09-01 18:51:27.99627+08
+1442	0	31	1	0	0	2	0	0	0	0	0	0	0		060鲁亦斐-日记两则（二）	1e9cfc29e84c485f90e4f03b79cd6724	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.0294+08	2019-09-01 18:51:28.0294+08
+1443	0	31	1	0	0	2	0	0	0	0	0	0	0		061鲁亦斐-日记两则（三）	b5463a838eca491f8d4f0bac7d8f9270	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.091869+08	2019-09-01 18:51:28.091869+08
+1444	0	31	1	0	0	2	0	0	0	0	0	0	0		062鲁亦斐-古诗两首（一）	8444f64614ab4129a157cf10709e8d30	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.158096+08	2019-09-01 18:51:28.158096+08
+1549	0	32	1	0	0	2	0	0	0	0	0	0	0		016 李艾玲-Unit 3-3 P23-24	6faec794f96641a3b4242c5b0f40b66a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.454597+08	2019-09-01 18:51:34.454597+08
+1445	0	31	1	0	0	2	0	0	0	0	0	0	0		063鲁亦斐-古诗两首（二）	fdfe9a1e1d244470ba2b878dca6f49fa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.213823+08	2019-09-01 18:51:28.213823+08
+1446	0	31	1	0	0	2	0	0	0	0	0	0	0		064鲁亦斐-古诗两首（三）	d006288d48f345f892e7c8c8bec50962	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.27399+08	2019-09-01 18:51:28.27399+08
+1447	0	31	1	0	0	2	0	0	0	0	0	0	0		065鲁亦斐-语文园地六	4299e6b953364a1395f9853df2e7fdf3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.34908+08	2019-09-01 18:51:28.34908+08
+1448	0	31	1	0	0	2	0	0	0	0	0	0	0		066鲁亦斐-识字七	3171e9fb49954ac2a97ebaec866f9b46	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.395417+08	2019-09-01 18:51:28.395417+08
+1449	0	31	1	0	0	2	0	0	0	0	0	0	0		067鲁亦斐-红领巾真好（一）	1b768086507548e089515601a9d21148	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.465002+08	2019-09-01 18:51:28.465002+08
+1450	0	31	1	0	0	2	0	0	0	0	0	0	0		068鲁亦斐-红领巾真好（二）	faec0838d4a9453293cfe3653267e3f2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.510002+08	2019-09-01 18:51:28.510002+08
+1451	0	31	1	0	0	2	0	0	0	0	0	0	0		069鲁亦斐-清澈的湖水（一）	c35f88009b3d4640a05afc34e356f970	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.581237+08	2019-09-01 18:51:28.581237+08
+1452	0	31	1	0	0	2	0	0	0	0	0	0	0		070鲁亦斐-清澈的湖水（二）	d56c6272a23a49bbbdbbe0083cd9ac02	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.63888+08	2019-09-01 18:51:28.63888+08
+1453	0	31	1	0	0	2	0	0	0	0	0	0	0		071鲁亦斐-浅水洼里的小鱼（一）	115c79d23b6646908ffa7779470d5abc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.698012+08	2019-09-01 18:51:28.698012+08
+1454	0	31	1	0	0	2	0	0	0	0	0	0	0		072鲁亦斐-浅水洼里的小鱼（二）	b37c302501c14bfaa79eaaef8c8202b1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.764665+08	2019-09-01 18:51:28.764665+08
+1455	0	31	1	0	0	2	0	0	0	0	0	0	0		073鲁亦斐-父亲和鸟（一）	a2a16c8ffb7d4b24b816f5cb7f44c6f3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.805692+08	2019-09-01 18:51:28.805692+08
+1456	0	31	1	0	0	2	0	0	0	0	0	0	0		074鲁亦斐-父亲和鸟（二）	01d9f58148cb48199a6ab83322ce6778	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.880932+08	2019-09-01 18:51:28.880932+08
+1457	0	31	1	0	0	2	0	0	0	0	0	0	0		075鲁亦斐-语文园地七	9a3c45f94ccd4c109bd09b6628fde018	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:28.934462+08	2019-09-01 18:51:28.934462+08
+1458	0	31	1	0	0	2	0	0	0	0	0	0	0		076鲁亦斐-识字八	361eb17a9ff54f9bba0a4eedc358aafc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.003049+08	2019-09-01 18:51:29.003049+08
+1459	0	31	1	0	0	2	0	0	0	0	0	0	0		077鲁亦斐-我是什么（一）	4f06984fca194858b7b53faacc485cf3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.04916+08	2019-09-01 18:51:29.04916+08
+1460	0	31	1	0	0	2	0	0	0	0	0	0	0		078鲁亦斐-我是什么（二）	315f6f0e449b464c972d9cc12ae9b4fb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.117349+08	2019-09-01 18:51:29.117349+08
+1461	0	31	1	0	0	2	0	0	0	0	0	0	0		079鲁亦斐-回声（一）	b1d304eec07f422db17f95d4cfd086a4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.17959+08	2019-09-01 18:51:29.17959+08
+1462	0	31	1	0	0	2	0	0	0	0	0	0	0		080 鲁亦斐-回声（二）	3ae4588059b347c78ec3b486c0e95e3e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.239929+08	2019-09-01 18:51:29.239929+08
+1463	0	31	1	0	0	2	0	0	0	0	0	0	0		081鲁亦斐-太空生活趣事多（一）	3a9b0676efd54f3d8fda5a3cc27b3f45	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.301855+08	2019-09-01 18:51:29.301855+08
+1464	0	31	1	0	0	2	0	0	0	0	0	0	0		082鲁亦斐-太空生活趣事多（二）	a442ce5c81ad4a488f6e440e98d0aa39	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.3563+08	2019-09-01 18:51:29.3563+08
+1465	0	31	1	0	0	2	0	0	0	0	0	0	0		083鲁亦斐-活化石（一）	cf7a91ca0d394de281b032b2f4e0e37d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.413322+08	2019-09-01 18:51:29.413322+08
+1466	0	31	1	0	0	2	0	0	0	0	0	0	0		084鲁亦斐-活化石（二）	d9b8882e9a78416a86d9947de6e841e4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.473588+08	2019-09-01 18:51:29.473588+08
+1467	0	31	1	0	0	2	0	0	0	0	0	0	0		085鲁亦斐-农业变化真大（一）	6f3b60e217df4ed68f9619a5e69aaf9d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.544084+08	2019-09-01 18:51:29.544084+08
+1468	0	31	1	0	0	2	0	0	0	0	0	0	0		086鲁亦斐-农业变化真大（二）	91197868708e462992919424571aa02a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.592907+08	2019-09-01 18:51:29.592907+08
+1469	0	31	1	0	0	2	0	0	0	0	0	0	0		087鲁亦斐-语文园地八	0a7b3fa170ea434684ad3a9a93804cbf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.659241+08	2019-09-01 18:51:29.659241+08
+1470	0	29	1	0	0	1	0	0	0	0	0	0	0		001江敏-找春天（一）	efa19f24a0a54883bda56f2b3d99c7c1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.721839+08	2019-09-01 18:51:29.721839+08
+1471	0	29	1	0	0	1	0	0	0	0	0	0	0		002江敏-找春天（二）	5b59e695aec24e83bd2c80a786444b40	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.770567+08	2019-09-01 18:51:29.770567+08
+1472	0	29	1	0	0	2	0	0	0	0	0	0	0		003江敏-古诗二首（一）	be7e4bccb25a4ae7a4f35641aec16b0a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.839825+08	2019-09-01 18:51:29.839825+08
+1473	0	29	1	0	0	2	0	0	0	0	0	0	0		004江敏-古诗二首（二）	a5f662361b7947deb7bdde7fd592a957	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.898643+08	2019-09-01 18:51:29.898643+08
+1474	0	29	1	0	0	2	0	0	0	0	0	0	0		005江敏-笋芽儿（一）	cb052b1c653b46abbf0f0600fc5dda07	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:29.952619+08	2019-09-01 18:51:29.952619+08
+1475	0	29	1	0	0	2	0	0	0	0	0	0	0		006江敏-笋芽儿（二）	ca9a50fe567e4434b2c7c71bf63fd8f5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.025175+08	2019-09-01 18:51:30.025175+08
+1476	0	29	1	0	0	2	0	0	0	0	0	0	0		007江敏-小鹿的玫瑰花（一）	fd20fbbe4c594446bb6c71e741c7a7a5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.083061+08	2019-09-01 18:51:30.083061+08
+1477	0	29	1	0	0	2	0	0	0	0	0	0	0		008江敏-小鹿的玫瑰花（二）	25c296aaabed40fc91d89bf2cd9a2ce3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.150097+08	2019-09-01 18:51:30.150097+08
+1478	0	29	1	0	0	2	0	0	0	0	0	0	0		009江敏-泉水（一）	7914ebedb1cb472f9d29daf4f1dd3880	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.251732+08	2019-09-01 18:51:30.251732+08
+1479	0	29	1	0	0	2	0	0	0	0	0	0	0		010江敏-泉水（二）	11003545e0874b9689e54ee221b84263	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.264863+08	2019-09-01 18:51:30.264863+08
+1480	0	29	1	0	0	2	0	0	0	0	0	0	0		011江敏-雷锋叔叔，你在哪里（一）	30c654473eb34dff91a5888e398ad051	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.354051+08	2019-09-01 18:51:30.354051+08
+1481	0	29	1	0	0	2	0	0	0	0	0	0	0		012江敏-雷锋叔叔，你在哪里（二）	1f0afb436048479ba649d0a451e1b524	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.407318+08	2019-09-01 18:51:30.407318+08
+1482	0	29	1	0	0	2	0	0	0	0	0	0	0		013江敏-我不是最弱小的（一）	a505663113364254b2fad495d5fab09e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.482327+08	2019-09-01 18:51:30.482327+08
+1483	0	29	1	0	0	2	0	0	0	0	0	0	0		014江敏-我不是最弱小的（二）	7a24d5c432654f70b4197c0bcd364603	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.546251+08	2019-09-01 18:51:30.546251+08
+1484	0	29	1	0	0	2	0	0	0	0	0	0	0		015江敏-卡罗尔和她的猫	4cb937d2eeec4ff1ba9e1faade1ade02	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.670157+08	2019-09-01 18:51:30.670157+08
+1485	0	29	1	0	0	2	0	0	0	0	0	0	0		016江敏-日月潭（一）	821335d2164d405a937acfce9c994267	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.774606+08	2019-09-01 18:51:30.774606+08
+1486	0	29	1	0	0	2	0	0	0	0	0	0	0		017江敏-日月潭（二 )	4c52cbc43d3946459db3619a94694e97	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:30.85983+08	2019-09-01 18:51:30.85983+08
+1487	0	29	1	0	0	2	0	0	0	0	0	0	0		018江敏-葡萄沟（一）	caa74b9ea6844c16ad2e9670000524d9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.029818+08	2019-09-01 18:51:31.029818+08
+1488	0	29	1	0	0	2	0	0	0	0	0	0	0		019江敏-葡萄沟（二）	9045a2a36b43481ca98460ad13c423c4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.034046+08	2019-09-01 18:51:31.034046+08
+1489	0	29	1	0	0	2	0	0	0	0	0	0	0		021江敏-难忘的泼水节（一）	de7079e85d424e8cb2f84e45d8865a82	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.056675+08	2019-09-01 18:51:31.056675+08
+1490	0	29	1	0	0	2	0	0	0	0	0	0	0		022江敏-难忘的泼水节（二）	07ae9281d3c548b9afc0a3c64eab8cbf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.118498+08	2019-09-01 18:51:31.118498+08
+1491	0	29	1	0	0	2	0	0	0	0	0	0	0		020江敏-葡萄沟（三）	273ea5aa4a444c94b337c7941ebbb052	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.121045+08	2019-09-01 18:51:31.121045+08
+1492	0	29	1	0	0	2	0	0	0	0	0	0	0		023江敏-难忘的泼水节（三）	7de7a697eb3143fdb948a790ef5860ee	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.19842+08	2019-09-01 18:51:31.19842+08
+1493	0	29	1	0	0	2	0	0	0	0	0	0	0		025江敏-北京亮起来了（二）	28d35657886140eaa16ef1bb36419f6d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.411177+08	2019-09-01 18:51:31.411177+08
+1494	0	29	1	0	0	2	0	0	0	0	0	0	0		026江敏-动手做做看（一）	7af746fa625342b4a87e9fcc26aae00e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.413296+08	2019-09-01 18:51:31.413296+08
+1495	0	29	1	0	0	2	0	0	0	0	0	0	0		024江敏-北京亮起来了（一）	1a0dd9b0c89c4196ab3c5f362df7cd75	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.415564+08	2019-09-01 18:51:31.415564+08
+1496	0	29	1	0	0	2	0	0	0	0	0	0	0		028江敏-邮票齿孔的故事（一）	044d1f71f8ea4e5c80cc266cbcce8f7c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.418161+08	2019-09-01 18:51:31.418161+08
+1497	0	29	1	0	0	2	0	0	0	0	0	0	0		027江敏-动手做做看（二）	41017909d23645bba5c276eef8b7be57	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.421815+08	2019-09-01 18:51:31.421815+08
+1498	0	29	1	0	0	2	0	0	0	0	0	0	0		029江敏-邮票齿孔的故事（二）	87749b014fee4bc3b8a2e62c8ae2ef97	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.464896+08	2019-09-01 18:51:31.464896+08
+1499	0	29	1	0	0	2	0	0	0	0	0	0	0		030江敏-邮票齿孔的故事（三）	34135577d81141259b9a825f6b53bc1e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.484184+08	2019-09-01 18:51:31.484184+08
+1500	0	29	1	0	0	2	0	0	0	0	0	0	0		031江敏-画风（一）	783a251868f648dd92d53623ba2bff7e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.521409+08	2019-09-01 18:51:31.521409+08
+1501	0	29	1	0	0	2	0	0	0	0	0	0	0		032江敏-画风（二）	faed33a2c9644b1cb764ef4fadc004ba	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.583589+08	2019-09-01 18:51:31.583589+08
+1502	0	29	1	0	0	2	0	0	0	0	0	0	0		033江敏-充气雨衣	ec1def84da7f4faba520eeb8a244f780	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.650697+08	2019-09-01 18:51:31.650697+08
+1503	0	29	1	0	0	2	0	0	0	0	0	0	0		034江敏-古诗两首（一）	d27bc87cbe0748e28b81efc06b9f2e69	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.775171+08	2019-09-01 18:51:31.775171+08
+1504	0	29	1	0	0	2	0	0	0	0	0	0	0		035江敏-古诗两首（二）	f578dbe74a974691846d4cdbf49e3275	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.787543+08	2019-09-01 18:51:31.787543+08
+1505	0	29	1	0	0	2	0	0	0	0	0	0	0		036江敏-古诗两首（三）	2bcd37c6bbef442e8c0c37ed6258204c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.829357+08	2019-09-01 18:51:31.829357+08
+1506	0	29	1	0	0	2	0	0	0	0	0	0	0		037江敏-雷雨（一）	477e3b9e937e45cc8094a66e1b8649d9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.883376+08	2019-09-01 18:51:31.883376+08
+1507	0	29	1	0	0	2	0	0	0	0	0	0	0		038 江敏-雷雨（二）	179e44bfe9ed4c448bb9a3c0b32c8a9e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:31.949125+08	2019-09-01 18:51:31.949125+08
+1508	0	29	1	0	0	2	0	0	0	0	0	0	0		039江敏-最大的“书”（一）	9e37a53b85fe4d438f80960910a6a392	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.002485+08	2019-09-01 18:51:32.002485+08
+1509	0	29	1	0	0	2	0	0	0	0	0	0	0		040 江敏-最大的“书”（二）	e9a278c766464676b422b35e36456b2d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.047521+08	2019-09-01 18:51:32.047521+08
+1510	0	29	1	0	0	2	0	0	0	0	0	0	0		041江敏-要是你在野外迷了路（一）	c548abc1e6a6489181efab50cc6e858f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.122264+08	2019-09-01 18:51:32.122264+08
+1511	0	29	1	0	0	2	0	0	0	0	0	0	0		042江敏-要是你在野外迷了路（二）	9194f051aff84370ae342f6ee01ef3b9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.183313+08	2019-09-01 18:51:32.183313+08
+1512	0	29	1	0	0	2	0	0	0	0	0	0	0		043江敏-画家和牧童（一）	ad58b92c6413438cb6ae84668b83329b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.232101+08	2019-09-01 18:51:32.232101+08
+1513	0	29	1	0	0	2	0	0	0	0	0	0	0		044江敏-画家和牧童（二）	12ff6639635b421eb32485383bfd82ab	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.290287+08	2019-09-01 18:51:32.290287+08
+1514	0	29	1	0	0	2	0	0	0	0	0	0	0		045江敏-我为你骄傲（一）	8298685dd0b74d049c573cf3aa29a9bf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.354925+08	2019-09-01 18:51:32.354925+08
+1515	0	29	1	0	0	2	0	0	0	0	0	0	0		046江敏-我为你骄傲（二）	866df28cebd844d2b696cd0d45f36ae0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.412402+08	2019-09-01 18:51:32.412402+08
+1516	0	29	1	0	0	2	0	0	0	0	0	0	0		047江敏-三个儿子（一）	4c17b7d1f98146ff9f07e12e17c146d5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.476238+08	2019-09-01 18:51:32.476238+08
+1517	0	29	1	0	0	2	0	0	0	0	0	0	0		048江敏-三个儿子（二）	a86d5dd855cd41468cb2e4e6edc0553b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.527524+08	2019-09-01 18:51:32.527524+08
+1518	0	29	1	0	0	2	0	0	0	0	0	0	0		049江敏-玩具柜前的孩子	6906fd70a5f743c8b083fbc7340380c3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.60019+08	2019-09-01 18:51:32.60019+08
+1519	0	29	1	0	0	2	0	0	0	0	0	0	0		050江敏-玲玲的画（一）	b60966feea0d4f4a80db080856376eef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.661626+08	2019-09-01 18:51:32.661626+08
+1520	0	29	1	0	0	2	0	0	0	0	0	0	0		051江敏-玲玲的画（二）	d29744abc57c4bf78b73ba08c2942b20	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.705293+08	2019-09-01 18:51:32.705293+08
+1521	0	29	1	0	0	2	0	0	0	0	0	0	0		052江敏-蜜蜂引路（一）	f1f2e0ca15754de3bf971f5848633335	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.773755+08	2019-09-01 18:51:32.773755+08
+1522	0	29	1	0	0	2	0	0	0	0	0	0	0		053江敏-蜜蜂引路（二）	4cc1e385724944cc82ad74fd77bc8d04	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.838069+08	2019-09-01 18:51:32.838069+08
+1523	0	29	1	0	0	2	0	0	0	0	0	0	0		054江敏-寓言两则（一）	ebc3730c6ed5429792f4d377ab7df50f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.886787+08	2019-09-01 18:51:32.886787+08
+1524	0	29	1	0	0	2	0	0	0	0	0	0	0		055江敏-寓言两则（二）	cbfe5c66d52e458b8c4eae3f8ae6c7af	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:32.953559+08	2019-09-01 18:51:32.953559+08
+1525	0	29	1	0	0	2	0	0	0	0	0	0	0		056江敏-寓言两则（三）	8036a6ba248e46b789fad94812a12a35	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.012941+08	2019-09-01 18:51:33.012941+08
+1526	0	29	1	0	0	2	0	0	0	0	0	0	0		057江敏-丑小鸭（一）	b5547100145846a89f7a053bda47d124	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.071815+08	2019-09-01 18:51:33.071815+08
+1527	0	29	1	0	0	2	0	0	0	0	0	0	0		058江敏-丑小鸭（二）	9f36413cff7a45289a26dd851dcd3961	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.139033+08	2019-09-01 18:51:33.139033+08
+1528	0	29	1	0	0	2	0	0	0	0	0	0	0		059江敏-数星星的孩子（一）	d410d5aa632b4410b57880324ab986ed	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.187628+08	2019-09-01 18:51:33.187628+08
+1529	0	29	1	0	0	2	0	0	0	0	0	0	0		060江敏-数星星的孩子（二）	dd51fd54fc8c4ac2a3a4b3c333118855	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.264911+08	2019-09-01 18:51:33.264911+08
+1530	0	29	1	0	0	2	0	0	0	0	0	0	0		061江敏-爱迪生的妈妈（一）	5b699a51953f4870bb269c6b898b9393	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.316537+08	2019-09-01 18:51:33.316537+08
+1531	0	29	1	0	0	2	0	0	0	0	0	0	0		062江敏-爱迪生的妈妈（二）	b9f70ebfa78245fbaa04ef3e5a0c5796	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.38323+08	2019-09-01 18:51:33.38323+08
+1532	0	29	1	0	0	2	0	0	0	0	0	0	0		063江敏-恐龙的灭绝（一）	49d260bf23664386baed0fb316cb2665	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.426383+08	2019-09-01 18:51:33.426383+08
+1533	0	29	1	0	0	2	0	0	0	0	0	0	0		064江敏-恐龙的灭绝（二）	c62c89ce8afe43f5acb244350afa67eb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.495595+08	2019-09-01 18:51:33.495595+08
+1534	0	32	1	0	0	1	0	0	0	0	0	0	0		001李艾玲-主要人物介绍	a4d68188a5c8427e8366c82f713bce27	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.550861+08	2019-09-01 18:51:33.550861+08
+1535	0	32	1	0	0	1	0	0	0	0	0	0	0		002李艾玲-Starter P2-3	a36a4f9b49f64d42a58601190d32b04a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.619737+08	2019-09-01 18:51:33.619737+08
+1536	0	32	1	0	0	2	0	0	0	0	0	0	0		003李艾玲-文具 P4-6	611821d78a8e4d49a6860782beafd700	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.677747+08	2019-09-01 18:51:33.677747+08
+1537	0	32	1	0	0	2	0	0	0	0	0	0	0		004李艾玲-Unit 1-1 P4-6	11f044dc17c649379e945cb8e00e78ed	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.739696+08	2019-09-01 18:51:33.739696+08
+1538	0	32	1	0	0	2	0	0	0	0	0	0	0		005 李艾玲-Unit 1-2 P6	7b6583c120bc4255a109c86013f07518	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.806421+08	2019-09-01 18:51:33.806421+08
+1539	0	32	1	0	0	2	0	0	0	0	0	0	0		006 李艾玲-Unit 1-3 P6-8	934a741935f249a099efdecb9abcca49	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.849832+08	2019-09-01 18:51:33.849832+08
+1540	0	32	1	0	0	2	0	0	0	0	0	0	0		007 李艾玲-Review and story time 	a088ef3877c04f80a8b3d5169202edc1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.910891+08	2019-09-01 18:51:33.910891+08
+1541	0	32	1	0	0	2	0	0	0	0	0	0	0		008 李艾玲-五官 P14	3875ad397cf94f3cb2747fda700f4398	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:33.977422+08	2019-09-01 18:51:33.977422+08
+1542	0	32	1	0	0	2	0	0	0	0	0	0	0		009 李艾玲-Unit 2-1 P14	ad3a33a84163496681cf2c5fb4e9c3a4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.035074+08	2019-09-01 18:51:34.035074+08
+1543	0	32	1	0	0	2	0	0	0	0	0	0	0		010 李艾玲-Unit 2-2 P12-15	9988a1eb79e1404ea84a80bff4ba94f2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.098198+08	2019-09-01 18:51:34.098198+08
+1544	0	32	1	0	0	2	0	0	0	0	0	0	0		011 李艾玲-Unit 2-3 P16	a1e3faf9c5cc4dfcbfe44aa29dc86e1f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.152388+08	2019-09-01 18:51:34.152388+08
+1545	0	32	1	0	0	2	0	0	0	0	0	0	0		012 李艾玲-Review and story time 	ca44b3ae881b4881bd4c4ef75f897b84	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.222091+08	2019-09-01 18:51:34.222091+08
+1546	0	32	1	0	0	2	0	0	0	0	0	0	0		013 李艾玲-动物园 P20-22	ef1c4aaa74d44baeb7f8d1ad79316277	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.267863+08	2019-09-01 18:51:34.267863+08
+1547	0	32	1	0	0	2	0	0	0	0	0	0	0		014 李艾玲-Unit 3-1 P22-23	6bd9819f71b14f079e99603c3dad10c1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.335371+08	2019-09-01 18:51:34.335371+08
+1548	0	32	1	0	0	2	0	0	0	0	0	0	0		015 李艾玲-Unit 3-2 P22-23	9896d76c4a2b4184b1192346439ecbab	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.389458+08	2019-09-01 18:51:34.389458+08
+1550	0	32	1	0	0	2	0	0	0	0	0	0	0		017 李艾玲-Review and story time 	48ba1a96ee2e4ebfb0a9a63f5d9db345	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.5163+08	2019-09-01 18:51:34.5163+08
+1551	0	32	1	0	0	2	0	0	0	0	0	0	0		018 李艾玲-Revision 1 P28-29	1e8bdb3bd53648f9bf8d280c86fa302b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.56968+08	2019-09-01 18:51:34.56968+08
+1552	0	32	1	0	0	2	0	0	0	0	0	0	0		019 李艾玲-数字 P32	7ea130598e294d18aef221dae7a5ce46	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.634608+08	2019-09-01 18:51:34.634608+08
+1553	0	32	1	0	0	2	0	0	0	0	0	0	0		020 李艾玲-Unit 4-1 P30-32	d7b84dec98c8447da0f473a2f451d7d3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.699531+08	2019-09-01 18:51:34.699531+08
+1554	0	32	1	0	0	2	0	0	0	0	0	0	0		021 李艾玲-Unit 4-2 P30-32	2d56d104dc034880b54545485036b4e9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.756631+08	2019-09-01 18:51:34.756631+08
+1555	0	32	1	0	0	2	0	0	0	0	0	0	0		022 李艾玲-Unit 4-3 P33-34	2e176ce1b1124979b29dace043c5d500	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.826386+08	2019-09-01 18:51:34.826386+08
+1556	0	32	1	0	0	2	0	0	0	0	0	0	0		023 李艾玲-Review and story time 	dca96eb9a3364e6a93ca1244b2231d52	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.87832+08	2019-09-01 18:51:34.87832+08
+1557	0	32	1	0	0	2	0	0	0	0	0	0	0		024 李艾玲-彩虹 P40	fffa1c9fc4e04920b7dc3696fa50c174	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.936713+08	2019-09-01 18:51:34.936713+08
+1558	0	32	1	0	0	2	0	0	0	0	0	0	0		025 李艾玲-Unit 5-1 P40	6949b3d300e24007b456df2a9bb82ca6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:34.992887+08	2019-09-01 18:51:34.992887+08
+1559	0	32	1	0	0	2	0	0	0	0	0	0	0		026 李艾玲-Unit 5-2 P41	c139cbca279848c1879bd075cea81c68	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.056987+08	2019-09-01 18:51:35.056987+08
+1560	0	32	1	0	0	2	0	0	0	0	0	0	0		027 李艾玲-Unit 5-3 P41-42	6107740994204f08b50ecf63dfd6f306	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.126502+08	2019-09-01 18:51:35.126502+08
+1561	0	32	1	0	0	2	0	0	0	0	0	0	0		028 李艾玲-Unit 5-4 P43-45	b9134a1a7176400e814b2569d1e9f0ea	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.166041+08	2019-09-01 18:51:35.166041+08
+1562	0	32	1	0	0	2	0	0	0	0	0	0	0		029 李艾玲-水果 P48	44a0c5024b164960b5a5d08a74052768	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.233939+08	2019-09-01 18:51:35.233939+08
+1563	0	32	1	0	0	2	0	0	0	0	0	0	0		030 李艾玲-Unit 6-1 P46-48	5027031b02db4a4d98e4d0a4f317a10f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.289385+08	2019-09-01 18:51:35.289385+08
+1564	0	32	1	0	0	2	0	0	0	0	0	0	0		031 李艾玲-Unit 6-2 P46-48	1b97f17a10834ea0a67343498038a6d4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.355361+08	2019-09-01 18:51:35.355361+08
+1565	0	32	1	0	0	2	0	0	0	0	0	0	0		032 李艾玲-Unit 6-3 P49	0f201e00763e445e98b407e5c60bff62	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.412038+08	2019-09-01 18:51:35.412038+08
+1566	0	32	1	0	0	2	0	0	0	0	0	0	0		033 李艾玲-Review and story time 	0bc53eea32134f48ab528099ec739844	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.482872+08	2019-09-01 18:51:35.482872+08
+1567	0	32	1	0	0	2	0	0	0	0	0	0	0		034 李艾玲-Revision 2 P54-55	183a8bac316b4356880c0bce1acd3f65	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.530507+08	2019-09-01 18:51:35.530507+08
+1568	0	33	1	0	0	1	0	0	0	0	0	0	0		001 姚姚-Lesson 1 P2-4	882dfba053e14554883f107466a72acc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.593161+08	2019-09-01 18:51:35.593161+08
+1569	0	33	1	0	0	1	0	0	0	0	0	0	0		002 姚姚-Lesson 2 P4	4cb7f25a45814915880eb15aaf5f3e26	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.659476+08	2019-09-01 18:51:35.659476+08
+1570	0	33	1	0	0	2	0	0	0	0	0	0	0		003 姚姚-Lesson 3 P4-6	ea975f5542a148289f315a7f21e6d8e3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.718191+08	2019-09-01 18:51:35.718191+08
+1571	0	33	1	0	0	2	0	0	0	0	0	0	0		004 姚姚-Lesson 4 P7-9	bdb41659900245cdb38104e9dc8aba87	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.786186+08	2019-09-01 18:51:35.786186+08
+1572	0	33	1	0	0	2	0	0	0	0	0	0	0		005 姚姚-Lesson 1 P10-12	32762965249b4b058c27f3eee88b35ae	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.839315+08	2019-09-01 18:51:35.839315+08
+1573	0	33	1	0	0	2	0	0	0	0	0	0	0		006 姚姚-Lesson 2 P10-12	004e155ca3a642e8866c7bfd5cdb951f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.891046+08	2019-09-01 18:51:35.891046+08
+1574	0	33	1	0	0	2	0	0	0	0	0	0	0		007 姚姚-Lesson 3 P12-14	7fa6f6fc359b40c48cd8f445292ddd77	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:35.966377+08	2019-09-01 18:51:35.966377+08
+1575	0	33	1	0	0	2	0	0	0	0	0	0	0		008 姚姚-Lesson 4 P15-17	102188f95af84bc5958ff26da0e6d05b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.019549+08	2019-09-01 18:51:36.019549+08
+1576	0	33	1	0	0	2	0	0	0	0	0	0	0		009 姚姚-Lesson 1 P18-20、55	3b1d114973484ce8bd2c5f517809c849	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.070308+08	2019-09-01 18:51:36.070308+08
+1577	0	33	1	0	0	2	0	0	0	0	0	0	0		010 姚姚-Lesson 2 P18-21	f1b07594b8a241f680390b46648e86df	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.134436+08	2019-09-01 18:51:36.134436+08
+1578	0	33	1	0	0	2	0	0	0	0	0	0	0		011 姚姚-Lesson 3 P22	ccf3c9aab7b6418b9268cbf022f3b553	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.191178+08	2019-09-01 18:51:36.191178+08
+1579	0	33	1	0	0	2	0	0	0	0	0	0	0		012 姚姚-Lesson 4 P23-25	ea3ae65b0fa6484f8c06c1e7684204a8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.269654+08	2019-09-01 18:51:36.269654+08
+1580	0	33	1	0	0	2	0	0	0	0	0	0	0		013 姚姚-Lesson 1 P26-27	e33d4a2940d64ae585b627bb7d14a4dd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.307668+08	2019-09-01 18:51:36.307668+08
+1581	0	33	1	0	0	2	0	0	0	0	0	0	0		014 姚姚-lesson 2 P26-27	62d6b33f70c14c56b713542de39966a7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.369396+08	2019-09-01 18:51:36.369396+08
+1582	0	33	1	0	0	2	0	0	0	0	0	0	0		015 姚姚-lesson 1 P30、56	9d5c2de6e71c4d438f38502440d09c9c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.43999+08	2019-09-01 18:51:36.43999+08
+1583	0	33	1	0	0	2	0	0	0	0	0	0	0		016 姚姚-lesson 2 P30-31	2ac6b8525b7c48ba91d24da40b53cb4c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.490044+08	2019-09-01 18:51:36.490044+08
+1584	0	33	1	0	0	2	0	0	0	0	0	0	0		017 姚姚-lesson 3 P32	8da56d88512c4015bf9a449eeaee9025	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.56098+08	2019-09-01 18:51:36.56098+08
+1585	0	33	1	0	0	2	0	0	0	0	0	0	0		018 姚姚-lesson 4 P33-35	d36f7ff7bb444c80987f71fb15d5ccfa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.602531+08	2019-09-01 18:51:36.602531+08
+1586	0	33	1	0	0	2	0	0	0	0	0	0	0		019 姚姚-Lesson 1 P36-38、56	4b8200970d3b417489f1ddd92d7489ac	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.670499+08	2019-09-01 18:51:36.670499+08
+1587	0	33	1	0	0	2	0	0	0	0	0	0	0		020 姚姚-Lesson 2 P39	8a3ac7574bec465ab53becf41d4aa533	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.737013+08	2019-09-01 18:51:36.737013+08
+1588	0	33	1	0	0	2	0	0	0	0	0	0	0		021 姚姚-Lesson 3 P40	14ecacf7b12049a4858ed855dc92cdeb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.801034+08	2019-09-01 18:51:36.801034+08
+1589	0	33	1	0	0	2	0	0	0	0	0	0	0		022 姚姚-Lesson 4 P41-43	28f6a6235d52475493e12650b5c21aef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.856846+08	2019-09-01 18:51:36.856846+08
+1590	0	33	1	0	0	2	0	0	0	0	0	0	0		023 姚姚-Lesson 1 P46、57	b567c69fc1bb4401aab2233e111f0b8d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.90704+08	2019-09-01 18:51:36.90704+08
+1591	0	33	1	0	0	2	0	0	0	0	0	0	0		024 姚姚-Lesson 2 P46-47	5254021468534335af1c89629b169f8d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:36.970779+08	2019-09-01 18:51:36.970779+08
+1592	0	33	1	0	0	2	0	0	0	0	0	0	0		025 姚姚-Lesson 3 P48	962b9583357a4f66bdc611fae02e9d76	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.04514+08	2019-09-01 18:51:37.04514+08
+1593	0	33	1	0	0	2	0	0	0	0	0	0	0		026 姚姚-Lesson 4 P49-51	d42eb976899046c0b1d5b166b788f826	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.088623+08	2019-09-01 18:51:37.088623+08
+1594	0	33	1	0	0	2	0	0	0	0	0	0	0		027 姚姚-lesson 1 P52-53	5bfd0d45d4a44257b89185566cd4378b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.148799+08	2019-09-01 18:51:37.148799+08
+1595	0	33	1	0	0	2	0	0	0	0	0	0	0		028 姚姚-lesson 2 P52-53	285d26452f7e4bf28a8f04b50f0bd5ce	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.202779+08	2019-09-01 18:51:37.202779+08
+1596	0	34	1	0	0	1	0	0	0	0	0	0	0		许鲜-数一数 P2-5	583a855b0d13456ba7492bb04fc70191	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.27092+08	2019-09-01 18:51:37.27092+08
+1597	0	34	1	0	0	1	0	0	0	0	0	0	0		许鲜-比多少 P6-8	41bd8d8268c34cba998e612c16d2987a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.332052+08	2019-09-01 18:51:37.332052+08
+1598	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-位置（上下前后） P9	18705ea22eb641b4a1c591a97572b831	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.393151+08	2019-09-01 18:51:37.393151+08
+1599	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-位置（左右） P10-13	4aa602327d8145d39d63c154c7067b92	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.454003+08	2019-09-01 18:51:37.454003+08
+1600	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-1~5的认识 P14-15	bf92f46950454899bc4cfbd4e3ba589b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.507067+08	2019-09-01 18:51:37.507067+08
+1601	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-1~5的书写 P16	a73eaa75253848c2b48dbe2d7aa33195	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.571806+08	2019-09-01 18:51:37.571806+08
+1602	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-比多少 P17-19	bb0cb141c0e646bc82c0ee3f5390ff9d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.636297+08	2019-09-01 18:51:37.636297+08
+1603	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-第几 P20	44f74e49b10947d790ec6bf268f758e1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.684778+08	2019-09-01 18:51:37.684778+08
+1604	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-4.5分与合 P21-23	3e1c01ddaf164f74acf42750095e0a95	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.754091+08	2019-09-01 18:51:37.754091+08
+1605	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-加法 P24-25	efd30b5f837b4507a09fcbc63a34de39	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.819297+08	2019-09-01 18:51:37.819297+08
+1606	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-1到5的减法 P26-27	78be97097b784a35adc90998a95967ae	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.871307+08	2019-09-01 18:51:37.871307+08
+1607	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-0的认识 P30	3a89e1171a0147cd8690050d88da6bd6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.938279+08	2019-09-01 18:51:37.938279+08
+1608	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-认识图形（一） P34-38	e2e84cf999f24d81bc46f30a99fee7f7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:37.984827+08	2019-09-01 18:51:37.984827+08
+1609	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-认识图形（二） P34-38	2d3634e544464d77975487d1a6bf7daf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.053332+08	2019-09-01 18:51:38.053332+08
+1610	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-6和7的认识 P39	0480b334718c4c17b96fb5ab7a3a012d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.112422+08	2019-09-01 18:51:38.112422+08
+1611	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-6和7（序数含义、写数、数的组成） P40-4	30d8a1459b0946cba2d5978b1d85f8ae	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.171972+08	2019-09-01 18:51:38.171972+08
+1612	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-6和7的加减法 P42-49	d42697c5ea1f48918b6d3e5a4ad3b222	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.233134+08	2019-09-01 18:51:38.233134+08
+1613	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-8和9的认识 P50-51	584b54304c3a4800a9724281914264fe	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.290111+08	2019-09-01 18:51:38.290111+08
+1614	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-8和9（序数含义、写数、数的组成） P52	500db71644744db1a4f046ab66881859	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.349377+08	2019-09-01 18:51:38.349377+08
+1615	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-8和9的加减法 P53-58	4f2e2952a34c451c8191fd23efa69814	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.422703+08	2019-09-01 18:51:38.422703+08
+1616	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题 P57	309f68e477c6421d9b85d3e52a776031	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.467273+08	2019-09-01 18:51:38.467273+08
+1617	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题（加法） P46	a5d3e2eb9b4f4b95a0e41452964f94d0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.531966+08	2019-09-01 18:51:38.531966+08
+1618	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题（减法） P47	484a2c03a20b421dbe44d940662d35c2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.588899+08	2019-09-01 18:51:38.588899+08
+1619	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-10 P59-60	651fe017d607411c9836ceee70406fef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.664236+08	2019-09-01 18:51:38.664236+08
+1620	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-10的加减法 P61-64	d243969b5e2c4ac98d97540065501330	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.703011+08	2019-09-01 18:51:38.703011+08
+1621	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-连加连减 P65-66	e0fd74914c9c47fba4397bc41b6e66dc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.77656+08	2019-09-01 18:51:38.77656+08
+1622	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-加减混合 P67-68	38b713398088453080ecfd4ecbec2fc4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.834773+08	2019-09-01 18:51:38.834773+08
+1623	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-11~20各数的认识 P73-74	2858be219235464e80c77a44a86d6c0e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.899324+08	2019-09-01 18:51:38.899324+08
+1624	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-11~20各数的写数 P75-77	a4573c2d909042dfa5a0c38e240fc7db	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.952422+08	2019-09-01 18:51:38.952422+08
+1625	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-10加几十几加几及相应减法 P78-81	aa4c09e540de47d08afb768e0ace782b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:38.999007+08	2019-09-01 18:51:38.999007+08
+1626	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-数数的策略 P79-81	12217433eaa74c84a27245cfd62c440c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.073162+08	2019-09-01 18:51:39.073162+08
+1627	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-认识钟表 P84-87	74942eb4cd654af8b083545f41a6a218	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.133277+08	2019-09-01 18:51:39.133277+08
+1628	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-9加几 P89-90	274ba0ed107d437e9626ad13d01d7170	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.184546+08	2019-09-01 18:51:39.184546+08
+1629	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-8、7、6加几 P91-94	6b04479977654fbaaa31af8ddffa79bf	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.260245+08	2019-09-01 18:51:39.260245+08
+1630	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-8加9 P92	9e5f076a147247319ca34f2d549d52df	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.315606+08	2019-09-01 18:51:39.315606+08
+1631	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-5、4、3、2加几 P95-96	5bfd968299e84301bf8d80ceb24ca32b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.380333+08	2019-09-01 18:51:39.380333+08
+1632	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题（例五） P97	b6fdf5333c634714b1f216b00c01f6e4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.422903+08	2019-09-01 18:51:39.422903+08
+1633	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题（例六） P98	5f6fd704f4cc4d0e9652e1a33cc0cc25	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.485199+08	2019-09-01 18:51:39.485199+08
+1634	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-总复习（加减法） P104-110	04beed9417ce4075a666feab2e8f8d06	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.552295+08	2019-09-01 18:51:39.552295+08
+1635	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-20以内的数和认识钟表 P88-103 P84	caa5882b8efa42bfa02971847be70541	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.618633+08	2019-09-01 18:51:39.618633+08
+1636	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-图形与位置 P9-13 P34-38	4334d48c1edc4bebb37600805495453b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.67372+08	2019-09-01 18:51:39.67372+08
+1637	0	34	1	0	0	2	0	0	0	0	0	0	0		许鲜-解决问题	2d4823d71b1349be913faf2a9d52463f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.735421+08	2019-09-01 18:51:39.735421+08
+1638	0	35	1	0	0	1	0	0	0	0	0	0	0		001谢老师-入学教育 P1-5	3d445d17b2504fc5b2b24f1ad2839ca6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.783642+08	2019-09-01 18:51:39.783642+08
+1639	0	35	1	0	0	1	0	0	0	0	0	0	0		002谢老师-天地人 P6	b919c6fa1e974b7789ffb28b8386a1f5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.851139+08	2019-09-01 18:51:39.851139+08
+1640	0	35	1	0	0	2	0	0	0	0	0	0	0		003谢老师-金木水火土 P7	ef81552aec08437f8d040669f0306417	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.918757+08	2019-09-01 18:51:39.918757+08
+1641	0	35	1	0	0	2	0	0	0	0	0	0	0		004谢老师-口耳目1 P9-10	26412f10ba8143b7b404db32aff2dc52	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:39.973231+08	2019-09-01 18:51:39.973231+08
+1642	0	35	1	0	0	2	0	0	0	0	0	0	0		005谢老师-口耳目2 P9-10	0b920ec5a2b2439aac6edba72a7c1723	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.085109+08	2019-09-01 18:51:40.085109+08
+1643	0	35	1	0	0	2	0	0	0	0	0	0	0		006谢老师-日月水火 1 P11-12	2ba1b2653ab948f082b6132763de8fd6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.153623+08	2019-09-01 18:51:40.153623+08
+1644	0	35	1	0	0	2	0	0	0	0	0	0	0		008谢老师-对韵歌1 P13	1f167e07d901406595f87cf3c542c525	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.265999+08	2019-09-01 18:51:40.265999+08
+1645	0	35	1	0	0	2	0	0	0	0	0	0	0		007 谢老师-日月水火	181a6514bd20447a937f93cf068113f6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.26795+08	2019-09-01 18:51:40.26795+08
+1646	0	35	1	0	0	2	0	0	0	0	0	0	0		009谢老师-对韵歌2 P13	67d21bfc0dca44eea9f036af85b02af5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.284961+08	2019-09-01 18:51:40.284961+08
+1647	0	35	1	0	0	2	0	0	0	0	0	0	0		010谢老师-语文园地一 P15-19	9bbcf9a536384515a42611c8fa3e691d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.333974+08	2019-09-01 18:51:40.333974+08
+1648	0	35	1	0	0	2	0	0	0	0	0	0	0		011谢老师-aoe 1 P20-21	644f29f98fc84aecbe6799ef47ea412c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.388362+08	2019-09-01 18:51:40.388362+08
+1649	0	35	1	0	0	2	0	0	0	0	0	0	0		012谢老师-aoe 2 P20-21	f6c150b28c3f44599eb45e3e5890d909	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.448972+08	2019-09-01 18:51:40.448972+08
+1650	0	35	1	0	0	2	0	0	0	0	0	0	0		013谢老师-iuǖyw 1 P22-23	fe35fda9293f47d3b26d9e27e23db560	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.527116+08	2019-09-01 18:51:40.527116+08
+1651	0	35	1	0	0	2	0	0	0	0	0	0	0		014谢老师-iuǖyw 2 P22-23	78bdd3a3a0c9486fb8a43797c2e656a7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.573986+08	2019-09-01 18:51:40.573986+08
+1652	0	35	1	0	0	2	0	0	0	0	0	0	0		015谢老师-bpmf 1 P24-25	bdbda396cc914b8e849a17c1e30d1246	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.620418+08	2019-09-01 18:51:40.620418+08
+1653	0	35	1	0	0	2	0	0	0	0	0	0	0		016谢老师-bpmf 2 P24-25	4b774bd75160465ead1e04f4f916445d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.684815+08	2019-09-01 18:51:40.684815+08
+1654	0	35	1	0	0	2	0	0	0	0	0	0	0		017谢老师-dtnl 1 P26-27	01389c3a90fd42f2806baae84e770553	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.751023+08	2019-09-01 18:51:40.751023+08
+1655	0	35	1	0	0	2	0	0	0	0	0	0	0		018谢老师-dtnl 2 P26-27	33a598583d3f40148322c34e80a61850	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.809256+08	2019-09-01 18:51:40.809256+08
+1656	0	35	1	0	0	2	0	0	0	0	0	0	0		019谢老师-gkh 1 P28-29	a2ff1b9fb2834b61a0c5c4c14236816f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.8816+08	2019-09-01 18:51:40.8816+08
+1657	0	35	1	0	0	2	0	0	0	0	0	0	0		020谢老师-gkh 2 P28-29	1d0a32e9ffac4ef7823a0d0024135379	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.93482+08	2019-09-01 18:51:40.93482+08
+1658	0	35	1	0	0	2	0	0	0	0	0	0	0		021谢老师-jqx 1 P30-31	94aebef321d4466782c0e8643845ea8e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:40.992968+08	2019-09-01 18:51:40.992968+08
+1659	0	35	1	0	0	2	0	0	0	0	0	0	0		022谢老师-jqx 2 P30-31	db006bf1e9aa4f6c947afffe2f78c226	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.041932+08	2019-09-01 18:51:41.041932+08
+1660	0	35	1	0	0	2	0	0	0	0	0	0	0		023谢老师-zcs 1 P32-33	19deffe32fd04de38f162ac3565d0c20	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.11513+08	2019-09-01 18:51:41.11513+08
+1661	0	35	1	0	0	2	0	0	0	0	0	0	0		024谢老师-zcs 2 P32-33	3ab05b054e5640a1aff71a7be03a608e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.173955+08	2019-09-01 18:51:41.173955+08
+1662	0	35	1	0	0	2	0	0	0	0	0	0	0		025谢老师-zh ch sh r 1 P34-35	d28da79a216a41dab4b303ba0a99a124	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.223747+08	2019-09-01 18:51:41.223747+08
+1663	0	35	1	0	0	2	0	0	0	0	0	0	0		026谢老师-zh ch sh r 2 P34-35	efa7af3f48f14269a0725a035c3da536	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.286031+08	2019-09-01 18:51:41.286031+08
+1664	0	35	1	0	0	2	0	0	0	0	0	0	0		027谢老师-语文园地二 P36-39	6a9fc0c404e84d0789508667c977f5c0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.353961+08	2019-09-01 18:51:41.353961+08
+1665	0	35	1	0	0	2	0	0	0	0	0	0	0		028谢老师-ai ei ui 1 P40-41	5a127210910244559a75ea5623152953	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.415222+08	2019-09-01 18:51:41.415222+08
+1666	0	35	1	0	0	2	0	0	0	0	0	0	0		029谢老师-ai ei ui 2 P40-41	63a8c2b95d63471c9b9f292e6476861f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.467239+08	2019-09-01 18:51:41.467239+08
+1667	0	35	1	0	0	2	0	0	0	0	0	0	0		030谢老师-ao ou iu1 P42-43	f0c81024eb1b452da0ff5474e6d0316d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.521411+08	2019-09-01 18:51:41.521411+08
+1668	0	35	1	0	0	2	0	0	0	0	0	0	0		031谢老师-ao ou iu2 P42-43	5587396719d148958148b9184e4031c0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.584684+08	2019-09-01 18:51:41.584684+08
+1669	0	35	1	0	0	2	0	0	0	0	0	0	0		032谢老师-ie üe er 1 P44-45	69182c20ce1847e0a6ee24684ecba92e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.653558+08	2019-09-01 18:51:41.653558+08
+1670	0	35	1	0	0	2	0	0	0	0	0	0	0		033谢老师-ie üe er 2 P44-45	1b3dd4ea88ea4c469eca962d62e25311	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.708161+08	2019-09-01 18:51:41.708161+08
+1671	0	35	1	0	0	2	0	0	0	0	0	0	0		034谢老师-an en in un ün 1 P46-47	e955f870595d495b9687489b8b9b289b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.773234+08	2019-09-01 18:51:41.773234+08
+1672	0	35	1	0	0	2	0	0	0	0	0	0	0		035谢老师-an en in un ün 2 P46-47	5e357475682c48d28583f5bb9169f93e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.829917+08	2019-09-01 18:51:41.829917+08
+1673	0	35	1	0	0	2	0	0	0	0	0	0	0		036谢老师-ang eng ing ong 1 P49-5	403104866341478f9b31fcb6f63c7221	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.898334+08	2019-09-01 18:51:41.898334+08
+1674	0	35	1	0	0	2	0	0	0	0	0	0	0		037谢老师-ang eng ing ong 2 P49-5	d3d5e41106e047d7bc6a3c7f2850bc80	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:41.95386+08	2019-09-01 18:51:41.95386+08
+1675	0	35	1	0	0	2	0	0	0	0	0	0	0		038谢老师-语文园地三 P51-53	f1c790ad0e334f289bef0daa289d0651	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.016426+08	2019-09-01 18:51:42.016426+08
+1676	0	35	1	0	0	2	0	0	0	0	0	0	0		039谢老师-秋天 P54-55	ae3c8e0c587b4121a4a3a88c81b6f0d3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.077259+08	2019-09-01 18:51:42.077259+08
+1677	0	35	1	0	0	2	0	0	0	0	0	0	0		040谢老师-小小的船 P56-57	bcd6e0cb17ba442f94dfdc3bfdcf0e6f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.131749+08	2019-09-01 18:51:42.131749+08
+1678	0	35	1	0	0	2	0	0	0	0	0	0	0		041谢老师-江南 P58-59	77b4e2e56e8c4d52b2ba03d4151528d7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.201089+08	2019-09-01 18:51:42.201089+08
+1679	0	35	1	0	0	2	0	0	0	0	0	0	0		042谢老师-四季 P60-61	7e1f0ab47e8d4edea23ce6a86fd23536	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.245982+08	2019-09-01 18:51:42.245982+08
+1680	0	35	1	0	0	2	0	0	0	0	0	0	0		043谢老师-语文园地四 P63-66	3e067d48826c40dea6bf4825889585bd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.314925+08	2019-09-01 18:51:42.314925+08
+1681	0	35	1	0	0	2	0	0	0	0	0	0	0		044谢老师-画 P67	aa70955a58e34c02b3e7a2447fe5e3d7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.367869+08	2019-09-01 18:51:42.367869+08
+1682	0	35	1	0	0	2	0	0	0	0	0	0	0		045谢老师-大小多少 P68-69	4a7167f556284462bba4e7c598cde162	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.432298+08	2019-09-01 18:51:42.432298+08
+1683	0	35	1	0	0	2	0	0	0	0	0	0	0		046谢老师-小书包 P70-71	9643138552194ac4b161267d76bbcd10	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.481384+08	2019-09-01 18:51:42.481384+08
+1684	0	35	1	0	0	2	0	0	0	0	0	0	0		047谢老师-日月明 P72-73	bd127284922a413592565ae1421dfba1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.551114+08	2019-09-01 18:51:42.551114+08
+1685	0	35	1	0	0	2	0	0	0	0	0	0	0		048谢老师-升国旗 P74-75	6aec6dd5203646248b11399450e9c69f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.62929+08	2019-09-01 18:51:42.62929+08
+1686	0	35	1	0	0	2	0	0	0	0	0	0	0		049谢老师-语文园地五 P76-79	1dccbcc091f14eb99ee86c2aac0a3814	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.684966+08	2019-09-01 18:51:42.684966+08
+1687	0	35	1	0	0	2	0	0	0	0	0	0	0		050谢老师-影子 P80-81	c45926ece3bf4bc2bc52b350b87d185d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.743655+08	2019-09-01 18:51:42.743655+08
+1688	0	35	1	0	0	2	0	0	0	0	0	0	0		051谢老师-比尾巴 P82-83	2b689b104a1a4644b32f7b821d7b9f86	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.789334+08	2019-09-01 18:51:42.789334+08
+1689	0	35	1	0	0	2	0	0	0	0	0	0	0		052谢老师-青蛙写诗 P84-86	b69ab2cc7bbb4db688dcf4704d68bca9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.847612+08	2019-09-01 18:51:42.847612+08
+1690	0	35	1	0	0	2	0	0	0	0	0	0	0		053谢老师-雨点儿 P87-88	b7424db501a547fb99e52d445b37d218	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.907551+08	2019-09-01 18:51:42.907551+08
+1691	0	35	1	0	0	2	0	0	0	0	0	0	0		054谢老师-语文园地六 P90-92	f961137c7cf74a6b81536452ae73599b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:42.982889+08	2019-09-01 18:51:42.982889+08
+1692	0	35	1	0	0	2	0	0	0	0	0	0	0		055谢老师-明天要远足 P93-95	e0dd39c9693f4a1c9ecb485c501a14c3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.034613+08	2019-09-01 18:51:43.034613+08
+1693	0	35	1	0	0	2	0	0	0	0	0	0	0		056谢老师-大还是小 P96-97	af969f7451914828b2f84b05a2a5064c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.085252+08	2019-09-01 18:51:43.085252+08
+1694	0	35	1	0	0	2	0	0	0	0	0	0	0		057谢老师-项链 P98-99	948f97780f6d4570a614a84939da7102	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.148638+08	2019-09-01 18:51:43.148638+08
+1695	0	35	1	0	0	2	0	0	0	0	0	0	0		058谢老师-语文园地七 P100-103	60bfcb0c05224d5cb04ed712f428d681	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.202323+08	2019-09-01 18:51:43.202323+08
+1696	0	35	1	0	0	2	0	0	0	0	0	0	0		059谢老师-雪地里的小画家 P104-105	e40c429a9422417abdf6e75fe2ec2d05	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.275338+08	2019-09-01 18:51:43.275338+08
+1697	0	35	1	0	0	2	0	0	0	0	0	0	0		060谢老师-乌鸦喝水 P106-107	d51e16a039c24a6a99daa56ae0a85ad8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.333155+08	2019-09-01 18:51:43.333155+08
+1698	0	35	1	0	0	2	0	0	0	0	0	0	0		061谢老师-小蜗牛 P108-110	14eac8bae301475db7f75e83b7d38534	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.384511+08	2019-09-01 18:51:43.384511+08
+1699	0	35	1	0	0	2	0	0	0	0	0	0	0		062谢老师-语文园地八 P112-114	68d2b701eaf241049111f6a57ab1070e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.451306+08	2019-09-01 18:51:43.451306+08
+1700	0	37	1	0	0	1	0	0	0	0	0	0	0		001 大冰老师-数据收集整理 1 P2	ace0a339544b45c18669aa62e6f62992	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.51734+08	2019-09-01 18:51:43.51734+08
+1701	0	37	1	0	0	1	0	0	0	0	0	0	0		002 大冰老师-数据收集整理 2 P3	c9f1a3ee50e446bc9eae1b862e619975	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.564969+08	2019-09-01 18:51:43.564969+08
+1702	0	37	1	0	0	2	0	0	0	0	0	0	0		003 大冰老师-数据收集整理 3 P4-6	c23ec5097ade4a418dd6719368ac666f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.633854+08	2019-09-01 18:51:43.633854+08
+1703	0	37	1	0	0	2	0	0	0	0	0	0	0		004 大冰老师-表内除法（一）1 P8-9	3512c8a3fa554d2aa57ba41893709d28	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.685112+08	2019-09-01 18:51:43.685112+08
+1704	0	37	1	0	0	2	0	0	0	0	0	0	0		005 大冰老师-表内除法（一）2 P10-11	9ba517f3dd7144c4ab5974448baaaa76	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.763643+08	2019-09-01 18:51:43.763643+08
+1705	0	37	1	0	0	2	0	0	0	0	0	0	0		006 大冰老师-表内除法（一）3 P11-12	b2bcc127a7744ae5bd72f0249565c646	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.799768+08	2019-09-01 18:51:43.799768+08
+1706	0	37	1	0	0	2	0	0	0	0	0	0	0		007 大冰老师-表内除法（一）4 P13-14	a6c1ccc3af164784be6032203e241d65	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.868333+08	2019-09-01 18:51:43.868333+08
+1707	0	37	1	0	0	2	0	0	0	0	0	0	0		008 大冰老师-表内除法（一）5 P15-18	4f3b49b6edcc4eb9af9c8aa90a7a9fce	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.936528+08	2019-09-01 18:51:43.936528+08
+1708	0	37	1	0	0	2	0	0	0	0	0	0	0		009 大冰老师-表内除法（一）6 P19	32e7431015a5406fab703d59131e2614	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:43.9877+08	2019-09-01 18:51:43.9877+08
+1709	0	37	1	0	0	2	0	0	0	0	0	0	0		010 大冰老师-表内除法（一）7 P20-23	0d4631eff0d84b43a89a428697f72c5e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.052467+08	2019-09-01 18:51:44.052467+08
+1710	0	37	1	0	0	2	0	0	0	0	0	0	0		011 大冰老师-图形的运动（一）1 P28-29	3d78477bdf1242e9b91d53a58e1703d7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.102239+08	2019-09-01 18:51:44.102239+08
+1711	0	37	1	0	0	2	0	0	0	0	0	0	0		012 大冰老师-图形的运动（一）2 P29	e85a48c4ca034bd79d28b57f69f0a1f3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.168057+08	2019-09-01 18:51:44.168057+08
+1712	0	37	1	0	0	2	0	0	0	0	0	0	0		013 大冰老师-图形的运动（一）3 P30	6eba1be963414ff58b99786059a96377	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.224384+08	2019-09-01 18:51:44.224384+08
+1713	0	37	1	0	0	2	0	0	0	0	0	0	0		014 大冰老师-图形的运动（一）4 P31,P34	e3223c9a3df44ba4b293d2dba3ad5ca1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.297265+08	2019-09-01 18:51:44.297265+08
+1714	0	37	1	0	0	2	0	0	0	0	0	0	0		015 大冰老师-图形的运动（一）5 P33-36	884f4834deb14888ba149021ae509f0f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.345598+08	2019-09-01 18:51:44.345598+08
+1715	0	37	1	0	0	2	0	0	0	0	0	0	0		016 大冰老师-表內除法（二）1 P38	2a6f08afe4784372a4467869e5f53f1c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.40706+08	2019-09-01 18:51:44.40706+08
+1716	0	37	1	0	0	2	0	0	0	0	0	0	0		017 大冰老师-表內除法（二）2 P39-40	5cba97ed8ae244a98c9ad5369803de14	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.474057+08	2019-09-01 18:51:44.474057+08
+1717	0	37	1	0	0	2	0	0	0	0	0	0	0		018 大冰老师-表內除法（二）3 P40-41	d8a812e7d8964fb7a993c8b38fde5d79	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.537909+08	2019-09-01 18:51:44.537909+08
+1718	0	37	1	0	0	2	0	0	0	0	0	0	0		019 大冰老师-表內除法（二）4 P42	4583f535e0f84f59a95a82a6564f7d49	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.591299+08	2019-09-01 18:51:44.591299+08
+1719	0	37	1	0	0	2	0	0	0	0	0	0	0		020 大冰老师-表內除法（二）5 P43-44	251961f5a6a9484dbe35fa68b88b10fc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.651352+08	2019-09-01 18:51:44.651352+08
+1720	0	37	1	0	0	2	0	0	0	0	0	0	0		021 大冰老师-表內除法（二）6 P44-46	9ec01e0476ec424f95e859015af72430	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.713732+08	2019-09-01 18:51:44.713732+08
+1721	0	37	1	0	0	2	0	0	0	0	0	0	0		022 大冰老师-混合运算 1 P47	4b28378a1d9a4ef2a2418ade04b984d2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.776545+08	2019-09-01 18:51:44.776545+08
+1722	0	37	1	0	0	2	0	0	0	0	0	0	0		023 大冰老师-混合运算 2 P48	e35993fdb4504352be1abb5ec7e342d1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.819577+08	2019-09-01 18:51:44.819577+08
+1723	0	37	1	0	0	2	0	0	0	0	0	0	0		024 大冰老师-混合运算 3 P48-49	7c3cfd8c3d264395bf36e486b35164eb	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.895552+08	2019-09-01 18:51:44.895552+08
+1724	0	37	1	0	0	2	0	0	0	0	0	0	0		025 大冰老师-混合运算 4 P53-56	155cbe99cc9140da93cf7c95de27b214	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:44.963809+08	2019-09-01 18:51:44.963809+08
+1725	0	37	1	0	0	2	0	0	0	0	0	0	0		026 大冰老师-混合运算 5 P49-56，P58	2430e9e54b274ee08f41489c65c4e683	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.000657+08	2019-09-01 18:51:45.000657+08
+1726	0	37	1	0	0	2	0	0	0	0	0	0	0		027 大冰老师-有余数的除法1 P59-61	b01a28dae03e42b290a831d35a0e5f43	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.065968+08	2019-09-01 18:51:45.065968+08
+1727	0	37	1	0	0	2	0	0	0	0	0	0	0		028 大冰老师-有余数的除法2 P62-63	874b9be9d979459dbe331e335083abd4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.131928+08	2019-09-01 18:51:45.131928+08
+1728	0	37	1	0	0	2	0	0	0	0	0	0	0		029 大冰老师-有余数的除法3 P65-69	a276bd78c624436f9f7dbbeff8cd58bd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.185962+08	2019-09-01 18:51:45.185962+08
+1729	0	37	1	0	0	2	0	0	0	0	0	0	0		030 大冰老师-有余数的除法4 P68-70	c589e899bbce4658b0211a6365b2b493	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.256716+08	2019-09-01 18:51:45.256716+08
+1730	0	37	1	0	0	2	0	0	0	0	0	0	0		031 大冰老师-有余数的除法5 P64-66，P70	962d81ca301e4bfdb1fa87759c3fe5ac	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.304199+08	2019-09-01 18:51:45.304199+08
+1731	0	37	1	0	0	2	0	0	0	0	0	0	0		032 大冰老师-万以内数的认识1 P75-77	0747a9338e4b464e8e44cdc1252e0756	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.382267+08	2019-09-01 18:51:45.382267+08
+1732	0	37	1	0	0	2	0	0	0	0	0	0	0		033 大冰老师-万以内数的认识2 P77-80	0b0b3ed846a744beb95d2a69e9c76237	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.420004+08	2019-09-01 18:51:45.420004+08
+1733	0	37	1	0	0	2	0	0	0	0	0	0	0		034 大冰老师-万以内数的认识3 P78，P81	2e6704563c5e467d8bc4d6e86c2d9c0c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.486327+08	2019-09-01 18:51:45.486327+08
+1734	0	37	1	0	0	2	0	0	0	0	0	0	0		035 大冰老师-万以内数的认识4 P82-84	f5d1b8c0bb3e4c4ca04f220670e25fe6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.551725+08	2019-09-01 18:51:45.551725+08
+1735	0	37	1	0	0	2	0	0	0	0	0	0	0		036 大冰老师-万以内数的认识5 P85-87	d09f4861ec364c46a635cf63302672ba	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.614703+08	2019-09-01 18:51:45.614703+08
+1736	0	37	1	0	0	2	0	0	0	0	0	0	0		037 大冰老师-万以内数的认识6 P89-93	7996d264ddff47eda1212cc2f5296c02	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.667217+08	2019-09-01 18:51:45.667217+08
+1737	0	37	1	0	0	2	0	0	0	0	0	0	0		038 大冰老师-万以内数的认识7 P95-97	a85330403ee84ed4bd7ea997cad8b6f5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.738091+08	2019-09-01 18:51:45.738091+08
+1738	0	37	1	0	0	2	0	0	0	0	0	0	0		039 大冰老师-万以内数的认识8 P97-99	96a6e46339ec4c05b535575e584ff8d5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.780092+08	2019-09-01 18:51:45.780092+08
+1739	0	37	1	0	0	2	0	0	0	0	0	0	0		040 大冰老师-克和千克1 P100-102，P105	05101ac57b61448b89e14d9e83f99b22	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.846264+08	2019-09-01 18:51:45.846264+08
+1740	0	37	1	0	0	2	0	0	0	0	0	0	0		041 大冰老师-克和千克2 P106，P108	535b2afa20074e69989e6754aba0efd5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.905623+08	2019-09-01 18:51:45.905623+08
+1741	0	37	1	0	0	2	0	0	0	0	0	0	0		042 大冰老师-克和千克3 P104，P106	d3e04b428d644f85b69bc8ecafeb66c2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:45.961857+08	2019-09-01 18:51:45.961857+08
+1742	0	37	1	0	0	2	0	0	0	0	0	0	0		043 大冰老师-数学广角 推理1 P109	48d410476ab642ec8cb1df8ee2ff004b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.031281+08	2019-09-01 18:51:46.031281+08
+1743	0	37	1	0	0	2	0	0	0	0	0	0	0		044 大冰老师-数学广角 推理2 P110-111	4a15be0efcd8407ab843b55b1e8ab445	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.083118+08	2019-09-01 18:51:46.083118+08
+1744	0	37	1	0	0	2	0	0	0	0	0	0	0		045 大冰老师-数学广角 推理3 P110-112	1e1ca3c8698448e684106f88edae97ae	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.157975+08	2019-09-01 18:51:46.157975+08
+1745	0	37	1	0	0	2	0	0	0	0	0	0	0		046 大冰老师-总复习（一）数据收集整理	5279c3f0430041a0b4bebf0675e3c3d3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.20269+08	2019-09-01 18:51:46.20269+08
+1746	0	37	1	0	0	2	0	0	0	0	0	0	0		047 大冰老师-总复习（二）表内除法（一）	e70b9f3f44bc4d8b845c2d7a6b9c04ef	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.274217+08	2019-09-01 18:51:46.274217+08
+1747	0	37	1	0	0	2	0	0	0	0	0	0	0		048 大冰老师-总复习（三）图形的运动（一）	7cb5710aa889489ea147b7dba9d92969	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.332835+08	2019-09-01 18:51:46.332835+08
+1748	0	37	1	0	0	2	0	0	0	0	0	0	0		049 大冰老师-总复习（四）表内除法（二）	b2b48ca826c1405ba652aff412ebea3b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.38519+08	2019-09-01 18:51:46.38519+08
+1749	0	37	1	0	0	2	0	0	0	0	0	0	0		050 大冰老师-总复习（五）混合运算	5ec7ee47d2d24c4fae079b25f6696c7d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.451429+08	2019-09-01 18:51:46.451429+08
+1750	0	37	1	0	0	2	0	0	0	0	0	0	0		051 大冰老师-总复习（六）有余数的除法	531286d3036b4411aad91bac4bf898e1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.500224+08	2019-09-01 18:51:46.500224+08
+1751	0	37	1	0	0	2	0	0	0	0	0	0	0		052 大冰老师-总复习（七）万以内数的认识	ea02aa075f2d43fb804d467ee17a0cf6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.57153+08	2019-09-01 18:51:46.57153+08
+1752	0	37	1	0	0	2	0	0	0	0	0	0	0		053 大冰老师-总复习（八）克和千克	4fb73187dd484a78b36ad686ddfe91c3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.635021+08	2019-09-01 18:51:46.635021+08
+1753	0	37	1	0	0	2	0	0	0	0	0	0	0		054 大冰老师-总复习（九）数学广角 推理	d1d40d0159d342de8a94e5e3e84270de	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.68234+08	2019-09-01 18:51:46.68234+08
+1754	0	36	1	0	0	1	0	0	0	0	0	0	0		001 李麒麟-认识图形（一）P2-3	7b1cddb6254c4850ace52fafd9658899	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.750688+08	2019-09-01 18:51:46.750688+08
+1755	0	36	1	0	0	1	0	0	0	0	0	0	0		002 李麒麟-认识图形（二）P3-4	4662ecde70524d59a614e1be3af2f655	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.814968+08	2019-09-01 18:51:46.814968+08
+1756	0	36	1	0	0	2	0	0	0	0	0	0	0		003 李麒麟-十几减9 P8-10	052ef0634ba84c36af4eb5ba7f23b433	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.882016+08	2019-09-01 18:51:46.882016+08
+1757	0	36	1	0	0	2	0	0	0	0	0	0	0		004 李麒麟-买风车 P13	41890d89f4da4900b69638d29c39b91e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.919603+08	2019-09-01 18:51:46.919603+08
+1758	0	36	1	0	0	2	0	0	0	0	0	0	0		005李麒麟-数金鱼 P14	a6e2b75e09af4513afe86a25cc66656f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:46.984685+08	2019-09-01 18:51:46.984685+08
+1759	0	36	1	0	0	2	0	0	0	0	0	0	0		006 李麒麟-十几减5、4、3、2 P17	c3ad41ad8f534fbfb19bced52d95211b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.044997+08	2019-09-01 18:51:47.044997+08
+1760	0	36	1	0	0	2	0	0	0	0	0	0	0		007 李麒麟-踢足球 P20	6a4d3abd0b5e48fbbb609c1287f78b95	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.117685+08	2019-09-01 18:51:47.117685+08
+1761	0	36	1	0	0	2	0	0	0	0	0	0	0		008 李麒麟-玩套环 P21	27948778f57b4d63a99a9a3e2817a966	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.170268+08	2019-09-01 18:51:47.170268+08
+1762	0	36	1	0	0	2	0	0	0	0	0	0	0		009 李麒麟-整理和复习 P24	017d1deb125a4d35b80473926dc3592a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.225207+08	2019-09-01 18:51:47.225207+08
+1763	0	36	1	0	0	2	0	0	0	0	0	0	0		010 李麒麟-分类与整理 P27-28	9d954736861f4fb697ada62998dc4b7e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.297104+08	2019-09-01 18:51:47.297104+08
+1764	0	36	1	0	0	2	0	0	0	0	0	0	0		011 李麒麟-认识100以内的数 P33-34	249bfd91b648455f90d37f950a647010	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.339063+08	2019-09-01 18:51:47.339063+08
+1765	0	36	1	0	0	2	0	0	0	0	0	0	0		012 李麒麟-数扣子 P36-37	596f3a2da2994fbe98802b536318642e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.40911+08	2019-09-01 18:51:47.40911+08
+1766	0	36	1	0	0	2	0	0	0	0	0	0	0		013 李麒麟-数的顺序 P41	c7146df727da41a8b7ee3a268f8b0263	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.468863+08	2019-09-01 18:51:47.468863+08
+1767	0	36	1	0	0	2	0	0	0	0	0	0	0		014 李麒麟-比较大小 P42-48	8a764d9b0e9a44b18f318a816bd715f4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.5372+08	2019-09-01 18:51:47.5372+08
+1768	0	36	1	0	0	2	0	0	0	0	0	0	0		015 李麒麟-认识人民币 P52-54	14d12a16ca1449d6a469d8028d432e1a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.592349+08	2019-09-01 18:51:47.592349+08
+1769	0	36	1	0	0	2	0	0	0	0	0	0	0		016 李麒麟-人民币的计算 P57-58	5b23e8f9199c49fb9aaa58414bb43c51	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.658487+08	2019-09-01 18:51:47.658487+08
+1770	0	36	1	0	0	2	0	0	0	0	0	0	0		017 李麒麟-整十数加减整十数 P61-62	6b043d6812104432b55d0feca084e2c7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.703439+08	2019-09-01 18:51:47.703439+08
+1771	0	36	1	0	0	2	0	0	0	0	0	0	0		018 李麒麟-两位数加一位数、整十数 P64-65	91710968c0a94ef294df80b3c2f65144	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.780193+08	2019-09-01 18:51:47.780193+08
+1772	0	36	1	0	0	2	0	0	0	0	0	0	0		019 李麒麟-两位数减一位数、整十数（一）P69-70	c59ea4a0c90449c9936a277fdddedbda	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.817152+08	2019-09-01 18:51:47.817152+08
+1773	0	36	1	0	0	2	0	0	0	0	0	0	0		020 李麒麟-两位数减一位数、整十数（二）P77	618dd45798dc4a4eb458009c3eb00b7a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.887331+08	2019-09-01 18:51:47.887331+08
+1774	0	36	1	0	0	2	0	0	0	0	0	0	0		021 李麒麟-两位数减一位数、整十数（三）P78	ddfb1eeaad4e4cdbacc7f5f3c8b1e5d3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:47.949819+08	2019-09-01 18:51:47.949819+08
+1775	0	36	1	0	0	2	0	0	0	0	0	0	0		022 李麒麟-找规律（一）P85-86	a2f5e2b8440a4af6814f66870dce027f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.018193+08	2019-09-01 18:51:48.018193+08
+1776	0	36	1	0	0	2	0	0	0	0	0	0	0		023 李麒麟-找规律（二）P87-88	49078d82879140b8be63c56fcb7db92f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.066619+08	2019-09-01 18:51:48.066619+08
+1777	0	36	1	0	0	2	0	0	0	0	0	0	0		024 李麒麟-总复习 P92-94	876c612c90624cb5b6f63c0e48779ff1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.121207+08	2019-09-01 18:51:48.121207+08
+1778	0	38	1	0	0	1	0	0	0	0	0	0	0		001 Cossia-lesson 1	36423e5b2d234477855b3e4b54ae7a30	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.187216+08	2019-09-01 18:51:48.187216+08
+1779	0	38	1	0	0	1	0	0	0	0	0	0	0		002 Cossia-lesson 2	4e41f5bc64f0425d8d4af3c3ddd80960	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.249219+08	2019-09-01 18:51:48.249219+08
+1780	0	38	1	0	0	2	0	0	0	0	0	0	0		003 Cossia-lesson 3	7f7ad856ca094da4a8bce1b676f7bb34	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.309829+08	2019-09-01 18:51:48.309829+08
+1781	0	38	1	0	0	2	0	0	0	0	0	0	0		004 Cossia-lesson 4	cfc357e4b8e54caaa65820ed18da4fab	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.355084+08	2019-09-01 18:51:48.355084+08
+1782	0	38	1	0	0	2	0	0	0	0	0	0	0		005 Cossia-lesson 5	4e6c4d7978d0464793c5d86cdd6188b5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.429588+08	2019-09-01 18:51:48.429588+08
+1783	0	38	1	0	0	2	0	0	0	0	0	0	0		006 Cossia-lesson 1	a0e8033679b1478b9695cde79ccecf90	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.485442+08	2019-09-01 18:51:48.485442+08
+1784	0	38	1	0	0	2	0	0	0	0	0	0	0		007 Cossia-lesson 2	800d72b26da140f1a86a3ac41d3182b6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.548748+08	2019-09-01 18:51:48.548748+08
+1785	0	38	1	0	0	2	0	0	0	0	0	0	0		008 Cossia-lesson 3	be826d29528044a6b8718b023e0c5474	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.609245+08	2019-09-01 18:51:48.609245+08
+1786	0	38	1	0	0	2	0	0	0	0	0	0	0		009 Cossia-lesson 4	2d4c57baf8624a8494e4f2d346e57571	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.66773+08	2019-09-01 18:51:48.66773+08
+1787	0	38	1	0	0	2	0	0	0	0	0	0	0		010 Cossia-lesson 5	a25fddf0428f463ebaddff10ee252eb2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.731766+08	2019-09-01 18:51:48.731766+08
+1788	0	38	1	0	0	2	0	0	0	0	0	0	0		011 Cossia-lesson 6	dd95cacc38874140897abed0b3ec1443	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.801861+08	2019-09-01 18:51:48.801861+08
+1789	0	38	1	0	0	2	0	0	0	0	0	0	0		012 Cossia-lesson 1	a16e83ef246546e8b953b48ce5227478	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.860436+08	2019-09-01 18:51:48.860436+08
+1790	0	38	1	0	0	2	0	0	0	0	0	0	0		013 Cossia-lesson 2	f6c5aeceeadc4153bc1f59d6cd51bd0e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.952735+08	2019-09-01 18:51:48.952735+08
+1791	0	38	1	0	0	2	0	0	0	0	0	0	0		014 Cossia-lesson 3	74a4639ae02a4b288432e765092d6527	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:48.976517+08	2019-09-01 18:51:48.976517+08
+1792	0	38	1	0	0	2	0	0	0	0	0	0	0		015 Cossia-lesson 4	07e941903586470b9d49df1bc02355b4	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.049521+08	2019-09-01 18:51:49.049521+08
+1793	0	38	1	0	0	2	0	0	0	0	0	0	0		016 Cossia-lesson 5	ced66dfb139e48ea8addaaec0877d3a0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.080449+08	2019-09-01 18:51:49.080449+08
+1794	0	38	1	0	0	2	0	0	0	0	0	0	0		017 Cossia-lesson 1	158016a13dec492b883305e6126de12c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.139271+08	2019-09-01 18:51:49.139271+08
+1795	0	38	1	0	0	2	0	0	0	0	0	0	0		018 Cossia-lesson 2	26cedc3046c2440d9d153ba41b97fd8f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.218257+08	2019-09-01 18:51:49.218257+08
+1796	0	38	1	0	0	2	0	0	0	0	0	0	0		019 Cossia-lesson 1	28e1aa3050304df096dd2929768b8540	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.266013+08	2019-09-01 18:51:49.266013+08
+1797	0	38	1	0	0	2	0	0	0	0	0	0	0		020 Cossia-lesson 2	7fe0d76f9b1d425e890f7f2d4e85e472	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.321525+08	2019-09-01 18:51:49.321525+08
+1798	0	38	1	0	0	2	0	0	0	0	0	0	0		021 Cossia-lesson 3	16aab26cdef74852a9c4bcd797432cab	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.385777+08	2019-09-01 18:51:49.385777+08
+1799	0	38	1	0	0	2	0	0	0	0	0	0	0		022 Cossia-lesson 4	0a6b59996ad2430f95ccdd6f5b3cd96d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.442966+08	2019-09-01 18:51:49.442966+08
+1800	0	38	1	0	0	2	0	0	0	0	0	0	0		023 Cossia-lesson 5	4dafd74e1e6a450fbee61db49d0a0952	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.505684+08	2019-09-01 18:51:49.505684+08
+1801	0	38	1	0	0	2	0	0	0	0	0	0	0		024 Cossia-lesson 6	676530bd042d415a991a8ecd4e769796	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.555723+08	2019-09-01 18:51:49.555723+08
+1802	0	38	1	0	0	2	0	0	0	0	0	0	0		025 Cossia-lesson 1	0eeaa9c920d24aaea4b1ceed9efe549e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.633816+08	2019-09-01 18:51:49.633816+08
+1803	0	38	1	0	0	2	0	0	0	0	0	0	0		026 Cossia-lesson 2	c3ccafdc5ab946488165bf2a5621568d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.689865+08	2019-09-01 18:51:49.689865+08
+1804	0	38	1	0	0	2	0	0	0	0	0	0	0		027 Cossia-lesson 3	95f60f420c7f4dcaa16bcd6a3e7178ca	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.75898+08	2019-09-01 18:51:49.75898+08
+1805	0	38	1	0	0	2	0	0	0	0	0	0	0		028 Cossia-lesson 4	898b0fcf0c8e44c7a3ec57e2ec0488c0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.800484+08	2019-09-01 18:51:49.800484+08
+1806	0	38	1	0	0	2	0	0	0	0	0	0	0		029 Cossia-lesson 5	5a90c12503bb416c8e4d15224a08b3b3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.867598+08	2019-09-01 18:51:49.867598+08
+1807	0	38	1	0	0	2	0	0	0	0	0	0	0		030 Cossia-lesson 1_1	6853abc33f64489897f638fe7d6dfb1a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.921081+08	2019-09-01 18:51:49.921081+08
+1808	0	38	1	0	0	2	0	0	0	0	0	0	0		031 Cossia-lesson 2	0a4050d2610044108a3f694dcdce6ee8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:49.988678+08	2019-09-01 18:51:49.988678+08
+1809	0	38	1	0	0	2	0	0	0	0	0	0	0		032 Cossia-lesson 3	159d428496bd4f9e9b4852b9dc469033	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.050196+08	2019-09-01 18:51:50.050196+08
+1810	0	38	1	0	0	2	0	0	0	0	0	0	0		033 Cossia-lesson 4	2e52f810ffbe40ae98c5e5088ca07b90	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.120251+08	2019-09-01 18:51:50.120251+08
+1811	0	38	1	0	0	2	0	0	0	0	0	0	0		034 Cossia-lesson 5	87222b9dd0024b16b4bbc8a1e664200c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.187853+08	2019-09-01 18:51:50.187853+08
+1812	0	38	1	0	0	2	0	0	0	0	0	0	0		035 Cossia-lesson 1	80dd3b1066644764b72bad908f59c94c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.223346+08	2019-09-01 18:51:50.223346+08
+1813	0	38	1	0	0	2	0	0	0	0	0	0	0		036 Cossia-lesson 2	68defccfbdc8465d89e3e4a2aa753a83	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.288481+08	2019-09-01 18:51:50.288481+08
+1814	0	38	1	0	0	2	0	0	0	0	0	0	0		037 Cossia-lesson 3	619cf3a06f08400fbc1f677ef8b908d5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.351687+08	2019-09-01 18:51:50.351687+08
+1815	0	39	1	0	0	1	0	0	0	0	0	0	0		001 杨老师-春夏秋冬1	c835efc3ff83443f9abdc6f610a785e9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.402088+08	2019-09-01 18:51:50.402088+08
+1816	0	39	1	0	0	1	0	0	0	0	0	0	0		002 杨老师-春夏秋冬2	d6feb407381c411c93223e3cb020ceec	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.471957+08	2019-09-01 18:51:50.471957+08
+1817	0	39	1	0	0	2	0	0	0	0	0	0	0		003 杨老师-姓氏歌1	524f19233381495e8899f7ffc0d931ee	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.522866+08	2019-09-01 18:51:50.522866+08
+1818	0	39	1	0	0	2	0	0	0	0	0	0	0		004 杨老师-姓氏歌2	bcdd285fbaad42888b3b98e576ef2073	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.598606+08	2019-09-01 18:51:50.598606+08
+1819	0	39	1	0	0	2	0	0	0	0	0	0	0		005 杨老师-小青蛙	b5d9d837ceac4ef49bddc607c3987b9a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.638897+08	2019-09-01 18:51:50.638897+08
+1820	0	39	1	0	0	2	0	0	0	0	0	0	0		006 杨老师-猜字谜（一）	ec3dc13e8f4247c2b177acea41a0ee95	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.70655+08	2019-09-01 18:51:50.70655+08
+1821	0	39	1	0	0	2	0	0	0	0	0	0	0		007 杨老师-猜字谜（二）	a9dc5ceaae08403e99cf576bfbe4099f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.769631+08	2019-09-01 18:51:50.769631+08
+1822	0	39	1	0	0	2	0	0	0	0	0	0	0		008 杨老师-园地（一）	c53847047bcf4fdabab025fe1c840593	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.831514+08	2019-09-01 18:51:50.831514+08
+1823	0	39	1	0	0	2	0	0	0	0	0	0	0		009 杨老师-吃水不忘挖井人	73846798925b42a78340226e5418bf17	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:50.967058+08	2019-09-01 18:51:50.967058+08
+1824	0	39	1	0	0	2	0	0	0	0	0	0	0		010 杨老师-我多想去看看	4f8b3d1f5a16419b884ed7a19060257b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.009692+08	2019-09-01 18:51:51.009692+08
+1825	0	39	1	0	0	2	0	0	0	0	0	0	0		011 杨老师-一个接一个（一）	7c56cd47474a403aaf6fb93d3d37af3f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.025048+08	2019-09-01 18:51:51.025048+08
+1826	0	39	1	0	0	2	0	0	0	0	0	0	0		012 杨老师-一个接一个（二）	70ca1148e30a405ba58837c0ea1a5843	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.080843+08	2019-09-01 18:51:51.080843+08
+1827	0	39	1	0	0	2	0	0	0	0	0	0	0		013 杨老师-四个太阳（一）	7f330f22632d4356bb09f7f71e35cbc8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.131572+08	2019-09-01 18:51:51.131572+08
+1828	0	39	1	0	0	2	0	0	0	0	0	0	0		014 杨老师-四个太阳（一）	ba5af0f1e1c64f24a28e7cd8c6f2e8e2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.178445+08	2019-09-01 18:51:51.178445+08
+1829	0	39	1	0	0	2	0	0	0	0	0	0	0		015 杨老师-园地（二）	adeba7f38ce64d1897bbe060fbb514d6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.248233+08	2019-09-01 18:51:51.248233+08
+1830	0	39	1	0	0	2	0	0	0	0	0	0	0		016 杨老师-小公鸡和小鸭子（一）	170cece21672484f9bcdeaa455af65c3	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.311267+08	2019-09-01 18:51:51.311267+08
+1831	0	39	1	0	0	2	0	0	0	0	0	0	0		017 杨老师-小公鸡和小鸭子（一）	3f9f210563754d21ab603645ef9f6e95	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.382884+08	2019-09-01 18:51:51.382884+08
+1832	0	39	1	0	0	2	0	0	0	0	0	0	0		018 杨老师-树和喜鹊（一）	22110afcada1415aa3ad7543216b915f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.433952+08	2019-09-01 18:51:51.433952+08
+1833	0	39	1	0	0	2	0	0	0	0	0	0	0		019 杨老师-树和喜鹊（二）	f175accdc6384d4583d141fadedf4c03	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.495577+08	2019-09-01 18:51:51.495577+08
+1834	0	39	1	0	0	2	0	0	0	0	0	0	0		020 杨老师-怎么都快乐（一）	755e1e0c878a4ef4a3c7c08003cac9a5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.547897+08	2019-09-01 18:51:51.547897+08
+1835	0	39	1	0	0	2	0	0	0	0	0	0	0		021 杨老师-怎么都快乐（二）	4119f8ae8b874994b6c2e747905c8e4a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.604169+08	2019-09-01 18:51:51.604169+08
+1836	0	39	1	0	0	2	0	0	0	0	0	0	0		022 杨老师-园地（三）	45e50b96f3ce46a4b68b382c779f7ae1	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.673009+08	2019-09-01 18:51:51.673009+08
+1837	0	39	1	0	0	2	0	0	0	0	0	0	0		023 杨老师-静夜思（一）	5da825397be3453a995e32f6fd22eed2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.725447+08	2019-09-01 18:51:51.725447+08
+1838	0	39	1	0	0	2	0	0	0	0	0	0	0		024 杨老师-静夜思（二）	d2a0b241512e4dffb45885d8e58d3119	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.787376+08	2019-09-01 18:51:51.787376+08
+1839	0	39	1	0	0	2	0	0	0	0	0	0	0		025 杨老师-夜色（一）	92c29197668c41f99504280eee673d39	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.855432+08	2019-09-01 18:51:51.855432+08
+1840	0	39	1	0	0	2	0	0	0	0	0	0	0		026 杨老师-夜色（二）	dfd4a10427984e2e886290d128841b0d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.910628+08	2019-09-01 18:51:51.910628+08
+1841	0	39	1	0	0	2	0	0	0	0	0	0	0		027 杨老师-端午粽（一）	1a345487c5a74dcab2b9aacea8de1ede	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:51.966833+08	2019-09-01 18:51:51.966833+08
+1842	0	39	1	0	0	2	0	0	0	0	0	0	0		028 杨老师-端午粽（二）	d5b27eb70e6b4b43a474c62f3bee14ed	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.023841+08	2019-09-01 18:51:52.023841+08
+1843	0	39	1	0	0	2	0	0	0	0	0	0	0		029 杨老师-彩虹（一）	09b477e3bbe44f1ebcab6e53bf90e536	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.087427+08	2019-09-01 18:51:52.087427+08
+1844	0	39	1	0	0	2	0	0	0	0	0	0	0		030 杨老师-彩虹（二）	68baaa224cae414598eeb2cf740fba16	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.154122+08	2019-09-01 18:51:52.154122+08
+1845	0	39	1	0	0	2	0	0	0	0	0	0	0		031 杨老师-园地（四）	d83f52bdf1ea40cbb39df0dc12f5052d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.205123+08	2019-09-01 18:51:52.205123+08
+1846	0	39	1	0	0	2	0	0	0	0	0	0	0		032 杨老师-动物儿歌（一）	1a77eca8f9814dcc9c0505499130a026	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.279985+08	2019-09-01 18:51:52.279985+08
+1847	0	39	1	0	0	2	0	0	0	0	0	0	0		033 杨老师-动物儿歌（二）	0b3deaf520374064bcbcd9dde6073c65	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.320532+08	2019-09-01 18:51:52.320532+08
+1848	0	39	1	0	0	2	0	0	0	0	0	0	0		034 杨老师-古对今（一）	41ce993faacc4101b807854c81f1f5f7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.392283+08	2019-09-01 18:51:52.392283+08
+1849	0	39	1	0	0	2	0	0	0	0	0	0	0		035 杨老师-古对今（二）	ad4b06cd890c469a9e01e5d6aff7a72e	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.45437+08	2019-09-01 18:51:52.45437+08
+1850	0	39	1	0	0	2	0	0	0	0	0	0	0		036 杨老师-古对今（三）	ad014a890e3840bb9f851a08e1078c2b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.505793+08	2019-09-01 18:51:52.505793+08
+1851	0	39	1	0	0	2	0	0	0	0	0	0	0		037 杨老师-操场上（一）	d49e968c52214e2abd44a52ffeb171aa	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.571855+08	2019-09-01 18:51:52.571855+08
+1852	0	39	1	0	0	2	0	0	0	0	0	0	0		038 杨老师-操场上（二）	e69fd6556c7a48db836063755b98ee59	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.625546+08	2019-09-01 18:51:52.625546+08
+1853	0	39	1	0	0	2	0	0	0	0	0	0	0		039 杨老师-人之初（一）	37f838717d42494c8e7e85818afad843	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.691124+08	2019-09-01 18:51:52.691124+08
+1854	0	39	1	0	0	2	0	0	0	0	0	0	0		040 杨老师-人之初（二）	6314b789cba44964a48636e566c0c326	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.740011+08	2019-09-01 18:51:52.740011+08
+1855	0	39	1	0	0	2	0	0	0	0	0	0	0		041 杨老师-园地五	298053898afb4d49964334b4568f1ac7	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.808817+08	2019-09-01 18:51:52.808817+08
+1856	0	39	1	0	0	2	0	0	0	0	0	0	0		042 杨老师-古诗二首（一）	814b6e55932a41f0b0fc2e9d758e9cd5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.863854+08	2019-09-01 18:51:52.863854+08
+1857	0	39	1	0	0	2	0	0	0	0	0	0	0		043 杨老师-古诗二首（二）	7fffe660a5e04ee5b9cb2fbe7154b8bc	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.932286+08	2019-09-01 18:51:52.932286+08
+1858	0	39	1	0	0	2	0	0	0	0	0	0	0		044 杨老师-荷叶圆圆（一）	e3a6e1d2907b4bbdb196e0d61f2737d2	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:52.978048+08	2019-09-01 18:51:52.978048+08
+1859	0	39	1	0	0	2	0	0	0	0	0	0	0		045 杨老师-荷叶圆圆（二）	5687e14717294cb49da4c232a01e00e6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.043529+08	2019-09-01 18:51:53.043529+08
+1860	0	39	1	0	0	2	0	0	0	0	0	0	0		046 杨老师-要下雨了（一）	b3913c26a95f42a780541041a83ef4d5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.105522+08	2019-09-01 18:51:53.105522+08
+1861	0	39	1	0	0	2	0	0	0	0	0	0	0		047 杨老师-要下雨了（二）	326329c9ba3e4c08bc466dde904feb0c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.164853+08	2019-09-01 18:51:53.164853+08
+1862	0	39	1	0	0	2	0	0	0	0	0	0	0		048 杨老师-语文园地（六）	95fca8616fe04b01ba7c6ea3d8d78e8c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.23257+08	2019-09-01 18:51:53.23257+08
+1863	0	39	1	0	0	2	0	0	0	0	0	0	0		049 杨老师-文具的家（一）	60a61caa43424ad1b04e649315fd5c68	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.28917+08	2019-09-01 18:51:53.28917+08
+1864	0	39	1	0	0	2	0	0	0	0	0	0	0		050 杨老师-文具的家（二）	f8374d5d36474828a55581cfa438fd78	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.349381+08	2019-09-01 18:51:53.349381+08
+1865	0	39	1	0	0	2	0	0	0	0	0	0	0		051 杨老师-一分钟（一）	91979339ab56438ea5e6f5e356644656	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.406147+08	2019-09-01 18:51:53.406147+08
+1866	0	39	1	0	0	2	0	0	0	0	0	0	0		052 杨老师-一分钟（二）	9caba3e4a4bb43e69f40119913a07178	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.468671+08	2019-09-01 18:51:53.468671+08
+1867	0	39	1	0	0	2	0	0	0	0	0	0	0		053-杨老师-动物王国开大会一	eed50e19c7df403391e292318e2ba615	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.521531+08	2019-09-01 18:51:53.521531+08
+1868	0	39	1	0	0	2	0	0	0	0	0	0	0		054-杨老师-动物王国开大会二	4b7189ee82684c0db68d47b3a74aaa81	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.583363+08	2019-09-01 18:51:53.583363+08
+1869	0	39	1	0	0	2	0	0	0	0	0	0	0		055 杨老师-小猴子下山（一）	aead572d3e46436fbc11a935f1e17108	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.645569+08	2019-09-01 18:51:53.645569+08
+1870	0	39	1	0	0	2	0	0	0	0	0	0	0		056 杨老师-小猴子下山（二）	a6ea609786964b18999f77119c556360	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.714967+08	2019-09-01 18:51:53.714967+08
+1871	0	39	1	0	0	2	0	0	0	0	0	0	0		057 杨老师-语文园地（七）	5338bd1f90c54dc4b54a88e173da7c58	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.760089+08	2019-09-01 18:51:53.760089+08
+1872	0	39	1	0	0	2	0	0	0	0	0	0	0		058 杨老师-棉花姑娘（一）	f8301f90f0b74400b4192b19d9b8ffb6	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.829702+08	2019-09-01 18:51:53.829702+08
+1873	0	39	1	0	0	2	0	0	0	0	0	0	0		059 杨老师-棉花姑娘（二）	8a2aa021bf0b44a78468643f0b8886a0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.88652+08	2019-09-01 18:51:53.88652+08
+1874	0	39	1	0	0	2	0	0	0	0	0	0	0		060 杨老师-咕咚（一）	73941652f0e34afd86a7f0ceb3025524	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:53.944287+08	2019-09-01 18:51:53.944287+08
+1875	0	39	1	0	0	2	0	0	0	0	0	0	0		061 杨老师-咕咚（二）	74a67efefc1148888120b5b881444c8f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.015049+08	2019-09-01 18:51:54.015049+08
+1876	0	39	1	0	0	2	0	0	0	0	0	0	0		062 杨老师-小壁虎借尾巴（一）	61210016de104690aff00da0bc9a4f0b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.055837+08	2019-09-01 18:51:54.055837+08
+1877	0	39	1	0	0	2	0	0	0	0	0	0	0		063 杨老师-小壁虎借尾巴（二）	666c83c3eaae4b7ab2e336e205a9dfba	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.122939+08	2019-09-01 18:51:54.122939+08
+1878	0	39	1	0	0	2	0	0	0	0	0	0	0		064 杨老师-园地八	5c524f269ee645cd9c76c8d6afa6a791	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.182294+08	2019-09-01 18:51:54.182294+08
+1879	0	40	1	0	0	1	0	0	0	0	0	0	0		001 杨老师-认识厘米 P2-4	5b61c3095c664ce59b8045d893ac620a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.241196+08	2019-09-01 18:51:54.241196+08
+1880	0	40	1	0	0	1	0	0	0	0	0	0	0		002 杨老师-认识米 P4	07fe5568ad09407dbfa7909b276f7562	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.30595+08	2019-09-01 18:51:54.30595+08
+1881	0	40	1	0	0	2	0	0	0	0	0	0	0		003 杨老师-认识线段 P5	ef889640675741dd83a44f1d940b3c4d	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.366751+08	2019-09-01 18:51:54.366751+08
+1882	0	40	1	0	0	2	0	0	0	0	0	0	0		004 杨老师-确定长度单位 P5-7	044196b9426545c0951671deb76330c9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.43383+08	2019-09-01 18:51:54.43383+08
+1883	0	40	1	0	0	2	0	0	0	0	0	0	0		005 杨老师-不进位加 P11-13	da415ca534ef48dc917c94aa111e4cbd	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.490335+08	2019-09-01 18:51:54.490335+08
+1884	0	40	1	0	0	2	0	0	0	0	0	0	0		006 杨老师-进位加 P14	006ea042f9fc4c61b4d53105d8eff262	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.550162+08	2019-09-01 18:51:54.550162+08
+1885	0	40	1	0	0	2	0	0	0	0	0	0	0		007 杨老师-不退位减法 P17-18 	834bb23ba86f4800808aa99a90eeca38	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.598934+08	2019-09-01 18:51:54.598934+08
+1886	0	40	1	0	0	2	0	0	0	0	0	0	0		008 杨老师-退位减法 P19	bc2b0883b10d479fbd03e329c370161a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.667256+08	2019-09-01 18:51:54.667256+08
+1887	0	40	1	0	0	2	0	0	0	0	0	0	0		009 杨老师-求比一个数少几的数 P23-26	0557b9aab7454e9091a13e634dc088db	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.715974+08	2019-09-01 18:51:54.715974+08
+1888	0	40	1	0	0	2	0	0	0	0	0	0	0		010 杨老师-连加、连减 P27	d932b9c3bb4446648ca7473c14f932e8	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.783601+08	2019-09-01 18:51:54.783601+08
+1889	0	40	1	0	0	2	0	0	0	0	0	0	0		011 杨老师-加减混合 P28	a3a62c0f909a4d49bf58c3e83363d5a9	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.850511+08	2019-09-01 18:51:54.850511+08
+1890	0	40	1	0	0	2	0	0	0	0	0	0	0		012 杨老师-角的初步认识 P39，P43	492af6872eaf43fb8854e0d0ed954a52	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.906064+08	2019-09-01 18:51:54.906064+08
+1891	0	40	1	0	0	2	0	0	0	0	0	0	0		013 杨老师-直角的认识 P40	57d567ef854040549a99bea390a8db9c	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:54.969519+08	2019-09-01 18:51:54.969519+08
+1892	0	40	1	0	0	2	0	0	0	0	0	0	0		014 杨老师-锐角和钝角 P41	e9ff562c35344f93ac7f1e3d2511ee26	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.019947+08	2019-09-01 18:51:55.019947+08
+1893	0	40	1	0	0	2	0	0	0	0	0	0	0		015 杨老师-角在生活中的应用 P41-42	9898f7b0acb2435e95548593b4c93b36	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.084997+08	2019-09-01 18:51:55.084997+08
+1894	0	40	1	0	0	2	0	0	0	0	0	0	0		016 杨老师-乘法的初步认识 P47-49	2c8a1d5d44ef4a3798a0018b919bf26b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.144268+08	2019-09-01 18:51:55.144268+08
+1895	0	40	1	0	0	2	0	0	0	0	0	0	0		017 杨老师-5的乘法口诀 P52-53	af62e30e15b749f5921bb6f90acbc57b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.201397+08	2019-09-01 18:51:55.201397+08
+1896	0	40	1	0	0	2	0	0	0	0	0	0	0		018 杨老师-2.3.4的乘法口诀 P54	9d9225ca7b1549ffb234efaec461b2fe	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.263825+08	2019-09-01 18:51:55.263825+08
+1897	0	40	1	0	0	2	0	0	0	0	0	0	0		019 杨老师-乘加 乘减 P58-59	9339401405ab4060baad433cea08814b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.33709+08	2019-09-01 18:51:55.33709+08
+1898	0	40	1	0	0	2	0	0	0	0	0	0	0		020 杨老师-6的乘法口诀 P60	7a1bf4d115a34fb3aae10226e51bcf50	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.389884+08	2019-09-01 18:51:55.389884+08
+1899	0	40	1	0	0	2	0	0	0	0	0	0	0		021 杨老师-观察物体（一） P68，P71	c5875cd48aae43618e61d1ea2af9e3c5	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.439281+08	2019-09-01 18:51:55.439281+08
+1900	0	40	1	0	0	2	0	0	0	0	0	0	0		022 杨老师-观察物体（二） P69	622057f91df141cea580191d2ad2620a	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.504809+08	2019-09-01 18:51:55.504809+08
+1901	0	40	1	0	0	2	0	0	0	0	0	0	0		023 杨老师-7的乘法口诀 P72	24ed4999cede44e184586eca798e4e2b	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.559228+08	2019-09-01 18:51:55.559228+08
+1902	0	40	1	0	0	2	0	0	0	0	0	0	0		024 杨老师-8的乘法口诀 P75-76	7f65d79c6a5741238b039322b54cac8f	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.617603+08	2019-09-01 18:51:55.617603+08
+1903	0	40	1	0	0	2	0	0	0	0	0	0	0		025 杨老师-9的乘法口诀 P80	160876f5b26c4e61b556f3ee4da52dbe	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.688306+08	2019-09-01 18:51:55.688306+08
+1904	0	40	1	0	0	2	0	0	0	0	0	0	0		026 杨老师-认识时间 P90-91	4c4a2f732f634f40b0f45b66ab8b28b0	[]				0001-01-01 08:05:57+08:05:57	2019-09-01 18:51:55.744825+08	2019-09-01 18:51:55.744825+08
+1905	0	40	1	0	0	2	0	0	0	0	0	0	0		027 杨老师-数学广角 P97-98	eabcb924ff8249f4bdb34a9aead8c4b8	[]				0001-01-01 08:05:57+08:05:57	2019-09-02 11:30:03.452263+08	2019-09-01 18:51:55.803228+08
 \.
 
 
@@ -3587,16 +3662,8 @@ COPY public.std_lessons (id, channel_id, course_id, type, status, refer_id, free
 -- Data for Name: std_members; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_members (id, channel_id, member_id, parent_id, prov, city, dist, type, status, refer_id, uid, lat, lng, rate, rate_agency, bank_id, tax_type, address, title, "desc", remark, attach, idcode, idname, mobile, tax_number, contact, phone, email, bank_code, company_name, secret, expire, updated_at, created_at, auth) FROM stdin;
-76	0	0	0	0	0	0	1	1	0	57	0	0	0	0	0	0		dabao								13800000001	13800000001				7710bdb9-a7fc-4f4c-8944-d821c049054c	0001-01-01 08:05:43+08:05:43	2020-05-07 11:25:30.366306+08	2020-05-07 11:25:30.366306+08	0
-77	0	0	0	0	0	0	2	1	0	57	0	0	0	0	0	0		阿华	尼泊尔阿华							阿华	9810060345				6abf4843-2262-419a-a8fb-336827108a00	0001-01-01 08:05:43+08:05:43	2020-05-07 11:47:23.757841+08	2020-05-07 11:47:23.757841+08	0
-79	0	0	0	0	0	0	1	1	0	0	0	0	1	0	0	0		long								123456	12222222				f4e96136-3a30-4f0d-8d52-386fe7e76b45	0001-01-01 08:05:43+08:05:43	2020-05-24 23:39:20.709412+08	2020-05-24 23:39:20.709412+08	0
-78	0	0	0	0	0	0	1	1	0	0	0	0	1	0	0	0		kfc								派大星	13811111111				5e289cd3-e160-4a43-aa84-51d2f42caf8e	0001-01-01 08:05:43+08:05:43	2020-06-02 19:09:35.12641+08	2020-05-21 11:00:33.822423+08	0
-80	0	0	0	0	0	0	1	1	0	0	0	0	0	0	0	0		中大								9453981519	9453981519				7254d0f7-4326-41b6-98e0-6a31dfb836b0	0001-01-01 08:05:43+08:05:43	2020-06-09 19:33:22.956025+08	2020-06-09 19:31:26.333186+08	0
-81	0	0	0	0	0	0	2	1	0	67	0	0	1	0	0	0		aw								xiau	13888888888				7f58c1aa-f107-488e-b325-075580c7845f	0001-01-01 08:05:43+08:05:43	2020-06-17 21:21:23.439392+08	2020-06-17 21:21:23.439392+08	0
-83	0	0	0	0	0	0	2	1	67	69	0	0	0	0	0	0		fanyong								dapeng	138789				15473221-d910-478d-b187-7dc46135bf05	0001-01-01 08:05:43+08:05:43	2020-06-18 20:58:28.390496+08	2020-06-18 20:58:28.390496+08	10000
-82	0	0	0	0	0	0	2	1	63	69	0	0	1	0	0	0		YSCP	赢胜							ys	138789				9509024f-8488-4bca-b9d9-a5ea29dc4937	0001-01-01 08:05:43+08:05:43	2020-06-18 21:07:08.902293+08	2020-06-18 16:24:46.940359+08	10000
-84	0	0	0	0	0	0	1	1	72	0	0	0	1	0	0	0		王大发								王大发	13800000002				70b61d77-4a4a-460e-90ff-2771532749fa	0001-01-01 08:05:43+08:05:43	2020-06-19 21:50:27.458512+08	2020-06-19 21:50:27.458512+08	5000
+COPY std_members (id, channel_id, member_id, parent_id, prov, city, dist, type, status, refer_id, uid, lat, lng, rate, rate_agency, bank_id, tax_type, address, title, "desc", remark, attach, idcode, idname, mobile, tax_number, contact, phone, email, bank_code, company_name, secret, expire, updated_at, created_at, auth, min, max, pwd, fee, login_ip, api_ip) FROM stdin;
+85	0	0	0	0	0	0	1	1	0	0	0	0	0.2	0	0	0		测试商户									150000				77e09557-5131-4282-8f14-ebafc5e60372	0001-01-01 08:05:57+08:05:57	2020-09-08 21:47:49.274646+08	2020-09-08 21:46:18.850886+08	0	1	100	150001	2	127.0.0.1	127.0.0.2
 \.
 
 
@@ -3604,9 +3671,8 @@ COPY public.std_members (id, channel_id, member_id, parent_id, prov, city, dist,
 -- Data for Name: std_merchant; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_merchant (id, member_id, channel_id, status, round_id, type, name, user_id, fee, mobile, email, attach, updated_at, created_at, account, login, pwd, max, min, cash) FROM stdin;
-14	76	0	1	0	1	陈思芳	72	0	18060375936			2020-06-19 21:43:49.205039+08	2020-06-19 21:43:12.352962+08	18060375936	wwe051288	051288	50000	100	50000
-13	76	0	2	0	1	丽吉	72	0	18750349961			2020-06-19 21:43:49.205039+08	2020-06-19 17:56:54.850585+08	18750349961	wwe051288	051288	50000	100	30000
+COPY std_merchant (id, member_id, channel_id, status, round_id, type, name, user_id, fee, mobile, email, attach, updated_at, created_at, account, login, pwd, max, min, cash) FROM stdin;
+15	0	0	1	1	1	3	0	1001	100			2020-09-08 21:59:58.419931+08	2020-08-31 15:29:12.97887+08		4	4	10000	1	0
 \.
 
 
@@ -3614,7 +3680,7 @@ COPY public.std_merchant (id, member_id, channel_id, status, round_id, type, nam
 -- Data for Name: std_order_info; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_order_info (id, item_id, order_id, user_id, status, num, attr, created_at) FROM stdin;
+COPY std_order_info (id, item_id, order_id, user_id, status, num, attr, created_at) FROM stdin;
 1	39	1	8	0	1		2019-09-02 17:19:50.635773+08
 2	38	2	8	0	1		2019-09-02 20:01:53.382588+08
 3	34	3	8	0	1		2019-09-02 20:47:14.214695+08
@@ -3657,17 +3723,9 @@ COPY public.std_order_info (id, item_id, order_id, user_id, status, num, attr, c
 -- Data for Name: std_orders; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_orders (id, channel_id, member_id, type, method, status, amount, agency, fee, rate, user_id, notify_count, name, bank_code, bank_name, bank_province, bank_city, note, order_sn, number, out_trade_no, notify, ip, item_id, pay_time, refund_time, updated_at, created_at, ukey, balance) FROM stdin;
-18371	17	82	1	1	4	500	0	1	0	0	0	刘赖珠	62284801299363654814	中国农业银行	上海	上海	失败		44f8dca9cf848baedab376aac0aaffbb	20200618215534	http://e0060e7dwebapi.miapp66dom.com/Api/Home/payCallBack/longxin_callback	45.119.98.205	12	0001-01-01 08:05:43+08:05:43	0001-01-01 08:05:43+08:05:43	2020-06-18 21:14:36.715893+08	2020-06-18 21:14:36.715893+08	691e3eeae6028d004063e2b2b08c384b	0
-18373	17	82	1	1	5	200	0	1	0	0	1	刘赖珠	62284801299363654814	中国农业银行	上海	上海	回调成功		580a6eec0d485f6aa9c8350607ce4b59	20200618215639	http://e0060e7dwebapi.miapp66dom.com/Api/Home/advanceCallBack/longxin_callback	45.119.98.205	12	0001-01-01 08:05:43+08:05:43	0001-01-01 08:05:43+08:05:43	2020-06-18 22:03:46.704331+08	2020-06-18 21:51:11.408479+08	691e3eeae6028d004063e2b2b08c384b	297
-18375	17	84	0	1	4	100	0	1	0	1	0	陈思和	6222031407001135346	中国工商银行	上海	上海	下单失败，卡商不用		a83f98dfb3e5daac427225bc13883ec0	a83f98dfb3e5daac427225bc13883ec0		132.145.85.144	0	0001-01-01 08:05:43+08:05:43	0001-01-01 08:05:43+08:05:43	2020-06-19 22:11:07.497701+08	2020-06-19 22:11:07.497701+08	d268a9cd2d249a776b5c06afee1895a4	0
-18372	17	82	1	1	5	300	0	1	0	0	0	刘赖珠	62284801299363654814	中国农业银行	上海	上海	回调成功		9231ade4d5397a22189e091817513f61	20200618215538	http://e0060e7dwebapi.miapp66dom.com/Api/Home/payCallBack/longxin_callback	45.119.98.205	12	0001-01-01 08:05:43+08:05:43	0001-01-01 08:05:43+08:05:43	2020-06-18 21:20:32.676987+08	2020-06-18 21:20:32.676987+08	691e3eeae6028d004063e2b2b08c384b	699
-18374	17	82	1	1	1	100	0	1	0	0	0	刘赖珠	62284801299363654814	中国农业银行	上海	上海	下单成功		fc6f89397ababa33106adced854c9615	20200618215717	http://e0060e7dwebapi.miapp66dom.com/Api/Home/advanceCallBack/longxin_callback	45.119.98.205	12	0001-01-01 08:05:43+08:05:43	0001-01-01 08:05:43+08:05:43	2020-06-18 22:05:58.26685+08	2020-06-18 22:05:58.26685+08	691e3eeae6028d004063e2b2b08c384b	0
-18376	17	84	0	1	4	101	0	1	0	1	0	陈思和	6222031407001135346	中国工商银行	上海	上海	下单失败，卡商不用		1c5a5ef3ee73ff05108a05c070ea0b0c	1c5a5ef3ee73ff05108a05c070ea0b0c		132.145.85.144	0	0001-01-01 08:05:43+08:05:43	0001-01-01 08:05:43+08:05:43	2020-06-19 22:12:11.319796+08	2020-06-19 22:12:11.319796+08	d268a9cd2d249a776b5c06afee1895a4	0
-18367	17	78	0	1	5	10	0	1	0	1	0	吴伟	6228481319045180778	农业银行	上海	上海	回调成功		b77ecdb35e0a6448e3bd9fb039506f87	b77ecdb35e0a6448e3bd9fb039506f87		171.214.246.68	9	0001-01-01 08:05:43+08:05:43	0001-01-01 08:05:43+08:05:43	2020-06-06 14:37:17.910423+08	2020-06-06 14:37:17.910423+08	a3b74193881511e7aa22b6de81effa22	54078.33
-18368	17	82	1	1	4	15	0	1	0	0	0	张无忌	9558801901101648523	中国工商银行	上海	上海	商户余额不足		8aa25de19ba64f785f78b6ae97b9b9ee	2020061800028	http://e0060e7dwebapi.miapp66dom.com/Api/Home/payCallBack/longxin_callback	112.207.90.103	1	0001-01-01 08:05:43+08:05:43	0001-01-01 08:05:43+08:05:43	2020-06-18 20:19:36.386497+08	2020-06-18 20:19:36.386497+08	5000ab0c8349b7e6488e89dc110bc9fd	0
-18369	17	82	1	1	4	500	0	1	0	0	0	刘赖珠	62284801299363654814	中国农业银行	上海	上海	下单失败，卡商不用		c759423bada77e49a0c652381a9b0bca	20200618215527	http://e0060e7dwebapi.miapp66dom.com/Api/Home/payCallBack/longxin_callback	43.242.34.83	1	0001-01-01 08:05:43+08:05:43	0001-01-01 08:05:43+08:05:43	2020-06-18 20:54:05.520481+08	2020-06-18 20:54:05.520481+08	691e3eeae6028d004063e2b2b08c384b	0
-18370	17	82	1	1	4	643	0	1	0	0	0	黄继华	6212262003002016436	中国工商银行	上海	上海	下单失败，卡商不用		ac7fb977f37b7aa2c8685bb7deef3d71	20200618215525	http://e0060e7dwebapi.miapp66dom.com/Api/Home/payCallBack/longxin_callback	45.119.98.205	1	0001-01-01 08:05:43+08:05:43	0001-01-01 08:05:43+08:05:43	2020-06-18 20:56:35.365447+08	2020-06-18 20:56:35.365447+08	c5fe64945efda72beb4aa3be9b952b2a	0
+COPY std_orders (id, channel_id, member_id, type, method, status, amount, agency, fee, rate, user_id, notify_count, name, bank_code, bank_name, bank_province, bank_city, note, order_sn, number, out_trade_no, notify, ip, item_id, pay_time, refund_time, updated_at, created_at, ukey, balance) FROM stdin;
+18390	17	85	0	1	4	1	0	2	0	0	0	张三	12432423423	工商	上海	上海	下单失败，卡商不用		6f2c8f16f3d8517cd365608165501337	6f2c8f16f3d8517cd365608165501337		192.168.101.4	0	0001-01-01 08:05:57+08:05:57	0001-01-01 08:05:57+08:05:57	2020-09-08 21:58:28.234992+08	2020-09-08 21:58:28.234992+08	615db57aa314529aaa0fbe95b3e95bd3	0
+18391	17	85	0	1	5	2	0	2	0	0	0	张三	1123234	工银	上海	上海	回调成功		59db969aee2a8868d64eb9b6b7049dab	59db969aee2a8868d64eb9b6b7049dab		192.168.101.4	15	0001-01-01 08:05:57+08:05:57	0001-01-01 08:05:57+08:05:57	2020-09-08 22:00:44.3553+08	2020-09-08 22:00:44.3553+08	615db57aa314529aaa0fbe95b3e95bd3	996
 \.
 
 
@@ -3675,7 +3733,7 @@ COPY public.std_orders (id, channel_id, member_id, type, method, status, amount,
 -- Data for Name: std_recbanks; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_recbanks (id, type, status, user_id, branch, channel_id, bank_id, name, code, updated_at, created_at) FROM stdin;
+COPY std_recbanks (id, type, status, user_id, branch, channel_id, bank_id, name, code, updated_at, created_at) FROM stdin;
 1	0	1	1		0	8	有限公司 	00095266	2020-06-16 20:05:11.434119+08	2020-01-20 11:34:34.610486+08
 \.
 
@@ -3684,7 +3742,7 @@ COPY public.std_recbanks (id, type, status, user_id, branch, channel_id, bank_id
 -- Data for Name: std_regions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_regions (area_id, area_name, parent_id, short_name, pinyin, lat, lng, level, recommend, sort) FROM stdin;
+COPY std_regions (area_id, area_name, parent_id, short_name, pinyin, lat, lng, level, recommend, sort) FROM stdin;
 110000	北京市	0	北京		116.405289	39.904987	0	1	0
 110100	北京市	110000	北京	\N	116.405289	39.904987	2	0	0
 110101	东城区	110100	东城	\N	116.418755	39.917545	3	0	0
@@ -50154,7 +50212,7 @@ COPY public.std_regions (area_id, area_name, parent_id, short_name, pinyin, lat,
 -- Data for Name: std_segments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_segments (id, member_id, channel_id, status, round_id, type, name, user_id, fee, mobile, key, secret, updated_at, created_at) FROM stdin;
+COPY std_segments (id, member_id, channel_id, status, round_id, type, name, user_id, fee, mobile, key, secret, updated_at, created_at) FROM stdin;
 5	0	0	1	1	2	账本春霖	1	0		deaa9893e29e5a133d77a8c643ceea1d	5c8050e1d3339c005b06a22b74c07ebaeeab3128bdf164a36137fe7e049adf2c	2019-12-18 20:14:54.463126+08	2019-11-23 16:42:00.245222+08
 8	0	0	2	0	2	账本延荣	1	0		b245f5b210c727a2e2e519769a2970ed	974d7860d6556dfa90b8a6394cebdc864385650e5252de411286f15ab323153b	2019-12-18 18:54:56.005608+08	2019-12-05 18:43:22.66438+08
 14	0	0	2	0	2	账本苏天	1	0		22f409e0a62232ea9a9bc974566f8928	df3f5003ca565f1dd78b412e30f8526c9a1808bcaf5ba276157d0f2c8d0ff296	2019-12-18 18:54:56.005608+08	2019-12-07 18:56:25.088416+08
@@ -50179,7 +50237,7 @@ COPY public.std_segments (id, member_id, channel_id, status, round_id, type, nam
 -- Data for Name: std_sign; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_sign (id, channel_id, student_id, member_id, type, status, refer_id, uid, updated_at, created_at) FROM stdin;
+COPY std_sign (id, channel_id, student_id, member_id, type, status, refer_id, uid, updated_at, created_at) FROM stdin;
 6	0	7	0	0	0	4	22	2019-09-12 12:07:50.483267+08	2019-09-12 12:07:50.483267+08
 7	0	5	0	0	0	3	18	2019-09-12 12:13:31.434035+08	2019-09-12 12:13:31.434035+08
 8	0	6	0	0	0	3	19	2019-09-12 12:13:31.458516+08	2019-09-12 12:13:31.458516+08
@@ -50191,7 +50249,7 @@ COPY public.std_sign (id, channel_id, student_id, member_id, type, status, refer
 -- Data for Name: std_sms; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_sms (id, channel_id, type, status, mobile, code, created_at) FROM stdin;
+COPY std_sms (id, channel_id, type, status, mobile, code, created_at) FROM stdin;
 1	0	0	0	15000195451	7129	2019-08-29 11:02:01.388195+08
 2	0	0	0	15000195451	2794	2019-09-01 10:34:28.736085+08
 3	0	0	0	15000195451	7910	2019-09-01 10:35:28.130563+08
@@ -50202,17 +50260,17 @@ COPY public.std_sms (id, channel_id, type, status, mobile, code, created_at) FRO
 -- Data for Name: std_students; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_students (id, channel_id, member_id, type, status, refer_id, class_id, user_id, sex, name, "desc", attach, birthday, updated_at, created_at) FROM stdin;
+COPY std_students (id, channel_id, member_id, type, status, refer_id, class_id, user_id, sex, name, "desc", attach, birthday, updated_at, created_at) FROM stdin;
 6	0	0	0	0	0	3	19	1	郭峻钰		[]	2012-09-01 00:00:00+08	2019-09-09 14:17:37.343153+08	2019-09-09 14:17:37.343153+08
 7	0	0	0	0	0	4	22	1	王康宇		[]	2009-09-01 14:18:31+08	2019-09-09 14:18:46.453498+08	2019-09-09 14:18:46.453498+08
-9	0	0	0	0	0	1	29	0	张玉		[]	0001-01-01 08:05:43+08:05:43	2019-09-09 17:06:20.84353+08	2019-09-09 17:06:20.84353+08
-10	0	0	0	0	0	1	30	0	张家妮		[]	0001-01-01 08:05:43+08:05:43	2019-09-09 17:07:54.195686+08	2019-09-09 17:07:54.195686+08
-11	0	0	0	0	0	1	31	0	尹在燃		[]	0001-01-01 08:05:43+08:05:43	2019-09-09 17:23:02.686495+08	2019-09-09 17:23:02.686495+08
-12	0	0	0	0	0	1	32	0	郑绍峰		[]	0001-01-01 08:05:43+08:05:43	2019-09-09 17:23:26.757047+08	2019-09-09 17:23:26.757047+08
-13	0	0	0	0	0	1	33	0	张雪		[]	0001-01-01 08:05:43+08:05:43	2019-09-09 17:35:35.772177+08	2019-09-09 17:35:35.772177+08
-14	0	0	0	0	0	1	34	0	黄诗淇		[]	0001-01-01 08:05:43+08:05:43	2019-09-09 17:38:56.432047+08	2019-09-09 17:38:56.432047+08
-15	0	0	0	0	0	1	16	0	3		[]	0001-01-01 08:05:43+08:05:43	2019-09-09 18:10:42.750933+08	2019-09-09 18:10:42.750933+08
-16	0	0	0	0	0	1	35	0	小胥		[]	0001-01-01 08:05:43+08:05:43	2019-09-11 21:59:14.881989+08	2019-09-09 18:19:31.594729+08
+9	0	0	0	0	0	1	29	0	张玉		[]	0001-01-01 08:05:57+08:05:57	2019-09-09 17:06:20.84353+08	2019-09-09 17:06:20.84353+08
+10	0	0	0	0	0	1	30	0	张家妮		[]	0001-01-01 08:05:57+08:05:57	2019-09-09 17:07:54.195686+08	2019-09-09 17:07:54.195686+08
+11	0	0	0	0	0	1	31	0	尹在燃		[]	0001-01-01 08:05:57+08:05:57	2019-09-09 17:23:02.686495+08	2019-09-09 17:23:02.686495+08
+12	0	0	0	0	0	1	32	0	郑绍峰		[]	0001-01-01 08:05:57+08:05:57	2019-09-09 17:23:26.757047+08	2019-09-09 17:23:26.757047+08
+13	0	0	0	0	0	1	33	0	张雪		[]	0001-01-01 08:05:57+08:05:57	2019-09-09 17:35:35.772177+08	2019-09-09 17:35:35.772177+08
+14	0	0	0	0	0	1	34	0	黄诗淇		[]	0001-01-01 08:05:57+08:05:57	2019-09-09 17:38:56.432047+08	2019-09-09 17:38:56.432047+08
+15	0	0	0	0	0	1	16	0	3		[]	0001-01-01 08:05:57+08:05:57	2019-09-09 18:10:42.750933+08	2019-09-09 18:10:42.750933+08
+16	0	0	0	0	0	1	35	0	小胥		[]	0001-01-01 08:05:57+08:05:57	2019-09-11 21:59:14.881989+08	2019-09-09 18:19:31.594729+08
 8	0	0	0	0	0	4	20	1	王普诚		[]	2007-09-01 14:19:05+08	2019-09-12 09:31:19.343179+08	2019-09-09 14:19:23.31781+08
 5	0	0	0	0	0	3	18	1	刘浩睿		[]	2014-09-01 14:04:29+08	2019-09-12 12:06:09.823479+08	2019-09-09 14:04:55.86593+08
 \.
@@ -50222,26 +50280,10 @@ COPY public.std_students (id, channel_id, member_id, type, status, refer_id, cla
 -- Data for Name: std_users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_users (id, channel_id, member_id, role_id, bank_id, sex, prov, city, dist, type, status, refer_id, uuid, point, level, exp, health, balance, rate, username, password, secret, openid, unionid, avatar, nickname, mobile, email, idcode, idname, "desc", address, bank_code, attach, birthday, updated_at, created_at, login_ip, login_time) FROM stdin;
-66	0	80	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	9453981519	9453981519						9453981519							[]	0001-01-01 08:05:43+08:05:43	2020-06-09 19:31:26.353751+08	2020-06-09 19:31:26.353751+08	132.145.85.144	2020-06-09 19:37:26+08
-70	0	82	3	0	0	0	0	0	0	0	69	0	0	0	0	0	297	0	ys168	ys168						13522223333			ys168				[]	0001-01-01 08:05:43+08:05:43	2020-06-18 20:51:27.984117+08	2020-06-18 16:24:46.953447+08	47.56.174.97	2020-06-18 19:51:51+08
-69	0	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	17772444221	qwe123									17772444221					0001-01-01 08:05:43+08:05:43	2020-06-18 14:56:19.997505+08	2020-06-18 14:56:19.997505+08	103.231.28.115	2020-06-19 13:52:16+08
-59	0	0	2	0	1	110000	110100	110102	0	0	0	0	0	0	0	0	0	0	a123456789	a123456789									张天志					0001-01-01 08:05:43+08:05:43	2020-05-08 20:17:14.716342+08	2020-05-08 20:17:14.716342+08		0001-01-01 08:05:43+08:05:43
-71	0	83	3	0	0	0	0	0	0	0	69	0	0	0	0	0	0	0	138789	138789						138789							[]	0001-01-01 08:05:43+08:05:43	2020-06-18 20:58:28.405878+08	2020-06-18 20:58:28.405878+08	103.231.28.115	2020-06-18 20:59:24+08
-51	0	0	1	0	1	110000	110100	110101	0	0	0	0	0	1	0	0	0	0	root	DevopsAdmin2020						root	root		root				[]	0001-01-01 08:05:43+08:05:43	2020-02-09 09:04:00.914512+08	2020-02-09 09:04:00.914512+08	118.114.103.84	2020-03-07 17:30:03+08
-64	0	0	4	0	1	0	0	0	0	0	0	0	0	0	0	0	100000	0	kk1	kk1									kk1					0001-01-01 08:05:43+08:05:43	2020-05-25 15:56:20.658877+08	2020-05-22 11:27:35.170739+08	171.214.246.213	2020-05-27 10:13:54+08
-58	0	77	3	0	0	0	0	0	0	0	57	0	0	0	0	0	0	0	9810060345	9810060345						9810060345							[]	0001-01-01 08:05:43+08:05:43	2020-05-07 11:47:23.773591+08	2020-05-07 11:47:23.773591+08	125.68.93.72	2020-05-19 17:14:15+08
-65	0	79	3	0	0	0	0	0	0	0	0	0	0	1	0	0	1019880	1000	long	123456						12222222			long				[]	0001-01-01 08:05:43+08:05:43	2020-06-04 17:12:23.626028+08	2020-05-24 23:39:20.755979+08	118.114.103.26	2020-06-02 16:25:19+08
-57	0	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	lufei	123456									lufei					0001-01-01 08:05:43+08:05:43	2020-05-07 11:43:47.289457+08	2020-05-07 11:43:47.289457+08	118.114.103.192	2020-05-10 13:27:18+08
-61	0	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0	10000	1	test	123456									123456					0001-01-01 08:05:43+08:05:43	2020-05-19 17:21:52.732371+08	2020-05-19 17:21:52.732371+08	125.68.93.72	2020-05-19 17:22:09+08
-56	0	76	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	13800000001	13800000001						13800000001							[]	0001-01-01 08:05:43+08:05:43	2020-05-07 11:25:30.388861+08	2020-05-07 11:25:30.388861+08	180.191.100.70	2020-05-10 14:25:19+08
-68	0	81	3	0	0	0	0	0	0	0	67	0	0	0	0	0	0	0	13888888888	13888888888						13888888888							[]	0001-01-01 08:05:43+08:05:43	2020-06-17 21:21:23.452707+08	2020-06-17 21:21:23.452707+08		0001-01-01 08:05:43+08:05:43
-62	0	78	3	0	0	0	0	0	0	0	0	0	0	1	0	0	54078.33	0	13811111111	13811111111						13811111111							[]	0001-01-01 08:05:43+08:05:43	2020-05-21 11:00:33.847909+08	2020-05-21 11:00:33.847909+08	171.214.246.68	2020-06-06 14:35:47+08
-1	0	1	1	0	1	110000	110100	110101	0	0	0	0	0	0	0	0	25780	0	admin	adminlx						admin			admin				[]	0001-01-01 08:05:43+08:05:43	2020-01-29 18:13:19.554096+08	2019-11-07 10:44:47.029688+08	171.214.246.21	2020-06-19 22:03:22+08
-67	0	0	4	0	1	0	0	0	0	0	0	0	0	0	0	0	1000	0	ceshi	123456									yutian xia					0001-01-01 08:05:43+08:05:43	2020-06-17 21:21:45.959743+08	2020-06-17 21:19:47.503422+08	149.129.103.254	2020-06-17 21:22:01+08
-63	0	0	4	0	1	0	0	0	0	0	0	0	0	0	0	0	5000000	0	dingding	123456									丁丁					0001-01-01 08:05:43+08:05:43	2020-06-18 21:13:24.041616+08	2020-05-21 11:20:36.833533+08	132.145.85.144	2020-06-18 21:13:29+08
-73	0	84	3	0	0	0	0	0	0	0	0	0	0	1	0	0	19930	0	13800000002	13800000002						13800000002							[]	0001-01-01 08:05:43+08:05:43	2020-06-19 21:50:27.47172+08	2020-06-19 21:50:27.47172+08	132.145.85.144	2020-06-19 22:04:24+08
-72	0	0	4	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	13800000001	aa123123									大光头					0001-01-01 08:05:43+08:05:43	2020-06-19 17:39:54.795637+08	2020-06-19 17:39:54.795637+08	171.214.246.21	2020-06-19 22:14:04+08
+COPY std_users (id, channel_id, member_id, role_id, bank_id, sex, prov, city, dist, type, status, refer_id, uuid, point, level, exp, health, balance, rate, username, password, secret, openid, unionid, avatar, nickname, mobile, email, idcode, idname, "desc", address, bank_code, attach, birthday, updated_at, created_at, login_ip, login_time) FROM stdin;
+74	0	85	3	0	0	0	0	0	0	0	0	0	0	1	0	0	996	0	150000	150000	OGVUTGTQJ3XN3NMLJV4HUQRDBKIFD4NL					150000			张夺				[]	0001-01-01 08:05:57+08:05:57	2020-09-08 21:56:01.071665+08	2020-09-08 21:46:18.864344+08	192.168.101.4	2020-09-08 22:00:13+08
+51	0	0	1	0	1	110000	110100	110101	0	0	0	0	0	0	0	0	0	0	root	DevopsAdmin2020						root	root		root				[]	0001-01-01 08:05:57+08:05:57	2020-02-09 09:04:00.914512+08	2020-02-09 09:04:00.914512+08	118.114.103.84	2020-03-07 17:30:03+08
+1	0	1	1	0	1	110000	110100	110101	0	0	0	0	0	0	0	0	25780	0	admin	admin	MZJDNPXESJB24PXAMJJWQPKDTO4QH3TN					admin			admin				[]	0001-01-01 08:05:57+08:05:57	2020-01-29 18:13:19.554096+08	2019-11-07 10:44:47.029688+08	192.168.101.4	2020-09-08 22:00:58+08
 \.
 
 
@@ -50249,393 +50291,235 @@ COPY public.std_users (id, channel_id, member_id, role_id, bank_id, sex, prov, c
 -- Data for Name: std_video; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.std_video (id, channel_id, member_id, type, status, refer_id, parent_id, title, track_id, "desc", attach, updated_at, created_at) FROM stdin;
+COPY std_video (id, channel_id, member_id, type, status, refer_id, parent_id, title, track_id, "desc", attach, updated_at, created_at) FROM stdin;
 7	0	0	0	1	0	0	21		12	[{"ext":"oss-cn-shanghai","name":"video/a157baeb-135b-49ae-87c3-fac4975c35a4.mp4","uid":"rc-upload-1579145590693-2","status":"done","url":"http://default-oss-shanghai-shall.oss-cn-shanghai.aliyuncs.com/video/a157baeb-135b-49ae-87c3-fac4975c35a4.mp4"}]	2020-01-16 11:33:29.127997+08	2020-01-16 11:09:35.776366+08
 \.
 
 
 --
--- Name: std_ads_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: std_ads_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-SELECT pg_catalog.setval('public.std_ads_id_seq', 2, true);
-
-
---
--- Name: std_agency_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_agency_id_seq', 10, true);
-
-
---
--- Name: std_balances_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_balances_id_seq', 5627, true);
-
-
---
--- Name: std_banks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_banks_id_seq', 16, true);
-
-
---
--- Name: std_catalogs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_catalogs_id_seq', 49, true);
-
-
---
--- Name: std_chains_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_chains_id_seq', 55, true);
-
-
---
--- Name: std_channels_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_channels_id_seq', 19, true);
-
-
---
--- Name: std_classes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_classes_id_seq', 4, true);
-
-
---
--- Name: std_comments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_comments_id_seq', 16, true);
-
-
---
--- Name: std_courses_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_courses_id_seq', 40, true);
-
-
---
--- Name: std_employees_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_employees_id_seq', 127, true);
-
-
---
--- Name: std_hosts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_hosts_id_seq', 73, true);
-
-
---
--- Name: std_lessons_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_lessons_id_seq', 1905, true);
-
-
---
--- Name: std_members_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_members_id_seq', 84, true);
-
-
---
--- Name: std_merchant_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_merchant_id_seq', 14, true);
-
-
---
--- Name: std_order_info_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_order_info_id_seq', 35, true);
-
-
---
--- Name: std_orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_orders_id_seq', 18376, true);
-
-
---
--- Name: std_recbanks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_recbanks_id_seq', 2, true);
-
-
---
--- Name: std_segments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_segments_id_seq', 19, true);
-
-
---
--- Name: std_sign_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_sign_id_seq', 9, true);
-
-
---
--- Name: std_sms_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_sms_id_seq', 1, true);
-
-
---
--- Name: std_students_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_students_id_seq', 16, true);
-
-
---
--- Name: std_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_users_id_seq', 73, true);
-
-
---
--- Name: std_video_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.std_video_id_seq', 7, true);
-
-
---
--- Name: std_ads std_ads_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.std_ads
+ALTER TABLE ONLY std_ads
     ADD CONSTRAINT std_ads_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_agency std_agency_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_agency_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_agency
+ALTER TABLE ONLY std_agency
     ADD CONSTRAINT std_agency_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_balances std_balances_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_balances_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_balances
+ALTER TABLE ONLY std_balances
     ADD CONSTRAINT std_balances_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_banks std_banks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_banks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_banks
+ALTER TABLE ONLY std_banks
     ADD CONSTRAINT std_banks_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_catalogs std_catalogs_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_catalogs_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_catalogs
+ALTER TABLE ONLY std_catalogs
     ADD CONSTRAINT std_catalogs_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_chains std_chains_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_chains_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_chains
+ALTER TABLE ONLY std_chains
     ADD CONSTRAINT std_chains_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_channels std_channels_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_channels_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_channels
+ALTER TABLE ONLY std_channels
     ADD CONSTRAINT std_channels_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_classes std_classes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_classes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_classes
+ALTER TABLE ONLY std_classes
     ADD CONSTRAINT std_classes_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_comments std_comments_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_comments_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_comments
+ALTER TABLE ONLY std_comments
     ADD CONSTRAINT std_comments_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_courses std_courses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_courses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_courses
+ALTER TABLE ONLY std_courses
     ADD CONSTRAINT std_courses_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_employees std_employees_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_employees_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_employees
+ALTER TABLE ONLY std_employees
     ADD CONSTRAINT std_employees_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_hosts std_hosts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_hosts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_hosts
+ALTER TABLE ONLY std_hosts
     ADD CONSTRAINT std_hosts_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_lessons std_lessons_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_lessons_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_lessons
+ALTER TABLE ONLY std_lessons
     ADD CONSTRAINT std_lessons_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_regions std_locations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_locations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_regions
+ALTER TABLE ONLY std_regions
     ADD CONSTRAINT std_locations_pkey PRIMARY KEY (area_id);
 
 
 --
--- Name: std_members std_members_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_members_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_members
+ALTER TABLE ONLY std_members
     ADD CONSTRAINT std_members_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_merchant std_merchant_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_merchant_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_merchant
+ALTER TABLE ONLY std_merchant
     ADD CONSTRAINT std_merchant_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_order_info std_order_info_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_order_info_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_order_info
+ALTER TABLE ONLY std_order_info
     ADD CONSTRAINT std_order_info_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_orders std_orders_number_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_orders_number_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_orders
+ALTER TABLE ONLY std_orders
     ADD CONSTRAINT std_orders_number_key UNIQUE (number);
 
 
 --
--- Name: std_orders std_orders_out_trade_no_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_orders_out_trade_no_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_orders
+ALTER TABLE ONLY std_orders
     ADD CONSTRAINT std_orders_out_trade_no_key UNIQUE (out_trade_no);
 
 
 --
--- Name: std_orders std_orders_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_orders_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_orders
+ALTER TABLE ONLY std_orders
     ADD CONSTRAINT std_orders_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_recbanks std_recbanks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_recbanks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_recbanks
+ALTER TABLE ONLY std_recbanks
     ADD CONSTRAINT std_recbanks_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_segments std_segments_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_segments_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_segments
+ALTER TABLE ONLY std_segments
     ADD CONSTRAINT std_segments_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_sign std_sign_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_sign_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_sign
+ALTER TABLE ONLY std_sign
     ADD CONSTRAINT std_sign_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_sms std_sms_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_sms_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_sms
+ALTER TABLE ONLY std_sms
     ADD CONSTRAINT std_sms_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_students std_students_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_students_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_students
+ALTER TABLE ONLY std_students
     ADD CONSTRAINT std_students_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_users std_users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_users
+ALTER TABLE ONLY std_users
     ADD CONSTRAINT std_users_pkey PRIMARY KEY (id);
 
 
 --
--- Name: std_video std_video_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: std_video_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
-ALTER TABLE ONLY public.std_video
+ALTER TABLE ONLY std_video
     ADD CONSTRAINT std_video_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
 --

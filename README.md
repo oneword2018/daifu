@@ -5,8 +5,8 @@
 ![image](https://github.com/1752325542/daifu/blob/master/doc/43B65516-391A-4BAF-A53C-BBFD8AD4E760.png)
 
 # 使用说明
-	1. 本系统仅限交流、可以免费用使用，如需购买源码联系QQ：1310651206
-	2. 测试地址：http://47.105.178.144/logic/user/login 账号和密码都是：admin
+	1. 本系统仅限交流、可以免费用使用，如需购买源码联系 QQ：1310651206
+
 
 # 系统安装
 	1. CentOS7.2以上系统

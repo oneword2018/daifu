@@ -114,7 +114,7 @@ ALTER SEQUENCE std_agency_id_seq OWNED BY std_agency.id;
 -- Name: std_agency_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('std_agency_id_seq', 10, true);
+SELECT pg_catalog.setval('std_agency_id_seq', 11, true);
 
 
 --
@@ -168,7 +168,7 @@ ALTER SEQUENCE std_balances_id_seq OWNED BY std_balances.id;
 -- Name: std_balances_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('std_balances_id_seq', 5631, true);
+SELECT pg_catalog.setval('std_balances_id_seq', 5658, true);
 
 
 --
@@ -793,7 +793,7 @@ ALTER SEQUENCE std_members_id_seq OWNED BY std_members.id;
 -- Name: std_members_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('std_members_id_seq', 85, true);
+SELECT pg_catalog.setval('std_members_id_seq', 86, true);
 
 
 --
@@ -820,7 +820,9 @@ CREATE TABLE std_merchant (
     pwd text,
     max numeric DEFAULT 0,
     min numeric DEFAULT 0,
-    cash numeric DEFAULT 0
+    cash numeric DEFAULT 0,
+    "desc" text,
+    has numeric DEFAULT 0
 );
 
 
@@ -851,7 +853,7 @@ ALTER SEQUENCE std_merchant_id_seq OWNED BY std_merchant.id;
 -- Name: std_merchant_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('std_merchant_id_seq', 17, true);
+SELECT pg_catalog.setval('std_merchant_id_seq', 18, true);
 
 
 --
@@ -934,7 +936,8 @@ CREATE TABLE std_orders (
     updated_at timestamp with time zone,
     created_at timestamp with time zone,
     ukey text,
-    balance numeric DEFAULT 0
+    balance numeric DEFAULT 0,
+    expire_at timestamp with time zone
 );
 
 
@@ -965,7 +968,7 @@ ALTER SEQUENCE std_orders_id_seq OWNED BY std_orders.id;
 -- Name: std_orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('std_orders_id_seq', 18391, true);
+SELECT pg_catalog.setval('std_orders_id_seq', 18402, true);
 
 
 --
@@ -1309,7 +1312,7 @@ ALTER SEQUENCE std_users_id_seq OWNED BY std_users.id;
 -- Name: std_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('std_users_id_seq', 74, true);
+SELECT pg_catalog.setval('std_users_id_seq', 76, true);
 
 
 --
@@ -1546,8 +1549,7 @@ COPY std_ads (id, channel_id, member_id, type, status, refer_id, cate_id, parent
 --
 
 COPY std_agency (id, channel_id, status, type, user_id, "desc", rate, updated_at, created_at) FROM stdin;
-9	17	1	0	57		0.6	2020-05-21 14:36:52.233109+08	2020-05-07 11:44:13.052161+08
-10	17	1	0	69		0.35	2020-06-18 18:51:02.008333+08	2020-06-18 16:32:20.06962+08
+11	0	1	0	75		0.2	2020-09-14 21:26:33.193273+08	2020-09-14 18:50:25.345692+08
 \.
 
 
@@ -1556,12 +1558,8 @@ COPY std_agency (id, channel_id, status, type, user_id, "desc", rate, updated_at
 --
 
 COPY std_balances (id, channel_id, status, type, user_id, bank_id, amount, fee, name, code, branch, updated_at, created_at, balance, refer_id, auth_id) FROM stdin;
-5631	0	1	1001	74	0	2	0				2020-09-08 22:01:09.444448+08	2020-09-08 22:01:09.444448+08	996	18391	0
-5547	0	2	1	1	8	1000	10	厦门组式服饰有限公司 	37540188000095266		2020-05-08 18:02:01.478688+08	2020-05-08 18:02:01.478688+08	0	0	0
-5548	0	2	1	1	8	10000	10	厦门组式服饰有限公司 	37540188000095266		2020-05-08 18:27:40.821805+08	2020-05-08 18:27:40.821805+08	0	0	0
-5615	0	1	1	1	8	15800	10	有限公司 	00095266		2020-06-04 17:30:09.104642+08	2020-06-04 17:30:09.104642+08	15790	0	0
-5621	0	1	1	1	8	10000	10	有限公司 	00095266		2020-06-17 07:12:04.27333+08	2020-06-17 07:12:04.27333+08	25780	0	0
-5622	0	0	1	1	8	2001	10	有限公司 	00095266		2020-06-17 21:35:40.668834+08	2020-06-17 21:35:40.668834+08	0	0	0
+5657	0	1	1001	74	0	102	2				2020-09-16 21:58:13.816618+08	2020-09-16 21:58:13.816618+08	9898	18402	0
+5658	0	1	1	1	1	1000	0				2020-09-17 08:51:28.825029+08	2020-09-17 08:51:28.825029+08	11000	0	0
 \.
 
 
@@ -1642,7 +1640,7 @@ COPY std_chains (id, type, member_id, channel_id, rate, status, updated_at, crea
 --
 
 COPY std_channels (id, type, status, max, min, rate, title, remark, start_at, end_at, updated_at, created_at) FROM stdin;
-17	1	1	0	0	0.1	代付		0001-01-01 08:05:57+08:05:57	0001-01-01 08:05:57+08:05:57	2020-06-18 18:50:50.016022+08	2020-01-20 10:49:02.031001+08
+17	1	1	0	0	0.1	代付		0001-01-01 08:05:57+08:05:57	0001-01-01 08:05:57+08:05:57	2020-09-11 16:24:25.728353+08	2020-01-20 10:49:02.031001+08
 \.
 
 
@@ -3663,7 +3661,7 @@ COPY std_lessons (id, channel_id, course_id, type, status, refer_id, free, share
 --
 
 COPY std_members (id, channel_id, member_id, parent_id, prov, city, dist, type, status, refer_id, uid, lat, lng, rate, rate_agency, bank_id, tax_type, address, title, "desc", remark, attach, idcode, idname, mobile, tax_number, contact, phone, email, bank_code, company_name, secret, expire, updated_at, created_at, auth, min, max, pwd, fee, login_ip, api_ip) FROM stdin;
-85	0	0	0	0	0	0	1	1	0	0	0	0	0.2	0	0	0		测试商户									150000				77e09557-5131-4282-8f14-ebafc5e60372	0001-01-01 08:05:57+08:05:57	2020-09-08 21:47:49.274646+08	2020-09-08 21:46:18.850886+08	0	1	100	150001	2	127.0.0.1	127.0.0.2
+85	0	0	0	0	0	0	2	1	0	75	0	0	0.6	0	0	0		测试商户									150000				77e09557-5131-4282-8f14-ebafc5e60372	0001-01-01 08:05:57+08:05:57	2020-09-14 21:29:41.407773+08	2020-09-08 21:46:18.850886+08	0	1	100	150000	2	192.168.1.1,192.168.1.8	127.0.0.22,192.168.1.9
 \.
 
 
@@ -3671,8 +3669,8 @@ COPY std_members (id, channel_id, member_id, parent_id, prov, city, dist, type, 
 -- Data for Name: std_merchant; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY std_merchant (id, member_id, channel_id, status, round_id, type, name, user_id, fee, mobile, email, attach, updated_at, created_at, account, login, pwd, max, min, cash) FROM stdin;
-15	0	0	1	1	1	3	0	1001	100			2020-09-08 21:59:58.419931+08	2020-08-31 15:29:12.97887+08		4	4	10000	1	0
+COPY std_merchant (id, member_id, channel_id, status, round_id, type, name, user_id, fee, mobile, email, attach, updated_at, created_at, account, login, pwd, max, min, cash, "desc", has) FROM stdin;
+15	0	0	1	12	1	30001	0	9800	100			2020-09-16 21:00:33.282104+08	2020-08-31 15:29:12.97887+08		4	4	10000	1	0	desc	0
 \.
 
 
@@ -3723,9 +3721,8 @@ COPY std_order_info (id, item_id, order_id, user_id, status, num, attr, created_
 -- Data for Name: std_orders; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY std_orders (id, channel_id, member_id, type, method, status, amount, agency, fee, rate, user_id, notify_count, name, bank_code, bank_name, bank_province, bank_city, note, order_sn, number, out_trade_no, notify, ip, item_id, pay_time, refund_time, updated_at, created_at, ukey, balance) FROM stdin;
-18390	17	85	0	1	4	1	0	2	0	0	0	张三	12432423423	工商	上海	上海	下单失败，卡商不用		6f2c8f16f3d8517cd365608165501337	6f2c8f16f3d8517cd365608165501337		192.168.101.4	0	0001-01-01 08:05:57+08:05:57	0001-01-01 08:05:57+08:05:57	2020-09-08 21:58:28.234992+08	2020-09-08 21:58:28.234992+08	615db57aa314529aaa0fbe95b3e95bd3	0
-18391	17	85	0	1	5	2	0	2	0	0	0	张三	1123234	工银	上海	上海	回调成功		59db969aee2a8868d64eb9b6b7049dab	59db969aee2a8868d64eb9b6b7049dab		192.168.101.4	15	0001-01-01 08:05:57+08:05:57	0001-01-01 08:05:57+08:05:57	2020-09-08 22:00:44.3553+08	2020-09-08 22:00:44.3553+08	615db57aa314529aaa0fbe95b3e95bd3	996
+COPY std_orders (id, channel_id, member_id, type, method, status, amount, agency, fee, rate, user_id, notify_count, name, bank_code, bank_name, bank_province, bank_city, note, order_sn, number, out_trade_no, notify, ip, item_id, pay_time, refund_time, updated_at, created_at, ukey, balance, expire_at) FROM stdin;
+18402	17	85	0	1	4	100	0	2	0	1	0	2	3	1	上海	上海	订单超时间		d4421ca41309d5e357a5d0c8f3eda33f	d4421ca41309d5e357a5d0c8f3eda33f		192.168.1.8	1	0001-01-01 08:05:57+08:05:57	0001-01-01 08:05:57+08:05:57	2020-09-16 21:58:13.520829+08	2020-09-16 21:58:13.520829+08	c81e728d9d4c2f636f067f89cc14862c	0	2020-09-16 22:24:39+08
 \.
 
 
@@ -50281,9 +50278,11 @@ COPY std_students (id, channel_id, member_id, type, status, refer_id, class_id, 
 --
 
 COPY std_users (id, channel_id, member_id, role_id, bank_id, sex, prov, city, dist, type, status, refer_id, uuid, point, level, exp, health, balance, rate, username, password, secret, openid, unionid, avatar, nickname, mobile, email, idcode, idname, "desc", address, bank_code, attach, birthday, updated_at, created_at, login_ip, login_time) FROM stdin;
-74	0	85	3	0	0	0	0	0	0	0	0	0	0	1	0	0	996	0	150000	150000	OGVUTGTQJ3XN3NMLJV4HUQRDBKIFD4NL					150000			张夺				[]	0001-01-01 08:05:57+08:05:57	2020-09-08 21:56:01.071665+08	2020-09-08 21:46:18.864344+08	192.168.101.4	2020-09-08 22:00:13+08
-51	0	0	1	0	1	110000	110100	110101	0	0	0	0	0	0	0	0	0	0	root	DevopsAdmin2020						root	root		root				[]	0001-01-01 08:05:57+08:05:57	2020-02-09 09:04:00.914512+08	2020-02-09 09:04:00.914512+08	118.114.103.84	2020-03-07 17:30:03+08
-1	0	1	1	0	1	110000	110100	110101	0	0	0	0	0	0	0	0	25780	0	admin	admin	MZJDNPXESJB24PXAMJJWQPKDTO4QH3TN					admin			admin				[]	0001-01-01 08:05:57+08:05:57	2020-01-29 18:13:19.554096+08	2019-11-07 10:44:47.029688+08	192.168.101.4	2020-09-08 22:00:58+08
+74	0	85	3	0	0	0	0	0	0	0	0	0	0	1	0	0	9898	0	150000	150000	OGVUTGTQJ3XN3NMLJV4HUQRDBKIFD4NL					150000			张夺				[]	0001-01-01 08:05:57+08:05:57	2020-09-14 14:12:40.800692+08	2020-09-08 21:46:18.864344+08	192.168.1.8	2020-09-16 20:57:25+08
+51	0	0	1	0	1	110000	110100	110101	0	0	0	0	0	0	0	0	10000	0	root	DevopsAdmin2020						root	root		root				[]	0001-01-01 08:05:57+08:05:57	2020-02-09 09:04:00.914512+08	2020-02-09 09:04:00.914512+08	118.114.103.84	2020-03-07 17:30:03+08
+75	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	10000	0	dl	dl									dl					0001-01-01 08:05:57+08:05:57	2020-09-14 18:50:12.408486+08	2020-09-14 18:50:12.408486+08	192.168.1.8	2020-09-14 18:50:49+08
+76	0	86	3	0	0	0	0	0	0	0	0	0	0	0	0	0	10000	0	123	123						123							[]	0001-01-01 08:05:57+08:05:57	2020-09-14 21:09:19.907854+08	2020-09-14 21:09:19.907854+08		0001-01-01 08:05:57+08:05:57
+1	0	1	1	0	1	110000	110100	110101	0	0	0	0	0	0	0	0	11000	0	admin	admin	MZJDNPXESJB24PXAMJJWQPKDTO4QH3TN					admin			admin				[]	0001-01-01 08:05:57+08:05:57	2020-01-29 18:13:19.554096+08	2019-11-07 10:44:47.029688+08	192.168.1.8	2020-09-17 08:26:25+08
 \.
 
 
